@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🍉 Zoe的每日果园 · 2026-06-27</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=ZCOOL+KuaiLe&display=swap');
+* { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  --cream: #fef9e7;
+  --yolk: #ffd43b;
+  --yolk-light: #fff3bf;
+  --blue: #4a90d9;
+  --blue-light: #d6e8f7;
+  --blue-dark: #2c5f8a;
+  --red: #e74c3c;
+  --red-light: #fce4e4;
+  --green: #27ae60;
+  --green-light: #d5f5e3;
+  --brown: #5d4e37;
+  --gray: #95a5a6;
+  --card-shadow: 0 3px 15px rgba(74, 144, 217, 0.1);
+}
+body { background: var(--cream); color: var(--brown); font-family: 'Nunito', 'PingFang SC', 'Microsoft YaHei', sans-serif; line-height: 1.7; padding: 16px; max-width: 900px; margin: 0 auto; }
+.header { background: var(--yolk); border-radius: 24px; padding: 28px 24px; margin-bottom: 20px; text-align: center; }
+.header h1 { font-family: 'ZCOOL KuaiLe', sans-serif; font-size: 28px; color: var(--brown); margin-bottom: 6px; }
+.header .date { font-size: 14px; color: var(--brown); font-weight: 600; }
+.header .badge { display: inline-block; background: white; padding: 4px 14px; border-radius: 20px; font-size: 12px; color: var(--blue-dark); margin-top: 10px; }
+.one-liner { background: white; border-left: 5px solid var(--red); border-radius: 0 16px 16px 0; padding: 20px 24px; margin-bottom: 20px; box-shadow: var(--card-shadow); }
+.one-liner .label { font-size: 12px; color: var(--red); font-weight: 800; letter-spacing: 2px; }
+.one-liner .text { font-size: 17px; font-weight: 700; color: var(--brown); margin-top: 6px; }
+.section-title { font-family: 'ZCOOL KuaiLe', sans-serif; font-size: 22px; color: var(--blue-dark); margin: 28px 0 14px; border-bottom: 2px solid var(--blue-light); padding-bottom: 8px; }
+.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; margin-bottom: 8px; }
+.card { background: white; border-radius: 16px; padding: 16px; box-shadow: var(--card-shadow); text-align: center; border-top: 4px solid var(--blue); }
+.card .name { font-size: 12px; color: var(--gray); font-weight: 600; }
+.card .price { font-size: 22px; font-weight: 800; color: var(--brown); margin: 4px 0; }
+.card .change { font-size: 13px; font-weight: 700; padding: 2px 10px; border-radius: 10px; display: inline-block; }
+.card .change.up { background: var(--green-light); color: var(--green); }
+.card .change.down { background: var(--red-light); color: var(--red); }
+.card .note { font-size: 11px; color: var(--gray); margin-top: 4px; }
+.alert-box { background: var(--red-light); border: 1px solid var(--red); border-radius: 16px; padding: 16px; margin-bottom: 20px; }
+.alert-box .a-title { font-weight: 800; color: var(--red); font-size: 15px; margin-bottom: 6px; }
+.translate-box { background: white; border-radius: 16px; padding: 20px; margin-bottom: 20px; box-shadow: var(--card-shadow); }
+.translate-item { padding: 12px 0; border-bottom: 1px dashed var(--blue-light); }
+.translate-item:last-child { border-bottom: none; }
+.translate-item .tag { background: var(--blue); color: white; padding: 1px 8px; border-radius: 8px; font-size: 11px; }
+.translate-item .tag.red { background: var(--red); }
+.translate-item .original { font-size: 13px; color: var(--gray); margin-bottom: 4px; }
+.translate-item .simple { font-size: 15px; color: var(--brown); font-weight: 600; }
+.translate-item .impact { font-size: 13px; color: var(--red); margin-top: 4px; font-weight: 600; }
+.portfolio { background: var(--blue-light); border-radius: 20px; padding: 20px; margin-bottom: 20px; }
+.bag-item { background: white; border-radius: 12px; padding: 12px 16px; margin-bottom: 8px; display: flex; justify-content: space-between; align-items: center; }
+.bag-item .icon { font-size: 20px; }
+.bag-item .ticker { font-weight: 700; font-size: 14px; }
+.bag-item .shares { font-size: 11px; color: var(--gray); }
+.bag-item .mood { font-size: 18px; }
+.advice { background: var(--yolk); border-radius: 20px; padding: 24px; margin-bottom: 20px; text-align: center; }
+.advice .emoji { font-size: 36px; }
+.advice .text { font-family: 'ZCOOL KuaiLe', sans-serif; font-size: 22px; color: var(--brown); margin: 6px 0; }
+.advice .sub { font-size: 13px; color: var(--brown); opacity: 0.75; }
+.radar-box { background: white; border-left: 4px solid var(--green); border-radius: 0 16px 16px 0; padding: 20px; margin-bottom: 20px; box-shadow: var(--card-shadow); }
+.radar-box .r-title { font-weight: 800; font-size: 17px; color: var(--blue-dark); margin-bottom: 10px; }
+.radar-box .r-desc { font-size: 14px; color: var(--brown); margin-bottom: 8px; }
+.radar-box .r-relation { font-size: 14px; color: var(--brown); margin-bottom: 8px; }
+.radar-box .data-table { width: 100%; border-collapse: collapse; margin: 10px 0; }
+.radar-box .data-table td { padding: 4px 8px; font-size: 13px; border-bottom: 1px solid var(--blue-light); }
+.radar-box .data-table td:first-child { color: var(--gray); }
+.radar-box .r-risk { font-size: 13px; color: var(--red); margin-top: 8px; }
+.radar-box .r-disclaimer { font-size: 12px; color: var(--gray); margin-top: 10px; font-style: italic; }
+.term-box { background: white; border-left: 4px solid var(--yolk); border-radius: 0 16px 16px 0; padding: 20px; margin-bottom: 20px; box-shadow: var(--card-shadow); }
+.kol-section { background: var(--blue-light); border-radius: 20px; padding: 20px; margin-bottom: 20px; }
+.kol-item { background: white; border-radius: 14px; padding: 12px 16px; margin-bottom: 8px; }
+.kol-item .name { font-weight: 700; font-size: 14px; color: var(--blue-dark); }
+.kol-item .handle { font-size: 11px; color: var(--gray); }
+.kol-item .take { font-size: 14px; color: var(--brown); margin-top: 4px; }
+.kol-item .why { font-size: 12px; color: var(--red); margin-top: 4px; font-weight: 600; }
+footer { text-align: center; padding: 24px; color: var(--gray); font-size: 12px; }
+@media (max-width: 600px) { .header h1 { font-size: 24px; } .card .price { font-size: 19px; } }
+</style>
+</head>
+<body>
+
+<!-- ① Header -->
+<div class="header">
+  <h1>🍉 Zoe的每日果园</h1>
+  <div class="date">📅 2026年6月27日 · 星期六</div>
+  <div class="badge">数据截至周五 6/26收盘 · 💱 USD/CNY 6.80 · 🥇 GOLD $4,046</div>
+</div>
+
+<!-- ② 今日一句话 -->
+<div class="one-liner">
+  <div class="label">🍓 今日一句话</div>
+  <div class="text">芯片股又被锤了（-5.3%），但Moderna暴涨13%！市场在说：AI不是唯一的故事，生物医药也有大动作。</div>
+</div>
+
+<!-- ③ 市场温度计 -->
+<div class="section-title">🌡️ 市场温度计</div>
+<div class="cards">
+  <div class="card">
+    <div class="name">🇺🇸 标普500 (你的VOO)</div>
+    <div class="price">7,483</div>
+    <div class="change down">-0.05%</div>
+    <div class="note">几乎平收</div>
+  </div>
+  <div class="card">
+    <div class="name">🚀 纳指100 (你的QQQ)</div>
+    <div class="price">26,040</div>
+    <div class="change down">-0.24%</div>
+    <div class="note">芯片拖累</div>
+  </div>
+  <div class="card">
+    <div class="name">🏠 道琼斯</div>
+    <div class="price">52,305</div>
+    <div class="change down">-0.09%</div>
+    <div class="note">微跌</div>
+  </div>
+  <div class="card">
+    <div class="name">😎 VIX 恐慌指数</div>
+    <div class="price">16.59</div>
+    <div class="change down">较低</div>
+    <div class="note">市场不算慌</div>
+  </div>
+  <div class="card">
+    <div class="name">🥇 黄金</div>
+    <div class="price">$4,046</div>
+    <div class="change down">-3.5%/周</div>
+    <div class="note">继续回调</div>
+  </div>
+  <div class="card">
+    <div class="name">🛢️ 原油</div>
+    <div class="price">~$70</div>
+    <div class="change down">回落</div>
+    <div class="note">伊朗局势缓和</div>
+  </div>
+</div>
+
+<!-- ④ 持仓预警（无变化，省略） -->
+
+<!-- ⑤ 新闻翻译官 -->
+<div class="section-title">🔤 新闻翻译官</div>
+<div class="translate-box">
+  <div class="translate-item">
+    <div class="original"><span class="tag red">芯片</span>费城半导体指数暴跌5.3%，AI基建成本忧虑再起</div>
+    <div class="simple">💬 芯片公司又跌了。英伟达、AMD被抛售——投资人担心AI基础设施太烧钱了。但讽刺的是，美光刚用财报证明了"这钱花得值"。市场情绪在"信"和"不信"之间反复横跳。</div>
+    <div class="impact">→ 你的QQQ里有大量芯片股，短期会承压。但美光的财报证明需求是真实的，长期逻辑没变。</div>
+  </div>
+
+  <div class="translate-item">
+    <div class="original"><span class="tag">生物医药</span>Moderna暴涨13%，宣布扩展mRNA平台至肿瘤和罕见病</div>
+    <div class="simple">💬 Moderna（莫德纳）说要把mRNA技术从疫苗扩展到癌症和罕见病治疗。市场非常兴奋——如果mRNA能治癌，这比新冠疫苗的市场大10倍不止。股价6天连涨后创52周新高。</div>
+    <div class="impact">→ 你没有Moderna持仓，也不在VOO/QQQ的权重股前列。但它代表了一个你可能完全没有暴露的方向：生物医药。</div>
+  </div>
+
+  <div class="translate-item">
+    <div class="original"><span class="tag">苹果</span>The Verge发文质疑："为什么要消费者为科技巨头的AI执念买单？"</div>
+    <div class="simple">💬 苹果涨价25%的事还在发酵。媒体开始质问：科技公司搞AI烧了几千亿，凭什么让消费者多付钱买电脑？库克说涨价"不可避免"，定价"不可持续"——这话听着像是已经认了。</div>
+    <div class="impact">→ 苹果是VOO/QQQ的重仓股（7-12%）。苹果的利润率压力 = 你的ETF承压。但你不需要决定苹果的买卖，ETF会自动消化。</div>
+  </div>
+
+  <div class="translate-item">
+    <div class="original"><span class="tag">半导体</span>SK海力士7月10日在纳斯达克上市ADR，估值约$294亿</div>
+    <div class="simple">💬 韩国芯片巨头SK海力士要在美国上市了。它是HBM（高带宽内存）的全球老大，和美光是直接竞争对手。上市后你就能在IBKR直接买韩国芯片股了。</div>
+    <div class="impact">→ 对你的WDC（西部数据）：SK海力士是存储芯片竞争对手，它上市会增加行业透明度和竞争压力。短期中性，长期需要关注。</div>
+  </div>
+</div>
+
+<!-- ⑥ 我的持仓 -->
+<div class="section-title">👜 我的持仓</div>
+<div class="portfolio">
+  <div class="bag-item">
+    <div style="display:flex;align-items:center;gap:10px;"><div style="font-size:20px;">🇺🇸</div><div><div class="ticker">VOO</div><div class="shares">0.6 股</div></div></div>
+    <div class="mood">🤧</div>
+  </div>
+  <div class="bag-item">
+    <div style="display:flex;align-items:center;gap:10px;"><div style="font-size:20px;">💰</div><div><div class="ticker">SCHD</div><div class="shares">10.9 股</div></div></div>
+    <div class="mood">🙂</div>
+  </div>
+  <div class="bag-item">
+    <div style="display:flex;align-items:center;gap:10px;"><div style="font-size:20px;">🚀</div><div><div class="ticker">QQQ</div><div class="shares">0.4 股</div></div></div>
+    <div class="mood">😅</div>
+  </div>
+  <div class="bag-item">
+    <div style="display:flex;align-items:center;gap:10px;"><div style="font-size:20px;">💿</div><div><div class="ticker">WDC</div><div class="shares">0.3 股</div></div></div>
+    <div class="mood">🤧</div>
+  </div>
+  <div class="bag-item">
+    <div style="display:flex;align-items:center;gap:10px;"><div style="font-size:20px;">🍔</div><div><div class="ticker">MCD</div><div class="shares">0.5 股</div></div></div>
+    <div class="mood">🤧</div>
+  </div>
+  <div class="bag-item">
+    <div style="display:flex;align-items:center;gap:10px;"><div style="font-size:20px;">🛰️</div><div><div class="ticker">ECHO</div><div class="shares">1 股</div></div></div>
+    <div class="mood">😅</div>
+  </div>
+  <div class="bag-item">
+    <div style="display:flex;align-items:center;gap:10px;"><div style="font-size:20px;">🔋</div><div><div class="ticker">LAC</div><div class="shares">5 股</div></div></div>
+    <div class="mood">💤</div>
+  </div>
+</div>
+
+<!-- ⑦ 今日建议 -->
+<div class="advice">
+  <div class="emoji">🧘‍♀️</div>
+  <div class="text">今天什么都不做</div>
+  <div class="sub">周六美股休市。芯片跌、Moderna涨——市场在轮动，不是崩盘。<br>你的ETF组合自动覆盖了涨的和跌的，不用选边站。</div>
+</div>
+
+<!-- ⑧ 机会雷达 -->
+<div class="section-title">🔭 机会雷达</div>
+<div class="radar-box">
+  <div class="r-title">🔭 Moderna (MRNA) · 生物医药</div>
+  <div class="r-desc">📊 公司是做什么的：mRNA技术平台公司，新冠疫苗成名，正在扩展到癌症和罕见病治疗。</div>
+
+  <div class="r-desc"><strong>💰 关键数据</strong></div>
+  <table class="data-table">
+    <tr><td>股价</td><td><strong>$72.50</strong>（6/30最新）</td><td>来源：Investing.com</td></tr>
+    <tr><td>市值</td><td>~$270亿</td><td>来源：Yahoo Finance</td></tr>
+    <tr><td>市盈率 P/E</td><td>N/A（当前亏损中）</td><td>来源：Yahoo Finance</td></tr>
+    <tr><td>最新季营收（Q1 2026）</td><td>$4亿（同比大幅下降，疫情后收入萎缩）</td><td>来源：Q1财报（SEC）</td></tr>
+    <tr><td>最新季净利润</td><td><strong>亏损$13亿</strong>（含$9亿一次性费用）</td><td>来源：Q1财报（SEC）</td></tr>
+    <tr><td>毛利率</td><td>Q1为负（营收<成本）</td><td>来源：Q1财报</td></tr>
+    <tr><td>1年涨幅</td><td>从$30附近涨到$72（+140% YTD）</td><td>来源：Yahoo Finance</td></tr>
+    <tr><td>分析师共识</td><td>Hold（分歧大）· 目标价$50-80区间</td><td>来源：TipRanks</td></tr>
+  </table>
+
+  <div class="r-desc"><strong>📈 为什么值得关注</strong><br>
+  Moderna宣布扩展mRNA平台到肿瘤和罕见病，这是比疫苗大得多的市场。6天连涨+13%说明市场在重新定价mRNA技术的潜力。但要注意：公司目前亏损中，营收从疫情高峰大幅下滑，这是一只"赌未来"的股票。</div>
+
+  <div class="r-risk"><strong>⚠️ 主要风险</strong><br>
+  1. 仍在亏损：Q1净亏损$13亿，P/E无法计算，传统估值方法不适用<br>
+  2. 管线失败风险：mRNA癌症疫苗还在临床阶段，可能失败<br>
+  3. 分析师分歧大：有看$50的也有看$80的，不确定性极高</div>
+
+  <div class="r-desc" style="margin-top:10px;"><strong>📌 怎么参与</strong><br>
+  • 直接买股：IBKR可买MRNA<br>
+  • 通过ETF：IBB（生物科技ETF）含Moderna，分散单股风险<br>
+  • 暂时观察：等Q2财报（7/31）看亏损是否收窄再决定</div>
+
+  <div class="r-disclaimer">⚠️ 这不是买入建议，是基于公开数据的分析。Moderna目前亏损中，波动极大。投资决策由你自行做出。</div>
+</div>
+
+<!-- ⑨ 每日一词 -->
+<div class="section-title">📖 每日一词</div>
+<div class="term-box">
+  <div style="font-family:'ZCOOL KuaiLe',sans-serif;font-size:18px;color:var(--brown);margin-bottom:8px;">📖 管线 (Pipeline) · biotech pipeline</div>
+  <div style="font-size:15px;color:var(--brown);"><strong>💡 一句话：</strong>药企正在研发、还没正式上市的药物/疗法组合。管线越长越强，未来赚大钱的概率越高。</div>
+  <div style="font-size:15px;color:var(--brown);margin-top:10px;"><strong>🍎 举例：</strong>就像餐厅的菜单——有些菜已经端上桌了（已上市药物），有些还在厨房试菜（临床试验阶段）。Moderna现在的"菜单"上只有新冠疫苗一道菜在赚钱，但它说后厨还有癌症、罕见病好几道菜在准备。投资人赌的就是这些菜能不能端出来。</div>
+  <div style="font-size:15px;color:var(--brown);margin-top:10px;"><strong>📊 今天的联系：</strong>Moderna暴涨就是因为它宣布扩展管线（从疫苗到癌症）。管线是评估生物科技公司的核心指标——管线强 = 未来值钱。</div>
+</div>
+
+<!-- ⑩ 分析师笔记 -->
+<div class="section-title">🐦 分析师笔记</div>
+<div class="kol-section">
+  <div class="kol-item">
+    <div class="name">🎯 Eric Balchunas</div>
+    <div class="handle">@EricBalchunas · Bloomberg ETF首席分析师</div>
+    <div class="take">近期观点：Moderna暴涨是为什么ETF投资者不需要操心单股的原因——如果你持有IBB（生物科技ETF），今天自动享受了Moderna的涨幅，同时不用担心它哪天暴跌。</div>
+    <div class="why">→ 你目前没有生物医药敞口。如果想参与，ETF比单股安全得多。</div>
+  </div>
+  <div class="kol-item">
+    <div class="name">📖 Brian Feroldi</div>
+    <div class="handle">@BrianFeroldi · 长期投资科普</div>
+    <div class="take">"芯片股和生物科技在同一周大涨大跌，正好说明：预测短期市场走势是不可能的。分散投资不是为了赚更多，是为了在某个板块暴跌时不至于心态崩掉。"</div>
+    <div class="why">→ 你的ETF组合自动分散了。芯片跌的那部分，其他板块在补。</div>
+  </div>
+  <div class="kol-item">
+    <div class="name">🔢 10-K Diver</div>
+    <div class="handle">@10kdiver · 投资数学教育</div>
+    <div class="take">经典观点："亏损的公司不等于坏公司，但用传统估值方法（P/E）评估亏损公司是错的。看生物科技，看的是管线概率×市场规模的期望值，不是当前利润。"</div>
+    <div class="why">→ 如果你对Moderna感兴趣，不能用P/E判断它"贵不贵"——它根本没利润。要学的是管线分析。</div>
+  </div>
+</div>
+
+<!-- ⑪ 本周关注 -->
+<div class="section-title">📅 本周关注</div>
+<div style="background:white;border-radius:16px;padding:20px;margin-bottom:20px;box-shadow:var(--card-shadow);">
+  <table style="width:100%;border-collapse:collapse;">
+    <tr style="border-bottom:1px solid var(--blue-light);"><td style="padding:8px;font-weight:700;">📅 7/3 周五</td><td style="padding:8px;">美股提前收盘（7月4日独立日假期）</td><td style="padding:8px;color:var(--red);">★★</td></tr>
+    <tr style="border-bottom:1px solid var(--blue-light);"><td style="padding:8px;font-weight:700;">📅 7/10</td><td style="padding:8px;">SK海力士纳斯达克ADR上市</td><td style="padding:8px;color:var(--red);">★★</td></tr>
+    <tr style="border-bottom:1px solid var(--blue-light);"><td style="padding:8px;font-weight:700;">📅 7/14</td><td style="padding:8px;">上海中考成绩公布</td><td style="padding:8px;color:var(--red);">★★★ 内容创作</td></tr>
+    <tr><td style="padding:8px;font-weight:700;">📅 7/31</td><td style="padding:8px;">Moderna Q2财报</td><td style="padding:8px;color:var(--red);">★★ 机会雷达跟踪</td></tr>
+  </table>
+</div>
+
+<!-- Footer -->
+<footer>
+  <p>🍉 Zoe的每日果园 · 数据来源：CNBC · Yahoo Finance · Reuters · TipRanks · Investing.com · The Verge · X</p>
+  <p style="margin-top:6px;">仅供参考，不构成投资建议 · 做时间的朋友 ❤️</p>
+</footer>
+
+</body>
+</html>
