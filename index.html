@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🍉 Zoe的每日果园</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=ZCOOL+KuaiLe&display=swap');
+* { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  --cream: #fef9e7;
+  --yolk: #ffd43b;
+  --yolk-light: #fff3bf;
+  --blue: #4a90d9;
+  --blue-light: #d6e8f7;
+  --blue-dark: #2c5f8a;
+  --red: #e74c3c;
+  --red-light: #fce4e4;
+  --green: #27ae60;
+  --brown: #5d4e37;
+  --gray: #95a5a6;
+  --card-shadow: 0 3px 15px rgba(74, 144, 217, 0.1);
+}
+body {
+  background: var(--cream);
+  color: var(--brown);
+  font-family: 'Nunito', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  line-height: 1.7;
+  padding: 16px;
+  max-width: 700px;
+  margin: 0 auto;
+  min-height: 100vh;
+  display: flex; flex-direction: column;
+}
+.header {
+  background: var(--yolk);
+  border-radius: 24px;
+  padding: 32px 24px;
+  margin-bottom: 24px;
+  text-align: center;
+}
+.header h1 {
+  font-family: 'ZCOOL KuaiLe', sans-serif;
+  font-size: 30px;
+  color: var(--brown);
+  margin-bottom: 4px;
+}
+.header .sub { font-size: 14px; color: var(--brown); opacity: 0.7; }
+.intro {
+  background: white;
+  border-radius: 16px;
+  padding: 20px 24px;
+  margin-bottom: 24px;
+  box-shadow: var(--card-shadow);
+  font-size: 15px;
+}
+.report-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.report-item {
+  background: white;
+  border-radius: 14px;
+  padding: 16px 20px;
+  text-decoration: none;
+  color: var(--brown);
+  box-shadow: var(--card-shadow);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: transform 0.15s, box-shadow 0.15s;
+  border-left: 4px solid var(--blue);
+}
+.report-item:hover {
+  transform: translateX(4px);
+  box-shadow: 0 6px 20px rgba(74, 144, 217, 0.2);
+}
+.report-item .date { font-weight: 700; font-size: 15px; }
+.report-item .arrow { color: var(--blue); font-size: 18px; }
+.section-title {
+  font-family: 'ZCOOL KuaiLe', sans-serif;
+  font-size: 22px;
+  color: var(--blue-dark);
+  margin-bottom: 14px;
+}
+.empty {
+  text-align: center;
+  color: var(--gray);
+  padding: 30px;
+  font-size: 14px;
+}
+footer {
+  margin-top: auto;
+  text-align: center;
+  padding: 24px;
+  color: var(--gray);
+  font-size: 12px;
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>🍉 Zoe 的每日果园</h1>
+  <div class="sub">美股投资理财日报 · 每天一份，轻松看懂市场</div>
+</div>
+
+<div class="intro">
+  👋 这里是 Zoe 的投资日报存档。每天早晨自动生成，覆盖美股三大指数、持仓变化、新闻翻译、投资建议。<br>
+  点击下方日期，查看完整日报 ↓
+</div>
+
+<div class="section-title">📅 日报列表（最新在前）</div>
+
+<div class="report-list">
+  <a href="2026-07-02-投资理财.html" class="report-item">
+    <span class="date">🍓 2026年7月2日</span>
+    <span class="arrow">→</span>
+  </a>
+  <a href="归档/投资理财/2026-06-27-投资理财.html" class="report-item">
+    <span class="date">📦 2026年6月27日（归档）</span>
+    <span class="arrow">→</span>
+  </a>
+</div>
+
+<footer>
+  🍉 自动生成于 WorkBuddy · 托管于 GitHub Pages · 仅供参考，不构成投资建议
+</footer>
+
+</body>
+</html>
