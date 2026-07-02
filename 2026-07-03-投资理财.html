@@ -66,7 +66,8 @@ body {
   gap: 12px; margin-bottom: 8px;
 }
 .card { background: white; border-radius: 16px; padding: 16px; box-shadow: var(--card-shadow); text-align: center; border-top: 4px solid var(--blue); }
-.card .name { font-size: 12px; color: var(--gray); font-weight: 600; }
+.card .emoji { font-size: 22px; display: block; margin-bottom: 2px; }
+.card .name { font-size: 12px; color: var(--gray); font-weight: 600; display: block; }
 .card .price { font-size: 22px; font-weight: 800; color: var(--brown); margin: 4px 0; }
 .card .change { font-size: 13px; font-weight: 700; padding: 2px 10px; border-radius: 10px; display: inline-block; }
 .card .change.up { background: var(--green-light); color: var(--green); }
@@ -111,7 +112,7 @@ body {
 .link-card .emoji { font-size: 26px; display: block; }
 .link-card .name { font-size: 13px; font-weight: 700; }
 footer { text-align: center; padding: 24px; color: var(--gray); font-size: 12px; }
-@media (max-width: 600px) { .header h1 { font-size: 24px; } .card .price { font-size: 19px; } }
+@media (max-width: 600px) { .header h1 { font-size: 24px; } .card .price { font-size: 19px; } .cards { grid-template-columns: repeat(2, 1fr) !important; } }
 </style>
 </head>
 <body>
@@ -122,55 +123,58 @@ footer { text-align: center; padding: 24px; color: var(--gray); font-size: 12px;
   <div class="date">2026年7月3日 · 周四</div>
   <div>
     <span class="badge">💵 $1 = ¥6.81</span>
-    <span class="badge">🥇 黄金 $4,075</span>
-    <span class="badge" style="background:#d5f5e3;color:var(--green);">📊 非农已出！仅+5.7万</span>
+    <span class="badge">🥇 黄金 $4,134 (+2.56%)</span>
+    <span class="badge" style="background:#d5f5e3;color:var(--green);">📊 非农仅+5.7万！加息梦碎</span>
+    <span class="badge" style="background:#d5f5e3;color:var(--green);">📈 期货全涨！</span>
   </div>
 </div>
 
 <!-- 🍓 今日一句话 -->
 <div class="one-liner">
   <div class="label">🍓 今日一句话</div>
-  <div class="text">非农大冷门！只新增5.7万人，美联储加息梦碎了。对股市是好消息。</div>
+  <div class="text">非农仅+5.7万！加息预期碎了，黄金飙到$4,134，期货全线上涨。下周一开盘大概率反弹。</div>
 </div>
 
 <!-- 🌡️ 市场温度计 -->
 <div class="section-title">🌡️ 市场温度计</div>
 <div class="cards" style="grid-template-columns: repeat(4, 1fr); max-width:780px; margin:0 auto 8px auto;">
   <div class="card">
-    <div class="name">📊 标普500</div>
+    <div class="emoji">📊</div>
+    <div class="name">标普500</div>
     <div class="price">7,483</div>
-    <div class="change down">-0.22%</div>
-    <div class="note">非农前收盘，数据利好后转涨</div>
+    <div class="change down">-0.22% (收盘)</div>
+    <div class="note">非农后期货+0.3%，反弹！</div>
   </div>
   <div class="card">
-    <div class="name">💻 纳斯达克</div>
+    <div class="emoji">💻</div>
+    <div class="name">纳斯达克</div>
     <div class="price">26,040</div>
-    <div class="change down">-0.66%</div>
-    <div class="note">芯片拖累，非农后反弹</div>
+    <div class="change down">-0.66% (收盘)</div>
+    <div class="note">非农后期货+0.2%，止跌</div>
   </div>
   <div class="card">
     <div class="name">🏭 道琼斯</div>
     <div class="price">52,305</div>
-    <div class="change down">-0.03%</div>
-    <div class="note">几乎没动</div>
+    <div class="change down">-0.03% (收盘)</div>
+    <div class="note">非农后期货+0.5%，最强</div>
   </div>
   <div class="card">
     <div class="name">😰 VIX恐慌</div>
-    <div class="price">17.65</div>
-    <div class="change down">较低</div>
-    <div class="note">恐慌度不高</div>
+    <div class="price">18.26</div>
+    <div class="change up">+1.5%</div>
+    <div class="note">非农后恐慌度应回落</div>
   </div>
   <div class="card">
     <div class="name">🥇 黄金</div>
-    <div class="price">$4,075</div>
-    <div class="change up">+1.09%</div>
-    <div class="note">就业弱→避险买黄金→金价涨</div>
+    <div class="price">$4,134</div>
+    <div class="change up">+2.56%</div>
+    <div class="note">非农弱→加息没了→黄金飙</div>
   </div>
   <div class="card">
     <div class="name">🛢️ 原油WTI</div>
-    <div class="price">$68.81</div>
-    <div class="change down">-3.38%</div>
-    <div class="note">伊朗局势缓和，油价继续跌</div>
+    <div class="price">$68</div>
+    <div class="change down">连续4周跌</div>
+    <div class="note">伊朗局势缓和，油价走低</div>
   </div>
   <div class="card">
     <div class="name">💱 USD/CNY</div>
@@ -186,6 +190,15 @@ footer { text-align: center; padding: 24px; color: var(--gray); font-size: 12px;
   </div>
 </div>
 
+<!-- ⚠️ 持仓预警 -->
+<div class="section-title">⚠️ 持仓预警</div>
+
+<div class="alert-box">
+  <strong>⚠️ WDC 西部数据 · 芯片暴跌后的反弹窗口来了</strong><br>
+  <span style="font-size:13px;color:var(--brown);">7月1日收盘 $598.37（-6.32%），盘前一度跌到$580。但非农数据出来后，加息预期大降——对高估值科技股是直接利好。三星代工暂停接单说明芯片产能仍然紧缺，存储芯片涨价趋势不变。WDC财报7月29日。</span><br>
+  <span style="font-size:13px;color:var(--red);font-weight:600;">影响：非农弱=加息没了=科技股压力解除。WDC之前跌是因为涨太多（一年+974%），不是公司出事。下周一开盘大概率跟着期货反弹。别割肉，也别急着加仓——等开盘看实际反应。</span>
+</div>
+
 <!-- 🔤 新闻翻译官 -->
 <div class="section-title">🔤 新闻翻译官</div>
 
@@ -193,9 +206,9 @@ footer { text-align: center; padding: 24px; color: var(--gray); font-size: 12px;
 
   <div class="translate-item">
     <span class="tag red">🚨 宏观</span>
-    <div class="original">June Nonfarm Payrolls: +57,000 (Expected +114,000, Prior +172,000) — BLS Official Release July 2</div>
-    <div class="simple">💬 6月美国只新增了5.7万个工作岗位，远低于预期的11.4万，更只有5月（17.2万）的三分之一。这是2024年以来最弱的就业数据。经济在明显降温——但讽刺的是，这对股市是好消息：因为就业差→美联储不太可能加息了→借钱成本不会涨→股市松口气。</div>
-    <div class="impact">→ 对持有美股ETF的投资者：非农差=加息预期降低=科技股和成长股受益。你的QQQ和VOO短期可能因为加息压力解除而反弹。</div>
+    <div class="original">June NFP: +57,000 (Expected +115,000, Prior revised down to +129,000) — Stock Futures Surge, 2-Year Yield Drops, September Hike Ruled Out</div>
+    <div class="simple">💬 6月非农仅新增5.7万人！远低于预期的11.5万，5月数据还被下修了4.3万到12.9万。这是2024年以来最弱的就业增长。失业率虽然降到4.2%，但主要是因为劳动力参与率跌到61.5%（2021年3月以来最低）——人们退出劳动力市场，不是找到工作了。市场反应：股指期货全线上涨（道指+0.5%、标普+0.3%、纳指+0.2%），2年期国债收益率跌3.5个基点到4.13%，交易员直接排除了9月加息的可能。</div>
+    <div class="impact">→ 对你的影响：这是"弱非农"情境——你之前日报预测的"低于10万=科技股反弹窗口"正在兑现。你的QQQ和WDC下周一开盘大概率反弹。黄金已经飙到$4,134（+2.56%）。</div>
   </div>
 
   <div class="translate-item">
@@ -309,12 +322,12 @@ footer { text-align: center; padding: 24px; color: var(--gray); font-size: 12px;
 <div class="section-title">🧘 今日建议</div>
 <div class="advice">
   <div class="emoji">🧘‍♀️</div>
-  <div class="text">非农数据利好，但今天美股休市，不用操作</div>
+  <div class="text">非农利好确认！期货全线上涨。今天美股休市，下周一开盘看反弹</div>
   <div class="sub">理由很充分：</div>
   <div class="sub" style="margin-top:8px;text-align:left;font-size:14px;line-height:2;">
-    1️⃣ 6月非农仅+5.7万，远低于预期。这意味着美联储几乎不可能加息了——对科技股和你的QQQ是好消息。<br>
-    2️⃣ 但今天（7月3日）美股因独立日假期休市，没有交易。下周一开盘才看得到市场对非农的真实反应。<br>
-    3️⃣ WDC昨天跌了6%但原因不是公司出事——是Meta宣布卖AI算力引发芯片板块获利了结。三星暂停接单说明芯片需求仍然强劲，WDC中期基本面没问题。
+    1️⃣ 6月非农仅+5.7万，远低于预期11.5万。5月数据还被下修4.3万到12.9万。市场直接反应：道指期货+0.5%、标普+0.3%、纳指+0.2%；2年期国债收益率跌3.5个基点到4.13%；交易员排除了9月加息的可能。Principal Asset Management首席策略师说："就业放缓强化了美联储无需收紧政策的观点。"——这对你的QQQ和WDC是直接利好。<br>
+    2️⃣ 黄金已经先涨为敬：从$4,075飙到$4,134（+2.56%），单日涨$59。黄金是最敏感的"温度计"——它涨说明市场在说"加息没了，钱要变便宜了"。比特币也涨了2%。这些都是"风险偏好回升"的信号。<br>
+    3️⃣ 但今天美股休市（独立日假期），期货涨不等于开盘一定涨。下周一才是"真考试"。WDC财报7月29日，在那之前基本面没有变化——芯片产能仍然紧缺（三星暂停接单），存储芯片涨价趋势不变。别割肉，也别追涨，等下周一开盘看实际反应再决定。
   </div>
 </div>
 
@@ -322,16 +335,19 @@ footer { text-align: center; padding: 24px; color: var(--gray); font-size: 12px;
 <div class="section-title">🔭 机会雷达</div>
 
 <div class="opportunity-box">
-  <div style="font-weight:800;font-size:17px;color:var(--blue-dark);margin-bottom:10px;">🔭 📊 小盘股（Russell 2000 / IWM ETF）</div>
+  <div style="font-weight:800;font-size:17px;color:var(--blue-dark);margin-bottom:10px;">💎 黄金已经爆发了！$4,134 (+2.56%) — 非农后的赢家</div>
 
   <div style="font-size:14px;color:var(--brown);line-height:1.8;">
     📊 <strong>为什么值得关注</strong><br>
-    第二季度罗素2000（小盘股指数）涨了21%，是1987年以来最好的半年度表现。芯片股暴跌的同时，小盘股盘中还创了新高——资金正从大科技流向小公司。非农数据差→加息预期降→小公司（对利率更敏感）受益更大。
+    黄金在非农数据公布后单日飙升2.56%，从$4,031涨到$4,134。这是连续第二天大涨——昨天Warsh变温和时黄金已经涨了2%，今天非农弱再添一把火。推动因素三重叠加：①9月加息预期被排除→持有黄金的机会成本降低；②劳动力参与率跌到2021年以来最低→经济隐忧→避险需求；③美元走弱。目前金价距离1月历史高点$5,608仍有26%的差距。
     <br><br>
     🤔 <strong>和你的关系</strong><br>
-    你现在没有小盘股配置。VOO和QQQ都是大盘股。如果"大小轮动"继续，你的持仓可能跑输。
+    你没有直接持有黄金。但黄金飙涨说明"加息恐慌"彻底退潮了——这对你的科技股仓位（QQQ、WDC）是最大的间接利好。之前压制科技股的两座大山（加息预期+芯片获利了结），现在前一座已经搬走了。
     <br><br>
     📌 <strong>怎么参与</strong><br>
+    • <strong>现在不追</strong>：两天涨了4.6%，短线追高风险大<br>
+    • <strong>如果感兴趣</strong>：等回调到$4,000-4,050区间再通过GLD或IAU参与<br>
+    • <strong>更重要的事</strong>：关注下周一开盘后科技股的反弹力度——那才是和你直接相关的<br>
     • ETF选项：<strong>IWM</strong>（iShares Russell 2000 ETF）<br>
     • 或：VOO里已有少量小盘成分，不急<br>
     • <strong>建议</strong>：非农确认了加息风险降低，对小盘股是中期利好。值得研究。
@@ -346,7 +362,7 @@ footer { text-align: center; padding: 24px; color: var(--gray); font-size: 12px;
   <div style="font-size:14px;color:var(--gray);margin-top:8px;line-height:1.8;">
     🍎 <strong>生活比喻：</strong>想象一个商场每月数一次"新开了多少家店"。新开店多=商场繁荣=经济好。但如果太多=可能过热=管理处（美联储）要收租加息了。今天的数据是：只新开了5.7家店（预期11.4家）→ 商场没那么热 → 管理处不会加息 → 租户（股市）松了口气。
     <br><br>
-    📊 <strong>今天的联系：</strong>今天的整份日报就是围绕这个数字转的。5.7万这个数字让黄金涨了（避险）、美元跌了、加息预期降低了、股市有望反弹。
+    📊 <strong>今天的联系：</strong>5.7万这个数字直接引爆了市场：黄金飙到$4,134（+2.56%），期货全线上涨，2年期国债收益率跌3.5个基点，9月加息预期被排除。你昨天日报里预测的"低于10万=科技股反弹窗口"正在兑现。
   </div>
 </div>
 
@@ -426,8 +442,9 @@ footer { text-align: center; padding: 24px; color: var(--gray); font-size: 12px;
 
 <footer>
   🍉 Zoe的每日果园 · 2026年7月3日<br>
-  数据来源：BLS / CNBC / Yahoo Finance / TradingEconomics / Seeking Alpha / Reuters / ETF.com / Newsmax / 24/7 Wall St<br>
+  数据来源：BLS / CNBC / Yahoo Finance / TradingEconomics / Schaeffers Research / ETF.com / Reuters / FactSet<br>
   ⚠️ <strong>免责声明：</strong>本日报仅供个人学习参考，不构成任何投资建议。所有数据为估算值，可能存在偏差。投资有风险，决策请独立判断。<br>
+  🔄 非农更新版 · 2026-07-02 21:45 北京时间<br>
   Made with 💛 for Zoe
 </footer>
 
