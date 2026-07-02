@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🍉 Zoe的每日果园 · 2026年7月3日</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=ZCOOL+KuaiLe&display=swap');
+* { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  --cream: #fef9e7;
+  --yolk: #ffd43b;
+  --yolk-light: #fff3bf;
+  --blue: #4a90d9;
+  --blue-light: #d6e8f7;
+  --blue-dark: #2c5f8a;
+  --red: #e74c3c;
+  --red-light: #fce4e4;
+  --green: #27ae60;
+  --green-light: #d5f5e3;
+  --brown: #5d4e37;
+  --gray: #95a5a6;
+  --card-shadow: 0 3px 15px rgba(74, 144, 217, 0.1);
+}
+body {
+  background: var(--cream);
+  color: var(--brown);
+  font-family: 'Nunito', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  line-height: 1.7;
+  padding: 16px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+.header {
+  background: var(--yolk);
+  border-radius: 24px;
+  padding: 28px 24px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+.header h1 {
+  font-family: 'ZCOOL KuaiLe', sans-serif;
+  font-size: 28px;
+  color: var(--brown);
+  margin-bottom: 6px;
+}
+.header .date { font-size: 14px; color: var(--brown); font-weight: 600; }
+.header .badge {
+  display: inline-block; background: white; padding: 4px 14px;
+  border-radius: 20px; font-size: 12px; color: var(--blue-dark); margin-top: 10px;
+}
+.one-liner {
+  background: white; border-left: 5px solid var(--red);
+  border-radius: 0 16px 16px 0; padding: 20px 24px; margin-bottom: 20px;
+  box-shadow: var(--card-shadow);
+}
+.one-liner .label { font-size: 12px; color: var(--red); font-weight: 800; letter-spacing: 2px; }
+.one-liner .text { font-size: 17px; font-weight: 700; color: var(--brown); margin-top: 6px; }
+.section-title {
+  font-family: 'ZCOOL KuaiLe', sans-serif; font-size: 22px;
+  color: var(--blue-dark); margin: 28px 0 14px;
+  border-bottom: 2px solid var(--blue-light); padding-bottom: 8px;
+}
+.cards {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 12px; margin-bottom: 8px;
+}
+.card { background: white; border-radius: 16px; padding: 16px; box-shadow: var(--card-shadow); text-align: center; border-top: 4px solid var(--blue); }
+.card .name { font-size: 12px; color: var(--gray); font-weight: 600; }
+.card .price { font-size: 22px; font-weight: 800; color: var(--brown); margin: 4px 0; }
+.card .change { font-size: 13px; font-weight: 700; padding: 2px 10px; border-radius: 10px; display: inline-block; }
+.card .change.up { background: var(--green-light); color: var(--green); }
+.card .change.down { background: var(--red-light); color: var(--red); }
+.card .note { font-size: 11px; color: var(--gray); margin-top: 4px; }
+.alert-box {
+  background: var(--red-light); border: 1px solid var(--red);
+  border-radius: 16px; padding: 16px; margin-bottom: 20px;
+}
+.translate-box { background: white; border-radius: 16px; padding: 20px; margin-bottom: 20px; box-shadow: var(--card-shadow); }
+.translate-item { padding: 12px 0; border-bottom: 1px dashed var(--blue-light); }
+.translate-item:last-child { border-bottom: none; }
+.translate-item .tag { background: var(--blue); color: white; padding: 1px 8px; border-radius: 8px; font-size: 11px; }
+.translate-item .tag.red { background: var(--red); }
+.translate-item .original { font-size: 13px; color: var(--gray); margin-bottom: 4px; }
+.translate-item .simple { font-size: 15px; color: var(--brown); font-weight: 600; }
+.translate-item .impact { font-size: 13px; color: var(--red); margin-top: 4px; font-weight: 600; }
+.portfolio { background: var(--blue-light); border-radius: 20px; padding: 20px; margin-bottom: 20px; }
+.portfolio .title { font-weight: 700; font-size: 16px; margin-bottom: 12px; }
+.bag-item { background: white; border-radius: 12px; padding: 12px 16px; margin-bottom: 8px; display: flex; justify-content: space-between; align-items: center; }
+.bag-item .icon { font-size: 20px; }
+.bag-item .n { font-weight: 700; font-size: 14px; }
+.bag-item .d { font-size: 11px; color: var(--gray); }
+.bag-item .v { font-weight: 700; font-size: 14px; text-align: right; }
+.bag-item .p { font-size: 11px; font-weight: 600; text-align: right; }
+.bag-item .p.up { color: var(--green); }
+.bag-item .p.down { color: var(--red); }
+.advice { background: var(--yolk); border-radius: 20px; padding: 24px; margin-bottom: 20px; text-align: center; }
+.advice .emoji { font-size: 36px; }
+.advice .text { font-family: 'ZCOOL KuaiLe', sans-serif; font-size: 22px; color: var(--brown); margin: 6px 0; }
+.advice .sub { font-size: 13px; color: var(--brown); opacity: 0.75; }
+.term-box { background: white; border-left: 4px solid var(--yolk); border-radius: 0 16px 16px 0; padding: 20px; margin-bottom: 20px; box-shadow: var(--card-shadow); }
+.opportunity-box { background: white; border-radius: 16px; padding: 20px; margin-bottom: 20px; box-shadow: var(--card-shadow); border-left: 4px solid var(--blue); }
+.kol-item { background: white; border-radius: 14px; padding: 12px 16px; margin-bottom: 8px; }
+.kol-item .name { font-weight: 700; font-size: 14px; color: var(--blue-dark); }
+.kol-item .handle { font-size: 11px; color: var(--gray); }
+.kol-item .take { font-size: 14px; color: var(--brown); margin-top: 4px; }
+.kol-item .why { font-size: 12px; color: var(--red); margin-top: 4px; font-weight: 600; }
+.links-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 10px; margin-bottom: 20px; }
+.link-card { background: white; border-radius: 14px; padding: 14px 10px; text-align: center; text-decoration: none; color: var(--brown); box-shadow: var(--card-shadow); border: 2px solid transparent; }
+.link-card:hover { border-color: var(--blue); }
+.link-card .emoji { font-size: 26px; display: block; }
+.link-card .name { font-size: 13px; font-weight: 700; }
+footer { text-align: center; padding: 24px; color: var(--gray); font-size: 12px; }
+@media (max-width: 600px) { .header h1 { font-size: 24px; } .card .price { font-size: 19px; } }
+</style>
+</head>
+<body>
+
+<!-- 🍉 Header -->
+<div class="header">
+  <h1>🍉 Zoe的每日果园</h1>
+  <div class="date">2026年7月3日 · 周四</div>
+  <div>
+    <span class="badge">💵 $1 = ¥6.81</span>
+    <span class="badge">🥇 黄金 $4,075</span>
+    <span class="badge" style="background:#d5f5e3;color:var(--green);">📊 非农已出！仅+5.7万</span>
+  </div>
+</div>
+
+<!-- 🍓 今日一句话 -->
+<div class="one-liner">
+  <div class="label">🍓 今日一句话</div>
+  <div class="text">非农大冷门！只新增5.7万人，美联储加息梦碎了。对股市是好消息。</div>
+</div>
+
+<!-- 🌡️ 市场温度计 -->
+<div class="section-title">🌡️ 市场温度计</div>
+<div class="cards" style="grid-template-columns: repeat(4, 1fr); max-width:780px; margin:0 auto 8px auto;">
+  <div class="card">
+    <div class="name">📊 标普500</div>
+    <div class="price">7,483</div>
+    <div class="change down">-0.22%</div>
+    <div class="note">非农前收盘，数据利好后转涨</div>
+  </div>
+  <div class="card">
+    <div class="name">💻 纳斯达克</div>
+    <div class="price">26,040</div>
+    <div class="change down">-0.66%</div>
+    <div class="note">芯片拖累，非农后反弹</div>
+  </div>
+  <div class="card">
+    <div class="name">🏭 道琼斯</div>
+    <div class="price">52,305</div>
+    <div class="change down">-0.03%</div>
+    <div class="note">几乎没动</div>
+  </div>
+  <div class="card">
+    <div class="name">😰 VIX恐慌</div>
+    <div class="price">17.65</div>
+    <div class="change down">较低</div>
+    <div class="note">恐慌度不高</div>
+  </div>
+  <div class="card">
+    <div class="name">🥇 黄金</div>
+    <div class="price">$4,075</div>
+    <div class="change up">+1.09%</div>
+    <div class="note">就业弱→避险买黄金→金价涨</div>
+  </div>
+  <div class="card">
+    <div class="name">🛢️ 原油WTI</div>
+    <div class="price">$68.81</div>
+    <div class="change down">-3.38%</div>
+    <div class="note">伊朗局势缓和，油价继续跌</div>
+  </div>
+  <div class="card">
+    <div class="name">💱 USD/CNY</div>
+    <div class="price">6.81</div>
+    <div class="change down">美元走弱</div>
+    <div class="note">非农差→美元跌→人民币受益</div>
+  </div>
+  <div class="card">
+    <div class="name">🧭 资金流向</div>
+    <div class="price">+$443亿</div>
+    <div class="change up">聪明钱在买标普500</div>
+    <div class="note">ETF本周净流入，抄底宽基</div>
+  </div>
+</div>
+
+<!-- 🔤 新闻翻译官 -->
+<div class="section-title">🔤 新闻翻译官</div>
+
+<div class="translate-box">
+
+  <div class="translate-item">
+    <span class="tag red">🚨 宏观</span>
+    <div class="original">June Nonfarm Payrolls: +57,000 (Expected +114,000, Prior +172,000) — BLS Official Release July 2</div>
+    <div class="simple">💬 6月美国只新增了5.7万个工作岗位，远低于预期的11.4万，更只有5月（17.2万）的三分之一。这是2024年以来最弱的就业数据。经济在明显降温——但讽刺的是，这对股市是好消息：因为就业差→美联储不太可能加息了→借钱成本不会涨→股市松口气。</div>
+    <div class="impact">→ 对持有美股ETF的投资者：非农差=加息预期降低=科技股和成长股受益。你的QQQ和VOO短期可能因为加息压力解除而反弹。</div>
+  </div>
+
+  <div class="translate-item">
+    <span class="tag">🧠 科技</span>
+    <div class="original">JPMorgan Warns of Dot-Com Era Parallel as AI Hardware Stocks Diverge from Spenders — July 2</div>
+    <div class="simple">💬 摩根大通发了一份报告，警告说现在AI芯片股和实际花钱用AI的公司之间出现了"脱节"——芯片厂商（英伟达/美光）股价飞涨，但真正用AI的公司（谷歌/微软）在AI上的投入还没看到回报。摩根大通说这和2000年互联网泡沫时很像：卖铲子的赚翻了，挖金子的还没挖到金子。</div>
+    <div class="impact">→ 对持有美股科技ETF的投资者：这不意味着AI是泡沫，但说明芯片股的估值已经跑在基本面前面了。你的QQQ里芯片权重高，短期波动会大。</div>
+  </div>
+
+  <div class="translate-item">
+    <span class="tag">🏭 半导体</span>
+    <div class="original">Samsung Foundry Caps New Orders as AI and Big Tech Fuel Capacity Crunch — July 2</div>
+    <div class="simple">💬 三星的芯片代工厂（帮别人造芯片的部门）宣布暂停接新订单了——因为产能全被AI需求占满了。这意味着两件事：①AI芯片需求确实是真的（不是吹的）；②芯片产能紧缺→可能涨价→对存储芯片公司（如你的WDC）是潜在的正面信号。</div>
+    <div class="impact">→ 对持有WDC的投资者：产能紧缺可能推高存储芯片价格，对WDC的中期业绩是利好。但短期WDC还在回调中。</div>
+  </div>
+
+</div>
+
+<!-- 👜 我的持仓 -->
+<div class="section-title">👜 我的持仓</div>
+<div class="portfolio">
+  <div class="title">📋 持仓速览 · 数据截至7月2日</div>
+
+  <div class="bag-item">
+    <div>
+      <span class="icon">🇺🇸</span>
+      <span class="n">VOO</span>
+      <span class="d">标普500ETF</span>
+    </div>
+    <div style="text-align:right;">
+      <div class="v">$685</div>
+      <div class="p down">-0.20% 🤧</div>
+    </div>
+  </div>
+
+  <div class="bag-item">
+    <div>
+      <span class="icon">💰</span>
+      <span class="n">SCHD</span>
+      <span class="d">高股息ETF</span>
+    </div>
+    <div style="text-align:right;">
+      <div class="v">$31.96</div>
+      <div class="p up">+0.78% 🙂</div>
+    </div>
+  </div>
+
+  <div class="bag-item">
+    <div>
+      <span class="icon">🚀</span>
+      <span class="n">QQQ</span>
+      <span class="d">纳指100ETF</span>
+    </div>
+    <div style="text-align:right;">
+      <div class="v">$725</div>
+      <div class="p down">-1.52% 🤧</div>
+    </div>
+  </div>
+
+  <div class="bag-item">
+    <div>
+      <span class="icon">💿</span>
+      <span class="n">WDC</span>
+      <span class="d">西部数据</span>
+    </div>
+    <div style="text-align:right;">
+      <div class="v">$598</div>
+      <div class="p down">-6.32% 💔</div>
+    </div>
+  </div>
+
+  <div class="bag-item">
+    <div>
+      <span class="icon">🍔</span>
+      <span class="n">MCD</span>
+      <span class="d">麦当劳</span>
+    </div>
+    <div style="text-align:right;">
+      <div class="v">$269</div>
+      <div class="p down">-0.33% 🤧</div>
+    </div>
+  </div>
+
+  <div class="bag-item">
+    <div>
+      <span class="icon">🛰️</span>
+      <span class="n">ECHO</span>
+      <span class="d">EchoStar</span>
+    </div>
+    <div style="text-align:right;">
+      <div class="v">$101</div>
+      <div class="p down">-0.61% 🤧</div>
+    </div>
+  </div>
+
+  <div class="bag-item">
+    <div>
+      <span class="icon">🔋</span>
+      <span class="n">LAC</span>
+      <span class="d">美洲锂业</span>
+    </div>
+    <div style="text-align:right;">
+      <div class="v">$3.83</div>
+      <div class="p down">-0.52% 🤧</div>
+    </div>
+  </div>
+
+</div>
+
+<!-- 🧘 今日建议 -->
+<div class="section-title">🧘 今日建议</div>
+<div class="advice">
+  <div class="emoji">🧘‍♀️</div>
+  <div class="text">非农数据利好，但今天美股休市，不用操作</div>
+  <div class="sub">理由很充分：</div>
+  <div class="sub" style="margin-top:8px;text-align:left;font-size:14px;line-height:2;">
+    1️⃣ 6月非农仅+5.7万，远低于预期。这意味着美联储几乎不可能加息了——对科技股和你的QQQ是好消息。<br>
+    2️⃣ 但今天（7月3日）美股因独立日假期休市，没有交易。下周一开盘才看得到市场对非农的真实反应。<br>
+    3️⃣ WDC昨天跌了6%但原因不是公司出事——是Meta宣布卖AI算力引发芯片板块获利了结。三星暂停接单说明芯片需求仍然强劲，WDC中期基本面没问题。
+  </div>
+</div>
+
+<!-- 🔭 机会雷达 -->
+<div class="section-title">🔭 机会雷达</div>
+
+<div class="opportunity-box">
+  <div style="font-weight:800;font-size:17px;color:var(--blue-dark);margin-bottom:10px;">🔭 📊 小盘股（Russell 2000 / IWM ETF）</div>
+
+  <div style="font-size:14px;color:var(--brown);line-height:1.8;">
+    📊 <strong>为什么值得关注</strong><br>
+    第二季度罗素2000（小盘股指数）涨了21%，是1987年以来最好的半年度表现。芯片股暴跌的同时，小盘股盘中还创了新高——资金正从大科技流向小公司。非农数据差→加息预期降→小公司（对利率更敏感）受益更大。
+    <br><br>
+    🤔 <strong>和你的关系</strong><br>
+    你现在没有小盘股配置。VOO和QQQ都是大盘股。如果"大小轮动"继续，你的持仓可能跑输。
+    <br><br>
+    📌 <strong>怎么参与</strong><br>
+    • ETF选项：<strong>IWM</strong>（iShares Russell 2000 ETF）<br>
+    • 或：VOO里已有少量小盘成分，不急<br>
+    • <strong>建议</strong>：非农确认了加息风险降低，对小盘股是中期利好。值得研究。
+  </div>
+</div>
+
+<!-- 📖 每日一词 -->
+<div class="section-title">📖 每日一词</div>
+<div class="term-box">
+  <div style="font-weight:800;font-size:18px;color:var(--blue-dark);margin-bottom:4px;">非农就业数据 <span style="font-size:14px;color:var(--gray);">· Nonfarm Payrolls (NFP)</span></div>
+  <div style="font-size:15px;color:var(--brown);margin:8px 0;">美国政府每月公布的"新增工作岗位数量"（农业不算），是判断经济好坏的头号指标。</div>
+  <div style="font-size:14px;color:var(--gray);margin-top:8px;line-height:1.8;">
+    🍎 <strong>生活比喻：</strong>想象一个商场每月数一次"新开了多少家店"。新开店多=商场繁荣=经济好。但如果太多=可能过热=管理处（美联储）要收租加息了。今天的数据是：只新开了5.7家店（预期11.4家）→ 商场没那么热 → 管理处不会加息 → 租户（股市）松了口气。
+    <br><br>
+    📊 <strong>今天的联系：</strong>今天的整份日报就是围绕这个数字转的。5.7万这个数字让黄金涨了（避险）、美元跌了、加息预期降低了、股市有望反弹。
+  </div>
+</div>
+
+<!-- 🐦 分析师笔记 -->
+<div class="section-title">🐦 分析师笔记</div>
+
+<div class="kol-item">
+  <div class="name">🎯 Eric Balchunas</div>
+  <div class="handle">@EricBalchunas · Bloomberg ETF首席分析师</div>
+  <div class="take">近期观点：ETF资金流入在加速，2026年累计已突破$1万亿。即使芯片暴跌，聪明钱仍在买入宽基ETF（SPY/VOO）。被动投资正在"接管"市场。【近期观点】</div>
+  <div class="why">→ 对你的影响：你持有的VOO/QQQ/SCHD都是被动ETF，资金越是涌入，你的ETF越稳。</div>
+</div>
+
+<div class="kol-item">
+  <div class="name">📖 Brian Feroldi</div>
+  <div class="handle">@BrianFeroldi · 长期投资科普作者</div>
+  <div class="take">经典观点："在别人恐惧时贪婪"。非农差=大家恐慌=反而是定投的好时机。定投ETF、不折腾、不追涨杀跌，是最简单但最有效的策略。【近期观点】</div>
+  <div class="why">→ 对你的影响：今天的非农数据让你的定投策略更有效——市场恐慌时你买入的成本更低。</div>
+</div>
+
+<div class="kol-item">
+  <div class="name">📊 Liz Ann Sonders</div>
+  <div class="handle">@LizAnnSonders · Schwab首席投资策略师</div>
+  <div class="take">近期观点：市场广度在改善——资金从少数大科技股流向更多行业和中小公司。这是健康的轮动，不是崩溃。非农数据弱但经济没衰退，对股市是"不太冷不太热"的完美温度。【近期观点，基于Schwab市场评论】</div>
+  <div class="why">→ 对你的影响：科技跌不代表市场崩。你的SCHD（高股息）在科技跌时反涨，说明你的组合分散起了作用。</div>
+</div>
+
+<!-- 📅 本周关注 -->
+<div class="section-title">📅 本周关注</div>
+<div class="cards" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
+  <div class="card" style="border-top: 4px solid var(--green);">
+    <div class="name">✅ 今天 7月2日</div>
+    <div class="note" style="font-size:13px;color:var(--brown);font-weight:700;">6月非农已公布<br>⭐⭐⭐⭐⭐<br>实际：+5.7万<br>预期：+11.4万<br>前值：+17.2万<br>大幅不及预期！</div>
+  </div>
+  <div class="card" style="border-top: 4px solid var(--yolk);">
+    <div class="name">🔒 今天 7月3日</div>
+    <div class="note" style="font-size:13px;color:var(--brown);">美股休市<br>⭐<br>独立日假期<br>7月4日是周六</div>
+  </div>
+  <div class="card">
+    <div class="name">📈 下周一 7月6日</div>
+    <div class="note" style="font-size:13px;color:var(--brown);font-weight:700;">美股恢复交易<br>⭐⭐⭐⭐<br>看市场对非农的<br>真实反应</div>
+  </div>
+  <div class="card">
+    <div class="name">📊 7月中旬起</div>
+    <div class="note" style="font-size:13px;color:var(--brown);">Q2财报季开始<br>⭐⭐⭐⭐<br>大银行先报，<br>科技股后报</div>
+  </div>
+</div>
+
+<!-- 🔗 快速入口 -->
+<div class="section-title">🔗 快速入口</div>
+<div class="links-grid">
+  <a href="https://finance.yahoo.com/quote/VOO/" target="_blank" class="link-card">
+    <span class="emoji">📈</span>
+    <span class="name">VOO实时价</span>
+  </a>
+  <a href="https://finance.yahoo.com/quote/QQQ/" target="_blank" class="link-card">
+    <span class="emoji">🚀</span>
+    <span class="name">QQQ实时价</span>
+  </a>
+  <a href="https://finance.yahoo.com/quote/SCHD/" target="_blank" class="link-card">
+    <span class="emoji">💎</span>
+    <span class="name">SCHD实时价</span>
+  </a>
+  <a href="https://finance.yahoo.com/quote/WDC/" target="_blank" class="link-card">
+    <span class="emoji">💾</span>
+    <span class="name">WDC实时价</span>
+  </a>
+  <a href="https://www.cnbc.com/" target="_blank" class="link-card">
+    <span class="emoji">📺</span>
+    <span class="name">CNBC</span>
+  </a>
+  <a href="https://wallstreetcn.com/" target="_blank" class="link-card">
+    <span class="emoji">📰</span>
+    <span class="name">华尔街见闻</span>
+  </a>
+</div>
+
+<footer>
+  🍉 Zoe的每日果园 · 2026年7月3日<br>
+  数据来源：BLS / CNBC / Yahoo Finance / TradingEconomics / Seeking Alpha / Reuters / ETF.com / Newsmax / 24/7 Wall St<br>
+  ⚠️ <strong>免责声明：</strong>本日报仅供个人学习参考，不构成任何投资建议。所有数据为估算值，可能存在偏差。投资有风险，决策请独立判断。<br>
+  Made with 💛 for Zoe
+</footer>
+
+</body>
+</html>
