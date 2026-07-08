@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🍉 Zoe的每日果园 · 2026年7月8日</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=ZCOOL+KuaiLe&display=swap');
+* { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  --cream: #fef9e7; --yolk: #ffd43b; --yolk-light: #fff3bf;
+  --blue: #4a90d9; --blue-light: #d6e8f7; --blue-dark: #2c5f8a;
+  --red: #e74c3c; --red-light: #fce4e4;
+  --green: #27ae60; --green-light: #d5f5e3;
+  --brown: #5d4e37; --gray: #95a5a6;
+  --card-shadow: 0 3px 15px rgba(74, 144, 217, 0.1);
+}
+body { background: var(--cream); color: var(--brown); font-family: 'Nunito', 'PingFang SC', 'Microsoft YaHei', sans-serif; line-height: 1.7; padding: 16px; max-width: 900px; margin: 0 auto; }
+.header { background: var(--yolk); border-radius: 24px; padding: 28px 24px; margin-bottom: 20px; text-align: center; }
+.header h1 { font-family: 'ZCOOL KuaiLe', sans-serif; font-size: 28px; color: var(--brown); margin-bottom: 6px; }
+.header .date { font-size: 14px; color: var(--brown); font-weight: 600; }
+.header .badge { display: inline-block; background: white; padding: 4px 14px; border-radius: 20px; font-size: 12px; color: var(--blue-dark); margin-top: 10px; }
+.one-liner { background: white; border-left: 5px solid var(--red); border-radius: 0 16px 16px 0; padding: 20px 24px; margin-bottom: 20px; box-shadow: var(--card-shadow); }
+.one-liner .label { font-size: 12px; color: var(--red); font-weight: 800; letter-spacing: 2px; }
+.one-liner .text { font-size: 17px; font-weight: 700; color: var(--brown); margin-top: 6px; }
+.section-title { font-family: 'ZCOOL KuaiLe', sans-serif; font-size: 22px; color: var(--blue-dark); margin: 28px 0 14px; border-bottom: 2px solid var(--blue-light); padding-bottom: 8px; }
+.cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 8px; max-width: 780px; margin-left: auto; margin-right: auto; }
+.card { background: white; border-radius: 16px; padding: 16px; box-shadow: var(--card-shadow); text-align: center; border-top: 4px solid var(--blue); }
+.card .emoji { font-size: 22px; display: block; margin-bottom: 2px; }
+.card .name { font-size: 12px; color: var(--gray); font-weight: 600; display: block; }
+.card .price { font-size: 22px; font-weight: 800; color: var(--brown); margin: 4px 0; }
+.card .change { font-size: 13px; font-weight: 700; padding: 2px 10px; border-radius: 10px; display: inline-block; }
+.card .change.up { background: var(--green-light); color: var(--green); }
+.card .change.down { background: var(--red-light); color: var(--red); }
+.card .note { font-size: 11px; color: var(--gray); margin-top: 4px; }
+.alert-box { background: var(--red-light); border: 1px solid var(--red); border-radius: 16px; padding: 16px; margin-bottom: 20px; }
+.translate-box { background: white; border-radius: 16px; padding: 20px; margin-bottom: 20px; box-shadow: var(--card-shadow); }
+.translate-item { padding: 12px 0; border-bottom: 1px dashed var(--blue-light); }
+.translate-item:last-child { border-bottom: none; }
+.translate-item .tag { background: var(--blue); color: white; padding: 1px 8px; border-radius: 8px; font-size: 11px; }
+.translate-item .tag.red { background: var(--red); }
+.translate-item .tag.green { background: var(--green); }
+.translate-item .original { font-size: 13px; color: var(--gray); margin-bottom: 4px; }
+.translate-item .simple { font-size: 15px; color: var(--brown); font-weight: 600; }
+.translate-item .impact { font-size: 13px; color: var(--red); margin-top: 4px; font-weight: 600; }
+.portfolio { background: var(--blue-light); border-radius: 20px; padding: 20px; margin-bottom: 20px; }
+.portfolio .title { font-weight: 700; font-size: 16px; margin-bottom: 12px; }
+.bag-item { background: white; border-radius: 12px; padding: 12px 16px; margin-bottom: 8px; display: flex; justify-content: space-between; align-items: center; }
+.bag-item .icon { font-size: 20px; } .bag-item .n { font-weight: 700; font-size: 14px; } .bag-item .d { font-size: 11px; color: var(--gray); }
+.bag-item .v { font-weight: 700; font-size: 14px; text-align: right; } .bag-item .p { font-size: 11px; font-weight: 600; text-align: right; }
+.bag-item .p.up { color: var(--green); } .bag-item .p.down { color: var(--red); }
+.advice { background: var(--yolk); border-radius: 20px; padding: 24px; margin-bottom: 20px; text-align: center; }
+.advice .emoji { font-size: 36px; } .advice .text { font-family: 'ZCOOL KuaiLe', sans-serif; font-size: 22px; color: var(--brown); margin: 6px 0; }
+.advice .sub { font-size: 13px; color: var(--brown); opacity: 0.75; }
+.term-box { background: white; border-left: 4px solid var(--yolk); border-radius: 0 16px 16px 0; padding: 20px; margin-bottom: 20px; box-shadow: var(--card-shadow); }
+.opportunity-box { background: white; border-radius: 16px; padding: 20px; margin-bottom: 20px; box-shadow: var(--card-shadow); border-left: 4px solid var(--blue); }
+.kol-item { background: white; border-radius: 14px; padding: 12px 16px; margin-bottom: 8px; }
+.kol-item .name { font-weight: 700; font-size: 14px; color: var(--blue-dark); }
+.kol-item .handle { font-size: 11px; color: var(--gray); } .kol-item .take { font-size: 14px; color: var(--brown); margin-top: 4px; }
+.kol-item .why { font-size: 12px; color: var(--red); margin-top: 4px; font-weight: 600; }
+.links-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 10px; margin-bottom: 20px; }
+.link-card { background: white; border-radius: 14px; padding: 14px 10px; text-align: center; text-decoration: none; color: var(--brown); box-shadow: var(--card-shadow); border: 2px solid transparent; }
+.link-card:hover { border-color: var(--blue); } .link-card .emoji { font-size: 26px; display: block; } .link-card .name { font-size: 13px; font-weight: 700; }
+footer { text-align: center; padding: 24px; color: var(--gray); font-size: 12px; }
+@media (max-width: 600px) { .header h1 { font-size: 24px; } .card .price { font-size: 19px; } .cards { grid-template-columns: repeat(2, 1fr) !important; } }
+</style>
+</head>
+<body>
+
+<!-- 🍉 Header -->
+<div class="header">
+  <h1>🍉 Zoe的每日果园</h1>
+  <div class="date">2026年7月8日 · 周三 · 美股7月7日收盘数据</div>
+  <div>
+    <span class="badge">💵 $1 = ¥6.79</span>
+    <span class="badge">🥇 黄金 $4,115</span>
+    <span class="badge" style="background:#fce4e4;color:var(--red);">🔴 芯片股暴跌！WDC跌近8%</span>
+  </div>
+</div>
+
+<!-- 🍓 今日一句话 -->
+<div class="one-liner">
+  <div class="label">🍓 今日一句话</div>
+  <div class="text">三星利润暴增1800%反而引发芯片抛售！WDC一天跌8%，但公司没变差，是预期太高了。</div>
+</div>
+
+<!-- 🌡️ 市场温度计 -->
+<div class="section-title">🌡️ 市场温度计 · 数据截至7月7日收盘</div>
+<div class="cards">
+  <div class="card">
+    <div class="emoji">📊</div>
+    <div class="name">标普500</div>
+    <div class="price">7,504</div>
+    <div class="change down">-0.45%</div>
+    <div class="note">小跌，芯片拖后腿</div>
+  </div>
+  <div class="card">
+    <div class="emoji">💻</div>
+    <div class="name">纳斯达克</div>
+    <div class="price">25,819</div>
+    <div class="change down">-1.16%</div>
+    <div class="note">芯片股重挫，跌幅最大</div>
+  </div>
+  <div class="card">
+    <div class="emoji">🏭</div>
+    <div class="name">道琼斯</div>
+    <div class="price">52,925</div>
+    <div class="change down">-0.25%</div>
+    <div class="note">小跌，比纳指扛跌</div>
+  </div>
+  <div class="card">
+    <div class="emoji">😰</div>
+    <div class="name">VIX恐慌</div>
+    <div class="price">16.35</div>
+    <div class="change up">+5.02%</div>
+    <div class="note">正常区间，微升</div>
+  </div>
+  <div class="card">
+    <div class="emoji">🥇</div>
+    <div class="name">黄金</div>
+    <div class="price">$4,115</div>
+    <div class="change down">-1.46%</div>
+    <div class="note">继续回调，跌破$4,150</div>
+  </div>
+  <div class="card">
+    <div class="emoji">🛢️</div>
+    <div class="name">原油WTI</div>
+    <div class="price">$69.5</div>
+    <div class="change up">+1.4%</div>
+    <div class="note">霍尔木兹海峡紧张推升</div>
+  </div>
+  <div class="card">
+    <div class="emoji">💱</div>
+    <div class="name">USD/CNY</div>
+    <div class="price">6.79</div>
+    <div class="change down">美元偏弱</div>
+    <div class="note">和昨天差不多</div>
+  </div>
+  <div class="card">
+    <div class="emoji">🧭</div>
+    <div class="name">资金流向</div>
+    <div class="price">芯片ETF流出</div>
+    <div class="change down">资金逃离芯片</div>
+    <div class="note">SK海力士IPO前调仓</div>
+  </div>
+</div>
+
+<!-- ⚠️ 持仓预警 -->
+<div class="section-title">⚠️ 持仓预警</div>
+<div class="alert-box">
+  <strong>💔 WDC 西部数据 · 暴跌7.86%！三星财报引发芯片"集体踩踏"</strong><br>
+  <span style="font-size:13px;color:var(--brown);">WDC 7/7收盘 $532.10（-7.86%），一天跌了$45。昨天刚涨了7.14%，今天就全吐回去还倒贴更多。原因不是WDC自己的问题——是整个芯片板块被三星"拖下水"了。三星虽然利润暴增1800%（没打错，就是十八倍），但华尔街觉得"还不够惊艳"，于是全部芯片股被抛售：英特尔-9%、AMD-6%、美光-5%、闪迪-7%。存储芯片ETF（SOXX）整体跌5%。<strong>WDC从6月高点$746到现在$532，已经跌了29%。</strong></span><br>
+  <span style="font-size:13px;color:var(--red);font-weight:600;">关键判断：这不是"公司变差了"，是"预期太高了"。WDC的AI存储逻辑没有改变，三家分析师（Cantor/BofA/Melius）昨天刚上调目标价（最高$1,050）。但短期波动会很大——周五SK海力士$280亿IPO可能抽走芯片板块资金。7月29日财报才是真正的"终考"。</span>
+</div>
+<div class="alert-box" style="margin-top:12px;">
+  <strong>⚠️ LAC 美洲锂业 · 跌5.24%，关注但不必恐慌</strong><br>
+  <span style="font-size:13px;color:var(--brown);">LAC 7/7收盘 $3.62（-5.24%），跌了$0.20。锂业股整体偏弱，没有特别的个股利空。LAC从52周高点$4.49已经跌了约19%，但这是$3-4区间的正常波动——LAC一向波动极大（52周区间$1.99-$4.49）。作为小仓位的高风险持仓，这种波动是预期内的。</span><br>
+  <span style="font-size:13px;color:var(--red);font-weight:600;">LAC的核心逻辑是锂矿项目能否顺利投产。短期内股价波动意义不大，关键是跟踪Thacker Pass项目的进展和锂价走势。</span>
+</div>
+
+<!-- 🔤 新闻翻译官 -->
+<div class="section-title">🔤 新闻翻译官</div>
+<div class="translate-box">
+  <div class="translate-item">
+    <span class="tag red">💥 芯片踩踏</span>
+    <div class="original">Chip stocks sell off as Samsung's record $58B profit fails to meet Wall Street's lofty AI expectations; Intel -9%, AMD -6%, WDC -7.86%, Micron -5% — CNBC, July 7</div>
+    <div class="simple">💬 三星这个季度赚了580亿美元——比英伟达和苹果还多，利润预计增长1800%（十八倍！）。但华尔街的反应居然是：抛售所有芯片股！为什么？因为投资者之前把期望值抬得太高了，"好"已经不够了，必须"好到让人尖叫"。三星自己股价也跌了8%，韩国股市整体跌5%。简单说：这就像你考了95分，但你妈期望你考100分，结果不但没被夸还被骂了一顿。</div>
+    <div class="impact">→ 你的WDC跌了7.86%，QQQ跌了1.85%。但注意：三星利润暴增恰恰说明AI对存储芯片的需求是真的、是爆炸性的。问题出在"预期"上，不是"需求"上。</div>
+  </div>
+  <div class="translate-item">
+    <span class="tag">🛢️ 油价异动</span>
+    <div class="original">Oil rises as Iran fires missiles at ships in Strait of Hormuz, ending week-long pause; WTI +1.4% to $69.5; OPEC+ also raising output 188K bpd from August — Tradingpedia/TradingEconomics, July 7</div>
+    <div class="simple">💬 伊朗又向霍尔木兹海峡的商船发射了导弹！这个海峡是全球石油运输的"咽喉要道"，约20%的石油从这里经过。导弹一打，油价就涨——WTI涨了1.4%到$69.5。但好消息是OPEC+也在增产（8月起每天多产18.8万桶），沙特还降价抢亚洲客户。所以油价涨了但没暴涨——地缘风险和供应增加在"拔河"。</div>
+    <div class="impact">→ 油价涨对你的直接影响不大，但黄金跌了1.46%说明避险情绪没到极端。如果霍尔木兹局势继续恶化，油价可能继续涨，间接推高通胀预期。</div>
+  </div>
+  <div class="translate-item">
+    <span class="tag green">🚀 巨型IPO</span>
+    <div class="original">SK Hynix to list on Nasdaq Friday July 10, raising $28B — second largest US IPO ever after SpaceX; investors rotating out of existing chip stocks — CNBC/247WallSt, July 7</div>
+    <div class="simple">💬 本周五（7月10日），韩国存储芯片巨头SK海力士要在纳斯达克上市了！融资280亿美元，是继SpaceX之后美股第二大IPO。这跟今天芯片股暴跌有直接关系——很多机构投资者在"卖掉手里的芯片股，腾出钱来买SK海力士"。这叫"调仓效应"：不是不看好芯片了，而是想换个"新玩具"。</div>
+    <div class="impact">→ 这解释了为什么今天芯片股跌得这么狠——部分原因是资金在为SK海力士IPO"腾位置"。等周五IPO完成后，芯片板块可能迎来反弹。但短期波动会继续。</div>
+  </div>
+</div>
+
+<!-- 👜 持仓速览 -->
+<div class="section-title">👜 持仓速览</div>
+<div class="portfolio">
+  <div class="title">📋 持仓速览 · 数据截至7月7日收盘</div>
+  <div class="bag-item"><div><span class="icon">🇺🇸</span><span class="n">VOO</span><span class="d">标普500ETF</span></div><div style="text-align:right;"><div class="v">$687.08</div><div class="p down">-0.51% 🤧</div></div></div>
+  <div class="bag-item"><div><span class="icon">💰</span><span class="n">SCHD</span><span class="d">高股息ETF</span></div><div style="text-align:right;"><div class="v">$32.54</div><div class="p up">+0.93% 🙂</div></div></div>
+  <div class="bag-item"><div><span class="icon">🚀</span><span class="n">QQQ</span><span class="d">纳指100ETF</span></div><div style="text-align:right;"><div class="v">$709.43</div><div class="p down">-1.85% 😅</div></div></div>
+  <div class="bag-item" style="border:2px solid var(--red);"><div><span class="icon">💿</span><span class="n">WDC</span><span class="d">西部数据</span></div><div style="text-align:right;"><div class="v">$532.10</div><div class="p down">-7.86% 💔</div></div></div>
+  <div class="bag-item"><div><span class="icon">🍔</span><span class="n">MCD</span><span class="d">麦当劳</span></div><div style="text-align:right;"><div class="v">$282.21</div><div class="p up">+0.97% 🙂</div></div></div>
+  <div class="bag-item"><div><span class="icon">🛰️</span><span class="n">ECHO</span><span class="d">EchoStar</span></div><div style="text-align:right;"><div class="v">$97.91</div><div class="p down">-0.39% 🤧</div></div></div>
+  <div class="bag-item" style="border:2px solid var(--red);"><div><span class="icon">🔋</span><span class="n">LAC</span><span class="d">美洲锂业</span></div><div style="text-align:right;"><div class="v">$3.62</div><div class="p down">-5.24% 💔</div></div></div>
+</div>
+
+<!-- 🧘 今日建议 -->
+<div class="section-title">🧘 今日建议</div>
+<div class="advice">
+  <div class="emoji">🧘‍♀️</div>
+  <div class="text">什么都不用做。芯片暴跌是"预期问题"不是"公司问题"。</div>
+  <div class="sub">理由很充分：</div>
+  <div class="sub" style="margin-top:8px;text-align:left;font-size:14px;line-height:2;">
+    1️⃣ WDC一天跌了7.86%，看着吓人。但回想一下：昨天它刚涨了7.14%。两天加起来，从$577跌到$532，其实就是把昨天的涨幅吐回去又多跌了一点。真正的原因是三星财报引发了整个芯片板块的"集体踩踏"——英特尔跌9%，AMD跌6%，美光跌5%。WDC不是被单独"点名"的，是被"连坐"的。公司本身没有出任何坏消息。<br>
+    2️⃣ 今天有个很有意思的对比：你的SCHD涨了0.93%，MCD涨了0.97%——它们在科技股暴跌的时候反而涨了。这就是分散投资的价值：当芯片在"发烧"的时候，消费和分红股在"退烧"。你的组合里有进攻型（QQQ/WDC）也有防守型（SCHD/MCD），今天防守型帮你稳住了阵脚。<br>
+    3️⃣ 周五SK海力士$280亿IPO是短期内芯片板块最大的"抽水"事件。等它上市完了，资金可能回流。7月29日WDC财报才是决定方向的关键。在那之前，任何大涨大跌都是"情绪波动"不是"基本面变化"。
+  </div>
+</div>
+
+<!-- 🔭 机会雷达 -->
+<div class="section-title">🔭 机会雷达</div>
+<div class="opportunity-box">
+  <div style="font-weight:800;font-size:17px;color:var(--blue-dark);margin-bottom:10px;">🔭 📌 能源板块ETF（XLE）——霍尔木兹海峡紧张局势的"直接受益者"</div>
+  <div style="font-size:14px;color:var(--brown);line-height:1.8;">
+    📊 <strong>为什么值得关注</strong><br>
+    伊朗昨天又向霍尔木兹海峡的商船发射了导弹，结束了为期一周的"暂停攻击"。这个海峡每天有约2000万桶石油通过，占全球石油贸易的20%。地缘紧张→油价上涨→能源公司利润增加。WTI今天涨了1.4%到$69.5，如果局势继续恶化，油价可能回到$75+。能源板块ETF（XLE）今天的涨幅大约在1-2%之间，跟着油价走。<br><br>
+    🤔 <strong>和你的关系</strong><br>
+    你目前的持仓完全没有能源板块的暴露。VOO里能源只占约4%，基本可以忽略。如果霍尔木兹海峡局势持续升级，能源股可能迎来一波行情。但要注意：这不是"长期逻辑"，而是"事件驱动"——一旦地缘局势缓和，油价和能源股可能快速回落。<br><br>
+    📌 <strong>怎么参与</strong><br>
+    • ETF：<strong>XLE</strong>（SPDR能源板块ETF，一股约$38-42，股息率约3.2%）<br>
+    • 包含：埃克森美孚、雪佛龙、康菲石油等<br>
+    • <strong>不急。</strong>这是"观察名单"级别，不是"马上买"<br>
+    • 如果要配，建议不超过总仓位的3-5%，作为地缘对冲<br>
+    • 风险：OPEC+在增产（8月起+18.8万桶/日），沙特在降价抢市场——供应增加会压制油价涨幅。所以能源股是"短期事件驱动"而非"长期趋势"<br>
+    • 关注信号：如果伊朗继续攻击商船→考虑小仓位；如果美伊达成新停火→放弃这个方向
+  </div>
+</div>
+
+<!-- 📖 每日一词 -->
+<div class="section-title">📖 每日一词</div>
+<div class="term-box">
+  <div style="font-weight:800;font-size:18px;color:var(--blue-dark);margin-bottom:4px;">📖 贝塔 · Beta</div>
+  <div style="font-size:15px;color:var(--brown);margin:8px 0;">Beta是"这只股票比大盘多动多少"。Beta=1表示跟大盘同步走；Beta>1表示比大盘波动更大（涨得多跌得也多）；Beta<1表示比大盘稳。</div>
+  <div style="font-size:14px;color:var(--gray);margin-top:8px;line-height:1.8;">
+    🏗️ <strong>怎么理解Beta</strong><br>
+    举个例子：如果大盘涨1%，一只Beta=2的股票会涨2%（但也可能跌2%）。一只Beta=0.5的股票只会涨0.5%（但跌的时候也只跌0.5%）。Beta高的股票像跑车——快但危险；Beta低的像SUV——慢但稳。<br><br>
+    🚀 <strong>今天的完美案例：</strong><br>
+    今天标普500跌了0.45%。看看你的持仓怎么反应的：<br>
+    • <strong>WDC 跌7.86%</strong> → Beta大约1.7（芯片股，波动是大盘的1.7倍）<br>
+    • <strong>QQQ 跌1.85%</strong> → Beta大约1.1（科技股集中，略高于大盘）<br>
+    • <strong>VOO 跌0.51%</strong> → Beta=1.0（它就是大盘本身）<br>
+    • <strong>SCHD 涨0.93%</strong> → Beta大约0.7（分红股，比大盘稳，甚至逆势涨）<br>
+    • <strong>MCD 涨0.97%</strong> → Beta大约0.6（消费股，最稳的那类）<br><br>
+    大盘跌0.45%，WDC跌7.86%——这就是Beta的威力（或者说"杀伤力"）。而SCHD和MCD不但没跌还涨了——低Beta的股票在大盘下跌时就是你的"安全气囊"。<br><br>
+    💡 <strong>小白要点：</strong>买之前看看Beta就知道这只股票"有多刺激"。如果你的心脏受不了大波动，就多配低Beta的（SCHD、MCD）；如果你追求高回报能接受大回撤，可以配高Beta的（WDC、QQQ）。最理想的是"搭配着来"——这正是你的持仓在做的事情。
+  </div>
+</div>
+
+<!-- 🐦 分析师笔记 -->
+<div class="section-title">🐦 分析师笔记</div>
+<div class="kol-item">
+  <div class="name">🎯 Eric Balchunas</div>
+  <div class="handle">@EricBalchunas · Bloomberg ETF首席分析师</div>
+  <div class="take">SK海力士周五在纳斯达克上市，融资$280亿——仅次于SpaceX的第二大美股IPO。这意味着跟踪纳指100的基金（包括QQQ）未来可能要被动买入SK海力士，就像SpaceX加入时一样。但短期内，机构投资者在"卖旧芯片买新芯片"——今天芯片ETF的资金流出有一部分就是在为SK海力士IPO腾仓位。这种"调仓效应"是暂时的，IPO完成后资金会重新平衡。另一个值得关注的信号：今天SCHD等分红ETF逆势上涨，说明防御型资金在流入——聪明钱在芯片暴跌时选择了"退守"而不是"抄底"。【近期观点/ETF流向】</div>
+  <div class="why">→ 你的QQQ将来可能自动持有SK海力士，和SpaceX一样的逻辑。但短期芯片板块会有"抽血"效应。</div>
+</div>
+<div class="kol-item">
+  <div class="name">📖 Brian Feroldi</div>
+  <div class="handle">@BrianFeroldi · 小白科普博主</div>
+  <div class="take">WDC昨天涨7%、今天跌8%——这种"过山车"就是高Beta股票的日常。Feroldi在2026年的投资计划中提到，面对当前高估值环境，他选择了"防御性姿态"——增加现金比例，不追高。他的核心原则是：如果一家公司的基本面没变，股价下跌就是"打折"而不是"变差"。WDC的AI存储叙事、三家分析师上调目标价——这些都是昨天的事实，今天没有改变。变的是市场情绪。对于长期投资者来说，"情绪波动"是噪音，"基本面变化"才是信号。关键是分清你看到的是哪一个。【近期观点/投资心态】</div>
+  <div class="why">→ WDC今天跌的不是"价值"是"情绪"。7月29日财报会告诉你哪个是对的。</div>
+</div>
+<div class="kol-item">
+  <div class="name">🧠 Morgan Housel</div>
+  <div class="handle">@MorganHousel · 《金钱心理学》作者</div>
+  <div class="take">三星利润增长1800%却引发芯片股暴跌——这是"预期 vs 现实"的经典案例。Housel在《金钱心理学》中反复强调：投资里最大的风险不是公司变差，而是"预期被抬得太高"。当所有人都在期待"完美"的时候，"很好"就变成了"不够好"。今天整个芯片板块的暴跌不是因为三星赚得少了——恰恰是因为它赚得太多了，以至于"超预期"变成了"不可能超预期"。这种"预期泡沫"在AI时代会越来越常见。应对方法很简单：降低预期，拉长时间线。如果你投资WDC是因为相信AI需要存储芯片的长期逻辑，那今天跌8%和明天涨8%都不应该改变你的计划。【近期观点/投资心理】</div>
+  <div class="why">→ 今天的暴跌是"预期管理"的失败，不是"公司经营"的失败。搞清楚你在投资"预期"还是"公司"。</div>
+</div>
+
+<!-- 📅 本周关注 -->
+<div class="section-title">📅 本周关注</div>
+<div class="cards" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
+  <div class="card" style="border-top:4px solid var(--red);">
+    <div class="emoji">🇰🇷</div>
+    <div class="name">7月10日（周五）</div>
+    <div class="note" style="font-size:13px;color:var(--brown);font-weight:700;">SK海力士纳斯达克上市<br>⭐⭐⭐⭐⭐<br>$280亿巨型IPO<br>芯片板块"抽血"效应</div>
+  </div>
+  <div class="card" style="border-top:4px solid var(--blue);">
+    <div class="emoji">📊</div>
+    <div class="name">7月14日（周二）</div>
+    <div class="note" style="font-size:13px;color:var(--brown);font-weight:700;">6月CPI通胀数据<br>⭐⭐⭐⭐<br>美东8:30发布<br>确认通胀降温趋势</div>
+  </div>
+  <div class="card" style="border-top:4px solid var(--red);">
+    <div class="emoji">📈</div>
+    <div class="name">7月29日（周二）</div>
+    <div class="note" style="font-size:13px;color:var(--brown);font-weight:700;">WDC财报<br>⭐⭐⭐⭐⭐<br>西部数据Q3业绩<br>决定芯片板块方向</div>
+  </div>
+  <div class="card" style="border-top:4px solid var(--yolk);">
+    <div class="emoji">🛰️</div>
+    <div class="name">7月31日（周五）</div>
+    <div class="note" style="font-size:13px;color:var(--brown);font-weight:700;">ECHO财报<br>⭐⭐⭐⭐<br>EchoStar业绩<br>关注卫星/SpaceX持股</div>
+  </div>
+</div>
+
+<!-- 🔗 快速入口 -->
+<div class="section-title">🔗 快速入口</div>
+<div class="links-grid">
+  <a href="https://finance.yahoo.com/quote/VOO/" target="_blank" class="link-card"><span class="emoji">📈</span><span class="name">VOO</span></a>
+  <a href="https://finance.yahoo.com/quote/QQQ/" target="_blank" class="link-card"><span class="emoji">🚀</span><span class="name">QQQ</span></a>
+  <a href="https://finance.yahoo.com/quote/SCHD/" target="_blank" class="link-card"><span class="emoji">💎</span><span class="name">SCHD</span></a>
+  <a href="https://finance.yahoo.com/quote/WDC/" target="_blank" class="link-card"><span class="emoji">💾</span><span class="name">WDC</span></a>
+  <a href="https://www.cnbc.com/" target="_blank" class="link-card"><span class="emoji">📺</span><span class="name">CNBC</span></a>
+  <a href="https://wallstreetcn.com/" target="_blank" class="link-card"><span class="emoji">📰</span><span class="name">华尔街见闻</span></a>
+</div>
+
+<footer>
+  🍉 Zoe的每日果园 · 2026年7月8日<br>
+  数据来源：Google Finance / Yahoo Finance / StockAnalysis.com / TradingEconomics / livegoldprice.net / oilprice.com / CNBC / Tradingpedia / 247WallSt<br>
+  ⚠️ <strong>免责声明：</strong>本日报仅供个人学习参考，不构成任何投资建议。美股数据截至7月7日收盘，ETF资金流向截至7月1日。投资有风险，决策请独立判断。<br>
+  Made with 💛 for Zoe
+</footer>
+
+</body>
+</html>
