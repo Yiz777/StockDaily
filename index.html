@@ -3,159 +3,101 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>🍉 Zoe的每日果园</title>
+<title>美股投资日报 · 目录</title>
+<link href="https://fonts.googleapis.com/css2?family=ZCOOL+KuaiLe&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=ZCOOL+KuaiLe&display=swap');
-* { margin: 0; padding: 0; box-sizing: border-box; }
 :root {
-  --cream: #fef9e7;
-  --yolk: #ffd43b;
-  --yolk-light: #fff3bf;
+  --bg: #fef9e7;
   --blue: #4a90d9;
-  --blue-light: #d6e8f7;
-  --blue-dark: #2c5f8a;
+  --blue-dark: #357abd;
   --red: #e74c3c;
-  --red-light: #fce4e4;
   --green: #27ae60;
-  --brown: #5d4e37;
-  --gray: #95a5a6;
-  --card-shadow: 0 3px 15px rgba(74, 144, 217, 0.1);
+  --gray: #7f8c8d;
+  --dark: #2c3e50;
 }
+* { margin: 0; padding: 0; box-sizing: border-box; }
 body {
-  background: var(--cream);
-  color: var(--brown);
   font-family: 'Nunito', 'PingFang SC', 'Microsoft YaHei', sans-serif;
-  line-height: 1.7;
-  padding: 16px;
-  max-width: 700px;
+  background: var(--bg);
+  color: var(--dark);
+  line-height: 1.6;
+  max-width: 720px;
   margin: 0 auto;
-  min-height: 100vh;
-  display: flex; flex-direction: column;
+  padding: 20px;
 }
+h1 { font-family: 'ZCOOL KuaiLe', sans-serif; font-size: 1.8rem; }
 .header {
-  background: var(--yolk);
-  border-radius: 24px;
-  padding: 32px 24px;
-  margin-bottom: 24px;
   text-align: center;
-}
-.header h1 {
-  font-family: 'ZCOOL KuaiLe', sans-serif;
-  font-size: 30px;
-  color: var(--brown);
-  margin-bottom: 4px;
-}
-.header .sub { font-size: 14px; color: var(--brown); opacity: 0.7; }
-.intro {
-  background: white;
-  border-radius: 16px;
-  padding: 20px 24px;
   margin-bottom: 24px;
-  box-shadow: var(--card-shadow);
-  font-size: 15px;
 }
-.report-list {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-.report-item {
+.header h1 { color: var(--blue); }
+.header p { color: var(--gray); font-size: 0.9rem; margin-top: 4px; }
+.report-list { display: flex; flex-direction: column; gap: 10px; }
+.report-link {
+  display: block;
   background: white;
-  border-radius: 14px;
+  border-radius: 12px;
   padding: 16px 20px;
   text-decoration: none;
-  color: var(--brown);
-  box-shadow: var(--card-shadow);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  transition: transform 0.15s, box-shadow 0.15s;
+  color: var(--dark);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  transition: transform 0.2s, box-shadow 0.2s;
   border-left: 4px solid var(--blue);
 }
-.report-item:hover {
-  transform: translateX(4px);
-  box-shadow: 0 6px 20px rgba(74, 144, 217, 0.2);
+.report-link:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.1);
 }
-.report-item .date { font-weight: 700; font-size: 15px; }
-.report-item .arrow { color: var(--blue); font-size: 18px; }
-.section-title {
-  font-family: 'ZCOOL KuaiLe', sans-serif;
-  font-size: 22px;
-  color: var(--blue-dark);
-  margin-bottom: 14px;
+.report-link .date { font-weight: 800; font-size: 1.05rem; }
+.report-link .summary { font-size: 0.85rem; color: var(--gray); margin-top: 4px; }
+.report-link .tags { margin-top: 6px; }
+.report-link .tag {
+  display: inline-block;
+  font-size: 0.72rem;
+  padding: 2px 8px;
+  border-radius: 6px;
+  margin-right: 4px;
 }
-.empty {
-  text-align: center;
-  color: var(--gray);
-  padding: 30px;
-  font-size: 14px;
-}
-footer {
-  margin-top: auto;
-  text-align: center;
-  padding: 24px;
-  color: var(--gray);
-  font-size: 12px;
-}
+.tag-green { background: #eafaf1; color: var(--green); }
+.tag-red { background: #fdf0ef; color: var(--red); }
+.tag-blue { background: #e8f1fc; color: var(--blue); }
+.footer { text-align: center; margin-top: 30px; font-size: 0.78rem; color: var(--gray); }
 </style>
 </head>
 <body>
 
 <div class="header">
-  <h1>🍉 Zoe 的每日果园</h1>
-  <div class="sub">美股投资理财日报 · 每天一份，轻松看懂市场</div>
+  <h1>📊 美股投资日报</h1>
+  <p>每日更新 · 大白话看懂美股</p>
 </div>
-
-<div class="intro">
-  👋 这里是 Zoe 的投资日报存档。每天早晨自动生成，覆盖美股三大指数、持仓变化、新闻翻译、投资建议。<br>
-  点击下方日期，查看完整日报 ↓
-</div>
-
-<div class="section-title">📅 日报列表（最新在前）</div>
 
 <div class="report-list">
-  <!-- 最新日报 -->
-  <a href="2026-07-11.html" class="report-item">
-    <span class="date">🍓 2026年7月11日（休市）</span>
-    <span class="arrow">→</span>
+  <a class="report-link" href="0. Newsletter/2026-07-13.html">
+    <div class="date">📅 2026-07-13 周一（盘前）</div>
+    <div class="summary">美军空袭伊朗，期货跳水！油价暴涨3.3%。超级财报周开启：明天CPI+五大银行财报</div>
+    <div class="tags">
+      <span class="tag tag-red">期货 -0.3%</span>
+      <span class="tag tag-red">纳指期货 -0.5%</span>
+      <span class="tag tag-blue">VIX 15.03→期货~17</span>
+      <span class="tag tag-red">⚠️ 中东局势升级</span>
+    </div>
   </a>
-  <a href="2026-07-10.html" class="report-item">
-    <span class="date">🍓 2026年7月10日</span>
-    <span class="arrow">→</span>
-  </a>
-  <a href="2026-07-09.html" class="report-item">
-    <span class="date">🍓 2026年7月9日</span>
-    <span class="arrow">→</span>
-  </a>
-  <a href="2026-07-08.html" class="report-item">
-    <span class="date">🍓 2026年7月8日</span>
-    <span class="arrow">→</span>
-  </a>
-  <a href="2026-07-07.html" class="report-item">
-    <span class="date">🍓 2026年7月7日</span>
-    <span class="arrow">→</span>
-  </a>
-  <a href="2026-07-05.html" class="report-item">
-    <span class="date">🍓 2026年7月5日</span>
-    <span class="arrow">→</span>
-  </a>
-  <a href="2026-07-04.html" class="report-item">
-    <span class="date">🍓 2026年7月4日</span>
-    <span class="arrow">→</span>
-  </a>
-  <a href="2026-07-03.html" class="report-item">
-    <span class="date">🍓 2026年7月3日</span>
-    <span class="arrow">→</span>
-  </a>
-  <a href="2026-07-02.html" class="report-item">
-    <span class="date">🍓 2026年7月2日</span>
-    <span class="arrow">→</span>
+  <a class="report-link" href="归档/投资理财/2026-07-12.html">
+    <div class="date">📅 2026-07-12 周日（休市）</div>
+    <div class="summary">周五三连涨收官，标普离新高只差0.6%！但周末中东局势升级，下周超级财报周+CPI</div>
+    <div class="tags">
+      <span class="tag tag-green">标普 +0.42%</span>
+      <span class="tag tag-green">纳指 +0.29%</span>
+      <span class="tag tag-blue">VIX 15.03</span>
+      <span class="tag tag-red">⚠️ 周末地缘风险</span>
+    </div>
   </a>
 </div>
 
-<footer>
-  🍉 自动生成于 WorkBuddy · 托管于 GitHub Pages · 仅供参考，不构成投资建议
-</footer>
+<div class="footer">
+  📊 美股投资日报 · Zoe's Daily Stock Brief<br>
+  本报告仅供参考，不构成个人投资建议
+</div>
 
 </body>
 </html>
