@@ -3,100 +3,100 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>美股投资日报 · 目录</title>
-<link href="https://fonts.googleapis.com/css2?family=ZCOOL+KuaiLe&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<title>美股日报 · 首页</title>
 <style>
-:root {
-  --bg: #fef9e7;
-  --blue: #4a90d9;
-  --blue-dark: #357abd;
-  --red: #e74c3c;
-  --green: #27ae60;
-  --gray: #7f8c8d;
-  --dark: #2c3e50;
-}
+@import url('https://fonts.googleapis.com/css2?family=ZCOOL+KuaiLe&family=Nunito:wght@400;600;700;800&display=swap');
+
 * { margin: 0; padding: 0; box-sizing: border-box; }
+
 body {
-  font-family: 'Nunito', 'PingFang SC', 'Microsoft YaHei', sans-serif;
-  background: var(--bg);
-  color: var(--dark);
-  line-height: 1.6;
+  background: #fef9e7;
+  font-family: 'Nunito', 'PingFang SC', sans-serif;
+  color: #333;
+  padding: 20px;
   max-width: 720px;
   margin: 0 auto;
-  padding: 20px;
 }
-h1 { font-family: 'ZCOOL KuaiLe', sans-serif; font-size: 1.8rem; }
-.header {
+
+h1 {
+  font-family: 'ZCOOL KuaiLe', sans-serif;
+  font-size: 32px;
+  color: #4a90d9;
   text-align: center;
+  margin-bottom: 8px;
+}
+
+.subtitle {
+  text-align: center;
+  color: #888;
+  font-size: 14px;
   margin-bottom: 24px;
 }
-.header h1 { color: var(--blue); }
-.header p { color: var(--gray); font-size: 0.9rem; margin-top: 4px; }
-.report-list { display: flex; flex-direction: column; gap: 10px; }
-.report-link {
+
+.daily-link {
   display: block;
   background: white;
-  border-radius: 12px;
+  border-radius: 14px;
   padding: 16px 20px;
+  margin-bottom: 12px;
   text-decoration: none;
-  color: var(--dark);
+  color: #333;
   box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-  transition: transform 0.2s, box-shadow 0.2s;
-  border-left: 4px solid var(--blue);
+  transition: transform 0.2s;
 }
-.report-link:hover {
+
+.daily-link:hover {
   transform: translateY(-2px);
-  box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
-.report-link .date { font-weight: 800; font-size: 1.05rem; }
-.report-link .summary { font-size: 0.85rem; color: var(--gray); margin-top: 4px; }
-.report-link .tags { margin-top: 6px; }
-.report-link .tag {
+
+.daily-link .date {
+  font-size: 18px;
+  font-weight: 800;
+  color: #4a90d9;
+  font-family: 'Nunito', sans-serif;
+}
+
+.daily-link .summary {
+  font-size: 14px;
+  color: #666;
+  margin-top: 4px;
+}
+
+.daily-link .badge {
   display: inline-block;
-  font-size: 0.72rem;
-  padding: 2px 8px;
+  background: #e74c3c;
+  color: white;
   border-radius: 6px;
-  margin-right: 4px;
+  padding: 2px 8px;
+  font-size: 11px;
+  margin-left: 8px;
+  vertical-align: middle;
 }
-.tag-green { background: #eafaf1; color: var(--green); }
-.tag-red { background: #fdf0ef; color: var(--red); }
-.tag-blue { background: #e8f1fc; color: var(--blue); }
-.footer { text-align: center; margin-top: 30px; font-size: 0.78rem; color: var(--gray); }
+
+.footer {
+  text-align: center;
+  color: #aaa;
+  font-size: 12px;
+  margin-top: 30px;
+  padding-top: 16px;
+  border-top: 1px solid #eee;
+}
 </style>
 </head>
 <body>
 
-<div class="header">
-  <h1>📊 美股投资日报</h1>
-  <p>每日更新 · 大白话看懂美股</p>
-</div>
+<h1>📊 美股日报</h1>
+<p class="subtitle">每日更新 · 大白话看懂美股 · 仅供参考</p>
 
-<div class="report-list">
-  <a class="report-link" href="0. Newsletter/2026-07-13.html">
-    <div class="date">📅 2026-07-13 周一（盘前）</div>
-    <div class="summary">美军空袭伊朗，期货跳水！油价暴涨3.3%。超级财报周开启：明天CPI+五大银行财报</div>
-    <div class="tags">
-      <span class="tag tag-red">期货 -0.3%</span>
-      <span class="tag tag-red">纳指期货 -0.5%</span>
-      <span class="tag tag-blue">VIX 15.03→期货~17</span>
-      <span class="tag tag-red">⚠️ 中东局势升级</span>
-    </div>
-  </a>
-  <a class="report-link" href="归档/投资理财/2026-07-12.html">
-    <div class="date">📅 2026-07-12 周日（休市）</div>
-    <div class="summary">周五三连涨收官，标普离新高只差0.6%！但周末中东局势升级，下周超级财报周+CPI</div>
-    <div class="tags">
-      <span class="tag tag-green">标普 +0.42%</span>
-      <span class="tag tag-green">纳指 +0.29%</span>
-      <span class="tag tag-blue">VIX 15.03</span>
-      <span class="tag tag-red">⚠️ 周末地缘风险</span>
-    </div>
-  </a>
-</div>
+<a href="2026-07-14.html" class="daily-link">
+  <span class="date">2026-07-14 周二</span>
+  <span class="badge">⚠️ 中东升级</span>
+  <div class="summary">美伊冲突升级油价暴涨9%，科技股和存储芯片暴跌，等CPI数据</div>
+</a>
 
 <div class="footer">
-  📊 美股投资日报 · Zoe's Daily Stock Brief<br>
-  本报告仅供参考，不构成个人投资建议
+  <p>投资有风险，入市需谨慎。本报告仅供参考，不构成个人投资建议。</p>
 </div>
 
 </body>
