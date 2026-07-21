@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Zoe的每日果园 · 2026-07-21</title>
+<title>🍉 Zoe的每日果园 · 2026-07-21</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=ZCOOL+KuaiLe&display=swap');
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -46,6 +46,11 @@ body { background: var(--cream); color: var(--brown); font-family: 'Nunito', 'Pi
 .translate-item .impact { font-size: 13px; color: var(--red); margin-top: 4px; font-weight: 600; }
 .portfolio { background: var(--blue-light); border-radius: 20px; padding: 20px; margin-bottom: 20px; }
 .portfolio .title { font-weight: 700; font-size: 16px; margin-bottom: 12px; }
+.portfolio-summary { background: white; border-radius: 16px; padding: 16px; margin-bottom: 12px; display: flex; justify-content: space-around; text-align: center; flex-wrap: wrap; gap: 12px; }
+.portfolio-summary .ps-item { flex: 1; min-width: 100px; }
+.portfolio-summary .ps-label { font-size: 11px; color: var(--gray); font-weight: 600; }
+.portfolio-summary .ps-value { font-size: 22px; font-weight: 800; color: var(--brown); }
+.portfolio-summary .ps-sub { font-size: 11px; color: var(--gray); }
 .bag-item { background: white; border-radius: 12px; padding: 12px 16px; margin-bottom: 8px; display: flex; justify-content: space-between; align-items: center; }
 .bag-item .icon { font-size: 20px; } .bag-item .n { font-weight: 700; font-size: 14px; } .bag-item .d { font-size: 11px; color: var(--gray); }
 .bag-item .v { font-weight: 700; font-size: 14px; text-align: right; } .bag-item .p { font-size: 11px; font-weight: 600; text-align: right; }
@@ -68,247 +73,277 @@ footer { text-align: center; padding: 24px; color: var(--gray); font-size: 12px;
 </head>
 <body>
 
-<!--  Header -->
+<!-- 🍉 Header -->
 <div class="header">
-  <h1>Zoe的每日果园</h1>
-  <div class="date">2026-07-21 周二 · 收盘</div>
+  <h1>🍉 Zoe的每日果园</h1>
+  <div class="date">2026年7月21日 · 周二 · 美股收盘（7/20周一）</div>
   <div>
-    <span class="badge">CNY/USD 6.7948</span>
-    <span class="badge">金价 $4,006</span>
-    <span class="badge">VIX 18.45</span>
-    <span class="badge alert">财报周</span>
+    <span class="badge">💱 $1 = ¥6.7948</span>
+    <span class="badge">🥇 黄金 $4,006</span>
+    <span class="badge">😐 VIX 18.45</span>
   </div>
 </div>
 
-<!--  今日一句话 -->
+<!-- 🍓 今日一句话 -->
 <div class="one-liner">
-  <div class="label"> 今日一句话</div>
-  <div class="text">周一跌势收窄，三大指数仅微跌。市场在等明天台积电财报给出方向，加上伊朗局势未升级，恐慌暂时降温。</div>
+  <div class="label">🍓 今日一句话</div>
+  <div class="text">周一微跌等待超级财报周。大盘几乎没动，资金都在等谷歌、特斯拉、TXN打头阵。你的新持仓结构更均衡了——ETF打底+现金近1/3，进可攻退可守。</div>
 </div>
 
-<!--  市场温度计 -->
-<div class="section-title"> 市场温度计 · 2026-07-20 收盘</div>
+<!-- 🌡️ 市场温度计 -->
+<div class="section-title">🌡️ 市场温度计 · 2026-07-20（周一收盘）</div>
 <div class="cards">
   <div class="card">
-    <div class="emoji"></div>
+    <div class="emoji">📈</div>
     <div class="name">标普500</div>
     <div class="price">7,443.28</div>
     <div class="change down">-0.19%</div>
-    <div class="note">上周-1.6%</div>
+    <div class="note">连续四日收跌</div>
   </div>
   <div class="card">
-    <div class="emoji"></div>
+    <div class="emoji">🚀</div>
     <div class="name">纳斯达克</div>
     <div class="price">25,508.07</div>
     <div class="change down">-0.05%</div>
-    <div class="note">上周-2.9%</div>
+    <div class="note">几乎持平</div>
   </div>
   <div class="card">
-    <div class="emoji"></div>
+    <div class="emoji">🏭</div>
     <div class="name">道琼斯</div>
     <div class="price">51,839.26</div>
     <div class="change down">-0.59%</div>
-    <div class="note">上周-0.9%</div>
+    <div class="note">银行拖累最大</div>
   </div>
   <div class="card">
-    <div class="emoji"></div>
-    <div class="name">VIX恐慌指数</div>
+    <div class="emoji">😐</div>
+    <div class="name">VIX</div>
     <div class="price">18.45</div>
-    <div class="change down">-1.9%</div>
-    <div class="note">正常区间内</div>
+    <div class="change down">-1.7%</div>
+    <div class="note">从周五18.77回落</div>
   </div>
   <div class="card">
-    <div class="emoji"></div>
+    <div class="emoji">🥇</div>
     <div class="name">黄金</div>
     <div class="price">$4,006</div>
     <div class="change down">-0.03%</div>
-    <div class="note">历史高位附近</div>
+    <div class="note">围绕4000拉锯</div>
   </div>
   <div class="card">
-    <div class="emoji"></div>
+    <div class="emoji">🛢️</div>
     <div class="name">WTI原油</div>
-    <div class="price">$82.58</div>
-    <div class="change up">+0.12%</div>
-    <div class="note">布油$89.22</div>
+    <div class="price">$83.23</div>
+    <div class="change up">+0.90%</div>
+    <div class="note">中东局势支撑</div>
   </div>
   <div class="card">
-    <div class="emoji"></div>
+    <div class="emoji">💱</div>
     <div class="name">美元/人民币</div>
     <div class="price">6.7948</div>
-    <div class="change up">+0.02%</div>
-    <div class="note">中间价</div>
+    <div class="change down">-0.02%</div>
+    <div class="note">人民币略强</div>
   </div>
   <div class="card">
-    <div class="emoji"></div>
-    <div class="name">资金流向</div>
-    <div class="price">防御轮动</div>
-    <div class="note">科技→能源/公用事业</div>
+    <div class="emoji">🧠</div>
+    <div class="name">费城半导体</div>
+    <div class="price">SOX</div>
+    <div class="change up">+0.60%</div>
+    <div class="note">盘中涨3%回落</div>
   </div>
 </div>
 
-<!--  持仓预警 -->
+<!-- ⚠️ 持仓预警 -->
 <div class="alert-box">
-  <div style="font-weight:700;color:var(--red);margin-bottom:8px;"> LAC跌破$3止损线 连续3天</div>
-  <div style="font-size:14px;">LAC周一收$2.90，已连续3个交易日低于之前设定的$3止损线。伊朗地缘局势对锂矿无直接利好，且Thacker Pass项目仍需大量资金。强烈建议设$2.80自动止损单并考虑减仓。不要"再等一等"。</div>
+  <div style="font-weight:700;margin-bottom:6px;">⚠️ 持仓结构更新提醒</div>
+  <div style="font-size:14px;">
+    LAC 已清仓（止损退出）。新增 UNH、NVTS、NOK 三个持仓。目前现金 $946.03 占总资产 30.6%，这是一个较高的防御性仓位——既能应对财报周波动，也留足了弹药。
+  </div>
 </div>
 
-<!--  新闻翻译官 -->
-<div class="section-title"> 新闻翻译官</div>
+<!-- 🔤 新闻翻译官 -->
+<div class="section-title">🔤 新闻翻译官</div>
 <div class="translate-box">
   <div class="translate-item">
-    <span class="tag">市场</span>
-    <div class="original">Wall Street retreat deepens as AI pullback fuels broad market selloff — Nasdaq -1.4% on Friday, S&P -1.0%, Dow -0.8%</div>
-    <div class="simple"> 上周五又是一波AI恐慌抛售，纳指跌1.4%。但今天（周一）明显缓过来了，三大指数只跌了0.05%-0.59%，市场在"冷静观望"而不是"继续慌"。</div>
-    <div class="impact"> 周五的AI抛售是情绪驱动而非基本面恶化。本周台积电/英特尔财报将检验AI需求到底硬不硬。</div>
+    <span class="tag">大盘</span>
+    <div class="original">"Wall Street ended slightly lower on Monday as investors braced for an earnings-packed week, with mega-cap tech mixed and energy outperforming on Iran tensions."</div>
+    <div class="simple">💬 大盘微跌，大家都在等财报。科技股涨跌不一（微软+2%、苹果-2%），能源股全线飘红（雪佛龙+1.2%），中东局势继续撑油价。</div>
+    <div class="impact">→ 市场在"等"，波动不大。真正的方向要看周二谷歌+特斯拉+德州仪器的财报。</div>
+  </div>
+  <div class="translate-item">
+    <span class="tag green">芯片</span>
+    <div class="original">"SOX index rose as much as 3% intraday before fading to +0.6%. Intel +2.1%, Broadcom +2%, Micron +2%. TSMC +1.1%."</div>
+    <div class="simple">💬 芯片板块先猛涨后回落，盘中一度涨3%但没守住。英特尔、博通、美光都涨了2%左右。说明有人抄底但信心不够。</div>
+    <div class="impact">→ WDC +2.14% 跟着板块回血。但真正的考验是明天TXN的财报——它决定了这波反弹是真是假。</div>
   </div>
   <div class="translate-item">
     <span class="tag red">地缘</span>
-    <div class="original">Iran tensions weigh on sentiment but no new escalation over weekend — oil holds near $83</div>
-    <div class="simple"> 伊朗周末没有新的升级动作，油价稳定在$82-$83区间。虽然霍尔木兹海峡仍处于封锁状态，但市场对"立刻开打"的担忧暂时消退。</div>
-    <div class="impact"> 如果本周伊朗局势持续平静，油价可能进一步回落到$78-$80，利好全球风险偏好回暖。</div>
-  </div>
-  <div class="translate-item">
-    <span class="tag green">数据</span>
-    <div class="original">June housing starts rise to 1.427M (beats 1.320M), consumer sentiment jumps to 54.4 from 49.5</div>
-    <div class="simple"> 6月新屋开工超预期（建房热情还在），消费者信心从49.5跳到54.4（虽然还是很低，但至少没继续恶化）。经济基本面比市场情绪健康得多。</div>
-    <div class="impact"> 经济数据不差，但市场盯着AI和地缘。只要这两个雷不炸，数据面支撑大盘反弹。</div>
+    <div class="original">"Brent crude rose 1.27% to $89.22 as Iran tensions persisted. WTI gained 0.9% to $83.23. Energy sector was the only S&P 500 sector in the green."</div>
+    <div class="simple">💬 美伊冲突继续，布油逼近$90。但要注意：美军第10次空袭伊朗后油价只涨了不到1%，说明"战争溢价"可能在消退。</div>
+    <div class="impact">→ 能源仍是唯一上涨板块。如果霍尔木兹海峡恢复通航，油价可能快速回落，不宜追高能源股。</div>
   </div>
 </div>
 
-<!--  持仓速览 -->
-<div class="section-title"> 持仓速览</div>
+<!-- 👜 持仓速览 -->
+<div class="section-title">👜 持仓速览</div>
 <div class="portfolio">
-  <div class="title"> 持仓速览 · 数据截至2026-07-20收盘</div>
-  <div class="bag-item">
-    <div><span class="icon"></span><span class="n">VOO</span><span class="d">标普500ETF</span></div>
-    <div style="text-align:right;"><div class="v">$682.21</div><div class="p down">-0.19% </div></div>
+  <div class="title">📋 持仓速览 · 数据截至2026-07-20收盘 | 💰 总资产 $3,083.91</div>
+  
+  <div class="portfolio-summary">
+    <div class="ps-item">
+      <div class="ps-label">📊 股票市值</div>
+      <div class="ps-value">$2,137.88</div>
+      <div class="ps-sub">占比 69.4%</div>
+    </div>
+    <div class="ps-item">
+      <div class="ps-label">💵 现金</div>
+      <div class="ps-value">$946.03</div>
+      <div class="ps-sub">占比 30.6%</div>
+    </div>
+    <div class="ps-item">
+      <div class="ps-label">📦 持仓数</div>
+      <div class="ps-value">9</div>
+      <div class="ps-sub">3 ETF + 6 个股</div>
+    </div>
+    <div class="ps-item">
+      <div class="ps-label">🎯 最大持仓</div>
+      <div class="ps-value">SCHD</div>
+      <div class="ps-sub">$554.79 (25.9%)</div>
+    </div>
   </div>
-  <div class="bag-item">
-    <div><span class="icon"></span><span class="n">QQQ</span><span class="d">纳指100ETF</span></div>
-    <div style="text-align:right;"><div class="v">$696.06</div><div class="p up">+0.10% </div></div>
-  </div>
-  <div class="bag-item">
-    <div><span class="icon"></span><span class="n">SCHD</span><span class="d">红利ETF</span></div>
-    <div style="text-align:right;"><div class="v">$32.75</div><div class="p down">-0.4% </div></div>
-  </div>
-  <div class="bag-item">
-    <div><span class="icon"></span><span class="n">WDC</span><span class="d">西部数据</span></div>
-    <div style="text-align:right;"><div class="v">$487.42</div><div class="p up">+2.14% </div></div>
-  </div>
-  <div class="bag-item">
-    <div><span class="icon"></span><span class="n">MCD</span><span class="d">麦当劳</span></div>
-    <div style="text-align:right;"><div class="v">$267.64</div><div class="p down">-0.3% </div></div>
-  </div>
-  <div class="bag-item">
-    <div><span class="icon"></span><span class="n">ECHO</span><span class="d">回声星通信</span></div>
-    <div style="text-align:right;"><div class="v">$90.33</div><div class="p down">-0.5% </div></div>
-  </div>
-  <div class="bag-item" style="border:2px solid var(--red);">
-    <div><span class="icon"></span><span class="n">LAC</span><span class="d">美洲锂业</span></div>
-    <div style="text-align:right;"><div class="v">$2.90</div><div class="p down">-1.7% </div></div>
-  </div>
+
+  <div style="font-size:13px;color:var(--blue-dark);margin-bottom:8px;font-weight:600;">🏛️ 核心ETF · 市值 $1,352.60</div>
+  <div class="bag-item"><div><span class="icon">💎</span><span class="n">SCHD</span><span class="d">红利ETF · 16.94股</span></div><div style="text-align:right;"><div class="v">$554.79</div><div class="p down">$32.75 🤧</div></div></div>
+  <div class="bag-item"><div><span class="icon">📈</span><span class="n">VOO</span><span class="d">标普500ETF · 0.604股</span></div><div style="text-align:right;"><div class="v">$412.05</div><div class="p down">$682.21 🤧</div></div></div>
+  <div class="bag-item"><div><span class="icon">🚀</span><span class="n">QQQ</span><span class="d">纳斯达克100ETF · 0.5542股</span></div><div style="text-align:right;"><div class="v">$385.76</div><div class="p up">$696.06 +0.10% 🙂</div></div></div>
+
+  <div style="font-size:13px;color:var(--blue-dark);margin-bottom:8px;margin-top:14px;font-weight:600;">🎯 个股 · 市值 $785.28</div>
+  <div class="bag-item"><div><span class="icon">💾</span><span class="n">WDC</span><span class="d">西部数据 · 0.55股</span></div><div style="text-align:right;"><div class="v">$268.08</div><div class="p up">$487.42 +2.14% 🙂</div></div></div>
+  <div class="bag-item"><div><span class="icon">🍔</span><span class="n">MCD</span><span class="d">麦当劳 · 0.5029股</span></div><div style="text-align:right;"><div class="v">$134.60</div><div class="p down">$267.64 🤧</div></div></div>
+  <div class="bag-item"><div><span class="icon">🏥</span><span class="n">UNH</span><span class="d">联合健康 · 0.3股</span></div><div style="text-align:right;"><div class="v">$126.47</div><div class="p down">$421.55 🤧</div></div></div>
+  <div class="bag-item"><div><span class="icon">⚡</span><span class="n">NVTS</span><span class="d">纳微半导体 · 10股</span></div><div style="text-align:right;"><div class="v">$115.40</div><div class="p down">$11.54 🤧</div></div></div>
+  <div class="bag-item"><div><span class="icon">📡</span><span class="n">ECHO</span><span class="d">回声星通信 · 1股</span></div><div style="text-align:right;"><div class="v">$90.33</div><div class="p down">$90.33 🤧</div></div></div>
+  <div class="bag-item"><div><span class="icon">📱</span><span class="n">NOK</span><span class="d">诺基亚 · 5股</span></div><div style="text-align:right;"><div class="v">$50.40</div><div class="p down">$10.08 -0.40% 🤧</div></div></div>
 </div>
 
-<!--  待观察清单 -->
-<div class="section-title"> 待观察清单</div>
+<!-- 👀 待观察清单 -->
+<div class="section-title">👀 待观察清单</div>
 <div class="opportunity-box">
-  <div style="font-size:13px;color:var(--gray);margin-bottom:8px;"> WDC</div>
-  <div style="font-size:14px;color:var(--brown);"> 等：TXNWed财报AI指引 + IntelThu财报 + Q2财报约8月</div>
-  <div style="font-size:14px;color:var(--brown);margin-top:4px;"> 今日：WDC周一涨2.14%至$487，存储芯片连续两日强于大盘。本周三是关键验证点。</div>
-  <div style="font-size:14px;color:var(--red);margin-top:4px;font-weight:600;"> 触发：TXN/Intel AI指引超预期→继续持有；财报miss+SOX继续跌→考虑减仓</div>
-</div>
-<div class="opportunity-box" style="border-left:4px solid var(--red);margin-top:12px;">
-  <div style="font-size:13px;color:var(--gray);margin-bottom:8px;"> LAC — 紧急</div>
-  <div style="font-size:14px;color:var(--brown);"> 等：$3止损线已跌破！现价$2.90</div>
-  <div style="font-size:14px;color:var(--brown);margin-top:4px;"> 今日：无锂价/项目新进展。中东局势对锂矿无直接利好。</div>
-  <div style="font-size:14px;color:var(--red);margin-top:4px;font-weight:600;"> 触发：跌破$3→认真考虑止损！设$2.80自动止损。锂价反转+项目进展→持有</div>
+  <div style="font-weight:700;font-size:15px;margin-bottom:10px;">WDC — 观察中</div>
+  <div style="font-size:13px;color:var(--brown);line-height:1.8;">
+    等：TXN(明天)AI指引 + Intel(周四)财报 + 存储芯片价格企稳<br>
+    今日：+2.14%，芯片板块反弹日。SOX盘中涨3%后收+0.6%，说明抄底力量还在测试。明天TXN是第一个验证点。<br>
+    触发行动：TXN AI指引超预期→考虑WDC可继续持有；TXN指引弱→WDC面临回调风险，准备减仓
+  </div>
 </div>
 
-<!--  今日建议 -->
+<!-- 🧘 今日建议 -->
 <div class="advice">
-  <div class="emoji"></div>
-  <div class="text">HOLD</div>
-  <div class="sub">周一市场跌势明显收窄，恐慌有所降温。本周核心关注：1) 周三台积电财报（AI需求验证）；2) 周四英特尔财报（芯片板块方向）；3) 伊朗局势是否继续平静。在财报出来之前保持现有仓位不变。LAC认真考虑设$2.80止损。</div>
-</div>
-
-<!--  机会雷达 -->
-<div class="section-title"> 机会雷达</div>
-<div class="opportunity-box">
-  <div style="font-weight:700;color:var(--blue-dark);font-size:15px;margin-bottom:6px;"> 半导体存储芯片 —  追踪中（第5天）</div>
-  <div style="font-size:13px;color:var(--gray);">今日更新：WDC连涨两日，存储细分赛道跟整体芯片板块出现明显分化。但明天台积电财报是检验AI资本开支持续性的关键。如果TXN指引超预期，这条逻辑将大幅增强；如果miss，需要重新评估。</div>
-</div>
-<div class="opportunity-box" style="margin-top:12px;">
-  <div style="font-weight:700;color:var(--blue-dark);font-size:15px;margin-bottom:6px;"> 能源板块 —  备注观察</div>
-  <div style="font-size:13px;color:var(--gray);">今日更新：伊朗周末无新升级，WTI从暗盘$84回落至$82.6。如果本周局势持续平静，油价可能回落到$78-$80，届时能源板块机会减弱。保持观察不行动。</div>
-</div>
-
-<!--  每日一词 -->
-<div class="term-box">
-  <div style="font-weight:800;font-size:18px;color:var(--blue-dark);margin-bottom:4px;"> 技术性熊市 · Technical Bear Market</div>
-  <div style="font-size:15px;color:var(--brown);margin:8px 0;">当某个指数从最近高点下跌超过20%，就进入了"技术性熊市"。SOX半导体指数上周正式进入技术性熊市（从高点跌超20%）。<br><br>但注意：技术性熊市不等于真正的熊市。它只是一个统计标签，告诉你说"跌得不少了，该认真看看了"。历史上很多技术性熊市最终没有演变成真正的长期熊市，尤其在基本面还好的时候。 </div>
-  <div style="font-size:13px;color:var(--gray);margin-top:4px;"> 关联今日：SOX技术性熊市 + WDC逆势上涨 = 存储vs整体芯片板块分化</div>
-</div>
-
-<!--  分析师笔记 -->
-<div class="section-title"> 分析师笔记</div>
-<div class="kol-item">
-  <div class="name"> Eric Balchunas</div>
-  <div class="handle">@EricBalchunas · Bloomberg ETF首席</div>
-  <div class="take">"比特币ETF的走势可能最像黄金ETF——先涨一波，然后经历长达数年的低迷期，最后再创新高。两者都是不产生现金流的价值储存工具，价格完全由投资者情绪驱动，波动会非常大。"</div>
-  <div class="why"> 对持仓者的启示：波动大的资产（包括LAC这类高波动持仓），需要有明确的止损纪律。Balchunas说的是BTC ETF，但道理适用于所有高波动仓位。</div>
-</div>
-<div class="kol-item">
-  <div class="name"> Brian Feroldi</div>
-  <div class="handle">@BrianFeroldi · 投资科普作家</div>
-  <div class="take">"The stock market is the only market where the merchandise goes on sale and everyone runs for the exits."（股市是唯一一个"商品打折时所有人都往外跑"的市场）</div>
-  <div class="why"> 近期观点：SOX进入技术性熊市、周五AI恐慌抛售——这不一定是坏事。优质公司的股票"打折"了，恐慌的永远是不了解基本面的人。但也要区分"打折"和"真完了"。</div>
-</div>
-<div class="kol-item">
-  <div class="name"> Ben Carlson</div>
-  <div class="handle">@awealthofcs · Ritholtz资管总监</div>
-  <div class="take">"每次市场大跌时回头看，真正改变基本面的情况很少。大部分时候市场在'过度反应'，然后慢慢修复。关键在于你能否挺过那段最难熬的时光。"</div>
-  <div class="why"> 适用当下：上周的AI恐慌大概率是一次"过度反应"。本周财报将验证这个判断。但LAC的情况不同——它的问题不是市场情绪，而是项目本身的不确定性。</div>
-</div>
-
-<!--  本周关注 -->
-<div class="section-title"> 本周关注</div>
-<div class="cards" style="grid-template-columns:repeat(3,1fr);">
-  <div class="card" style="border-top:4px solid var(--red);">
-    <div class="emoji"></div>
-    <div class="name">周三 7/22</div>
-    <div class="price" style="font-size:16px;">台积电财报</div>
-    <div class="note">AI资本开支指引</div>
+  <div class="emoji">🧘‍♀️</div>
+  <div class="text">持有不动 · 等财报</div>
+  <div class="sub">
+    ① 本周是超级财报周（谷歌+特斯拉+TXN明天；英特尔周四），大盘在等方向，现在最不该做的就是乱动<br>
+    ② 你的现金仓位30.6%很高——这既是保护也是弹药，财报落地后再决定加仓方向<br>
+    ③ LAC止损退出后，组合更健康了。新增UNH（防守型医疗）、NVTS（半导体小赌注）、NOK（低价通信股），整体更分散<br>
+    ④ 唯一需要盯的：明天TXN财报对WDC有直接传导效应，收盘前做好心理预案
   </div>
-  <div class="card" style="border-top:4px solid var(--red);">
-    <div class="emoji"></div>
-    <div class="name">周四 7/23</div>
-    <div class="price" style="font-size:16px;">英特尔财报</div>
-    <div class="note">芯片+存储方向</div>
+</div>
+
+<!-- 🔭 机会雷达 -->
+<div class="section-title">🔭 机会雷达</div>
+<div class="opportunity-box">
+  <div style="font-weight:600;margin-bottom:8px;">🔄 半导体存储芯片 — 🟡 追踪中</div>
+  <div style="font-size:13px;color:var(--brown);margin-bottom:12px;">
+    今日更新：SOX盘中涨3%收+0.6%，WDC+2.14%。反弹但不够猛。明天TXN+后天Intel决定这波是真反弹还是假反弹。
+  </div>
+
+  <div style="font-weight:600;margin-bottom:8px;">🔄 能源板块 — 🟡 观察中</div>
+  <div style="font-size:13px;color:var(--brown);margin-bottom:12px;">
+    今日更新：WTI $83.23(+0.9%)，布油逼近$90。但涨幅在放缓——美军第10次空袭后油价只涨了不到1%，战争溢价可能在消退。暂不追高。
+  </div>
+
+  <div style="font-weight:600;margin-bottom:8px;">📊 组合结构观察</div>
+  <div style="font-size:13px;color:var(--brown);">
+    你的持仓结构三项观察：①现金/股票比30/70偏防御，财报周合理，但长期30%+现金会拖累回报；②个股中WDC占比最大(12.5%)，集中度偏高；③三只ETF(SCHD+VOO+QQQ)配置互补——SCHD防守+VOO大盘+QQQ成长，结构本身不错，但当前SCHD权重(25.9%)高于VOO(19.3%)，风格偏价值防御。
+  </div>
+</div>
+
+<!-- 📖 每日一词 -->
+<div class="term-box">
+  <div style="font-weight:800;font-size:18px;color:var(--blue-dark);margin-bottom:4px;">📖 现金仓位 · Cash Position</div>
+  <div style="font-size:15px;color:var(--brown);margin:8px 0;">
+    现金仓位 = 账户中现金 / 总资产。你目前$946.03占$3,083.91的30.6%。打个比方：你手里有3,000块，其中900多块揣在兜里没花——进可攻（有好机会随时出手），退可守（市场大跌也不慌）。巴菲特也常年留10-20%现金，你在财报周前留30%是聪明的。但长期留太多现金就像把钱塞床底下，通胀会悄悄吃掉购买力。
+  </div>
+</div>
+
+<!-- 🐦 分析师笔记 -->
+<div class="section-title">🐦 分析师笔记</div>
+<div class="kol-item">
+  <div class="name">🎯 Eric Balchunas</div>
+  <div class="handle">@EricBalchunas · Bloomberg ETF首席分析师</div>
+  <div class="take">"This week is the Super Bowl of earnings — 175 S&P 500 companies report, including 6 of the Magnificent 7. The market is in a wait-and-see posture and that's exactly the right posture."</div>
+  <div class="why">→ 本周175家标普500公司发财报，包括6个科技巨头。他都说"等着看"是最对的状态，你HOLD不动是对的。</div>
+</div>
+<div class="kol-item">
+  <div class="name">📖 Brian Feroldi</div>
+  <div class="handle">@BrianFeroldi · 投资科普作家</div>
+  <div class="take">"Cash is not trash — it's a call option on future opportunities with no expiration date. The best investors I know always keep dry powder."</div>
+  <div class="why">→ 现金不是废纸——它是一张没有到期日的"未来机会看涨期权"。你30%现金仓位正是这种思维。</div>
+</div>
+
+<!-- 📅 本周关注 -->
+<div class="section-title">📅 本周关注</div>
+<div class="cards">
+  <div class="card">
+    <div class="emoji">📊</div>
+    <div class="name">周二 7/21</div>
+    <div class="price" style="font-size:14px;">谷歌·特斯拉</div>
+    <div class="change up">TXN</div>
+    <div class="note">超级周二</div>
   </div>
   <div class="card">
-    <div class="emoji"></div>
+    <div class="emoji">💾</div>
+    <div class="name">周三 7/22</div>
+    <div class="price" style="font-size:14px;">英特尔</div>
+    <div class="change up">财报</div>
+    <div class="note">影响WDC</div>
+  </div>
+  <div class="card">
+    <div class="emoji">🏦</div>
     <div class="name">周四 7/23</div>
-    <div class="price" style="font-size:16px;">PMI初值</div>
-    <div class="note">制造业景气度</div>
+    <div class="price" style="font-size:14px;">ECB决议</div>
+    <div class="change up">利率</div>
+    <div class="note">欧央行</div>
+  </div>
+  <div class="card">
+    <div class="emoji">📉</div>
+    <div class="name">周五 7/24</div>
+    <div class="price" style="font-size:14px;">PMI数据</div>
+    <div class="change up">埃克森</div>
+    <div class="note">宏观收官</div>
   </div>
 </div>
 
-<!--  快速入口 -->
-<div class="section-title"> 快速入口</div>
+<!-- 🔗 快速入口 -->
+<div class="section-title">🔗 快速入口</div>
 <div class="links-grid">
-  <a href="https://finance.yahoo.com/quote/VOO/" target="_blank" class="link-card"><span class="emoji"></span><span class="name">VOO</span></a>
-  <a href="https://finance.yahoo.com/quote/QQQ/" target="_blank" class="link-card"><span class="emoji"></span><span class="name">QQQ</span></a>
-  <a href="https://finance.yahoo.com/quote/SCHD/" target="_blank" class="link-card"><span class="emoji"></span><span class="name">SCHD</span></a>
-  <a href="https://finance.yahoo.com/quote/WDC/" target="_blank" class="link-card"><span class="emoji"></span><span class="name">WDC</span></a>
-  <a href="https://www.cnbc.com/" target="_blank" class="link-card"><span class="emoji"></span><span class="name">CNBC</span></a>
-  <a href="https://wallstreetcn.com/" target="_blank" class="link-card"><span class="emoji"></span><span class="name">华尔街见闻</span></a>
+  <a href="https://finance.yahoo.com/quote/VOO/" target="_blank" class="link-card"><span class="emoji">📈</span><span class="name">VOO</span></a>
+  <a href="https://finance.yahoo.com/quote/QQQ/" target="_blank" class="link-card"><span class="emoji">🚀</span><span class="name">QQQ</span></a>
+  <a href="https://finance.yahoo.com/quote/SCHD/" target="_blank" class="link-card"><span class="emoji">💎</span><span class="name">SCHD</span></a>
+  <a href="https://finance.yahoo.com/quote/WDC/" target="_blank" class="link-card"><span class="emoji">💾</span><span class="name">WDC</span></a>
+  <a href="https://finance.yahoo.com/quote/MCD/" target="_blank" class="link-card"><span class="emoji">🍔</span><span class="name">MCD</span></a>
+  <a href="https://finance.yahoo.com/quote/UNH/" target="_blank" class="link-card"><span class="emoji">🏥</span><span class="name">UNH</span></a>
+  <a href="https://finance.yahoo.com/quote/NVTS/" target="_blank" class="link-card"><span class="emoji">⚡</span><span class="name">NVTS</span></a>
+  <a href="https://finance.yahoo.com/quote/ECHO/" target="_blank" class="link-card"><span class="emoji">📡</span><span class="name">ECHO</span></a>
+  <a href="https://finance.yahoo.com/quote/NOK/" target="_blank" class="link-card"><span class="emoji">📱</span><span class="name">NOK</span></a>
+  <a href="https://www.cnbc.com/" target="_blank" class="link-card"><span class="emoji">📺</span><span class="name">CNBC</span></a>
+  <a href="https://wallstreetcn.com/" target="_blank" class="link-card"><span class="emoji">📰</span><span class="name">华尔街见闻</span></a>
+  <a href="https://finance.yahoo.com/" target="_blank" class="link-card"><span class="emoji">💹</span><span class="name">Yahoo Finance</span></a>
 </div>
 
 <footer>
-   Zoe的每日果园 · 2026-07-21<br>
-  数据来源：腾讯自选股 / Yahoo Finance / Zacks / Nasdaq.com<br>
-   <strong>免责声明：</strong>本日报仅供个人学习参考，不构成任何投资建议。投资有风险，决策请独立判断。<br>
-  Made with  for Zoe
+  🍉 Zoe的每日果园 · 2026-07-21<br>
+  数据来源：东方财富、Yahoo Finance、Saxo、澎湃新闻、CNBC<br>
+  ⚠️ <strong>免责声明：</strong>本日报仅供个人学习参考，不构成任何投资建议。投资有风险，决策请独立判断。<br>
+  Made with 💛 for Zoe
 </footer>
 
 </body>
