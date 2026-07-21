@@ -115,12 +115,53 @@ cd "$NEWSLETTER_DIR"
 echo "=== Step 4: Git commit + push ==="
 git add .
 git commit -m "每日更新：$DATE" 2>/dev/null && echo "  Git commit done" || echo "  Nothing to commit"
-git -c credential.helper= push origin main 2>/dev/null && echo "  Git push done ✓" || echo "  ⚠️ Git push failed (可能网络问题)，继续微信推送..."
+
+# 用变量追踪 push 结果，后续步骤依赖此变量做决策
+GIT_PUSH_SUCCESS=false
+PUSH_OUTPUT=$(git -c credential.helper= push origin main 2>&1)
+PUSH_EXIT=$?
+if [ $PUSH_EXIT -eq 0 ]; then
+    echo "  Git push done ✓"
+    GIT_PUSH_SUCCESS=true
+else
+    echo "  ⚠️ Git push FAILED (exit=$PUSH_EXIT)"
+    echo "  $PUSH_OUTPUT"
+fi
 echo ""
+
+# Step 4.5: 等待 GitHub Pages 部署完成（最多2分钟，每5秒检查一次）
+PAGES_URL="https://Yiz777.github.io/StockDaily/${DATE}.html"
+PAGES_READY=false
+if [ "$GIT_PUSH_SUCCESS" = true ]; then
+    echo "=== Step 4.5: 验证 GitHub Pages 部署 ==="
+    echo "  等待 Pages 部署完成（最多2分钟）..."
+    for i in $(seq 1 24); do
+        sleep 5
+        HTTP_CODE=$(curl -s -o /dev/null -w "%{http_code}" -L "$PAGES_URL" 2>/dev/null)
+        if [ "$HTTP_CODE" = "200" ]; then
+            echo "  Pages 部署完成 ✓ (约$((i*5))秒)"
+            PAGES_READY=true
+            break
+        fi
+        printf "  ."
+    done
+    echo ""
+    if [ "$PAGES_READY" = false ]; then
+        echo "  ⚠️ Pages 部署超时（已等2分钟），继续推送，用户可能需稍后刷新"
+    fi
+else
+    echo "=== Step 4.5: 跳过（Git push 未成功）==="
+    echo ""
+fi
 
 # Step 5: 微信推送（无论如何都执行）
 echo "=== Step 5: 微信推送 ==="
-"$PYTHON" "$NEWSLETTER_DIR/send_wechat.py" "$DATE" "$SUMMARY" "$SP500_VAL" "$SP500_CHG" "$NASDAQ_VAL" "$NASDAQ_CHG" "$VIX_VAL" "$HAS_ALERT" 2>/dev/null && echo "  微信推送 done ✓" || echo "  ⚠️ 微信推送失败"
+# 如果 Pages 还没就绪，在推送中附加提示
+WECHAT_ALERT="$HAS_ALERT"
+if [ "$GIT_PUSH_SUCCESS" = true ] && [ "$PAGES_READY" = false ]; then
+    WECHAT_ALERT="${HAS_ALERT}（⚠️页面约1-2分钟后可访问）"
+fi
+"$PYTHON" "$NEWSLETTER_DIR/send_wechat.py" "$DATE" "$SUMMARY" "$SP500_VAL" "$SP500_CHG" "$NASDAQ_VAL" "$NASDAQ_CHG" "$VIX_VAL" "$WECHAT_ALERT" 2>/dev/null && echo "  微信推送 done ✓" || echo "  ⚠️ 微信推送失败"
 echo ""
 
 echo "=========================================="
