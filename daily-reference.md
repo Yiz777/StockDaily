@@ -10,7 +10,7 @@
 | 项目 | 内容 |
 |---|---|
 | 姓名 | YI ZHAO (Zoe) |
-| 持仓 | SCHD(16.94) / VOO(0.60) / QQQ(0.55) / WDC(0.55) / MCD(0.50) / UNH(0.30) / NVTS(10) / ECHO(1) / NOK(5) |
+| 持仓 | SCHD(16.94) / VOO(0.60) / QQQ(0.55) / WDC(0.55) / MCD(0.50) / UNH(0.30) / NOK(10) / ECHO(1) | 现金 ~$1,010 |
 | 风险偏好 | 稳健，ETF 定投为主 |
 | 文件保存路径 | `0. Newsletter\[YYYY-MM-DD].html` + `.md`（纯英文文件名） |
 | 归档路径 | `0. Newsletter\归档\投资理财\` |
