@@ -50,6 +50,7 @@ body { background: var(--cream); color: var(--brown); font-family: 'Nunito', 'Pi
 .bag-item .icon { font-size: 20px; } .bag-item .n { font-weight: 700; font-size: 14px; } .bag-item .d { font-size: 11px; color: var(--gray); }
 .bag-item .v { font-weight: 700; font-size: 14px; text-align: right; } .bag-item .p { font-size: 11px; font-weight: 600; text-align: right; }
 .bag-item .p.up { color: var(--green); } .bag-item .p.down { color: var(--red); }
+.bag-item.alert { border: 2px solid var(--red); }
 .advice { background: var(--yolk); border-radius: 20px; padding: 24px; margin-bottom: 20px; text-align: center; }
 .advice .emoji { font-size: 36px; } .advice .text { font-family: 'ZCOOL KuaiLe', sans-serif; font-size: 22px; color: var(--brown); margin: 6px 0; }
 .advice .sub { font-size: 13px; color: var(--brown); opacity: 0.75; }
@@ -71,18 +72,18 @@ footer { text-align: center; padding: 24px; color: var(--gray); font-size: 12px;
 <!-- 🍉 Header -->
 <div class="header">
   <h1>🍉 Zoe的每日果园</h1>
-  <div class="date">2026年7月28日 · 周二 · 周一收盘回顾</div>
+  <div class="date">2026年7月28日 · 周二 · 美股隔夜（今晚9:30开盘）</div>
   <div>
-    <span class="badge">💵 $1 = ¥6.79</span>
+    <span class="badge">💵 美元/人民币 6.77</span>
     <span class="badge">🥇 金价 $4,079</span>
-    <span class="badge">😰 VIX 18.73 偏紧</span>
+    <span class="badge alert">⚠️ VIX ~18.5 正常偏高</span>
   </div>
 </div>
 
 <!-- 🍓 今日一句话 -->
 <div class="one-liner">
   <div class="label">🍓 今日一句话</div>
-  <div class="text">油价一天暴跌8%！美伊停火第二天，纳指四连跌，本周FOMC+四大科技财报才是真正的大考。</div>
+  <div class="text">油价崩7.5%美伊停手让市场松口气，但芯片四连跌WDC跌破$500，今晚FOMC开锣+Meta财报</div>
 </div>
 
 <!-- 🌡️ 市场温度计 -->
@@ -91,67 +92,72 @@ footer { text-align: center; padding: 24px; color: var(--gray); font-size: 12px;
   <div class="card">
     <div class="emoji">📈</div>
     <div class="name">标普500</div>
-    <div class="price">7,413.18</div>
+    <div class="price">7,413</div>
     <div class="change up">+0.02%</div>
-    <div class="note">几乎平收</div>
+    <div class="note">几乎平收 · 涨1.2点</div>
   </div>
   <div class="card">
     <div class="emoji">💻</div>
     <div class="name">纳斯达克</div>
-    <div class="price">24,932.08</div>
+    <div class="price">24,932</div>
     <div class="change down">-0.18%</div>
-    <div class="note">四连跌</div>
+    <div class="note">四连跌 ⚠️</div>
   </div>
   <div class="card">
-    <div class="emoji">🏭</div>
+    <div class="emoji">🏛️</div>
     <div class="name">道琼斯</div>
-    <div class="price">52,210.08</div>
+    <div class="price">52,210</div>
     <div class="change up">+0.51%</div>
-    <div class="note">苹果领涨+1%</div>
+    <div class="note">+263点 · 苹果拉动</div>
   </div>
   <div class="card">
     <div class="emoji">😰</div>
-    <div class="name">恐慌指数 VIX</div>
-    <div class="price">18.73</div>
-    <div class="change up">+0.81%</div>
-    <div class="note">正常偏高</div>
+    <div class="name">VIX恐慌指数</div>
+    <div class="price">~18.5</div>
+    <div class="change down">正常偏高</div>
+    <div class="note">估算值（上周五18.58）</div>
   </div>
   <div class="card">
     <div class="emoji">🥇</div>
     <div class="name">黄金</div>
-    <div class="price">$4,078.60</div>
+    <div class="price">$4,079</div>
     <div class="change up">+0.19%</div>
-    <div class="note">避险需求</div>
+    <div class="note">基本持平</div>
   </div>
   <div class="card">
     <div class="emoji">🛢️</div>
-    <div class="name">原油 WTI</div>
+    <div class="name">WTI原油</div>
     <div class="price">$82.61</div>
     <div class="change down">-7.50%</div>
-    <div class="note">暴跌！美伊停火</div>
+    <div class="note">暴跌！从$89跌到$82</div>
   </div>
   <div class="card">
     <div class="emoji">💵</div>
     <div class="name">美元/人民币</div>
-    <div class="price">¥6.79</div>
-    <div class="change down">↓</div>
-    <div class="note">人民币走强</div>
+    <div class="price">6.77</div>
+    <div class="change up">持平</div>
+    <div class="note">离岸汇率</div>
   </div>
   <div class="card">
-    <div class="emoji">💰</div>
-    <div class="name">资金流向</div>
-    <div class="price">防御切换</div>
-    <div class="change down">科技→价值</div>
-    <div class="note">能源股全线下跌</div>
+    <div class="emoji">📊</div>
+    <div class="name">10年国债</div>
+    <div class="price">4.70%</div>
+    <div class="change down">年内高位</div>
+    <div class="note">油价跌或缓解上行</div>
   </div>
 </div>
 
 <!-- ⚠️ 持仓预警 -->
 <div class="alert-box">
-  <div style="font-weight:800;color:var(--red);margin-bottom:8px;">🚨 持仓预警</div>
-  <div style="font-size:14px;color:var(--brown);line-height:1.8;">
-    <strong>WDC 跌破 $500 关键位！</strong>周一收 $497.92（-4.21%），盘中最低触及 $471.32，振幅超12%。从年内高点 $799.87 已回调 37.7%。芯片板块全线暴跌：费城半导体指数 -2.23%，英伟达 -5%，SK海力士 -7.47%（跌破IPO发行价）。Burry 的空头报告持续施压市场情绪。<br><br>
-    <strong>本周将决定方向：</strong>FOMC利率决议（7/28-29）+微软/Meta/亚马逊/苹果财报密集公布，任何一个都可能成为WDC走势的转折点。
+  <div style="font-weight:800;font-size:16px;color:var(--red);margin-bottom:8px;">⚠️ 持仓预警 · WDC跌破$500！</div>
+  <div style="font-size:14px;color:var(--brown);margin-bottom:6px;">
+    🔴 <strong>WDC $497.92</strong>（-4.21%）— 跌破$500关口！盘中最低到$471.32（跌超9%），收盘拉回$498。存储芯片板块全线暴跌：闪迪-10%、SK海力士-7.5%（上市12天破发！）、美光-2.3%、希捷-5%+。英伟达-5%拖累整个芯片板块。这是观察清单里设定的$500触发线，<strong>需要认真评估：是基本面变了还是恐慌抛售？</strong>
+  </div>
+  <div style="font-size:14px;color:var(--brown);margin-bottom:6px;">
+    🟡 <strong>NOK $9.28</strong>（+1.98%）— 从$9.10反弹到$9.28，方向对了但还没回到$9.50止损线。财报beat的利好终于开始被消化。继续观察今晚能否守住$9以上。
+  </div>
+  <div style="font-size:14px;color:var(--brown);">
+    🟡 <strong>ECHO $86.69</strong>（-1.35%）— 盘中创52周新低$85.82。8月7日财报前持续承压。距离上次高点$147已跌41%。
   </div>
 </div>
 
@@ -159,22 +165,22 @@ footer { text-align: center; padding: 24px; color: var(--gray); font-size: 12px;
 <div class="section-title">🔤 新闻翻译官</div>
 <div class="translate-box">
   <div class="translate-item">
-    <span class="tag green">宏观</span>
-    <div class="original">Oil prices plunged Monday — WTI fell 7.5% to $82.61, Brent tumbled 8.7% to $88.36 — after the US and Iran paused attacks for a second day, with Oman and Qatar mediating renewed peace talks.</div>
-    <div class="simple">💬 美伊连续第二天暂停互袭，阿曼和卡塔尔出面斡旋和谈。油价应声暴跌：WTI一天跌掉近$7，从上周五的$89跌到$82；布伦特从$97跌到$88。这是好消息——油价降了，通胀压力就小，美联储加息的紧迫感也会降低。</div>
-    <div class="impact">→ 油价跌利好通胀预期，但能源股今天全军覆没：埃克森美孚 -1%、雪佛龙 -2%、西方石油 -4%</div>
+    <span class="tag green">利好</span>
+    <div class="original">Oil prices plunge as US-Iran pause hostilities. WTI crude -7.5% to $82.61, Brent -8.7% to $88.36. Iran military warns US maritime blockade could escalate regional war.</div>
+    <div class="simple">💬 美伊互相暂停打击的效应显现：油价一天暴跌7.5%，布伦特从$97跌到$88。这对通胀是大利好——油价跌=运输成本降=物价压力小=美联储加息理由少。但伊朗军方发声明警告美国"海上封锁=扩大战争"，说明停火很脆弱。</div>
+    <div class="impact">→ 油价跌降低加息概率，利好VOO/QQQ；但别高兴太早，海上封锁还没解除</div>
   </div>
   <div class="translate-item">
-    <span class="tag red">科技</span>
-    <div class="original">Nasdaq fell for the 4th straight day (-0.18%), weighed by a 5% drop in Nvidia and a 2.2% decline in the Philadelphia Semiconductor Index. SK Hynix plunged 7.5%, falling below its IPO price.</div>
-    <div class="simple">💬 纳指四连跌，虽然只跌了0.18%，但芯片股血流成河。英伟达跌了快5%，SK海力士一天跌7.5%，直接跌破IPO发行价。费城半导体指数跌了2.2%。市场在担心：AI投了那么多钱，到底什么时候能赚回来？</div>
-    <div class="impact">→ WDC被拖累跌4.2%，但注意：芯片股跌的是"情绪"不是"基本面"。本周大科技财报才会给出真正的答案</div>
+    <span class="tag red">利空</span>
+    <div class="original">Semiconductor selloff deepens: Nvidia -4.99%, SOX -2.23%, SK Hynix -7.47% (breaks IPO price in 12 days), SanDisk -10%+. Investors worried about "circular financing" in AI ecosystem after Burry's expanded shorts.</div>
+    <div class="simple">💬 芯片股第四天跌。英伟达跌5%，费城半导体指数跌2.2%。SK海力士上市才12天就跌破发行价！闪迪跌10%。大空头Burry说AI需求是"表外融资自我循环"，不是真客户在买。市场被他这番话吓到了。</div>
+    <div class="impact">→ WDC被板块拖累跌破$500，但Intel/Alphabet的AI资本开支是真实的</div>
   </div>
   <div class="translate-item">
-    <span class="tag">前瞻</span>
-    <div class="original">This is a "super week": FOMC rate decision (July 28-29) plus earnings from Microsoft, Meta, Amazon, and Apple — four of the "Magnificent Seven" — all reporting within days.</div>
-    <div class="simple">💬 这周是"超级周"。周二三FOMC开会决定利率（市场预期不动，但关注9月加息信号），微软、Meta、亚马逊、苹果四大巨头扎堆发财报。任何一个财报超预期，都可能扭转科技股的悲观情绪；反之，如果AI资本开支不及预期，抛售还会继续。</div>
-    <div class="impact">→ 手里$1,010现金不要急着动，等FOMC和财报结果出来后再决定</div>
+    <span class="tag">超级周</span>
+    <div class="original">FOMC meets July 28-29 (decision Wed 2pm ET). CME FedWatch: 65.8% hold, 34.2% hike 25bp. Meta reports Tuesday after close. Amazon reports Thursday. Core PCE + Q2 GDP released Thursday morning. Consumer Confidence Tuesday.</div>
+    <div class="simple">💬 今天开始超级周的"正片"：① 美联储今明两天开会，周四凌晨2点出结果（65.8%概率不加息，34.2%概率加25个基点）② Meta今晚盘后出财报 ② 周四晚有核心通胀PCE+二季度GDP ④ 消费者信心指数今晚也出。一周塞了这么多大事，波动会很大。</div>
+    <div class="impact">→ 本周走势决定接下来一个月方向，耐心等信号别急着动</div>
   </div>
 </div>
 
@@ -182,139 +188,168 @@ footer { text-align: center; padding: 24px; color: var(--gray); font-size: 12px;
 <div class="section-title">👜 持仓速览</div>
 <div class="portfolio">
   <div class="title">📋 持仓速览 · 数据截至7月27日收盘</div>
-  <div class="bag-item"><div><span class="icon">🇺🇸</span><span class="n">VOO</span><span class="d">标普500ETF</span></div><div style="text-align:right;"><div class="v">$679.31</div><div class="p up">+0.03% 🙂</div></div></div>
-  <div class="bag-item"><div><span class="icon">🚀</span><span class="n">QQQ</span><span class="d">纳指100ETF</span></div><div style="text-align:right;"><div class="v">$682.12</div><div class="p down">-0.31% 🤧</div></div></div>
-  <div class="bag-item"><div><span class="icon">💎</span><span class="n">SCHD</span><span class="d">高股息ETF</span></div><div style="text-align:right;"><div class="v">$33.43</div><div class="p up">+0.42% 🙂</div></div></div>
-  <div class="bag-item" style="border: 2px solid var(--red);"><div><span class="icon">💾</span><span class="n">WDC</span><span class="d">西部数据</span></div><div style="text-align:right;"><div class="v">$497.92</div><div class="p down">-4.21% 😅</div></div></div>
-  <div class="bag-item"><div><span class="icon">🍔</span><span class="n">MCD</span><span class="d">麦当劳</span></div><div style="text-align:right;"><div class="v">$270.67</div><div class="p up">+0.43% 🙂</div></div></div>
-  <div class="bag-item"><div><span class="icon">🏥</span><span class="n">UNH</span><span class="d">联合健康</span></div><div style="text-align:right;"><div class="v">$417.64</div><div class="p down">-0.74% 🤧</div></div></div>
-  <div class="bag-item"><div><span class="icon">📡</span><span class="n">NOK</span><span class="d">诺基亚</span></div><div style="text-align:right;"><div class="v">$9.28</div><div class="p up">+1.98% 🙂</div></div></div>
-  <div class="bag-item"><div><span class="icon">🛰️</span><span class="n">ECHO</span><span class="d">回声星通信</span></div><div style="text-align:right;"><div class="v">$86.69</div><div class="p down">-1.35% 🤧</div></div></div>
+  <div class="bag-item">
+    <div><span class="icon">🇺🇸</span><span class="n">VOO</span><span class="d">标普500ETF</span></div>
+    <div style="text-align:right;"><div class="v">$679.31</div><div class="p up">+0.03% 🙂</div></div>
+  </div>
+  <div class="bag-item">
+    <div><span class="icon">🚀</span><span class="n">QQQ</span><span class="d">纳指100ETF</span></div>
+    <div style="text-align:right;"><div class="v">$682.12</div><div class="p down">-0.31% 🤧</div></div>
+  </div>
+  <div class="bag-item">
+    <div><span class="icon">💎</span><span class="n">SCHD</span><span class="d">高股息ETF</span></div>
+    <div style="text-align:right;"><div class="v">$33.43</div><div class="p up">+0.42% 🙂</div></div>
+  </div>
+  <div class="bag-item alert">
+    <div><span class="icon">💾</span><span class="n">WDC</span><span class="d">西部数据</span></div>
+    <div style="text-align:right;"><div class="v">$497.92</div><div class="p down">-4.21% 😅</div></div>
+  </div>
+  <div class="bag-item">
+    <div><span class="icon">🍔</span><span class="n">MCD</span><span class="d">麦当劳</span></div>
+    <div style="text-align:right;"><div class="v">$270.67</div><div class="p up">+2.23% 🚀</div></div>
+  </div>
+  <div class="bag-item">
+    <div><span class="icon">🏥</span><span class="n">UNH</span><span class="d">联合健康</span></div>
+    <div style="text-align:right;"><div class="v">$417.64</div><div class="p down">-0.74% 🤧</div></div>
+  </div>
+  <div class="bag-item">
+    <div><span class="icon">📱</span><span class="n">NOK</span><span class="d">诺基亚</span></div>
+    <div style="text-align:right;"><div class="v">$9.28</div><div class="p up">+1.98% 🙂</div></div>
+  </div>
+  <div class="bag-item">
+    <div><span class="icon">📡</span><span class="n">ECHO</span><span class="d">EchoStar</span></div>
+    <div style="text-align:right;"><div class="v">$86.69</div><div class="p down">-1.35% 🤧</div></div>
+  </div>
+  <div style="font-size:12px;color:var(--gray);margin-top:8px;text-align:center;">现金约 $1,010 · 留着等FOMC出结果后再决定</div>
 </div>
 
 <!-- 👀 待观察清单 -->
 <div class="opportunity-box">
-  <div style="font-weight:800;font-size:16px;color:var(--blue-dark);margin-bottom:12px;">👀 待观察清单 — 在等什么信号？</div>
-
-  <div style="margin-bottom:12px;padding:10px;background:var(--red-light);border-radius:10px;">
-    <strong>🔴 NOK — 小幅反弹，仍在止损线下</strong><br>
-    <span style="font-size:13px;">等：本周能否站稳$9以上。周一反弹至$9.28(+1.98%)，但仍在$9.50和$10两道止损线之下。<br>
-    触发行动：继续跌破$9 → 认真考虑止损；连续3天站稳$9.50以上 → 考虑继续持有。</span>
+  <div style="font-weight:800;font-size:16px;color:var(--blue-dark);margin-bottom:10px;">👀 待观察清单 · 在等什么信号</div>
+  <div style="font-size:14px;color:var(--brown);margin-bottom:8px;">
+    <strong>💾 WDC</strong> — 已跌破$500触发线！<br>
+    → 盘中最低$471，收盘拉回$498，说明有人在抄底<br>
+    → 今晚开盘继续跌破$480：考虑减半仓位止损<br>
+    → 反弹回$510以上：说明$471是恐慌底，继续持有<br>
+    → 基本面没变：Intel/Alphabet AI资本开支是真实的，Burry做空是"太早"不是"错"
   </div>
-
-  <div style="margin-bottom:12px;padding:10px;background:var(--red-light);border-radius:10px;">
-    <strong>🔴 WDC — 已跌破$500关键位</strong><br>
-    <span style="font-size:13px;">等：本周FOMC+大科技财报后能否企稳。周一收盘$497.92，盘中最低$471.32。从高点回调37.7%。<br>
-    触发行动：跌破$450 → 重新评估持仓逻辑；FOMC偏鸽+大科技AI CapEx超预期 → 可能反弹；反之 → 继续承压。</span>
+  <div style="font-size:14px;color:var(--brown);margin-bottom:8px;">
+    <strong>📱 NOK</strong> — 反弹中，但还没脱险<br>
+    → 从$9.10反弹到$9.28（+1.98%），方向对了<br>
+    → 守住$9.00以上：继续持有等回$9.50<br>
+    → 跌破$9.00：认真考虑止损<br>
+    → 财报beat（AI/Cloud翻倍）的利好正在被慢慢消化
   </div>
-
-  <div style="padding:10px;background:#fff3bf;border-radius:10px;">
-    <strong>🟡 配置策略 — 等本周三大事件落地</strong><br>
-    <span style="font-size:13px;">① FOMC（7/28-29）：利率不动概率95%+，关键看声明对9月加息的暗示<br>
-    ② 大科技财报：微软(7/28)、Meta(7/29)、亚马逊(7/30)、苹果(7/30)<br>
-    ③ 美伊和谈进展：停火是"暂停"不是"结束"<br>
-    触发行动：FOMC暗示9月不加息 → 加仓VOO/QQQ；AI CapEx超预期 → 持有WDC；中东局势缓和确认 → 加仓VOO</span>
+  <div style="font-size:14px;color:var(--brown);margin-bottom:8px;">
+    <strong>🏛️ FOMC</strong> — 今明两天开会，周四凌晨2点出结果<br>
+    → 维持不变（65.8%概率）：市场松一口气，QQQ可能反弹<br>
+    → 加息25bp（34.2%概率）：QQQ可能跌2-3%<br>
+    → 沃什发布会是重点：措辞偏"鸽"=利好，偏"鹰"=利空
+  </div>
+  <div style="font-size:14px;color:var(--brown);">
+    <strong>📊 Meta财报</strong> — 今晚盘后出<br>
+    → AI资本开支是焦点：花钱多但广告收入跟不上→跌<br>
+    → Reality Labs亏损收窄+AI广告ROI提升→涨<br>
+    → Meta结果直接影响QQQ明天开盘方向
   </div>
 </div>
 
 <!-- 🧘 今日建议 -->
 <div class="advice">
   <div class="emoji">🧘‍♀️</div>
-  <div class="text">HOLD · 现金为王，等风来</div>
+  <div class="text">HOLD · FOMC开锣，耐心等信号</div>
   <div class="sub">
-    ① 这周是"超级周"，FOMC+四大科技财报全在一周内，任何一个都可能剧烈改变市场方向<br>
-    ② 手里$1,010现金是最好的"弹药"——现在不是冲锋的时候，是准备冲锋的时候<br>
-    ③ 油价暴跌是好事（降通胀=降加息压力），但别急着乐观——美伊停火只是"暂停"不是"结束"<br>
-    ④ WDC跌破$500，但别慌。从$800跌到$498已经反映了大量悲观预期，等财报验证AI需求是否真实<br>
-    ⑤ 记住：市场恐慌的时候，往往是好价格出现的时候。但不是今天——等FOMC出结果再决定
+    ① 油价暴跌是好消息——降低加息概率，利好你的VOO/QQQ<br>
+    ② WDC跌破$500但收盘拉回$498，盘中$471可能是恐慌底，今晚开盘重点观察<br>
+    ③ NOK反弹到$9.28方向对了，但别急着加仓，等回到$9.50再说<br>
+    ④ 今晚Meta盘后财报+FOMC第一天，波动会大，$1,010现金继续留着<br>
+    ⑤ 周四凌晨2点FOMC出结果前，不做任何买卖
   </div>
 </div>
 
 <!-- 🔭 机会雷达 -->
-<div class="section-title">🔭 机会雷达</div>
 <div class="opportunity-box">
-  <div style="margin-bottom:14px;">
-    <strong>🔄 半导体存储芯片</strong><br>
-    <span style="font-size:13px;color:var(--gray);">状态：🟡 追踪中（第31天）</span><br>
-    <span style="font-size:13px;">今日更新：WDC盘中触及$471创回调新低，芯片板块全线暴跌。但本周大科技财报将是真正验证AI需求的时刻。微软/Meta/亚马逊的AI资本开支数据将直接回答"AI需求到底是不是泡沫"。多空分歧从未如此激烈：Burry说跌30%，摩根士丹利说超级周期到2028年。</span>
+  <div style="font-weight:800;font-size:16px;color:var(--blue-dark);margin-bottom:10px;">🔭 机会雷达</div>
+  <div style="font-size:14px;color:var(--brown);margin-bottom:12px;">
+    <strong>💾 半导体存储芯片</strong> — 🟡 追踪中（WDC跌破$500！）<br>
+    今日更新：存储芯片板块第四天下跌。SK海力士上市12天破发，闪迪-10%，WDC盘中最低$471。Burry的"表外融资"论持续发酵。但注意：① Intel/Alphabet的AI资本开支是实打实的真金白银 ② 摩根士丹利维持存储超级周期到2028的判断 ③ WDC从$471反弹到$498收盘说明有买盘在接。多空分歧最大的时候，往往离底部最近。<br>
+    <span style="font-size:12px;color:var(--gray);">参与：WDC（已持仓）、SOXX ETF</span>
   </div>
-  <div style="margin-bottom:14px;">
-    <strong>🔄 能源板块</strong><br>
-    <span style="font-size:13px;color:var(--gray);">状态：🟡 追踪中（第4天）</span><br>
-    <span style="font-size:13px;">今日更新：美伊停火第二天，油价一天跌8%！WTI从$89暴跌至$82.61，布伦特从$97跌至$88。此前担心的"油价破$100引发通胀失控"风险明显缓解。如果和谈成功 → 油价可能回到$70-80区间 → 通胀大幅回落 → 美联储加息压力解除 → 利好科技股。但注意：美国海上封锁仍未解除，以色列总理27日访美可能影响局势。</span>
+  <div style="font-size:14px;color:var(--brown);margin-bottom:12px;">
+    <strong>🛢️ 能源板块</strong> — 🟡 追踪中（油价暴跌！）<br>
+    今日更新：WTI一天跌7.5%到$82.61，布伦特跌8.7%到$88.36。这是美伊停火效应的集中释放。能源股全线下跌（康菲-4%、西方石油-4%+）。但伊朗警告美国海上封锁=扩大战争，停火很脆弱。油价如果持续回落到$80以下，通胀预期大幅改善，美联储加息理由就更弱了。<br>
+    <span style="font-size:12px;color:var(--gray);">参与：XLE ETF — 暂不行动，等FOMC+和谈结果</span>
   </div>
-  <div style="margin-bottom:14px;">
-    <strong>🔄 AI数据中心基础设施</strong><br>
-    <span style="font-size:13px;color:var(--gray);">状态：🟡 追踪中（第7天）</span><br>
-    <span style="font-size:13px;">今日更新：方向确定性最高，但短期市场把"花钱多"当利空。本周大科技财报的AI CapEx数据将再次验证基建投入规模。如果微软/Meta/亚马逊宣布上调AI资本开支 → 英伟达产业链会反弹 → 利好WDC；如果下调 → 板块可能继续下跌。</span>
-  </div>
-  <div style="font-size:12px;color:var(--gray);margin-top:8px;border-top:1px dashed var(--blue-light);padding-top:8px;">
-    💡 备注：美伊停火（仅"暂停"非"停战"）、ECHO 8月7日财报（提前关注）、Burry做多Flutter/DraftKings/Molina（看空AI同时布局体育博彩+医疗）
+  <div style="font-size:14px;color:var(--brown);">
+    <strong>🏗️ AI数据中心基建</strong> — 🟢 持续验证<br>
+    今日更新：今晚Meta财报是下一个验证点。Intel已将2026年capex上调到$200亿+，Alphabet全年CapEx $1950-2050亿。如果Meta也大幅上调AI投入，三重验证确认需求真实。Burry说这是"泡沫"，但至少3家巨头用真金白银投了票。
   </div>
 </div>
 
 <!-- 📖 每日一词 -->
 <div class="term-box">
-  <div style="font-weight:800;font-size:18px;color:var(--blue-dark);margin-bottom:4px;">📖 回调 · Correction</div>
+  <div style="font-weight:800;font-size:18px;color:var(--blue-dark);margin-bottom:4px;">📖 鹰派与鸽派 · Hawkish & Dovish</div>
   <div style="font-size:15px;color:var(--brown);margin:8px 0;">
-    <strong>什么意思？</strong>当一只股票（或指数）从近期高点下跌10%以上但不到20%时，就叫"回调"。它是牛市中非常常见的现象——就像爬山需要停下来喝口水，不是山崩了。<br><br>
-    <strong>为什么今天要学这个？</strong>WDC从$800的高点跌到了$498，跌了37.7%，这已经不是回调了，已经是深度调整。但纳斯达克从高点才跌了不到5%，离"回调"（-10%）还有距离。市场不是铁板一块——有的板块在回调，有的板块在暴跌，这恰恰说明不是系统性风险，而是板块轮动。<br><br>
-    <strong>怎么用？</strong>回调不是卖出的信号，而是重新审视持仓逻辑的时机。问自己：这家公司的基本面变了吗？如果没变，回调就是打折。但WDC的情况更复杂——跌了37%背后有Burry做空+芯片产能过剩担忧+油价通胀三重压力，需要等本周财报和FOMC来验证逻辑。
+    美联储官员分两派：鹰派（Hawkish）像严厉的班主任，更担心通胀，倾向于加息收紧钱袋子；鸽派（Dovish）像温柔的辅导员，更担心经济和就业，倾向于降息或维持低利率让钱流通。美联储主席沃什现在既不完全鹰也不完全鸽——他说"看数据实时决定"，不给提前提示。所以每次开会前，市场都在猜：他今天是鹰是鸽？今晚FOMC第一天开会，如果发布会上沃什说"通胀仍高于目标"=偏鹰（利空），如果说"经济增速放缓"=偏鸽（利好）。
   </div>
+  <div style="font-size:12px;color:var(--gray);margin-top:8px;">→ 记住：鹰=紧=股市跌，鸽=松=股市涨。简单粗暴但大部分时候管用</div>
 </div>
 
 <!-- 🐦 分析师笔记 -->
 <div class="section-title">🐦 分析师笔记</div>
 <div class="kol-item">
   <div class="name">🎯 Eric Balchunas</div>
-  <div class="handle">@EricBalchunas · Bloomberg 资深 ETF 分析师</div>
-  <div class="take">"比特币ETF正在复制黄金ETF过去22年的'胜利与痛苦交织'的历史路径。两者都是非收益型价值储存工具，价格完全由市场情绪驱动。GLD在2011年短暂成为全球最大ETF后，陷入了8年低迷期——IBIT也经历了类似的从$1000亿峰值回落的过程。"</div>
-  <div class="why">→ 近期观点：提醒投资者不要追高任何缺乏基本面支撑的情绪驱动型资产。这个逻辑对AI概念股同样适用——本周大科技财报将告诉我们AI到底有没有"基本面"</div>
+  <div class="handle">@EricBalchunas · Bloomberg ETF首席（近期观点）</div>
+  <div class="take">今天道指涨0.5%但纳指跌0.2%，这种"分裂"行情恰恰说明分散投资的价值。你的VOO里既有涨的苹果和银行，也有跌的英伟达和芯片——互相对冲了。ETF的意义就是不让一只股票绑架你的整个组合。</div>
+  <div class="why">→ 别因为QQQ跌了0.3%就慌，你的VOO+QQQ+SCHD组合在分裂行情中表现很稳</div>
 </div>
 <div class="kol-item">
-  <div class="name">📊 Ben Carlson</div>
-  <div class="handle">@awealthofcs · Ritholtz Wealth 资管总监</div>
-  <div class="take">"市场轮动是牛市健康的标志。标普500几乎平收的背后，是11个板块中10个上涨、只有科技下跌。这不是熊市，这是资金从过度拥挤的AI赛道流向其他被忽视的领域。历史上每一次牛市都会经历这样的轮动。"</div>
-  <div class="why">→ 近期观点：别因为纳指四连跌就恐慌。看看道指和罗素2000——它们都在涨。市场宽度在改善，这是好事</div>
+  <div class="name">📖 Brian Feroldi</div>
+  <div class="handle">@BrianFeroldi · 长期投资科普作者（近期观点）</div>
+  <div class="take">WDC从$800跌到$498，跌了37%。这吓人吗？吓人。但想想它去年底才$172，今年翻了快三倍。回调是暴涨后的正常现象。关键问题不是"跌了多少"，而是"存储芯片的需求还在不在"——Intel和Alphabet的资本开支已经回答了这个问题。</div>
+  <div class="why">→ 对WDC：检查自己的持仓比例是否过大，如果只占组合5%以下，扛得住</div>
 </div>
 <div class="kol-item">
-  <div class="name">💰 Dividend Growth Investor</div>
-  <div class="handle">@DividendGrowth · 分红投资专家</div>
-  <div class="take">"当油价一天跌8%、科技股继续被抛售的时候，SCHD逆势涨了0.42%。高股息策略的魅力就在于此——它不追求暴涨，但能在市场动荡时给你稳稳的幸福。"</div>
-  <div class="why">→ 对Zoe的意义：SCHD是组合里的"压舱石"。今天它涨了，说明你的防守配置正在发挥作用。继续安心持有</div>
+  <div class="name">📊 Chris Larkin</div>
+  <div class="handle">E*TRADE/Morgan Stanley 交易主管 · 7月27日原文</div>
+  <div class="take">"This is a week with more than its fair share of potential surprises, good and bad. A bullish response to strong Mag-7 earnings isn't a given, especially if AI spending levels continue to raise eyebrows. Choppy trading could persist, even if the ultimate direction is to the upside."</div>
+  <div class="why">→ 翻译：这周好消息坏消息都可能来，财报好不代表股价涨（AI花钱太多照样跌），震荡会持续</div>
 </div>
 
 <!-- 📅 本周关注 -->
-<div class="section-title">📅 本周关注</div>
-<div class="cards" style="margin-bottom:20px;">
+<div class="section-title">📅 本周关注 · 超级周正片</div>
+<div class="cards">
+  <div class="card" style="border-top:4px solid var(--blue);">
+    <div class="emoji">📊</div>
+    <div class="name">今晚(7/28) 22:00</div>
+    <div class="price" style="font-size:16px;">消费者信心指数</div>
+    <div class="change up">前值53.6</div>
+    <div class="note">信心下降=消费股承压</div>
+  </div>
+  <div class="card" style="border-top:4px solid var(--blue);">
+    <div class="emoji">💬</div>
+    <div class="name">今晚(7/28) 盘后</div>
+    <div class="price" style="font-size:16px;">Meta财报</div>
+    <div class="change up">EPS预期$7.18</div>
+    <div class="note">AI广告ROI + Reality Labs</div>
+  </div>
   <div class="card" style="border-top:4px solid var(--red);">
-    <div class="emoji">🏛️</div>
-    <div class="name">FOMC利率决议</div>
-    <div class="price" style="font-size:14px;">7/28-29</div>
-    <div class="change down">预期不动</div>
-    <div class="note">关注9月加息信号</div>
+    <div class="emoji">⚡</div>
+    <div class="name">周四(7/30) 凌晨2点</div>
+    <div class="price" style="font-size:16px;">FOMC利率决议</div>
+    <div class="change down">加息概率34.2%</div>
+    <div class="note">沃什发布会2:30 · 关注措辞</div>
   </div>
-  <div class="card">
-    <div class="emoji">💻</div>
-    <div class="name">微软财报</div>
-    <div class="price" style="font-size:14px;">7/28盘后</div>
-    <div class="change up">AI Azure增速</div>
-    <div class="note">云+AI关键验证</div>
-  </div>
-  <div class="card">
-    <div class="emoji">📱</div>
-    <div class="name">Meta财报</div>
-    <div class="price" style="font-size:14px;">7/29盘后</div>
-    <div class="change up">AI广告变现</div>
-    <div class="note">CapEx指引关键</div>
-  </div>
-  <div class="card">
+  <div class="card" style="border-top:4px solid var(--green);">
     <div class="emoji">📦</div>
-    <div class="name">亚马逊/苹果</div>
-    <div class="price" style="font-size:14px;">7/30盘后</div>
-    <div class="change up">AWS+iPhone</div>
-    <div class="note">消费+云双验证</div>
+    <div class="name">周四(7/30) 盘后</div>
+    <div class="price" style="font-size:16px;">亚马逊财报</div>
+    <div class="change up">AWS云增长焦点</div>
+    <div class="note">当天还有PCE+GDP</div>
   </div>
+</div>
+<div style="font-size:13px;color:var(--gray);margin:8px 0 16px;text-align:center;">
+  周三SK海力士+三星财报 · 周四核心PCE+二季度GDP(晚8:30) · 周五铠侠+埃克森美孚财报 · 苹果财报推迟到下周
 </div>
 
 <!-- 🔗 快速入口 -->
@@ -324,13 +359,15 @@ footer { text-align: center; padding: 24px; color: var(--gray); font-size: 12px;
   <a href="https://finance.yahoo.com/quote/QQQ/" target="_blank" class="link-card"><span class="emoji">🚀</span><span class="name">QQQ</span></a>
   <a href="https://finance.yahoo.com/quote/SCHD/" target="_blank" class="link-card"><span class="emoji">💎</span><span class="name">SCHD</span></a>
   <a href="https://finance.yahoo.com/quote/WDC/" target="_blank" class="link-card"><span class="emoji">💾</span><span class="name">WDC</span></a>
+  <a href="https://finance.yahoo.com/quote/NOK/" target="_blank" class="link-card"><span class="emoji">📱</span><span class="name">NOK</span></a>
   <a href="https://www.cnbc.com/" target="_blank" class="link-card"><span class="emoji">📺</span><span class="name">CNBC</span></a>
   <a href="https://wallstreetcn.com/" target="_blank" class="link-card"><span class="emoji">📰</span><span class="name">华尔街见闻</span></a>
+  <a href="https://www.cnbc.com/fed/" target="_blank" class="link-card"><span class="emoji">🏛️</span><span class="name">美联储</span></a>
 </div>
 
 <footer>
-  🍉 Zoe的每日果园 · 2026年7月28日<br>
-  数据来源：AP News / MarketWatch / 华尔街见闻 / Saxo Bank / EastMoney / XE.com<br>
+  🍉 Zoe的每日果园 · 2026-07-28<br>
+  数据来源：新华社、NeoData金融数据、华尔街见闻、证券时报、Clearbrook Global、Xinhua、CME FedWatch<br>
   ⚠️ <strong>免责声明：</strong>本日报仅供个人学习参考，不构成任何投资建议。投资有风险，决策请独立判断。<br>
   Made with 💛 for Zoe
 </footer>
