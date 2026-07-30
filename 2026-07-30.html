@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🍉 Zoe的每日果园 · 2026-07-30</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=ZCOOL+KuaiLe&display=swap');
+* { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  --cream: #fef9e7; --yolk: #ffd43b; --yolk-light: #fff3bf;
+  --blue: #4a90d9; --blue-light: #d6e8f7; --blue-dark: #2c5f8a;
+  --red: #e74c3c; --red-light: #fce4e4;
+  --green: #27ae60; --green-light: #d5f5e3;
+  --brown: #5d4e37; --gray: #95a5a6;
+  --card-shadow: 0 3px 15px rgba(74, 144, 217, 0.1);
+}
+body { background: var(--cream); color: var(--brown); font-family: 'Nunito', 'PingFang SC', 'Microsoft YaHei', sans-serif; line-height: 1.7; padding: 16px; max-width: 900px; margin: 0 auto; }
+.header { background: var(--yolk); border-radius: 24px; padding: 28px 24px; margin-bottom: 20px; text-align: center; }
+.header h1 { font-family: 'ZCOOL KuaiLe', sans-serif; font-size: 28px; color: var(--brown); margin-bottom: 6px; }
+.header .date { font-size: 14px; color: var(--brown); font-weight: 600; }
+.header .badge { display: inline-block; background: white; padding: 4px 14px; border-radius: 20px; font-size: 12px; color: var(--blue-dark); margin-top: 10px; }
+.header .badge.alert { background: var(--red); color: white; }
+.one-liner { background: white; border-left: 5px solid var(--red); border-radius: 0 16px 16px 0; padding: 20px 24px; margin-bottom: 20px; box-shadow: var(--card-shadow); }
+.one-liner .label { font-size: 12px; color: var(--red); font-weight: 800; letter-spacing: 2px; }
+.one-liner .text { font-size: 17px; font-weight: 700; color: var(--brown); margin-top: 6px; }
+.section-title { font-family: 'ZCOOL KuaiLe', sans-serif; font-size: 22px; color: var(--blue-dark); margin: 28px 0 14px; border-bottom: 2px solid var(--blue-light); padding-bottom: 8px; }
+.cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 8px; max-width: 780px; margin-left: auto; margin-right: auto; }
+.card { background: white; border-radius: 16px; padding: 16px; box-shadow: var(--card-shadow); text-align: center; border-top: 4px solid var(--blue); }
+.card .emoji { font-size: 22px; display: block; margin-bottom: 2px; }
+.card .name { font-size: 12px; color: var(--gray); font-weight: 600; display: block; }
+.card .price { font-size: 22px; font-weight: 800; color: var(--brown); margin: 4px 0; }
+.card .change { font-size: 13px; font-weight: 700; padding: 2px 10px; border-radius: 10px; display: inline-block; }
+.card .change.up { background: var(--green-light); color: var(--green); }
+.card .change.down { background: var(--red-light); color: var(--red); }
+.card .note { font-size: 11px; color: var(--gray); margin-top: 4px; }
+.alert-box { background: var(--red-light); border: 1px solid var(--red); border-radius: 16px; padding: 16px; margin-bottom: 20px; }
+.translate-box { background: white; border-radius: 16px; padding: 20px; margin-bottom: 20px; box-shadow: var(--card-shadow); }
+.translate-item { padding: 12px 0; border-bottom: 1px dashed var(--blue-light); }
+.translate-item:last-child { border-bottom: none; }
+.translate-item .tag { background: var(--blue); color: white; padding: 1px 8px; border-radius: 8px; font-size: 11px; }
+.translate-item .tag.red { background: var(--red); }
+.translate-item .tag.green { background: var(--green); }
+.translate-item .original { font-size: 13px; color: var(--gray); margin-bottom: 4px; }
+.translate-item .simple { font-size: 15px; color: var(--brown); font-weight: 600; }
+.translate-item .impact { font-size: 13px; color: var(--red); margin-top: 4px; font-weight: 600; }
+.portfolio { background: var(--blue-light); border-radius: 20px; padding: 20px; margin-bottom: 20px; }
+.portfolio .title { font-weight: 700; font-size: 16px; margin-bottom: 12px; }
+.bag-item { background: white; border-radius: 12px; padding: 12px 16px; margin-bottom: 8px; display: flex; justify-content: space-between; align-items: center; }
+.bag-item .icon { font-size: 20px; } .bag-item .n { font-weight: 700; font-size: 14px; } .bag-item .d { font-size: 11px; color: var(--gray); }
+.bag-item .v { font-weight: 700; font-size: 14px; text-align: right; } .bag-item .p { font-size: 11px; font-weight: 600; text-align: right; }
+.bag-item .p.up { color: var(--green); } .bag-item .p.down { color: var(--red); }
+.advice { background: var(--yolk); border-radius: 20px; padding: 24px; margin-bottom: 20px; text-align: center; }
+.advice .emoji { font-size: 36px; } .advice .text { font-family: 'ZCOOL KuaiLe', sans-serif; font-size: 22px; color: var(--brown); margin: 6px 0; }
+.advice .sub { font-size: 13px; color: var(--brown); opacity: 0.75; }
+.term-box { background: white; border-left: 4px solid var(--yolk); border-radius: 0 16px 16px 0; padding: 20px; margin-bottom: 20px; box-shadow: var(--card-shadow); }
+.opportunity-box { background: white; border-radius: 16px; padding: 20px; margin-bottom: 20px; box-shadow: var(--card-shadow); border-left: 4px solid var(--blue); }
+.kol-item { background: white; border-radius: 14px; padding: 12px 16px; margin-bottom: 8px; }
+.kol-item .name { font-weight: 700; font-size: 14px; color: var(--blue-dark); }
+.kol-item .handle { font-size: 11px; color: var(--gray); } .kol-item .take { font-size: 14px; color: var(--brown); margin-top: 4px; }
+.kol-item .why { font-size: 12px; color: var(--red); margin-top: 4px; font-weight: 600; }
+.links-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 10px; margin-bottom: 20px; }
+.link-card { background: white; border-radius: 14px; padding: 14px 10px; text-align: center; text-decoration: none; color: var(--brown); box-shadow: var(--card-shadow); border: 2px solid transparent; }
+.link-card:hover { border-color: var(--blue); } .link-card .emoji { font-size: 26px; display: block; } .link-card .name { font-size: 13px; font-weight: 700; }
+footer { text-align: center; padding: 24px; color: var(--gray); font-size: 12px; }
+@media (max-width: 600px) { .header h1 { font-size: 24px; } .card .price { font-size: 19px; } .cards { grid-template-columns: repeat(2, 1fr) !important; } }
+</style>
+</head>
+<body>
+
+<!-- 🍉 Header -->
+<div class="header">
+  <h1>🍉 Zoe的每日果园</h1>
+  <div class="date">2026-07-30 · 周四 · 隔夜盘后</div>
+  <div>
+    <span class="badge">💵 美元/人民币 ~6.77</span>
+    <span class="badge">🥇 黄金 ~$4,060</span>
+    <span class="badge">😱 VIX 20.66 紧张</span>
+    <span class="badge alert">⚠️ 盘后: MSFT +9% / META -7%</span>
+  </div>
+</div>
+
+<!-- 🍓 今日一句话 -->
+<div class="one-liner">
+  <div class="label">🍓 今日一句话</div>
+  <div class="text">道指崩1100点！美联储3人要加息，油价暴涨7%，微软盘后涨9%救市</div>
+</div>
+
+<!-- 🌡️ 市场温度计 -->
+<div class="section-title">🌡️ 市场温度计 · 7月29日收盘</div>
+<div class="cards">
+  <div class="card">
+    <div class="emoji">📈</div>
+    <div class="name">标普500</div>
+    <div class="price">7,316</div>
+    <div class="change down">-1.52%</div>
+    <div class="note">创近1月新低</div>
+  </div>
+  <div class="card">
+    <div class="emoji">📉</div>
+    <div class="name">纳斯达克</div>
+    <div class="price">24,443</div>
+    <div class="change down">-1.74%</div>
+    <div class="note">六连跌！距高点-9%</div>
+  </div>
+  <div class="card">
+    <div class="emoji">🏭</div>
+    <div class="name">道琼斯</div>
+    <div class="price">51,594</div>
+    <div class="change down">-2.19%</div>
+    <div class="note">跌1100点！年内最大</div>
+  </div>
+  <div class="card">
+    <div class="emoji">😱</div>
+    <div class="name">VIX恐慌指数</div>
+    <div class="price">20.66</div>
+    <div class="change down">+13.45%</div>
+    <div class="note">正常→紧张！</div>
+  </div>
+  <div class="card">
+    <div class="emoji">🛢️</div>
+    <div class="name">WTI原油</div>
+    <div class="price">$84.46</div>
+    <div class="change up">+6.56%</div>
+    <div class="note">特朗普威胁打伊朗</div>
+  </div>
+  <div class="card">
+    <div class="emoji">🥇</div>
+    <div class="name">黄金</div>
+    <div class="price">~$4,060</div>
+    <div class="change down">波动大</div>
+    <div class="note">先破4000后弹4081</div>
+  </div>
+  <div class="card">
+    <div class="emoji">💵</div>
+    <div class="name">美元/人民币</div>
+    <div class="price">6.77</div>
+    <div class="change">持平</div>
+    <div class="note">离岸6.7712</div>
+  </div>
+  <div class="card">
+    <div class="emoji">💰</div>
+    <div class="name">10年国债收益率</div>
+    <div class="price">4.66%</div>
+    <div class="change up">+6bp</div>
+    <div class="note">收益率飙升</div>
+  </div>
+</div>
+
+<!-- ⚠️ 持仓预警 -->
+<div class="alert-box">
+  <div style="font-weight:800;font-size:15px;color:var(--red);margin-bottom:8px;">⚠️ 持仓预警 · 3项需关注</div>
+  <div style="font-size:14px;color:var(--brown);margin-bottom:10px;">
+    🔴 <strong>NOK $8.41（-5.82%）</strong>— 跌破$8.50止损线！5天从$10.63跌到$8.41，累计跌21%！今晚必须做决定。<br><br>
+    🔴 <strong>ECHO $83.89（-2.37%）</strong>— 盘中再创52周新低$82.48！从5月高点$147已跌43%。等8月7日财报验证。<br><br>
+    🟡 <strong>WDC $462.04（-0.32%）</strong>— 五连跌后终于稳住了！今天只跌0.32%（昨天跌6.91%），盘中还冲到$499。但微软盘后将CapEx指引从$1900亿降到$1750亿，对存储需求是混合信号。
+  </div>
+</div>
+
+<!-- 🔤 新闻翻译官 -->
+<div class="section-title">🔤 新闻翻译官</div>
+<div class="translate-box">
+  <div class="translate-item">
+    <span class="tag red">美联储</span>
+    <div class="original">Fed holds rates at 3.5-3.75% in 9-3 vote; Hammack, Kashkari, Logan dissent preferring 25bp hike — most divided since 2016</div>
+    <div class="simple">💬 美联储没加息，维持利率3.5%-3.75%不变。但有3个人投了反对票说应该加息！这是2016年以来分歧最大的一次。主席沃什说"不存在软通胀目标，就是2%"，还说"必要时毫不犹豫行动"。</div>
+    <div class="impact">→ 虽然没加息是好事，但3个人要加息=鹰派声音越来越大=9月加息概率大增。市场已经在定价9月加息了。</div>
+  </div>
+  <div class="translate-item">
+    <span class="tag red">中东</span>
+    <div class="original">Trump vows "forceful response" after Iran missile attack on US troops; oil surges 7% to $84+</div>
+    <div class="simple">💬 伊朗向美军发射导弹，美军全部拦截了。特朗普接受福克斯新闻采访说"要狠狠打击伊朗"。美国和沙特联军打了伊拉克境内的伊朗代理人。伊朗还朝霍尔木兹海峡的船和美国在约旦的基地开火了。油价一天暴涨7%。</div>
+    <div class="impact">→ 之前美伊"暂停打击"的好消息全没了！油价从$79飙回$84，布伦特回到$90。油价涨=通胀涨=加息概率涨=股市跌。</div>
+  </div>
+  <div class="translate-item">
+    <span class="tag green">微软</span>
+    <div class="original">Microsoft Q4 revenue $90B beats $87.7B estimate; Azure breaks $100B annually; FY2027 CapEx guidance reduced from $190B to $175B; stock +9% after hours</div>
+    <div class="simple">💬 微软季度收入900亿美元（超预期），Azure云收入今年首次突破1000亿！但2027财年资本支出从之前说的1900亿降到了1750亿。盘后股价大涨9%。</div>
+    <div class="impact">→ 好消息：收入大超预期，Azure破千亿，说明AI投入在赚钱。坏消息：CapEx从1900亿降到1750亿，第一次有科技巨头主动减少AI支出指引。对WDC是混合信号。</div>
+  </div>
+  <div class="translate-item">
+    <span class="tag red">Meta</span>
+    <div class="original">Meta Q2 EPS $6.18 misses $7.13 estimate; net income -14% YoY; CapEx raised to $130-145B; stock -7% after hours, 10-day losing streak</div>
+    <div class="simple">💬 Meta收入超预期（608亿），但利润大 miss：每股收益6.18美元（预期7.13），净利润同比降14%。一个季度花了310亿资本支出，自由现金流只剩7.8亿。CapEx指引还上调了。盘后跌7%，已连跌10天。</div>
+    <div class="impact">→ Meta成了"AI烧钱"的反面教材。市场在问：花这么多钱到底什么时候能赚回来？不过利润下滑部分是一次性费用（24亿法律费+11.8亿遣散费）。</div>
+  </div>
+</div>
+
+<!-- 👜 持仓速览 -->
+<div class="section-title">👜 持仓速览</div>
+<div class="portfolio">
+  <div class="title">📋 持仓速览 · 数据截至7月29日收盘</div>
+  <div class="bag-item"><div><span class="icon">🇺🇸</span><span class="n">VOO</span><span class="d">标普500ETF</span></div><div style="text-align:right;"><div class="v">$670.63</div><div class="p down">-1.52% 🤧</div></div></div>
+  <div class="bag-item"><div><span class="icon">🚀</span><span class="n">QQQ</span><span class="d">纳指100ETF</span></div><div style="text-align:right;"><div class="v">$661.73</div><div class="p down">-2.04% 😅</div></div></div>
+  <div class="bag-item"><div><span class="icon">💎</span><span class="n">SCHD</span><span class="d">高股息ETF</span></div><div style="text-align:right;"><div class="v">$33.83</div><div class="p down">-0.18% 🤧</div></div></div>
+  <div class="bag-item" style="border:2px solid var(--red);"><div><span class="icon">💾</span><span class="n">WDC</span><span class="d">西部数据</span></div><div style="text-align:right;"><div class="v">$462.04</div><div class="p down">-0.32% 🤧</div></div></div>
+  <div class="bag-item"><div><span class="icon">🍔</span><span class="n">MCD</span><span class="d">麦当劳</span></div><div style="text-align:right;"><div class="v">$271.52</div><div class="p down">-0.55% 🤧</div></div></div>
+  <div class="bag-item"><div><span class="icon">🏥</span><span class="n">UNH</span><span class="d">联合健康</span></div><div style="text-align:right;"><div class="v">$420.57</div><div class="p down">-1.92% 😅</div></div></div>
+  <div class="bag-item" style="border:2px solid var(--red);"><div><span class="icon">📱</span><span class="n">NOK</span><span class="d">诺基亚</span></div><div style="text-align:right;"><div class="v">$8.41</div><div class="p down">-5.82% 💔</div></div></div>
+  <div class="bag-item" style="border:2px solid var(--red);"><div><span class="icon">📡</span><span class="n">ECHO</span><span class="d">EchoStar</span></div><div style="text-align:right;"><div class="v">$83.89</div><div class="p down">-2.37% 😅</div></div></div>
+  <div style="font-size:12px;color:var(--gray);margin-top:8px;text-align:center;">💡 WDC/NOK/ECHO 红框 = 当日跌幅>5%或创52周新低 | 盘后: MSFT +9% / META -7% / 期货微涨</div>
+</div>
+
+<!-- 👀 待观察清单 -->
+<div class="opportunity-box">
+  <div style="font-weight:800;font-size:16px;color:var(--blue-dark);margin-bottom:10px;">👀 待观察清单 · 在等什么信号</div>
+  <div style="font-size:14px;color:var(--brown);margin-bottom:10px;">
+    <strong>📱 NOK</strong> — 🔴跌破$8.50！从$10.63到$8.41，5天跌21%<br>
+    等：今晚美股开盘走势 + GDP/PCE数据<br>
+    触发行动：跌破$8.00 → 认真考虑止损；反弹回$9.00以上 → 继续持有<br>
+    💡 NOK基本面没变差（上季度AI/Cloud销售翻倍，上调全年指引），但科技股被全面抛售，NOK跟着遭殃<br><br>
+    <strong>💾 WDC</strong> — 🟡五连跌后终于稳住了！<br>
+    等：今晚开盘对微软盘后+9%的反应 + 微软CapEx降低的影响<br>
+    触发行动：继续跌破$420 → 考虑减半仓位；微软Azure超预期+股价带动 → 持有等反弹<br>
+    💡 好消息：今天只跌0.32%，盘中冲到$499，有买盘在接。坏消息：微软CapEx从$1900亿降到$1750亿<br><br>
+    <strong>📡 ECHO</strong> — 🟡52周新低续创新低<br>
+    等：8月7日财报<br>
+    触发行动：财报前不加仓；财报beat+指引上调 → 持有；财报miss → 评估止损<br>
+    💡 Dish DBS破产重组进行中，DB/Citi给Buy评级。从$147跌到$84<br><br>
+    <strong>🎯 配置策略</strong> — 观察中<br>
+    等：今晚GDP+PCE（8:30PM北京时间）+ 明天Amazon+Apple盘后财报 + 中东局势<br>
+    触发行动：GDP强+PCE低 → 加仓VOO；PCE高 → 减仓QQQ；NOK破$8 → 止损；中东缓和 → 加仓
+  </div>
+</div>
+
+<!-- 🧘 今日建议 -->
+<div class="advice">
+  <div class="emoji">🧘‍♀️</div>
+  <div class="text">HOLD — 别慌，今晚看GDP/PCE</div>
+  <div class="sub">
+    ① FOMC没加息其实是利好，暴跌是因为特朗普威胁打伊朗→油价暴涨7%<br>
+    ② 微软盘后+9%是AI需求最强验证！Azure破千亿说明AI投入在赚钱<br>
+    ③ NOK已破$8.50止损线，今晚美股开盘必须做决定——破$8就止损，反弹$9以上继续拿<br>
+    ④ 今晚8:30PM（北京时间）GDP+PCE数据是下一个关键信号<br>
+    ⑤ 手里$1,010现金留着，等GDP/PCE出结果再决定<br>
+    ⑥ 明天盘后Amazon+Apple财报，别在财报前加仓
+  </div>
+</div>
+
+<!-- 🔭 机会雷达 -->
+<div class="opportunity-box">
+  <div style="font-weight:800;font-size:16px;color:var(--blue-dark);margin-bottom:10px;">🔭 机会雷达</div>
+  <div style="font-size:14px;color:var(--brown);margin-bottom:12px;">
+    <strong>🔄 半导体存储芯片</strong> — 🟡追踪中（第8天）<br>
+    今日更新：WDC终于止跌了！只跌0.32%（昨天跌6.91%），盘中冲到$499。微软Azure突破1000亿美元收入是利好。但微软CapEx从$1900亿降到$1750亿——这是第一次有科技巨头主动减少AI支出指引！$1750亿仍然巨大，但方向变化值得关注。从$800跌到$462，回调42%，泡沫在挤出。<br><br>
+    <strong>🛢️ 能源板块</strong> — 🟡追踪中（第8天）<br>
+    今日更新：油价暴涨7%回到$84！美伊"暂停打击"彻底结束——伊朗打了美军，特朗普说要狠狠报复。WTI从$79飙回$84，布伦特回到$90。油价涨=通胀涨=加息概率涨=利空股市。但能源股今天涨了（埃克森美孚+2%，西方石油+4%）。<br><br>
+    <strong>🤖 AI数据中心基础设施</strong> — 🔵催化剂已兑现（四重验证完成！）<br>
+    今日更新：微软Azure破1000亿收入 + Meta收入超预期=AI需求是真实的。但微软CapEx从$1900亿降到$1750亿=第一个减速信号。Meta利润miss+CapEx上调=市场在质疑"花钱什么时候能赚回来"。Burry说这是"表外融资泡沫"，但至少5家巨头用真金白银投了票。方向确定性高，但短期市场把"花钱多"当利空。Vertiv暴跌17%（AI基础设施公司收入miss）是警示信号。
+  </div>
+</div>
+
+<!-- 📖 每日一词 -->
+<div class="term-box">
+  <div style="font-weight:800;font-size:18px;color:var(--blue-dark);margin-bottom:4px;">📖 鹰派 vs 鸽派 · Hawkish vs Dovish</div>
+  <div style="font-size:15px;color:var(--brown);margin:8px 0;">
+    <strong>鹰派</strong>（Hawkish）= 偏"狠"的派别。更关注通胀，倾向于<strong>加息</strong>（让借钱变贵，给经济降温）。就像严厉的家长："物价涨了？加息！"<br><br>
+    <strong>鸽派</strong>（Dovish）= 偏"温柔"的派别。更关注就业和经济增长，倾向于<strong>降息或不加息</strong>（让钱便宜点，刺激经济）。就像慈祥的家长："别急，再观察观察。"<br><br>
+    🌰 <strong>今天的例子</strong>：美联储12个委员投票，9个说"不加息"（偏鸽），但有3个投了反对票说"应该加息25个基点"（纯鹰派）！这是2016年以来鹰派声音最大的一次。主席沃什明显偏鹰——他说"2%就是2%，没有软目标"，还说"必要时毫不犹豫行动"。<br><br>
+    💡 <strong>对你意味着什么</strong>：鹰派声音越大=9月加息概率越高=股市短期压力大。但好消息是，今天最终还是没加息。
+  </div>
+</div>
+
+<!-- 🐦 分析师笔记 -->
+<div class="section-title">🐦 分析师笔记</div>
+<div class="kol-item">
+  <div class="name">🎯 Ryan Detrick（特邀）</div>
+  <div class="handle">Carson Group 首席市场策略师 · 7月29日实时观点</div>
+  <div class="take">"美联储按兵不动符合预期。但更大的问题是：9月加息压力有多大？通胀在烧，原油在飙，市场预计下一次加息确实会在9月。"</div>
+  <div class="why">→ 这是今天最直接的FOMC解读。油价暴涨+3人要加息=9月加息几乎被市场完全定价</div>
+</div>
+<div class="kol-item">
+  <div class="name">🎯 EricBalchunas</div>
+  <div class="handle">@EricBalchunas · Bloomberg ETF首席 · 近期观点</div>
+  <div class="take">近期关注：芯片股六连跌期间，资金从科技ETF大规模流向防御型ETF（XLV医疗+2.4%，XLP消费必需+2.0%）。这种"跷跷板"行情说明市场在重新定价，不是全面恐慌。</div>
+  <div class="why">→ 对Zoe的SCHD（高股息）是利好——防御型资金在流入</div>
+</div>
+<div class="kol-item">
+  <div class="name">📖 BrianFeroldi</div>
+  <div class="handle">@BrianFeroldi · 小白科普 · 近期观点</div>
+  <div class="take">近期观点：纳斯达克100从6月高点回调11%，进入"修正"区间。历史上，10%左右的回调在牛市中很常见，平均每年1-2次。重要的是不要在恐慌中做决定。</div>
+  <div class="why">→ QQQ从高点跌了11%，属于正常回调范围。不要恐慌抛售</div>
+</div>
+
+<!-- 📅 本周关注 -->
+<div class="section-title">📅 本周关注</div>
+<div class="cards">
+  <div class="card">
+    <div class="emoji">📊</div>
+    <div class="name">今晚 8:30PM</div>
+    <div class="price" style="font-size:16px;">GDP+PCE</div>
+    <div class="change up">关键数据</div>
+    <div class="note">二季度GDP+核心PCE</div>
+  </div>
+  <div class="card">
+    <div class="emoji">🛒</div>
+    <div class="name">明天盘后</div>
+    <div class="price" style="font-size:16px;">AMZN+AAPL</div>
+    <div class="change">财报</div>
+    <div class="note">亚马逊+苹果财报</div>
+  </div>
+  <div class="card">
+    <div class="emoji">⚔️</div>
+    <div class="name">持续关注</div>
+    <div class="price" style="font-size:16px;">中东局势</div>
+    <div class="change down">升级</div>
+    <div class="note">特朗普威胁打伊朗</div>
+  </div>
+  <div class="card">
+    <div class="emoji">🏦</div>
+    <div class="name">9月FOMC</div>
+    <div class="price" style="font-size:16px;">加息?</div>
+    <div class="change down">概率大</div>
+    <div class="note">市场已100%定价</div>
+  </div>
+</div>
+
+<!-- 🔗 快速入口 -->
+<div class="section-title">🔗 快速入口</div>
+<div class="links-grid">
+  <a href="https://finance.yahoo.com/quote/VOO/" target="_blank" class="link-card"><span class="emoji">📈</span><span class="name">VOO</span></a>
+  <a href="https://finance.yahoo.com/quote/QQQ/" target="_blank" class="link-card"><span class="emoji">🚀</span><span class="name">QQQ</span></a>
+  <a href="https://finance.yahoo.com/quote/SCHD/" target="_blank" class="link-card"><span class="emoji">💎</span><span class="name">SCHD</span></a>
+  <a href="https://finance.yahoo.com/quote/WDC/" target="_blank" class="link-card"><span class="emoji">💾</span><span class="name">WDC</span></a>
+  <a href="https://finance.yahoo.com/quote/NOK/" target="_blank" class="link-card"><span class="emoji">📱</span><span class="name">NOK</span></a>
+  <a href="https://finance.yahoo.com/quote/ECHO/" target="_blank" class="link-card"><span class="emoji">📡</span><span class="name">ECHO</span></a>
+  <a href="https://www.cnbc.com/" target="_blank" class="link-card"><span class="emoji">📺</span><span class="name">CNBC</span></a>
+  <a href="https://wallstreetcn.com/" target="_blank" class="link-card"><span class="emoji">📰</span><span class="name">华尔街见闻</span></a>
+</div>
+
+<footer>
+  🍉 Zoe的每日果园 · 2026-07-30<br>
+  数据来源：新华社、NeoData金融数据、Reuters/Stockopedia、CBOE、Nasdaq.com、中国基金报、21世纪经济报道、TipRanks、MarketWatch、Motley Fool<br>
+  ⚠️ <strong>免责声明：</strong>本日报仅供个人学习参考，不构成任何投资建议。投资有风险，决策请独立判断。<br>
+  Made with 💛 for Zoe
+</footer>
+
+</body>
+</html>
