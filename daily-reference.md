@@ -91,12 +91,12 @@
 ②   🍓 今日一句话            — 红色左边框，不超过30字
 ③   🌡️ 市场温度计            — 8个卡片，每行4个
 ④   ⚠️ 持仓预警（可选）       — 红色alert框，仅持仓有事件时出现
-⑤   📈 大资金流向（v5新增）   — 周一深度版/平日简版，板块轮动+ETF flows
-⑥   🧭 市场 Regime 判断（v5新增）— 周一必出，平日有信号才出
+⑤   📈 大资金流向（v5.1紧凑）  — 条形图+2列chip+chips+1句结论（2分钟阅读）
+⑥   🧭 市场 Regime 判断（v5新增）— 周一必出，平日有信号才出（反Hold已移至⑩）
 ⑦   📰 新闻翻译官            — 2条新闻，专业→大白话
 ⑧   👜 持仓速览              — 持仓列表（无账号无股数）+ 当日涨跌 + 心情emoji
 ⑨   👀 待观察清单            — 在等什么信号、什么时候该动
-⑩   🎯 行动信号板（v5替换今日建议）— 三类分类：现金调度/持仓维护/风险监控
+⑩   🎯 行动信号板（v5.1紧凑）— 现金调度+合并持仓信号（状态grid+反Hold chips+触发线）+风险监控chips
 ⑪   🔭 机会雷达              — 前瞻性机会，追踪已有+偶尔引入新方向
 ⑫   📖 每日一词              — 结合当日市场的金融术语
 ⑬   🐦 分析师笔记             — 2位KOL（1常驻+1轮换）
@@ -156,6 +156,16 @@ CSS 完全复用 `template.html` 的 `<style>` 块。AI 只需填充内容，不
 | `.signal-board` | 行动信号板（v5新增，蛋黄底+蛋黄边框） |
 | `.signal-section` / `.signal-title` / `.signal-item` | 行动信号板子元素 |
 | `.signal-item.trigger` / `.wait` / `.alert` | 信号项状态（绿/灰/红） |
+| `.bar-row` / `.bar-label` / `.bar-track` / `.bar-fill` / `.bar-value` | v5.1 板块相对强度条形图 |
+| `.bar-fill.up` / `.down` / `.flat` | 条形图填充色（绿涨/红跌/灰平） |
+| `.flow-grid-2col` | v5.1 紧凑资金流 2列 grid |
+| `.flow-chip` / `.flow-chip.green` / `.red` | v5.1 ETF 资金流 chip |
+| `.chip-row` / `.chip` / `.chip.warn` / `.chip.alert` | v5.1 Positioning 紧凑 chips |
+| `.flow-conclusion` | v5.1 资金流向结论行（蛋黄底） |
+| `.position-grid` | v5.1 持仓信号 2列 grid |
+| `.position-mini` / `.ok` / `.alert` / `.wait` | v5.1 紧凑持仓状态卡 |
+| `.antiheld-chips` / `.antiheld-chip.yes` / `.no` / `.wait` | v5.1 反Hold审查 chips |
+| `.trigger-line` / `.trigger-line.alert` | v5.1 触发线紧凑行 |
 | `.opportunity-box` | 机会雷达 |
 | `.term-box` | 每日一词 |
 | `.kol-item` | 分析师笔记 |

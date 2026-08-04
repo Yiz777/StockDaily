@@ -36,6 +36,18 @@
 2. **知道此刻发生了什么 + 在等什么信号 + 什么时候该把现金投进去**
 3. **攒钱定投**是主线，不做波段
 
+> ⚠️ **v5.2 极简约束（2分钟 + 大白话）**
+> 读者每天看日报只有 2 分钟，30 岁攒钱定投的上班族，**不懂美股专业术语**。
+> 所有板块必须遵循：
+> - **大白话优先**：不写 ETF 代码、不写专业术语（除非配合翻译）
+> - **砍掉用不上的**：SKEW/MOVE/contango/P/C/相关性/暗池 —— 小白不需要
+> - **只写跟自己有关**：板块只列有用的、ETF 资金流只列跟持仓相关的
+> - **一句话能说清的不用图表**：资金流向只写两句话（流向 + 对你的意义），不用 bar/grid/chip
+> - **每板块限 1 屏手机**（约 5-6 行内容）
+> - **结论优先**：每板块顶部 1 句话总结，详情在下方展开
+> - **只列有信号的**：维持持有的不展开触发线，只列 alert 的
+> - **合并相关板块**：持仓维护 + 反Hold 合为一个紧凑板块
+
 ---
 
 ## Step 0：时间锚定 + 读文件
@@ -158,7 +170,7 @@ Get-Date -Format "yyyy-MM-dd HH:mm dddd"
 
 每周一日报，对每只持仓执行"反 Hold 审查"（见 `portfolio-thesis.md` 的"📋 每周反 Hold 审查清单"）。
 
-**结果必须写入日报"🧭 市场 regime 判断"板块**，不允许偷懒。
+**结果必须写入日报"🎯 行动信号板"的持仓信号板块**（以 chips 形式呈现），不允许偷懒。
 
 ---
 
@@ -222,96 +234,142 @@ Get-Date -Format "yyyy-MM-dd HH:mm dddd"
 
 ---
 
-## 🎯 行动信号板（v5 新增板块）写法
+## 🎯 行动信号板（v5.1 紧凑版）写法
 
-**不再是单一的 HOLD/BUY/SELL**，而是分类清单：
+> **核心原则：2分钟阅读**。持仓信号不再每只展开 2-3 行触发线，而是用 2 列 grid + chips 呈现。反 Hold 审查合并到此处，不再放 Regime 板块。
 
 ### 模板
 
 ```html
 <div class="signal-board">
+  <!-- 现金调度（精简：最多2条） -->
   <div class="signal-section">
     <div class="signal-title">💵 现金调度</div>
-    <div class="signal-item trigger">✅ 触发：每月定投日 → 投 [X]% 到 VOO, [Y]% 到 SCHD</div>
-    <div class="signal-item wait">⏸️ 等待：VIX 仍 [数值]，不触发双倍定投</div>
+    <div class="signal-item trigger">✅ 触发：[1句话]</div>
+    <div class="signal-item wait">⏸️ 等待：[1句话]</div>
   </div>
-  
+
+  <!-- 持仓信号（合并：状态grid + 反Hold chips + 触发线） -->
   <div class="signal-section">
-    <div class="signal-title">🛡️ 持仓维护</div>
-    <div class="signal-item">SCHD：持有逻辑成立，HOLD</div>
-    <div class="signal-item alert">🚨 NOK：[价格] 接近止损线 $8.00！</div>
-    <div class="signal-item">ECHO：等 8/7 财报</div>
+    <div class="signal-title">🛡️ 持仓信号 · 今日状态</div>
+    <!-- 2列紧凑持仓状态 -->
+    <div class="position-grid">
+      <div class="position-mini ok"><span class="p-name">📈 VOO</span><span class="p-status">✅ 持有</span></div>
+      <div class="position-mini alert"><span class="p-name">🍔 MCD</span><span class="p-status">🚨 今天财报</span></div>
+      <!-- ... 8个position-mini -->
+    </div>
+    <!-- 反Hold审查：一行chips（每周一必出） -->
+    <div style="font-size:11px;color:var(--gray);margin:6px 0 2px;">📋 反Hold：如果今天现金开始还会买吗？</div>
+    <div class="antiheld-chips">
+      <span class="antiheld-chip yes">VOO ✅</span>
+      <span class="antiheld-chip no">NOK 💡</span>
+      <!-- ... 8个chip -->
+    </div>
+    <!-- 触发线：只列有信号的（alert），维持持有的不列 -->
+    <div class="trigger-line alert" style="margin-top:8px;">🚨 NOK：$9.36 > $8止损线 ✅ · 跌破$8→清仓</div>
+    <div class="trigger-line alert">🚨 ECHO：8/7财报 · miss→次日止损</div>
+    <!-- 底部统计 -->
+    <div class="trigger-line" style="margin-top:4px;">💡 4只会买 · 1只等财报 · 3只不会买但暂持</div>
   </div>
-  
+
+  <!-- 风险监控（精简为chips） -->
   <div class="signal-section">
     <div class="signal-title">⚠️ 风险监控</div>
-    <div class="signal-item">VIX：[数值]，状态 [正常/紧张/恐慌]</div>
-    <div class="signal-item">高收益债利差：[数值]</div>
+    <div class="chip-row">
+      <span class="chip">VIX 15.92 正常</span>
+      <span class="chip alert">MOVE +7.7% ⚠️</span>
+    </div>
   </div>
 </div>
 ```
 
-### 三大类信号
+### 格式规则
 
-| 类别 | 内容 | 触发条件 |
+| 元素 | 限制 | 说明 |
 |---|---|---|
-| 💵 现金调度 | 定投日 / 加仓机会 / 暂停定投 | portfolio-thesis.md 现金调度章节 |
-| 🛡️ 持仓维护 | 每只持仓的"今天该做什么" | 4 问审查结果 |
-| ⚠️ 风险监控 | VIX / 利差 / 信号灯 | rotation-review.md 触发清单 |
+| 现金调度 | 最多 2 条 | ✅ 触发 / ⏸️ 等待，各 1 句话 |
+| 持仓状态 grid | 2列 × 4行 = 8 个 | 每只 1 行：名称 + 状态emoji |
+| 反 Hold chips | 8 个 chip | yes/no/wait 三色，每周一必出 |
+| 触发线 | 只列 alert 的 | ✅/⏸️ 的不列，底部 1 行统计 |
+| 风险监控 | chips 最多 6 个 | 正常的用 .chip，异常的用 .chip.alert/.chip.warn |
 
-**关键纪律**：HOLD 必须给出"等什么 / 何时该动"。不允许孤立 HOLD。
+**关键纪律**：HOLD 必须给出"等什么/何时该动"。触发线必须来自 portfolio-thesis.md，不允许临场发挥。
 
 ---
 
-## 📈 大资金流向板块（v5 新增）写法
+## 📈 大资金流向板块（v5.3 极简版）写法
 
-### 每日简版
+> **核心原则：一句话能说清的事，不要用图表/grid/bar 来呈现**。
+> 读者只需要知道：钱从哪儿流向哪儿 + 对自己意味着什么。
+> VIX 已在市场温度计中展示，这里不重复。
+
+### 写法（只有两句话）
 
 ```html
 <div class="flow-box">
-  <div class="flow-title">📈 大资金流向 · [DATE]</div>
-  <div class="flow-summary">[一句话总结：今天资金在干什么]</div>
-  
-  <div class="flow-grid">
-    <div class="flow-item">🎯 板块：[XLK/XLP/XLF/XLE 相对变化]</div>
-    <div class="flow-item">💰 ETF：[QQQ/SPY/TLT/HYG 关键流向]</div>
-    <div class="flow-item">📊 Positioning：[VIX 结构 / put-call]</div>
-  </div>
-  
-  <div class="flow-implication">→ 对你的 implication：[1-2 句]</div>
+  <div class="flow-title">[大白话一句话，≤15字，例：钱从科技流向银行，但AI还是主力]</div>
+  <div class="flow-conclusion">→ 对你的意义：[1句话大白话，≤30字，例：科技股还在涨，安心拿稳。银行利好SCHD。]</div>
 </div>
 ```
+
+### 就这些。不要加：
+- ❌ 板块相对强度 bar-row 条形图
+- ❌ ETF 资金流 flow-grid-2col chip 网格
+- ❌ VIX risk-meter 温度计（温度计已有，不重复）
+- ❌ 任何"今天哪些行业在涨/跌"的小标题 + 展开列表
+
+### ETF 翻译参考表（AI 写句子时用，不呈现在日报里）
+
+| ETF 代码 | 小白翻译 |
+|---|---|
+| XLF | 银行保险 |
+| XLK | 科技巨头 |
+| SMH | 半导体芯片 |
+| XLE | 石油能源 |
+| IWM | 中小公司 |
+| XLV | 医药公司 |
+| XLY | 消费公司 |
+| XLP | 必选消费 |
+| XLU | 公用事业 |
 
 ### 周一深度版
 
+周一仍需执行 rotation-review.md 的周度复盘，但**日报里只呈现两句话**。深度复盘内容追加到 rotation-review.md，不在日报 HTML 里展开。
+
+### 🧭 市场 regime 判断板块（v5.2 小白版）
+
+**周一必出 / 平日有信号才出**。改用大白话标签：
+
 ```html
-<div class="flow-box weekly">
-  <div class="flow-title">📈 大资金流向 · 周报 [WEEK]</div>
-  
-  <div class="flow-section">
-    <div class="subtitle">📊 上周判断 vs 实际</div>
-    [表格：板块 / 上周判断 / 实际 / 命中？]
+<div class="regime-box">
+  <div class="regime-title">🧭 市场现在是啥风格？</div>
+  <div class="regime-current">
+    当前：<span class="regime-tag normal">🥰 大家都在买买买</span>
   </div>
-  
-  <div class="flow-section">
-    <div class="subtitle">💰 本周资金流</div>
-    [ETF 流入流出关键数据]
+  <div class="regime-evidence">
+    为什么这么说：[2-3 条大白话依据，例：科技股涨 / VIX 在 15 / 经济数据不错]
   </div>
-  
-  <div class="flow-section">
-    <div class="subtitle">🎯 下周关键判断</div>
-    [1-3 条]
+  <div class="regime-implication">
+    → 你该怎么做：[1 句大白话行动建议，例：保持定投，有钱就按计划加]
   </div>
-  
-  <div class="flow-implication">→ 对你的 implication：[对持仓的具体影响]</div>
 </div>
 ```
 
+**5 个 regime 翻译对照**（不许直接写英文术语）：
+
+| 标签 | 大白话说法 | 颜色 | 你的动作 |
+|---|---|---|---|
+| Risk-On | 🥰 大家都在买买买（贪婪模式） | 绿 | 安心持有 |
+| Risk-Off | 😨 大家都想跑（恐慌模式） | 红 | 准备加仓 |
+| Rotation | 🔄 钱在板块间挪来挪去 | 黄 | 观察你的持仓 |
+| Caution | 🤔 谨慎乐观（有点担心） | 橙 | 不加不减 |
+| Normal | 😊 正常波动 | 蓝 | 按计划来 |
+
 ---
 
-## 🧭 市场 regime 判断板块（v5 新增）写法
+## 🧭 市场 regime 判断板块（v5.1 精简版）写法
 
-**周一必出 / 平日有信号才出**：
+**周一必出 / 平日有信号才出**。反 Hold 审查已移至行动信号板，这里只保留判断+依据+建议。
 
 ```html
 <div class="regime-box">
@@ -320,16 +378,10 @@ Get-Date -Format "yyyy-MM-dd HH:mm dddd"
     当前：<span class="regime-tag [risk-on/risk-off/rotation]">[Risk-On / Risk-Off / Rotation]</span>
   </div>
   <div class="regime-evidence">
-    依据：[2-3 条关键信号]
+    依据：[2-3 条关键信号，每条1行]
   </div>
   <div class="regime-implication">
-    行动建议：[针对当前 regime 应做什么]
-  </div>
-  
-  <!-- 周一版追加 -->
-  <div class="regime-antiheld">
-    <div class="subtitle">📋 本周反 Hold 审查</div>
-    [对每只持仓的"如果今天现金"判断]
+    行动建议：[1句话，针对当前 regime 应做什么]
   </div>
 </div>
 ```
@@ -367,19 +419,19 @@ bash "C:/Users/zhao.zoe/Desktop/上海赫贤学校/0. Newsletter/publish.sh" "[�
 
 ---
 
-## 铁律（v5 共 24 条，新增 4 条）
+## 铁律（v5 共 26 条，新增 6 条）
 
 ### 不可动摇的底线
 1. 不写政治
 2. 不碰 A 股
-3. 大白话优先
+3. **大白话优先 (v5.2 升级)**：所有 ETF 代码必须翻译成"中文+类比"（XLF → 银行保险，SCHD → 美国红利等）。所有专业术语必须带小白解释（SKEW/contango/P/C/相关性等小白用不上的**直接砍掉**不许写）。读者是攒钱定投的上班族，不是金融从业者。
 4. 不制造焦虑
 5. 数据来自搜索，**绝不编造**
 6. 不编造 KOL 发言
 7. 大涨方向需评估风险回报比才能进雷达
 8. 没有合格方向写"今天没有"，不硬凑
 9. 持仓不显示 IBKR 账号和股数
-10. 资金流向必须说明"聪明钱在买什么"
+10. **资金流向只列"跟你的钱有关"**：板块相对强度用人话翻译，最多 5 个；ETF 资金流只列"你买了的同类"（QQQ/VOO/SCHD）+ 1 个对比项（大盘 vs 小盘）。**不写 GLD/国债/商品/暗池数据**——小白用不上。
 11. 标普500 和 SPY 不同时出现
 12. 休市日复用上一交易日数据，标注日期
 13. 必须执行全部步骤
@@ -395,8 +447,10 @@ bash "C:/Users/zhao.zoe/Desktop/上海赫贤学校/0. Newsletter/publish.sh" "[�
 20. **🎯 HOLD 必须配触发线**：任何 HOLD 必须给出"在等什么信号 / 何时该动"。不允许孤立 HOLD。**触发线必须来自 portfolio-thesis.md**，不允许临场发挥。
 21. **🚨 硬止损必须执行**：NOK 跌破 $8.00、ECHO 财报 miss 次日、WDC 财报 miss → 日报必须**红色突出标注**并明文要求执行，不允许"再等等"。
 22. **💵 每月定投日必触发**：每月 1 日（或当月第一个交易日），现金调度板块必须明文触发"按目标占比分配当月储蓄到 VOO/QQQ/SCHD/MCD"。
-23. **📈 每周一必出资金流向周报 + 反 Hold 审查**：周一日报必须包含"大资金流向深度版 + 反 Hold 审查（对每只持仓的逆向测试）"。不允许跳过。
+23. **📈 每周一必出资金流向周报 + 反 Hold 审查**：周一日报必须包含"大资金流向深度版 + 反 Hold 审查（在行动信号板的持仓信号板块中以 chips 呈现）"。不允许跳过。
 24. **🔮 判断必须复盘**：任何对市场的中长期判断（板块轮动 / regime 转换）必须留 timestamp，并写入 rotation-review.md。**预测对就是对，错就是错，不允许"说了就忘"**。
+25. **🚫 禁止使用小白看不懂的专业术语**：SKEW / MOVE / contango / P/C ratio / 相关性 / 暗池 / 久期 / 利差 —— 这些是给专业交易员看的，**日报里不许出现**。如果你发现需要解释这些术语，说明这个信息对小白读者没价值，砍掉。
+26. **🚫 禁止"结论简单但形式复杂"的视觉化**：如果一句话能说清楚的事（如"钱从科技流向银行"），**不要**用 bar-row 条形图 / flow-grid-2col chip 网格 / risk-meter 温度计来呈现。直接写句子。图表只用于"每条数据都承载不同信息"的场景（如持仓信号板每只持仓状态不同），不用于"整体结论只有一个"的场景。
 
 ---
 
@@ -471,5 +525,5 @@ MCP 工具优先：宏观数据监控 → 富途行情 → 股票分析器 → N
 | 判断复盘 | 无 | **rotation-review.md 留 timestamp** |
 | 触发线 | 笼统 | **每只持仓明确量化触发** |
 | 攒钱定投 | 隐含 | **主线策略，每月定投日必触发** |
-| 铁律数 | 20 条 | **24 条（新增 5 条决策纪律）** |
+| 铁律数 | 20 条 | **26 条（v5.2 砍术语 + v5.3 禁止简单结论套复杂形式）** |
 | 板块数 | 13 个 | **16 个（新增 3 个决策板块）** |
