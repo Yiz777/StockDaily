@@ -10,8 +10,10 @@
 | 项目 | 内容 |
 |---|---|
 | 姓名 | YI ZHAO (Zoe) |
-| 持仓 | SCHD(16.94) / VOO(0.60) / QQQ(0.55) / WDC(0.55) / MCD(0.50) / UNH(0.30) / NOK(10) / ECHO(1) | 现金 ~$1,010 |
-| 风险偏好 | 稳健，ETF 定投为主 |
+| 持仓 | SCHD(16.9403) / VOO(0.6775) / QQQ(0.7542) / WDC(0.55) / MCD(0.5029) / UNH(0.30) / NOK(10) / ECHO(1) | 现金 ~$823 |
+| 风险偏好 | **攒钱定投型**（不择时、不做波段、攒筹码），ETF 定投为主 |
+| 持仓策略矩阵 | `portfolio-thesis.md`（加仓/减仓/止损触发线 — 决策必读） |
+| 资金流向复盘 | `rotation-review.md`（板块轮动/ETF flows/周度复盘） |
 | 文件保存路径 | `0. Newsletter\[YYYY-MM-DD].html` + `.md`（纯英文文件名） |
 | 归档路径 | `0. Newsletter\归档\投资理财\` |
 | 首页文件 | `0. Newsletter\index.html` |
@@ -19,6 +21,7 @@
 | GitHub Pages | `https://Yiz777.github.io/StockDaily/` |
 | 发布脚本 | `bash publish.sh <参数>` (Git+微信一键推送) |
 | MD转换脚本 | `python html2md.py <file.html>` (HTML自动转MD) |
+| AI Prompt | `prompt-v5.md`（v5 信号驱动版 — 当前使用版本） |
 
 ---
 
@@ -34,7 +37,7 @@
 | 📈 @LizAnnSonders | Schwab 首席策略 | 市场结构/技术分析 |
 | 💰 @DividendGrowth | 分红投资 | SCHD 相关 |
 
-**规则**：3 条 KOL = 1 常驻(EricBalchunas) + 2 轮换。搜不到当天内容标"近期观点"，不编造。
+**规则**：2 条 KOL = 1 常驻(EricBalchunas) + 1 轮换。搜不到当天内容标"近期观点"，不编造。
 
 ---
 
@@ -81,22 +84,25 @@
 
 ---
 
-## 13 个固定板块（按顺序）
+## 16 个固定板块（v5，按顺序）
 
 ```
-①  🍉 Header            — 标题 + 日期 + badge标签
-②  🍓 今日一句话          — 红色左边框，不超过30字
-③  🌡️ 市场温度计          — 8个卡片，每行4个
-④  ⚠️ 持仓预警（可选）     — 红色alert框，仅持仓有事件时出现
-⑤  🔤 新闻翻译官          — 2-3条新闻，专业→大白话
-⑥  👜 持仓速览            — 持仓列表（无账号无股数）+ 当日涨跌 + 心情emoji
-⑦  👀 待观察清单          — 在等什么信号、什么时候该动（HOLD时必出）
-⑧  🧘 今日建议            — 黄色框，操作建议 + 编号理由
-⑨  🔭 机会雷达            — 前瞻性机会，追踪已有+偶尔引入新方向
-⑩  📖 每日一词            — 结合当日市场的金融术语
-⑪  🐦 分析师笔记           — 3位KOL（1常驻+2轮换）
-⑫  📅 本周关注            — 即将发生的事件卡片
-⑬  🔗 快速入口            — Yahoo Finance/CNBC/华尔街见闻等链接
+①   🍉 Header              — 标题 + 日期 + badge标签
+②   🍓 今日一句话            — 红色左边框，不超过30字
+③   🌡️ 市场温度计            — 8个卡片，每行4个
+④   ⚠️ 持仓预警（可选）       — 红色alert框，仅持仓有事件时出现
+⑤   📈 大资金流向（v5新增）   — 周一深度版/平日简版，板块轮动+ETF flows
+⑥   🧭 市场 Regime 判断（v5新增）— 周一必出，平日有信号才出
+⑦   📰 新闻翻译官            — 2条新闻，专业→大白话
+⑧   👜 持仓速览              — 持仓列表（无账号无股数）+ 当日涨跌 + 心情emoji
+⑨   👀 待观察清单            — 在等什么信号、什么时候该动
+⑩   🎯 行动信号板（v5替换今日建议）— 三类分类：现金调度/持仓维护/风险监控
+⑪   🔭 机会雷达              — 前瞻性机会，追踪已有+偶尔引入新方向
+⑫   📖 每日一词              — 结合当日市场的金融术语
+⑬   🐦 分析师笔记             — 2位KOL（1常驻+1轮换）
+⑭   📅 本周关注              — 即将发生的事件卡片
+⑮   🔗 快速入口              — Yahoo Finance/CNBC/华尔街见闻等链接
+⑯   Footer                 — 免责声明
 ```
 
 ---
@@ -128,7 +134,7 @@
 
 ## CSS 模板说明
 
-CSS 完全复用上一期 HTML 的 `<style>` 块。AI 只需填充内容，不改动 style 块。
+CSS 完全复用 `template.html` 的 `<style>` 块。AI 只需填充内容，不改动 style 块。
 
 关键 class 名：
 
@@ -141,9 +147,15 @@ CSS 完全复用上一期 HTML 的 `<style>` 块。AI 只需填充内容，不�
 | `.card .emoji` | 卡片emoji独占一行 |
 | `.card .name` | 卡片名称独占一行 |
 | `.alert-box` | 持仓预警红框 |
+| `.flow-box` / `.flow-box.weekly` | 大资金流向（v5新增，白底蓝边框/周报绿渐变） |
+| `.flow-title` / `.flow-summary` / `.flow-grid` / `.flow-item` / `.flow-implication` | 大资金流向子元素 |
+| `.regime-box` | 市场 Regime 判断（v5新增，白底蓝双边框） |
+| `.regime-tag.risk-on` / `.risk-off` / `.normal` / `.caution` / `.rotation` | Regime 标签颜色 |
 | `.translate-box` / `.translate-item` | 新闻翻译 |
 | `.portfolio` / `.bag-item` | 持仓列表 |
-| `.advice` | 今日建议黄框 |
+| `.signal-board` | 行动信号板（v5新增，蛋黄底+蛋黄边框） |
+| `.signal-section` / `.signal-title` / `.signal-item` | 行动信号板子元素 |
+| `.signal-item.trigger` / `.wait` / `.alert` | 信号项状态（绿/灰/红） |
 | `.opportunity-box` | 机会雷达 |
 | `.term-box` | 每日一词 |
 | `.kol-item` | 分析师笔记 |

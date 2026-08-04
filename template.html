@@ -12,9 +12,15 @@
   ███████╗██║  ██║╚██████╔╝██╔╝ ██╗ ███████╗██║ ╚████║
   ╚══════╝╚═╝  ╚═╝ ╚═════╝ ╚═╝  ╚═╝ ╚══════╝╚═╝  ╚═╝
 
-  ⚠️ 这是果园风格 CSS 模板文件。AI 生成日报时必须读取此文件获取完整 <style> 块。
+  ⚠️ 这是果园风格 CSS 模板文件（v5，新增 3 个决策板块）。
+  ⚠️ AI 生成日报时必须读取此文件获取完整 <style> 块。
   ⚠️ 不要自己写 CSS，不要修改 <style> 块，只替换 <body> 里的内容。
   ⚠️ 标题必须是「🍉 Zoe的每日果园」。
+
+  v5 新增板块（位于 v4 13 板块之上）：
+  - 📈 大资金流向（持仓预警之后、新闻翻译之前）
+  - 🧭 市场 Regime 判断（资金流向之后、新闻翻译之前；周一必出）
+  - 🎯 行动信号板（替换原"今日建议"）
 
   果园风格核心特征：
   - 鸡蛋黄背景 #fef9e7 + 蛋黄标题 #ffd43b + 棕色文字 #5d4e37
@@ -22,7 +28,8 @@
   - 页面宽度 900px
   - 温度计 4 列卡片（手机端 2 列）
   - 持仓速览蓝色背景 #d6e8f7
-  - 今日建议蛋黄背景 #fff3bf
+  - 行动信号板蛋黄背景 #fff3bf
+  - 资金流向白底蓝边框 / Regime 白底双边框
 -->
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=ZCOOL+KuaiLe&display=swap');
@@ -84,6 +91,47 @@ body { background: var(--cream); color: var(--brown); font-family: 'Nunito', 'Pi
 .link-card:hover { border-color: var(--blue); } .link-card .emoji { font-size: 26px; display: block; } .link-card .name { font-size: 13px; font-weight: 700; }
 footer { text-align: center; padding: 24px; color: var(--gray); font-size: 12px; }
 @media (max-width: 600px) { .header h1 { font-size: 24px; } .card .price { font-size: 19px; } .cards { grid-template-columns: repeat(2, 1fr) !important; } }
+
+/* ===== v5 新增板块样式（不要修改原有 CSS）===== */
+
+/* 📈 大资金流向板块 */
+.flow-box { background: white; border-radius: 16px; padding: 20px; margin-bottom: 20px; box-shadow: var(--card-shadow); border-left: 4px solid var(--blue); }
+.flow-box.weekly { border-left: 4px solid var(--green); background: linear-gradient(135deg, white 0%, var(--green-light) 100%); }
+.flow-title { font-family: 'ZCOOL KuaiLe', sans-serif; font-size: 20px; color: var(--blue-dark); margin-bottom: 8px; }
+.flow-summary { font-size: 15px; font-weight: 700; color: var(--brown); margin-bottom: 12px; padding: 8px 12px; background: var(--blue-light); border-radius: 8px; }
+.flow-grid { display: grid; grid-template-columns: 1fr; gap: 8px; margin-bottom: 12px; }
+.flow-item { background: var(--cream); padding: 8px 12px; border-radius: 8px; font-size: 13px; color: var(--brown); }
+.flow-item strong { color: var(--blue-dark); }
+.flow-section { padding: 10px 0; border-bottom: 1px dashed var(--blue-light); }
+.flow-section:last-of-type { border-bottom: none; }
+.flow-section .subtitle { font-weight: 800; font-size: 14px; color: var(--blue-dark); margin-bottom: 6px; }
+.flow-implication { background: var(--yolk-light); padding: 10px 14px; border-radius: 10px; font-size: 14px; color: var(--brown); font-weight: 600; margin-top: 8px; }
+
+/* 🎯 行动信号板块 */
+.signal-board { background: var(--yolk-light); border-radius: 20px; padding: 24px; margin-bottom: 20px; border: 2px solid var(--yolk); }
+.signal-section { background: white; border-radius: 14px; padding: 14px 18px; margin-bottom: 10px; }
+.signal-section:last-child { margin-bottom: 0; }
+.signal-title { font-family: 'ZCOOL KuaiLe', sans-serif; font-size: 16px; color: var(--blue-dark); margin-bottom: 8px; padding-bottom: 4px; border-bottom: 1px solid var(--blue-light); }
+.signal-item { font-size: 14px; color: var(--brown); padding: 6px 0; padding-left: 8px; border-left: 3px solid var(--gray); margin-bottom: 4px; }
+.signal-item.trigger { border-left-color: var(--green); background: var(--green-light); padding: 8px 12px; border-radius: 0 8px 8px 0; font-weight: 700; }
+.signal-item.wait { border-left-color: var(--gray); color: var(--gray); }
+.signal-item.alert { border-left-color: var(--red); background: var(--red-light); padding: 8px 12px; border-radius: 0 8px 8px 0; font-weight: 700; color: var(--red); }
+
+/* 🧭 市场 Regime 判断板块 */
+.regime-box { background: white; border-radius: 20px; padding: 24px; margin-bottom: 20px; box-shadow: var(--card-shadow); border: 2px solid var(--blue); }
+.regime-title { font-family: 'ZCOOL KuaiLe', sans-serif; font-size: 22px; color: var(--blue-dark); margin-bottom: 12px; }
+.regime-current { font-size: 16px; color: var(--brown); margin-bottom: 12px; }
+.regime-tag { padding: 4px 14px; border-radius: 20px; font-weight: 800; font-size: 14px; }
+.regime-tag.risk-on { background: var(--green); color: white; }
+.regime-tag.risk-off { background: var(--red); color: white; }
+.regime-tag.normal { background: var(--blue); color: white; }
+.regime-tag.caution { background: var(--yolk); color: var(--brown); }
+.regime-tag.rotation { background: #9b59b6; color: white; }
+.regime-evidence { background: var(--cream); padding: 12px 16px; border-radius: 10px; font-size: 14px; color: var(--brown); margin-bottom: 12px; }
+.regime-implication { background: var(--yolk-light); padding: 12px 16px; border-radius: 10px; font-size: 14px; color: var(--brown); font-weight: 600; margin-bottom: 12px; }
+.regime-antiheld { background: var(--blue-light); padding: 12px 16px; border-radius: 10px; }
+.regime-antiheld .subtitle { font-weight: 800; font-size: 14px; color: var(--blue-dark); margin-bottom: 6px; }
+.regime-antiheld .item { font-size: 13px; color: var(--brown); padding: 4px 0; }
 </style>
 </head>
 <body>
@@ -121,6 +169,30 @@ footer { text-align: center; padding: 24px; color: var(--gray); font-size: 12px;
 <!-- ⚠️ 持仓预警（可选） -->
 <!-- <div class="alert-box">...</div> -->
 
+<!-- 📈 大资金流向（v5 新增板块，周一深度版/平日简版） -->
+<div class="section-title">📈 大资金流向 · [DATE]</div>
+<div class="flow-box">
+  <div class="flow-title">[一句话总结：今天资金在干什么]</div>
+  <div class="flow-grid">
+    <div class="flow-item">🎯 板块：<strong>[XLK/XLP/XLF/XLE 相对变化]</strong></div>
+    <div class="flow-item">💰 ETF：<strong>[QQQ/SPY/TLT/HYG 关键流向]</strong></div>
+    <div class="flow-item">📊 Positioning：<strong>[VIX 结构 / put-call]</strong></div>
+  </div>
+  <div class="flow-implication">→ 对你的 implication：[1-2 句具体到持仓]</div>
+</div>
+
+<!-- 🧭 市场 Regime 判断（v5 新增板块，周一必出，平日有信号才出） -->
+<!-- <div class="regime-box">
+  <div class="regime-title">🧭 市场 Regime 判断</div>
+  <div class="regime-current">当前：<span class="regime-tag normal">[Risk-On / Risk-Off / Rotation]</span></div>
+  <div class="regime-evidence">依据：[2-3 条关键信号]</div>
+  <div class="regime-implication">行动建议：[针对当前 regime 应做什么]</div>
+  <div class="regime-antiheld">
+    <div class="subtitle">📋 本周反 Hold 审查</div>
+    <div class="item">[每只持仓的"如果今天现金"判断]</div>
+  </div>
+</div> -->
+
 <!-- 🔤 新闻翻译官 -->
 <div class="section-title">🔤 新闻翻译官</div>
 <div class="translate-box">
@@ -143,11 +215,24 @@ footer { text-align: center; padding: 24px; color: var(--gray); font-size: 12px;
 <!-- 👀 待观察清单 -->
 <!-- <div class="opportunity-box">...</div> -->
 
-<!-- 🧘 今日建议 — 蛋黄色背景 -->
-<div class="advice">
-  <div class="emoji">🧘‍♀️</div>
-  <div class="text">[HOLD/BUY/SELL]</div>
-  <div class="sub">[详细说明]</div>
+<!-- 🎯 行动信号板（v5 替换原"今日建议"，三类分类） -->
+<div class="section-title">🎯 行动信号板 · [DATE]</div>
+<div class="signal-board">
+  <div class="signal-section">
+    <div class="signal-title">💵 现金调度</div>
+    <div class="signal-item trigger">✅ 触发：[定投日 / VIX>30 / 加仓机会 / 强制分配]</div>
+    <div class="signal-item wait">⏸️ 等待：[VIX [数值]，不触发双倍定投]</div>
+  </div>
+  <div class="signal-section">
+    <div class="signal-title">🛡️ 持仓维护</div>
+    <div class="signal-item">[每只持仓一行：SCHD/VOO/QQQ/WDC/MCD/UNH/NOK/ECHO]</div>
+    <div class="signal-item alert">🚨 [止损/减仓信号，如有]</div>
+  </div>
+  <div class="signal-section">
+    <div class="signal-title">⚠️ 风险监控</div>
+    <div class="signal-item">VIX：[数值]，状态 [正常/紧张/恐慌]</div>
+    <div class="signal-item">高收益债利差：[数值]</div>
+  </div>
 </div>
 
 <!-- 🔭 机会雷达 -->
@@ -178,6 +263,10 @@ footer { text-align: center; padding: 24px; color: var(--gray); font-size: 12px;
   <a href="https://finance.yahoo.com/quote/QQQ/" target="_blank" class="link-card"><span class="emoji">🚀</span><span class="name">QQQ</span></a>
   <a href="https://finance.yahoo.com/quote/SCHD/" target="_blank" class="link-card"><span class="emoji">💎</span><span class="name">SCHD</span></a>
   <a href="https://finance.yahoo.com/quote/WDC/" target="_blank" class="link-card"><span class="emoji">💾</span><span class="name">WDC</span></a>
+  <a href="https://finance.yahoo.com/quote/MCD/" target="_blank" class="link-card"><span class="emoji">🍔</span><span class="name">MCD</span></a>
+  <a href="https://finance.yahoo.com/quote/UNH/" target="_blank" class="link-card"><span class="emoji">🏥</span><span class="name">UNH</span></a>
+  <a href="https://finance.yahoo.com/quote/NOK/" target="_blank" class="link-card"><span class="emoji">📱</span><span class="name">NOK</span></a>
+  <a href="https://finance.yahoo.com/quote/ECHO/" target="_blank" class="link-card"><span class="emoji">📡</span><span class="name">ECHO</span></a>
   <a href="https://www.cnbc.com/" target="_blank" class="link-card"><span class="emoji">📺</span><span class="name">CNBC</span></a>
   <a href="https://wallstreetcn.com/" target="_blank" class="link-card"><span class="emoji">📰</span><span class="name">华尔街见闻</span></a>
 </div>

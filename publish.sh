@@ -36,7 +36,9 @@ echo "=== Step 0: 自我修复（恢复关键文件）==="
 cp "$NEWSLETTER_DIR/daily-reference.md" "$CLAW_DIR/daily-reference.md" 2>/dev/null && echo "  daily-reference.md 已恢复" || true
 cp "$NEWSLETTER_DIR/html2md.py" "$CLAW_DIR/html2md.py" 2>/dev/null && echo "  html2md.py 已恢复" || true
 cp "$NEWSLETTER_DIR/send_wechat.py" "$CLAW_DIR/send_wechat.py" 2>/dev/null && echo "  send_wechat.py 已恢复" || true
-cp "$NEWSLETTER_DIR/prompt-v4.md" "$CLAW_DIR/prompt-v4.md" 2>/dev/null && echo "  prompt-v4.md 已恢复" || true
+cp "$NEWSLETTER_DIR/prompt-v5.md" "$CLAW_DIR/prompt-v5.md" 2>/dev/null && echo "  prompt-v5.md 已恢复" || true
+cp "$NEWSLETTER_DIR/portfolio-thesis.md" "$CLAW_DIR/portfolio-thesis.md" 2>/dev/null && echo "  portfolio-thesis.md 已恢复" || true
+cp "$NEWSLETTER_DIR/rotation-review.md" "$CLAW_DIR/rotation-review.md" 2>/dev/null && echo "  rotation-review.md 已恢复" || true
 # template.html 只在 Claw 中存在，复制到 0. Newsletter 备份
 cp "$CLAW_DIR/template.html" "$NEWSLETTER_DIR/template.html" 2>/dev/null || true
 # template.html 如果 Claw 中不存在，从 0. Newsletter 恢复

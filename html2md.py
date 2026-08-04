@@ -1,11 +1,13 @@
 #!/usr/bin/env python3
 """
-html2md.py - 把 Zoe 每日果园 HTML 日报转成 Markdown
-用法: python html2md.py 2026-07-03.html
-输出: 同目录下生成 2026-07-03.md
+html2md.py - 把 Zoe 每日果园 HTML 日报转成 Markdown (v5 兼容)
+用法: python html2md.py 2026-08-04.html
+输出: 同目录下生成 2026-08-04.md
 
 原理: HTML 结构固定(同一套CSS模板), 用针对性正则提取各板块内容
+v5: 新增 .flow-box / .signal-board / .regime-box 提取
 """
+
 import sys
 import re
 
@@ -29,14 +31,13 @@ def convert(html_path):
         html = f.read()
 
     lines = []
-    BASE = 'C:\\Users\\zhao.zoe\\Desktop\\上海赫贤学校\\0. Newsletter\\'
 
     # Header
     date_text = extract_text(html, r'<div class="date">(.*?)</div>')
     badges = re.findall(r'<span class="badge"[^>]*>(.*?)</span>', html, re.DOTALL)
     badge_str = ' · '.join(strip_tags(b) for b in badges)
-    lines.append(f'# 🍉 Zoe的每日果园')
-    lines.append(f'')
+    lines.append('# 🍉 Zoe的每日果园')
+    lines.append('')
     lines.append(f'> {date_text}')
     if badge_str:
         lines.append(f'> {badge_str}')
@@ -75,13 +76,70 @@ def convert(html_path):
         lines.append(f'> {alert_clean}')
         lines.append('')
 
+    # ===== v5 新增：大资金流向 =====
+    flow_text = extract_text(html, r'<div class="flow-box[^"]*">(.*?)</div>\s*(?:<!--|<div class="section|$)', default='')
+    if flow_text:
+        lines.append('## 📈 大资金流向')
+        flow_title = extract_text(flow_text, r'<div class="flow-title">(.*?)</div>')
+        flow_summary = extract_text(flow_text, r'<div class="flow-summary">(.*?)</div>')
+        flow_items = re.findall(r'<div class="flow-item[^"]*">(.*?)</div>', flow_text, re.DOTALL)
+        flow_imp = extract_text(flow_text, r'<div class="flow-implication">(.*?)</div>')
+        flow_sections = re.findall(r'<div class="flow-section">(.*?)</div>\s*(?=<div class="flow-section|<div class="flow-implication|$)', flow_text, re.DOTALL)
+
+        if flow_title:
+            lines.append(f'**{strip_tags(flow_title)}**')
+            lines.append('')
+        if flow_summary:
+            lines.append(f'> {strip_tags(flow_summary)}')
+            lines.append('')
+        if flow_items:
+            for item in flow_items:
+                lines.append(f'- {strip_tags(item)}')
+            lines.append('')
+        if flow_sections:
+            for section in flow_sections:
+                subtitle = extract_text(section, r'<div class="subtitle">(.*?)</div>')
+                if subtitle:
+                    lines.append(f'**{strip_tags(subtitle)}**')
+                    # Extract table or content after subtitle
+                    section_clean = section.replace(extract_text(section, r'<div class="subtitle">.*?</div>'), '')
+                    lines.append(strip_tags(section_clean))
+                    lines.append('')
+        if flow_imp:
+            lines.append(f'→ {strip_tags(flow_imp)}')
+            lines.append('')
+
+    # ===== v5 新增：市场 Regime 判断 =====
+    regime_text = extract_text(html, r'<div class="regime-box">(.*?)</div>\s*(?:<!--|<div class="section|$)', default='')
+    if regime_text:
+        lines.append('## 🧭 市场 Regime 判断')
+        regime_title = extract_text(regime_text, r'<div class="regime-title">(.*?)</div>')
+        regime_current = extract_text(regime_text, r'<div class="regime-current">(.*?)</div>')
+        regime_evidence = extract_text(regime_text, r'<div class="regime-evidence">(.*?)</div>')
+        regime_imp = extract_text(regime_text, r'<div class="regime-implication">(.*?)</div>')
+        regime_antiheld = extract_text(regime_text, r'<div class="regime-antiheld">(.*?)</div>')
+
+        if regime_current:
+            lines.append(f'当前：{strip_tags(regime_current)}')
+            lines.append('')
+        if regime_evidence:
+            lines.append(f'依据：{strip_tags(regime_evidence)}')
+            lines.append('')
+        if regime_imp:
+            lines.append(f'行动建议：{strip_tags(regime_imp)}')
+            lines.append('')
+        if regime_antiheld:
+            lines.append(f'**反 Hold 审查**')
+            lines.append(strip_tags(regime_antiheld))
+            lines.append('')
+
     # 新闻翻译官
     translate_items = re.findall(
         r'<div class="translate-item">(.*?)</div>\s*(?=<div class="translate-item|</div>\s*<!--)',
         html, re.DOTALL
     )
     if translate_items:
-        lines.append('## 🔤 新闻翻译官')
+        lines.append('## 📰 新闻翻译官')
         for item in translate_items:
             tag = extract_text(item, r'<span class="tag[^"]*">(.*?)</span>')
             original = extract_text(item, r'<div class="original">(.*?)</div>')
@@ -110,28 +168,51 @@ def convert(html_path):
             lines.append(f'| {strip_tags(icon)} {strip_tags(code)} | {strip_tags(desc)} | {strip_tags(price)} {strip_tags(pct)} | |')
         lines.append('')
 
-    # 今日建议
-    advice_text = extract_text(html, r'<div class="text">(.*?)</div>\s*<div class="sub">', default='')
-    if advice_text:
-        advice_full = extract_text(html, r'<div class="advice">(.*?)</div>\s*</div>\s*</div>', default='')
-        if not advice_full:
-            advice_full = extract_text(html, r'<div class="advice">(.*?)</div>', default='')
-        lines.append('## 🧘 今日建议')
-        lines.append(f'🧘‍♀️ {strip_tags(advice_text)}')
-        # 提取理由
-        reasons = re.findall(r'<br>\s*(1️⃣|2️⃣|3️⃣|4️⃣)(.*?)(?:<br>|$)', advice_full, re.DOTALL)
-        if reasons:
+    # ===== v5：行动信号板（替换原"今日建议"）=====
+    signal_text = extract_text(html, r'<div class="signal-board">(.*?)</div>\s*(?:<!--|<div class="section|$)', default='')
+    if signal_text:
+        lines.append('## 🎯 行动信号板')
+        # 提取各 signal-section
+        signal_sections = re.findall(
+            r'<div class="signal-section">(.*?)</div>\s*(?=<div class="signal-section|$)',
+            signal_text, re.DOTALL
+        )
+        for section in signal_sections:
+            sig_title = extract_text(section, r'<div class="signal-title">(.*?)</div>')
+            sig_items = re.findall(r'<div class="signal-item[^"]*">(.*?)</div>', section, re.DOTALL)
+            if sig_title:
+                lines.append(f'### {strip_tags(sig_title)}')
+            for item in sig_items:
+                lines.append(f'- {strip_tags(item)}')
             lines.append('')
-            for num, reason in reasons:
-                lines.append(f'{num} {strip_tags(reason)}')
-        lines.append('')
+    else:
+        # 向后兼容 v4：今日建议 (.advice)
+        advice_text = extract_text(html, r'<div class="text">(.*?)</div>\s*<div class="sub">', default='')
+        if advice_text:
+            advice_full = extract_text(html, r'<div class="advice">(.*?)</div>\s*</div>\s*</div>', default='')
+            if not advice_full:
+                advice_full = extract_text(html, r'<div class="advice">(.*?)</div>', default='')
+            lines.append('## 🧘 今日建议')
+            lines.append(f'🧘‍♀️ {strip_tags(advice_text)}')
+            # 提取理由（兼容 ①②③④ 和 1️⃣2️⃣3️⃣4️⃣ 两种编号格式）
+            reasons = re.findall(r'<br>\s*([①②③④⑤1️⃣2️⃣3️⃣4️⃣5️⃣])(.*?)(?:<br>|$)', advice_full, re.DOTALL)
+            if reasons:
+                lines.append('')
+                for num, reason in reasons:
+                    lines.append(f'{num} {strip_tags(reason)}')
+            lines.append('')
 
-    # 机会雷达
-    opp_text = extract_text(html, r'<div class="opportunity-box">(.*?)</div>\s*</div>\s*</div>', default='')
-    if not opp_text:
-        opp_text = extract_text(html, r'<div class="opportunity-box">(.*?)</div>', default='')
-    if opp_text:
-        lines.append('## 🔭 机会雷达')
+    # 机会雷达 & 待观察清单（都使用 .opportunity-box，按出现顺序区分）
+    opp_boxes = re.findall(
+        r'<div class="opportunity-box">(.*?)</div>\s*(?:<!--|<div class="section|$)',
+        html, re.DOTALL
+    )
+    for i, opp_text in enumerate(opp_boxes):
+        # 判断是待观察清单还是机会雷达
+        if '待观察' in opp_text or '👀' in opp_text[:100]:
+            lines.append('## 👀 待观察清单')
+        else:
+            lines.append('## 🔭 机会雷达')
         opp_clean = strip_tags(opp_text)
         lines.append(opp_clean)
         lines.append('')
