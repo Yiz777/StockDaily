@@ -14,7 +14,7 @@
 | `template.html` | 视觉模板 | 只读（生成时复制 CSS） |
 | `prompt-v5.md`（本文件） | AI 行为规范 | 只读 |
 | `daily-reference.md` | KOL 池 + 板块说明 + 学习路径 | 只读 |
-| `portfolio-thesis.md` | **持仓策略矩阵** | 只读（执行所写规则） |
+| `portfolio-thesis.md` | **持仓策略** | 只读（执行所写规则） |
 | `rotation-review.md` | **资金流向周线复盘** | 可追加周度复盘条目 |
 | `watchlist.md` | 观察清单 | 可更新内容（不可删文件） |
 
@@ -59,7 +59,7 @@ Get-Date -Format "yyyy-MM-dd HH:mm dddd"
 **必须读取的文件**（按顺序）：
 1. `prompt-v5.md`（本文件）
 2. `daily-reference.md`（休市日历 + KOL 池）
-3. **`portfolio-thesis.md`**（持仓策略矩阵 — 决策依据）
+3. **`portfolio-thesis.md`**（持仓策略 — 决策依据）
 4. **`rotation-review.md`**（资金流向复盘 — 前瞻判断）
 5. `watchlist.md`（观察清单）
 6. `template.html`（CSS 模板）
@@ -136,41 +136,44 @@ Get-Date -Format "yyyy-MM-dd HH:mm dddd"
 
 ---
 
-## Step 2：决策层（v5 全新）— 必读 portfolio-thesis.md
+## Step 2：决策层 — 必读 portfolio-thesis.md
 
 **在写任何"今日建议"之前，必须执行这套决策流程。**
 
+### 2.0 信号扫描（每天第一步，结论必须写进日报）
+
+读 `portfolio-thesis.md` 的「🚦 操作信号分级」，先判断今天属于哪一层：
+
+- **有信号**（🟡 信号层任一条：持仓股逻辑破坏 / 大盘单周跌>10% / 换汇到账 / 现金>15% / 30天内有重大事件 / 个股财报 beat）→ 在「今日建议」板块明确标注信号 + 建议动作，不要含糊
+- **无信号（纯噪音，🟢 噪音层）** → 在「今日建议」板块写清楚信号状态（🟢无信号）+ 安抚句：
+  > 「今日无操作信号（纯波动噪音），安心拿着。**什么情况下会让你动**：持仓股逻辑破坏（财报 miss / 监管拆分）、大盘单周跌>10%、换汇到账、或 30 天内有重大事件。详见 portfolio-thesis.md 操作信号分级。」
+
+**目的**：用户反馈"大跌大涨都不让操作，感觉框架绝对不让动"。所以要主动告诉用户「为什么今天不动」+「什么时候会让你动」，消除"被绑住"的错觉。噪音忽略没错，但必须明示。
+
 ### 2.1 持仓审查（对每只持仓）
 
-读 `portfolio-thesis.md`，对每只持仓问 4 个问题：
+读 `portfolio-thesis.md`，对每只持仓检查：
 
-| 问题 | 触发动作 |
+| 检查项 | 触发动作 |
 |---|---|
-| ① 今天触及加仓线了吗？ | 触及 → 在"🎯 行动信号板"标注 ✅ 加仓信号 |
-| ② 今天触及减仓/退出线了吗？ | 触及 → 标注 🚨 **必须执行** |
-| ③ 持有逻辑还成立吗？ | 不成立 → 标注 ⚠️ 建议减仓 + 理由 |
-| ④ 如果今天现金开始，我还会买这个吗？ | 不会 → 标注 💡 建议转移 |
+| 买入逻辑被破坏了吗？（看财报，不看价格） | 被破坏 → 标注 🚨 建议卖出 + 理由 |
+| 最近有财报出来吗？ | 有 → 评估财报结论，更新持仓状态 |
+| 大盘回调 10%+ 且基本面没坏？ | 是 → 标注 ✅ 加仓信号 |
 
-**特别硬规则**：
-- **NOK 跌破 $8.00 → 必须清仓**（portfolio-thesis.md 明文规定）
-- **ECHO 8/7 财报 miss → 次日开盘立即止损**
-- **WDC 财报 miss 或 CapEx 指引下修 → 立即减仓 1/2**
+**注意**：不再设硬止损线，不再每天盯价格。个股平时状态为"持有"，财报季系统性评估；但出现重大即时事件（DOJ 强制拆分、财报突发 miss、大客户砍 CapEx）立即评估，不等财报。NOK 和 ECHO 已移入历史持仓档案。
 
-### 2.2 现金调度审查（核心）
+### 2.2 现金调度审查
 
 读 `portfolio-thesis.md` 的"💵 现金调度"章节，问：
 
-- 今天是每月定投日吗？（每月 1 日或发薪日）→ 触发定投建议
-- VIX > 30 了吗？→ 触发双倍定投建议
-- VIX > 40 了吗？→ 触发"把现金打光"建议
-- 现金 > 15% 了吗（且持续 2 个月）？→ 强制分配建议
-- VIX < 12 + RSI > 85 吗？→ 暂停定投建议
+- 现金 > 15% 了吗？→ 建议分批投入
+- 现金 < 5% 了吗？→ 建议暂停投入
+- 30 天内有重大事件？→ 建议留 50% 等结果
+- 大盘回调 10%+ 且基本面没坏？→ 建议用 30% 现金加仓
 
-### 2.3 反 Hold 审查（每周一必做）
+### 2.3 财报季评估（每季度）
 
-每周一日报，对每只持仓执行"反 Hold 审查"（见 `portfolio-thesis.md` 的"📋 每周反 Hold 审查清单"）。
-
-**结果必须写入日报"🎯 行动信号板"的持仓信号板块**（以 chips 形式呈现），不允许偷懒。
+每季度个股财报出来后，对每只持仓评估：买入逻辑还成立吗？财报数据有没有破坏买入前提？不成立 → 标注建议卖出。**不再每周做反 Hold 审查**。
 
 ---
 
@@ -221,10 +224,10 @@ Get-Date -Format "yyyy-MM-dd HH:mm dddd"
 | 4 | 持仓预警 | ⚠️ | 可选 |
 | 5 | **🆕 大资金流向** | 📈 | 周一深度 / 平日简版 |
 | 6 | **🆕 市场 regime 判断** | 🧭 | 周一必出，平日有信号才出 |
-| 7 | 新闻翻译官 | 📰 | 2 条 |
+| 7 | 新闻翻译官 | 📰 | **≥3 条** |
 | 8 | 持仓速览 | 👜 | 蓝色背景，无账号股数 |
-| 9 | 观察清单 | 👀 | 待观察标的 |
-| 10 | **🆕 行动信号板** | 🎯 | 替换原"今日建议" |
+| 9 | 观察清单 | 👀 | **2列紧凑卡片**（名称+现价+状态badge+触发线） |
+| 10 | **🆕 今日建议** | 🧘 | 信号pill + 持仓chips + 为什么不动3条 + 什么时候会动 |
 | 11 | 机会雷达 | 🔭 | 维持观察 |
 | 12 | 每日一词 | 📖 | 教育性 |
 | 13 | 分析师笔记 | 🐦 | 2 条 |
@@ -234,52 +237,33 @@ Get-Date -Format "yyyy-MM-dd HH:mm dddd"
 
 ---
 
-## 🎯 行动信号板（v5.1 紧凑版）写法
+## 🧘 今日建议（v6.4 清爽版）写法
 
-> **核心原则：2分钟阅读**。持仓信号不再每只展开 2-3 行触发线，而是用 2 列 grid + chips 呈现。反 Hold 审查合并到此处，不再放 Regime 板块。
+> **核心原则：2分钟阅读，排版清爽好扫读**。信号状态用 pill 明确标出，持仓状态用 chips 呈现，不堆一段密密麻麻的字。不再每周做反 Hold 审查（改为每季度财报季评估）。
 
 ### 模板
 
 ```html
-<div class="signal-board">
-  <!-- 现金调度（精简：最多2条） -->
-  <div class="signal-section">
-    <div class="signal-title">💵 现金调度</div>
-    <div class="signal-item trigger">✅ 触发：[1句话]</div>
-    <div class="signal-item wait">⏸️ 等待：[1句话]</div>
+<div class="advice">
+  <div class="advice-head">
+    <span class="signal-pill alert">🟡 今日有信号</span>
+    <span class="advice-summary">[信号一句话，例：WDC今晚财报+周五非农，现金留着等结果]</span>
   </div>
-
-  <!-- 持仓信号（合并：状态grid + 反Hold chips + 触发线） -->
-  <div class="signal-section">
-    <div class="signal-title">🛡️ 持仓信号 · 今日状态</div>
-    <!-- 2列紧凑持仓状态 -->
-    <div class="position-grid">
-      <div class="position-mini ok"><span class="p-name">📈 VOO</span><span class="p-status">✅ 持有</span></div>
-      <div class="position-mini alert"><span class="p-name">🍔 MCD</span><span class="p-status">🚨 今天财报</span></div>
-      <!-- ... 8个position-mini -->
-    </div>
-    <!-- 反Hold审查：一行chips（每周一必出） -->
-    <div style="font-size:11px;color:var(--gray);margin:6px 0 2px;">📋 反Hold：如果今天现金开始还会买吗？</div>
-    <div class="antiheld-chips">
-      <span class="antiheld-chip yes">VOO ✅</span>
-      <span class="antiheld-chip no">NOK 💡</span>
-      <!-- ... 8个chip -->
-    </div>
-    <!-- 触发线：只列有信号的（alert），维持持有的不列 -->
-    <div class="trigger-line alert" style="margin-top:8px;">🚨 NOK：$9.36 > $8止损线 ✅ · 跌破$8→清仓</div>
-    <div class="trigger-line alert">🚨 ECHO：8/7财报 · miss→次日止损</div>
-    <!-- 底部统计 -->
-    <div class="trigger-line" style="margin-top:4px;">💡 4只会买 · 1只等财报 · 3只不会买但暂持</div>
+  <div class="hold-chips">
+    <span class="hchip">📈 VOO <span class="s-ok">持有</span></span>
+    <span class="hchip">🚀 QQQ <span class="s-ok">持有</span></span>
+    <span class="hchip">💎 SCHD <span class="s-ok">持有</span></span>
+    <span class="hchip">💾 WDC <span class="s-alert">财报验证</span></span>
+    <span class="hchip">🏥 UNH <span class="s-wait">等DOJ</span></span>
+    <span class="hchip">🍔 MCD <span class="s-ok">稳健</span></span>
   </div>
-
-  <!-- 风险监控（精简为chips） -->
-  <div class="signal-section">
-    <div class="signal-title">⚠️ 风险监控</div>
-    <div class="chip-row">
-      <span class="chip">VIX 15.92 正常</span>
-      <span class="chip alert">MOVE +7.7% ⚠️</span>
-    </div>
+  <div class="advice-why">
+    <div class="why-title">为什么今天不动（纯波动噪音，不是亏钱）</div>
+    <div class="why-item">1️⃣ [理由1]</div>
+    <div class="why-item">2️⃣ [理由2]</div>
+    <div class="why-item">3️⃣ [理由3]</div>
   </div>
+  <div class="advice-action">💡 <strong>什么时候会让你动</strong>：持仓股逻辑破坏（财报 miss / 监管拆分）、大盘单周跌&gt;10%、换汇到账、或 30 天内有重大事件。详见 portfolio-thesis.md「操作信号分级」。</div>
 </div>
 ```
 
@@ -287,11 +271,10 @@ Get-Date -Format "yyyy-MM-dd HH:mm dddd"
 
 | 元素 | 限制 | 说明 |
 |---|---|---|
-| 现金调度 | 最多 2 条 | ✅ 触发 / ⏸️ 等待，各 1 句话 |
-| 持仓状态 grid | 2列 × 4行 = 8 个 | 每只 1 行：名称 + 状态emoji |
-| 反 Hold chips | 8 个 chip | yes/no/wait 三色，每周一必出 |
-| 触发线 | 只列 alert 的 | ✅/⏸️ 的不列，底部 1 行统计 |
-| 风险监控 | chips 最多 6 个 | 正常的用 .chip，异常的用 .chip.alert/.chip.warn |
+| 信号 pill | 板块最顶部，每天必出 | 🟢今日无信号（绿pill）/ 🟡今日有信号（红pill）+ 一句话摘要 |
+| 持仓状态 chips | 6 个 | VOO/QQQ/SCHD/WDC/UNH/MCD，每个 chip：名称 + 状态（绿持有/棕等/红验证） |
+| 为什么不动 | 3 条 | 每条 1 行，说清"为什么今天不操作" |
+| 什么时候会动 | 1 条高亮蓝条 | 永远保留，写清信号层触发条件 |
 
 **关键纪律**：HOLD 必须给出"等什么/何时该动"。触发线必须来自 portfolio-thesis.md，不允许临场发挥。
 
@@ -447,7 +430,7 @@ bash "C:/Users/zhao.zoe/Desktop/上海赫贤学校/0. Newsletter/publish.sh" "[�
 20. **🎯 HOLD 必须配触发线**：任何 HOLD 必须给出"在等什么信号 / 何时该动"。不允许孤立 HOLD。**触发线必须来自 portfolio-thesis.md**，不允许临场发挥。
 21. **🚨 硬止损必须执行**：NOK 跌破 $8.00、ECHO 财报 miss 次日、WDC 财报 miss → 日报必须**红色突出标注**并明文要求执行，不允许"再等等"。
 22. **💵 每月定投日必触发**：每月 1 日（或当月第一个交易日），现金调度板块必须明文触发"按目标占比分配当月储蓄到 VOO/QQQ/SCHD/MCD"。
-23. **📈 每周一必出资金流向周报 + 反 Hold 审查**：周一日报必须包含"大资金流向深度版 + 反 Hold 审查（在行动信号板的持仓信号板块中以 chips 呈现）"。不允许跳过。
+23. **📈 每周一必出资金流向周报**：周一日报必须包含"大资金流向深度版"。不再每周做反 Hold 审查（改为每季度财报季评估）。
 24. **🔮 判断必须复盘**：任何对市场的中长期判断（板块轮动 / regime 转换）必须留 timestamp，并写入 rotation-review.md。**预测对就是对，错就是错，不允许"说了就忘"**。
 25. **🚫 禁止使用小白看不懂的专业术语**：SKEW / MOVE / contango / P/C ratio / 相关性 / 暗池 / 久期 / 利差 —— 这些是给专业交易员看的，**日报里不许出现**。如果你发现需要解释这些术语，说明这个信息对小白读者没价值，砍掉。
 26. **🚫 禁止"结论简单但形式复杂"的视觉化**：如果一句话能说清楚的事（如"钱从科技流向银行"），**不要**用 bar-row 条形图 / flow-grid-2col chip 网格 / risk-meter 温度计来呈现。直接写句子。图表只用于"每条数据都承载不同信息"的场景（如持仓信号板每只持仓状态不同），不用于"整体结论只有一个"的场景。
@@ -508,7 +491,7 @@ MCP 工具优先：宏观数据监控 → 富途行情 → 股票分析器 → N
 
 - 夏令时 8:00 / 冬令时 9:00（盘后数据最全） — **主任务**
 - 每月 1 日 / 当月第一个交易日 → **定投日，必触发**
-- 每周一 → **资金流向周报 + 反 Hold 审查，必出**
+- 每周一 → **资金流向周报，必出**
 - 手动触发不限时间，自动适配美股时段
 
 ---
@@ -517,11 +500,11 @@ MCP 工具优先：宏观数据监控 → 富途行情 → 股票分析器 → N
 
 | 维度 | v4 | v5 |
 |---|---|---|
-| 决策依据 | 临场判断 | **portfolio-thesis.md**（持仓策略矩阵） |
+| 决策依据 | 临场判断 | **portfolio-thesis.md**（持仓策略） |
 | 资金流向 | 1 条搜索词，无板块 | **独立板块 + 周报机制** |
 | 行动建议 | 单一 HOLD/BUY/SELL | **分类信号板（现金/持仓/风险）** |
 | Regime 判断 | 无 | **每周一深度版 + 平日信号版** |
-| 反 Hold 审查 | 无 | **每周一对每只持仓强制执行** |
+| 反 Hold 审查 | 无 | **每季度财报季评估**（不再每周做） |
 | 判断复盘 | 无 | **rotation-review.md 留 timestamp** |
 | 触发线 | 笼统 | **每只持仓明确量化触发** |
 | 攒钱定投 | 隐含 | **主线策略，每月定投日必触发** |

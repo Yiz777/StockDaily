@@ -12,15 +12,20 @@
   ███████╗██║  ██║╚██████╔╝██╔╝ ██╗ ███████╗██║ ╚████║
   ╚══════╝╚═╝  ╚═╝ ╚═════╝ ╚═╝  ╚═╝ ╚══════╝╚═╝  ╚═╝
 
-  ⚠️ 这是果园风格 CSS 模板文件（v6 极简版）。
+  ⚠️ 这是果园风格 CSS 模板文件（v6.4 清爽阅读版）。
   ⚠️ AI 生成日报时必须读取此文件获取完整 <style> 块。
   ⚠️ 不要自己写 CSS，不要修改 <style> 块，只替换 <body> 里的内容。
   ⚠️ 标题必须是「🍉 Zoe的每日果园」。
 
-  v6.2 核心原则：不用图表，但要把"为什么"讲清楚。HOLD不是默认答案——必须让读者看到每只持仓的触发线。
+  v6.4 核心原则：不用图表，但要把"为什么"讲清楚。HOLD不是默认答案——必须让读者看到每只持仓的触发线。排版清爽、好扫读优先。
+  v6.4 更新：
+  - 待观察清单改为「2列紧凑卡片」：每只持仓 = 名称+现价 + 状态badge + 1行触发线。不用密集虚线文字块。
+  - 今日建议改为「信号pill + 持仓状态chips + 为什么不动3条 + 什么时候会动高亮条」，不再密密麻麻一段字。
+  - 新闻翻译官至少 3 条。
+  v6.3 遗留：今日建议必须明确「今天的信号状态」（🟢无信号安心持 / 🟡有信号要动），并写明「什么时候会让你动」。
   - 大资金流向：三段式（流向总结 + 为什么2-3条 + 对你的意义）
-  - 待观察清单：每只持仓一行触发线（现价+状态+什么时候该动），不用grid/chips
-  - 今日建议：黄框 + 持仓状态一句话 + 3条理由
+  - 待观察清单：2列紧凑卡片（名称+现价+状态badge+触发线）
+  - 今日建议：信号pill + 持仓状态chips + 为什么不动3条 + 什么时候会动高亮条
   - 机会雷达：2-3个方向
   - 分析师笔记：3条（1常驻+2轮换）
   - 不再有"市场Regime判断"板块（结论永远一样，不需要单独板块）
@@ -100,6 +105,33 @@ footer { text-align: center; padding: 24px; color: var(--gray); font-size: 12px;
 .flow-reason { font-size: 14px; color: var(--brown); line-height: 2; margin-top: 6px; padding: 10px 14px; background: #f8f6f0; border-radius: 10px; }
 .flow-reason strong { color: var(--blue-dark); }
 .flow-conclusion { background: var(--yolk-light); padding: 8px 14px; border-radius: 10px; font-size: 14px; color: var(--brown); font-weight: 600; margin-top: 10px; }
+
+/* ===== v6.4 待观察清单：2列紧凑卡片（替代密集虚线文字块）===== */
+.watch-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:10px; margin-bottom:8px; }
+.watch-card { background:white; border-radius:12px; padding:12px 14px; box-shadow:var(--card-shadow); border-left:4px solid var(--blue); }
+.watch-card .w-top { display:flex; justify-content:space-between; align-items:center; gap:6px; }
+.watch-card .w-name { font-weight:700; font-size:14px; color:var(--brown); }
+.watch-card .w-name em { font-style:normal; color:var(--gray); font-size:12px; margin-left:5px; }
+.watch-card .w-badge { font-size:11px; font-weight:700; padding:2px 9px; border-radius:10px; white-space:nowrap; }
+.watch-card .w-badge.ok { background:var(--green-light); color:var(--green); }
+.watch-card .w-badge.wait { background:var(--yolk-light); color:var(--brown); }
+.watch-card .w-badge.alert { background:var(--red-light); color:var(--red); }
+.watch-card .w-trigger { font-size:12px; color:var(--brown); margin-top:7px; line-height:1.5; }
+@media (max-width:600px){ .watch-grid{ grid-template-columns:1fr; } }
+
+/* ===== v6.4 今日建议：信号pill + 持仓chips + 高亮行动条 ===== */
+.advice-head { display:flex; align-items:center; gap:10px; flex-wrap:wrap; justify-content:center; margin-bottom:12px; }
+.signal-pill { font-size:15px; font-weight:800; padding:4px 16px; border-radius:20px; }
+.signal-pill.calm { background:var(--green-light); color:var(--green); }
+.signal-pill.alert { background:var(--red); color:white; }
+.advice-summary { font-family:'ZCOOL KuaiLe',sans-serif; font-size:19px; color:var(--brown); }
+.hold-chips { display:flex; flex-wrap:wrap; gap:6px; justify-content:center; margin-bottom:14px; }
+.hchip { font-size:12px; font-weight:600; padding:3px 11px; border-radius:12px; background:white; color:var(--blue-dark); box-shadow:var(--card-shadow); }
+.hchip .s-ok { color:var(--green); } .hchip .s-wait { color:var(--brown); } .hchip .s-alert { color:var(--red); }
+.advice-why { text-align:left; background:rgba(255,255,255,0.55); border-radius:12px; padding:12px 14px; margin-bottom:12px; }
+.advice-why .why-title { font-weight:800; font-size:13px; color:var(--blue-dark); margin-bottom:6px; }
+.advice-why .why-item { font-size:13px; color:var(--brown); line-height:1.7; }
+.advice-action { background:var(--blue); color:white; border-radius:12px; padding:10px 14px; font-size:13px; font-weight:600; line-height:1.6; }
 </style>
 </head>
 <body>
@@ -150,11 +182,24 @@ footer { text-align: center; padding: 24px; color: var(--gray); font-size: 12px;
   <div class="flow-conclusion">→ 对你的意义：[1句话大白话，≤30字]</div>
 </div>
 
-<!-- 🔤 新闻翻译官 -->
+<!-- 🔤 新闻翻译官（至少 3 条） -->
 <div class="section-title">🔤 新闻翻译官</div>
 <div class="translate-box">
   <div class="translate-item">
     <span class="tag green">[TAG]</span>
+    <div class="original">[ENGLISH]</div>
+    <div class="simple">💬 [大白话翻译]</div>
+    <div class="impact">→ [影响]</div>
+  </div>
+  <!-- 至少再补 2 条，总共 ≥3 条 -->
+  <div class="translate-item">
+    <span class="tag red">[TAG]</span>
+    <div class="original">[ENGLISH]</div>
+    <div class="simple">💬 [大白话翻译]</div>
+    <div class="impact">→ [影响]</div>
+  </div>
+  <div class="translate-item">
+    <span class="tag">[TAG]</span>
     <div class="original">[ENGLISH]</div>
     <div class="simple">💬 [大白话翻译]</div>
     <div class="impact">→ [影响]</div>
@@ -173,28 +218,32 @@ footer { text-align: center; padding: 24px; color: var(--gray); font-size: 12px;
   </div>
 </div>
 
-<!-- 👀 待观察清单（v6.2: 每只持仓一行触发线 + 事件日历） -->
+<!-- 👀 待观察清单（v6.4: 2列紧凑卡片，每只持仓触发线） -->
 <div class="section-title">👀 待观察清单 · 每只持仓什么时候该动</div>
-<div class="opportunity-box">
-  <div style="font-weight:700;font-size:15px;color:var(--blue-dark);margin-bottom:10px;">🎯 持仓触发线一览（不用记，看这里）</div>
-  <div style="font-size:14px;color:var(--brown);line-height:2.2;">
-    <div style="padding:6px 0;border-bottom:1px dashed var(--blue-light);">
-      📱 <strong>NOK</strong> $[PRICE] → 🟢安全（止损线$8.00，还有X%缓冲）<br>
-      <span style="color:var(--red);font-size:13px;">⚠️ 跌破$8.50→评估减半 / 跌破$8.00→立即清仓（铁律）</span>
-    </div>
-    <div style="padding:6px 0;border-bottom:1px dashed var(--blue-light);">
-      📡 <strong>ECHO</strong> $[PRICE] → 🟡D-Day倒计时X天<br>
-      <span style="color:var(--red);font-size:13px;">⚠️ 8/7财报miss→次日开盘止损 / beat→持有 / 财报前涨>30%→提前减半锁利</span>
-    </div>
-    <div style="padding:6px 0;border-bottom:1px dashed var(--blue-light);">
-      💾 <strong>WDC</strong> $[PRICE] → 🟢持有（周期上行中段）<br>
-      <span style="color:var(--red);font-size:13px;">⚠️ 财报miss或CapEx指引下修→减仓1/2</span>
-    </div>
-    <div style="padding:6px 0;border-bottom:1px dashed var(--blue-light);">
-      🏥 <strong>UNH</strong> $[PRICE] → 🟡暂缓加仓<br>
-      <span style="color:var(--red);font-size:13px;">⚠️ DOJ反垄断调查升级→立即评估减仓 / MLR>90%连续→评估减仓</span>
-    </div>
-    <!-- ... SCHD/QQQ/VOO/MCD 各一行 -->
+<div class="watch-grid">
+  <div class="watch-card">
+    <div class="w-top"><span class="w-name">💾 WDC <em>$[PRICE]</em></span><span class="w-badge alert">🚨 今晚财报</span></div>
+    <div class="w-trigger">财报miss或CapEx指引下修 → 减仓1/2</div>
+  </div>
+  <div class="watch-card">
+    <div class="w-top"><span class="w-name">🏥 UNH <em>$[PRICE]</em></span><span class="w-badge wait">🟡 等DOJ</span></div>
+    <div class="w-trigger">DOJ反垄断升级 → 立即评估减仓</div>
+  </div>
+  <div class="watch-card">
+    <div class="w-top"><span class="w-name">🇺🇸 VOO <em>$[PRICE]</em></span><span class="w-badge ok">✅ 持有</span></div>
+    <div class="w-trigger">换汇到账分配40% · VIX&gt;30加仓窗口 · 永不减仓</div>
+  </div>
+  <div class="watch-card">
+    <div class="w-top"><span class="w-name">🚀 QQQ <em>$[PRICE]</em></span><span class="w-badge ok">✅ 持有</span></div>
+    <div class="w-trigger">换汇到账分配20% · 回调&gt;15%加仓 · VIX&gt;35减仓1/3</div>
+  </div>
+  <div class="watch-card">
+    <div class="w-top"><span class="w-name">💎 SCHD <em>$[PRICE]</em></span><span class="w-badge ok">✅ 持有</span></div>
+    <div class="w-trigger">换汇到账分配30% · 回调&gt;5%加仓 · VIX&gt;30加仓窗口</div>
+  </div>
+  <div class="watch-card">
+    <div class="w-top"><span class="w-name">🍔 MCD <em>$[PRICE]</em></span><span class="w-badge ok">✅ 持有</span></div>
+    <div class="w-trigger">回调&gt;10%加仓 · 同店连2季负增长或P/E&gt;30 → 减仓</div>
   </div>
 </div>
 
@@ -205,19 +254,27 @@ footer { text-align: center; padding: 24px; color: var(--gray); font-size: 12px;
   </div>
 </div>
 
-<!-- 🧘 今日建议（v6.2: 黄框 + 持仓状态一句话 + 3条理由） -->
+<!-- 🧘 今日建议（v6.4: 信号pill + 持仓chips + 为什么不动 + 什么时候会动） -->
 <div class="advice">
-  <div class="emoji">🧘‍♀️</div>
-  <div class="text">[一句话操作建议]</div>
-  <div style="font-size:13px;color:var(--blue-dark);font-weight:600;margin:8px 0 4px;">
-    📋 持仓状态：[VOO/QQQ/SCHD定投持有 · NOK安全(>$8) · ECHO周五D-Day · UNH等DOJ · WDC周期上行]
+  <div class="advice-head">
+    <span class="signal-pill alert">🟡 今日有信号</span>
+    <span class="advice-summary">[信号一句话，例：WDC今晚财报+周五非农，现金留着等结果]</span>
   </div>
-  <div class="sub">
-    理由很充分：<br>
-    1️⃣ [理由1]<br>
-    2️⃣ [理由2]<br>
-    3️⃣ [理由3]
+  <div class="hold-chips">
+    <span class="hchip">📈 VOO <span class="s-ok">持有</span></span>
+    <span class="hchip">🚀 QQQ <span class="s-ok">持有</span></span>
+    <span class="hchip">💎 SCHD <span class="s-ok">持有</span></span>
+    <span class="hchip">💾 WDC <span class="s-alert">财报验证</span></span>
+    <span class="hchip">🏥 UNH <span class="s-wait">等DOJ</span></span>
+    <span class="hchip">🍔 MCD <span class="s-ok">稳健</span></span>
   </div>
+  <div class="advice-why">
+    <div class="why-title">为什么今天不动（纯波动噪音，不是亏钱）</div>
+    <div class="why-item">1️⃣ [理由1]</div>
+    <div class="why-item">2️⃣ [理由2]</div>
+    <div class="why-item">3️⃣ [理由3]</div>
+  </div>
+  <div class="advice-action">💡 <strong>什么时候会让你动</strong>：持仓股逻辑破坏（财报 miss / 监管拆分）、大盘单周跌&gt;10%、换汇到账、或 30 天内有重大事件。详见 portfolio-thesis.md「操作信号分级」。</div>
 </div>
 
 <!-- 🔭 机会雷达（v6.2: 2-3个方向） -->
@@ -271,8 +328,6 @@ footer { text-align: center; padding: 24px; color: var(--gray); font-size: 12px;
   <a href="https://finance.yahoo.com/quote/WDC/" target="_blank" class="link-card"><span class="emoji">💾</span><span class="name">WDC</span></a>
   <a href="https://finance.yahoo.com/quote/MCD/" target="_blank" class="link-card"><span class="emoji">🍔</span><span class="name">MCD</span></a>
   <a href="https://finance.yahoo.com/quote/UNH/" target="_blank" class="link-card"><span class="emoji">🏥</span><span class="name">UNH</span></a>
-  <a href="https://finance.yahoo.com/quote/NOK/" target="_blank" class="link-card"><span class="emoji">📱</span><span class="name">NOK</span></a>
-  <a href="https://finance.yahoo.com/quote/ECHO/" target="_blank" class="link-card"><span class="emoji">📡</span><span class="name">ECHO</span></a>
   <a href="https://www.cnbc.com/" target="_blank" class="link-card"><span class="emoji">📺</span><span class="name">CNBC</span></a>
   <a href="https://wallstreetcn.com/" target="_blank" class="link-card"><span class="emoji">📰</span><span class="name">华尔街见闻</span></a>
 </div>
