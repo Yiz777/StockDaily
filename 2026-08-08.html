@@ -94,7 +94,7 @@ footer { text-align: center; padding: 24px; color: var(--gray); font-size: 12px;
 @media (max-width:600px){ .watch-grid{ grid-template-columns:1fr; } }
 
 /* ===== v6.4 今日建议：信号pill + 持仓chips + 高亮行动条 ===== */
-.advice-head { display:flex; align-items:center; gap:10px; flex-wrap:wrap; justify-content:center; margin-bottom:12px; }
+.advice-head { display:flex; flex-direction:column; align-items:center; gap:8px; margin-bottom:14px; }
 .signal-pill { font-size:15px; font-weight:800; padding:4px 16px; border-radius:20px; }
 .signal-pill.calm { background:var(--green-light); color:var(--green); }
 .signal-pill.alert { background:var(--red); color:white; }
@@ -113,254 +113,254 @@ footer { text-align: center; padding: 24px; color: var(--gray); font-size: 12px;
 <!-- 🍉 Header -->
 <div class="header">
   <h1>🍉 Zoe的每日果园</h1>
-  <div class="date">2026-08-08 · 周六 · 美股休市（周末）</div>
+  <div class="date">2026-08-08 · 星期六 · 美股休市（数据截至8月7日收盘）</div>
   <div>
-    <span class="badge alert">🚨 非农爆冷 -2.3万！</span>
-    <span class="badge">美元/人民币 6.75</span>
-    <span class="badge">金价 $4,342</span>
-    <span class="badge">VIX 14.97 乐观</span>
+    <span class="badge">💰 美元/人民币 ~6.75</span>
+    <span class="badge">🥇 金价 $4,342</span>
+    <span class="badge">📊 VIX 14.90 正常</span>
   </div>
 </div>
 
 <!-- 🍓 今日一句话 -->
 <div class="one-liner">
   <div class="label">🍓 今日一句话</div>
-  <div class="text">7月非农意外减少2.3万（预期+8万），加息预期大降温，标普再创历史新高7,758点！周末愉快，安心休息。</div>
+  <div class="text">非农暴冷-2.3万，加息预期大降，大盘反弹但WDC续跌</div>
 </div>
 
-<!-- 🌡️ 市场温度计 -->
-<div class="section-title">🌡️ 市场温度计 · 2026-08-08（8/7收盘）</div>
+<!-- 🌡️ 市场温度计 — 8卡片4列 -->
+<div class="section-title">🌡️ 市场温度计 · 8月7日收盘</div>
 <div class="cards">
   <div class="card">
     <div class="emoji">📈</div>
     <div class="name">标普500</div>
-    <div class="price">7,757.64</div>
+    <div class="price">7,758</div>
     <div class="change up">+0.62%</div>
-    <div class="note">🆕 再创历史新高！</div>
+    <div class="note">逼近历史新高</div>
   </div>
   <div class="card">
-    <div class="emoji">💻</div>
+    <div class="emoji">🚀</div>
     <div class="name">纳斯达克</div>
-    <div class="price">26,690.62</div>
+    <div class="price">26,691</div>
     <div class="change up">+1.30%</div>
-    <div class="note">科技强势反弹</div>
+    <div class="note">科技领涨</div>
   </div>
   <div class="card">
-    <div class="emoji">🏦</div>
+    <div class="emoji">🏭</div>
     <div class="name">道琼斯</div>
-    <div class="price">54,036.93</div>
+    <div class="price">54,037</div>
     <div class="change up">+0.28%</div>
-    <div class="note">稳定上涨</div>
+    <div class="note">+151点</div>
   </div>
   <div class="card">
-    <div class="emoji">😌</div>
-    <div class="name">VIX恐慌</div>
-    <div class="price">14.97</div>
-    <div class="change down">乐观</div>
-    <div class="note">低于15，极度平静</div>
+    <div class="emoji">📊</div>
+    <div class="name">恐慌指数VIX</div>
+    <div class="price">14.90</div>
+    <div class="change down">-1.65%</div>
+    <div class="note">正常偏低</div>
   </div>
   <div class="card">
     <div class="emoji">🥇</div>
     <div class="name">黄金</div>
     <div class="price">$4,342</div>
     <div class="change up">+2.39%</div>
-    <div class="note">非农+弱美元推高</div>
+    <div class="note">避险需求升温</div>
   </div>
   <div class="card">
     <div class="emoji">🛢️</div>
     <div class="name">WTI原油</div>
     <div class="price">$78.18</div>
     <div class="change up">+1.15%</div>
-    <div class="note">中东地缘风险升温</div>
+    <div class="note">霍尔木兹僵局</div>
   </div>
   <div class="card">
-    <div class="emoji">💱</div>
+    <div class="emoji">💵</div>
     <div class="name">美元/人民币</div>
     <div class="price">6.75</div>
-    <div class="change down">弱美元</div>
-    <div class="note">人民币继续走强</div>
+    <div class="change down">微升</div>
+    <div class="note">非农后美元走弱</div>
   </div>
   <div class="card">
-    <div class="emoji">₿</div>
-    <div class="name">比特币</div>
-    <div class="price">$64,400</div>
-    <div class="change down">持平</div>
-    <div class="note">ETF流入回暖</div>
+    <div class="emoji">📉</div>
+    <div class="name">10年国债</div>
+    <div class="price">4.62%</div>
+    <div class="change down">-6bp</div>
+    <div class="note">非农弱→利率降</div>
   </div>
 </div>
 
 <!-- ⚠️ 持仓预警 -->
 <div class="alert-box">
-  <div class="alert-title">⚠️ 持仓预警 · 非农落地 + WDC连跌</div>
+  <div class="alert-title">⚠️ WDC 连续两日下跌，但买入逻辑未破</div>
   <div class="alert-body">
-    <strong>① 🚨 非农结果揭晓：意外负增长 -2.3万</strong>（预期+8万）。5月从+12.9万下修至+6.3万，6月从+5.7万下修至+2万，两个月合计下修10.3万。<span class="rule">→ 9月加息概率从55%骤降至44%，利好你手里的VOO/QQQ（加息预期降=估值压力小）。</span><br>
-    <strong>② WDC连跌第2天：$434.30 (-3.81%)</strong>。从财报前$548跌到$434，两天跌掉21%。存储板块整体弱（希捷-4%、闪迪-3%、海力士-3%）。<span class="rule">→ 按规则：财报beat+逻辑没破 → 持有不动，不因为跌了就卖。</span><br>
-    <strong>③ 现金$913.70仍然偏高（~30%）</strong>：非农已落地，可以开始考虑分批投出了。<span class="rule">→ 但下周有CPI（周三），建议分批：先投一半，留一半等CPI。</span>
+    WDC 从 $519（8/5收盘）跌到 $434（8/7收盘），两天跌了 16%。但财报全面 beat（收入+44%、EPS $3.56 超预期、指引上调），暴跌原因是今年涨了 500%+ 后获利回吐。<br>
+    <span class="rule">📋 操作规则：</span>等 WDC 企稳在 $440 以上后，可用 10% 现金加仓。当前 $434，还没到企稳信号，继续等。
   </div>
 </div>
 
 <!-- 📈 大资金流向 -->
-<div class="section-title">📈 大资金流向 · 2026-08-07（周五收盘）</div>
+<div class="section-title">📈 大资金流向 · 8月7日</div>
 <div class="flow-box">
-  <div class="flow-title">非农炸出利率拐点预期，钱涌向科技成长和黄金</div>
+  <div class="flow-title">钱追成长股和消费，能源银行落后</div>
   <div class="flow-reason">
     <strong>为什么？</strong><br>
-    • 非农-2.3万远超预期→加息概率从55%降至44%→科技成长股（QQQ+1.3%）重新获得资金青睐，软件股暴涨（Atlassian+35%、Twilio+25%）<br>
-    • 黄金单日+2.39%破$4,340：弱美元+降息预期+避险三重驱动，全球央行Q2增持289吨黄金（+62%），说明各国也在用脚投票弱美元<br>
-    • 存储芯片继续失血：WDC/闪迪/海力士全线-3%到-4%，市场在担心存储周期接近顶部，但光通信（Coherent+13%）逆势暴涨——钱不是离开半导体，是在半导体内部调仓
+    • 非农暴冷-2.3万（预期+8万），加息概率从58%暴降到40%，利好高估值成长股，纳指+1.30%领涨<br>
+    • 材料板块+1.52%和消费板块+1.34%领涨，市场赌"弱就业=政府要加大刺激"<br>
+    • 能源板块-1.16%最差，伊朗霍尔木兹海峡谈判有进展但落地存疑，油价维持高位<br>
+    • 美银看涨指标升到9.7（2021年来最高），极度乐观是反向信号，需警惕
   </div>
-  <div class="flow-conclusion">→ 对你的意义：QQQ/VOO受益于加息预期降温，存储短期拖累WDC但不改长期逻辑。黄金跟你无关（没买），ETF核心稳住。</div>
+  <div class="flow-conclusion">→ 对你的意义：QQQ 涨了1.2%受益最大，SCHD里的银行股拖了后腿但问题不大</div>
 </div>
 
 <!-- 🔤 新闻翻译官 -->
 <div class="section-title">🔤 新闻翻译官</div>
 <div class="translate-box">
   <div class="translate-item">
-    <span class="tag red">🚨 非农炸了</span>
-    <div class="original">July NFP: -23,000 vs expected +80,000. Unemployment 4.1% vs 4.2%. Labor participation 61.4% (lowest since 2021). May revised 129K→63K, June 57K→20K. Sept rate hike probability drops from 55% to 44%.</div>
-    <div class="simple">💬 7月美国不但没增加就业，反而少了2.3万个岗位——市场原本以为会增加8万个。失业率降到4.1%，但这是因为26.4万人退出劳动力市场（不找工作了），不是真的人人都有工作</div>
-    <div class="impact">→ 9月加息概率从55%降到44%，加息预期降温利好你的VOO和QQQ（利率不涨=股票估值压力小）</div>
+    <span class="tag red">非农</span>
+    <div class="original">"July nonfarm payrolls fell by 23,000, missing estimates for an increase of about 80,000. Unemployment rate fell to 4.1%." — BLS</div>
+    <div class="simple">💬 7月非农就业不仅没增加，反而少了2.3万人！市场本来预期增加8万。失业率降到4.1%但不是因为找到工作，是因为人退出劳动力市场了。</div>
+    <div class="impact">→ 加息概率从58%暴降到40%，大盘因此反弹。但说明经济在放缓，不是好事</div>
   </div>
   <div class="translate-item">
-    <span class="tag green">标普新高</span>
-    <div class="original">S&P 500 closed at 7,757.64 (+0.62%), a new all-time high. Nasdaq +1.30%, Dow +0.28%. Russell 2000 +1.10%. 9 of 11 sectors gained; Materials +1.52%, Consumer Discretionary +1.34% led.</div>
-    <div class="simple">💬 非农越差股市越涨——因为市场赌美联储不敢再加息了。标普500突破前高，又又又创历史新高了。几乎所有板块都在涨，只有能源小跌</div>
-    <div class="impact">→ 你的VOO（标普500）和QQQ（科技）都涨了，账户在回血中</div>
+    <span class="tag red">地缘</span>
+    <div class="original">"Vessel traffic through Hormuz dwindles to 33 vessels this week vs 50 in prior week. US expects deal soon." — Reuters</div>
+    <div class="simple">💬 霍尔木兹海峡（全球1/5石油必经之地）船只通行量从上周50艘暴降到33艘。美国说和伊朗的协议"快了"，但还没落地。</div>
+    <div class="impact">→ 油价维持高位（WTI $78），如果协议达成油价可能回落，通胀压力减轻</div>
   </div>
   <div class="translate-item">
-    <span class="tag">软件大爆发</span>
-    <div class="original">Atlassian +35%, Twilio +25% on blowout earnings; SpaceX +15.83% bounce. But WDC -3.81%, Seagate -4%, Sandisk -3% as storage weakness continues.</div>
-    <div class="simple">💬 软件公司Atlassian财报超预期单日涨35%，Twilio涨25%——市场在奖励"AI真的帮他们赚到钱"的公司。存储芯片继续跌，但半导体整体涨了2%（SOXX+2.13%）——钱在板块内部换座位</div>
-    <div class="impact">→ WDC被存储板块拖累但逻辑没破（云需求还在涨），耐心等板块情绪修复</div>
+    <span class="tag">半导体</span>
+    <div class="original">"Korea KOSPI fell 4.59%, SK Hynix -10%. Leveraged ETF unwinding triggered sidecar circuit breaker. Japan exports surpassed by Korea and Taiwan in AI era." —多家</div>
+    <div class="simple">💬 韩国股市暴跌4.6%，SK海力士跌10%，杠杆ETF爆仓引发连锁抛售。今年上半年韩国和台湾出口额首次超越日本，AI芯片需求是关键差距。</div>
+    <div class="impact">→ 全球半导体板块承压，WDC也受拖累。但韩国是短期去杠杆，不改AI存储长期需求</div>
   </div>
   <div class="translate-item">
-    <span class="tag">霍尔木兹升温</span>
-    <div class="original">Iran reviewing Hormuz Strait shipping restrictions; Yemen Houthi attacks on Saudi Arabia. Oil +1.15% to $78.18. Gold +2.39% to $4,342.</div>
-    <div class="simple">💬 伊朗在审查霍尔木兹海峡航行限制草案，也门胡塞武装袭击沙特——中东又不太平了。油价小涨、黄金大涨，说明市场同时在担心"通胀可能又起来"和"美国经济可能变差"这两种矛盾的事</div>
-    <div class="impact">→ 油价涨对你的SCHD里能源股是利好；黄金涨跟你无关（你没买），但反映市场在避险</div>
+    <span class="tag green">中国变量</span>
+    <div class="original">"CXMT (长鑫存储) refuses Apple's price cut, quotes at or above Samsung/SK Hynix levels. Huawei, Xiaomi lock capacity with long-term contracts." —每日经济新闻</div>
+    <div class="simple">💬 中国存储芯片厂长鑫拒绝了苹果的压价，报价跟三星、SK海力士一样甚至更高。华为小米用长期合同锁定产能。</div>
+    <div class="impact">→ 国产DRAM从"被动替代"走向"主动定价"，存储芯片行业定价权在变化，WDC面临竞争但需求也在涨</div>
   </div>
 </div>
 
 <!-- 👜 持仓速览 -->
 <div class="section-title">👜 持仓速览</div>
 <div class="portfolio">
-  <div class="title">📋 持仓速览 · 数据截至8/7美股收盘</div>
+  <div class="title">📋 持仓速览 · 数据截至8月7日收盘</div>
   <div class="bag-item"><div><span class="icon">🇺🇸</span><span class="n">VOO</span><span class="d">标普500ETF</span></div><div style="text-align:right;"><div class="v">$710.71</div><div class="p up">+0.61% 🙂</div></div></div>
-  <div class="bag-item"><div><span class="icon">🚀</span><span class="n">QQQ</span><span class="d">纳斯达克100</span></div><div style="text-align:right;"><div class="v">$723.03</div><div class="p up">+1.17% 🙂</div></div></div>
+  <div class="bag-item"><div><span class="icon">🚀</span><span class="n">QQQ</span><span class="d">纳指100ETF</span></div><div style="text-align:right;"><div class="v">$723.03</div><div class="p up">+1.17% 🙂</div></div></div>
   <div class="bag-item"><div><span class="icon">💎</span><span class="n">SCHD</span><span class="d">红利ETF</span></div><div style="text-align:right;"><div class="v">$33.90</div><div class="p up">+0.59% 🙂</div></div></div>
   <div class="bag-item"><div><span class="icon">💾</span><span class="n">WDC</span><span class="d">西部数据</span></div><div style="text-align:right;"><div class="v">$434.30</div><div class="p down">-3.81% 😅</div></div></div>
   <div class="bag-item"><div><span class="icon">🍔</span><span class="n">MCD</span><span class="d">麦当劳</span></div><div style="text-align:right;"><div class="v">$274.48</div><div class="p down">-0.64% 🤧</div></div></div>
   <div class="bag-item"><div><span class="icon">🏥</span><span class="n">UNH</span><span class="d">联合健康</span></div><div style="text-align:right;"><div class="v">$407.08</div><div class="p up">+0.77% 🙂</div></div></div>
   <div class="summary">
-    💰 现金$913.70 · 总净值~$3,014 · 4涨2跌 · QQQ +1.17%最佳🚀 · WDC -3.81%最差😅
+    💰 现金~$914 · 总净值~$3,014 · 4涨2跌 · QQQ +1.17% 🙂 · WDC -3.81% 😅
   </div>
-  <div class="cleared">
-    ✅ NOK / ECHO 已清仓（按v2策略），回笼现金并入$913.70
-  </div>
+  <div class="cleared">✅ NOK / ECHO 已清仓，回笼现金。现金占比~30%，远高于5-10%目标</div>
 </div>
 
 <!-- 👀 待观察清单 -->
 <div class="section-title">👀 待观察清单 · 每只持仓什么时候该动</div>
 <div class="watch-grid">
   <div class="watch-card">
-    <div class="w-top"><span class="w-name">💾 WDC <em>$434</em></span><span class="w-badge wait">🟡 等企稳</span></div>
-    <div class="w-trigger">财报beat+逻辑没破→持有；下季miss才减仓1/2。连跌21%后等$420-440区间企稳</div>
+    <div class="w-top"><span class="w-name">💾 WDC <em>$434</em></span><span class="w-badge alert">🟡 等企稳</span></div>
+    <div class="w-trigger">等企稳$440以上→可用10%现金加仓 · 财报miss或CapEx下修→减仓1/2</div>
   </div>
   <div class="watch-card">
     <div class="w-top"><span class="w-name">🏥 UNH <em>$407</em></span><span class="w-badge wait">🟡 等DOJ</span></div>
-    <div class="w-trigger">DOJ反垄断升级 → 立即评估减仓</div>
+    <div class="w-trigger">DOJ反垄断升级→立即评估减仓 · 医疗赔付率>90%→减仓</div>
   </div>
   <div class="watch-card">
     <div class="w-top"><span class="w-name">🇺🇸 VOO <em>$711</em></span><span class="w-badge ok">✅ 持有</span></div>
-    <div class="w-trigger">换汇到账分配40% · VIX&gt;30加仓窗口 · 永不减仓</div>
+    <div class="w-trigger">换汇到账分配40% · VIX>30加仓窗口 · 永不减仓</div>
   </div>
   <div class="watch-card">
     <div class="w-top"><span class="w-name">🚀 QQQ <em>$723</em></span><span class="w-badge ok">✅ 持有</span></div>
-    <div class="w-trigger">换汇到账分配20% · 回调&gt;15%加仓 · VIX&gt;35减仓1/3</div>
+    <div class="w-trigger">换汇到账分配20% · 回调>15%加仓 · VIX>35减仓1/3</div>
   </div>
   <div class="watch-card">
-    <div class="w-top"><span class="w-name">💎 SCHD <em>$33.90</em></span><span class="w-badge ok">✅ 持有</span></div>
-    <div class="w-trigger">换汇到账分配30% · 回调&gt;5%加仓 · VIX&gt;30加仓窗口</div>
+    <div class="w-top"><span class="w-name">💎 SCHD <em>$33.9</em></span><span class="w-badge ok">✅ 持有</span></div>
+    <div class="w-trigger">换汇到账分配30% · 回调>5%加仓 · VIX>30加仓窗口</div>
   </div>
   <div class="watch-card">
     <div class="w-top"><span class="w-name">🍔 MCD <em>$274</em></span><span class="w-badge ok">✅ 持有</span></div>
-    <div class="w-trigger">回调&gt;10%加仓 · 同店连2季负增长或P/E&gt;30 → 减仓</div>
-  </div>
-</div>
-
-<div class="opportunity-box">
-  <div class="op-title">📅 本周关键事件回顾 + 下周前瞻</div>
-  <div class="op-body">
-    📅 <strong>8/7（已落地✅）· 🚨 非农 -2.3万</strong> —— 结果：9月加息概率55%→44%，利好股市<br>
-    📅 <strong>8/12 周三 · CPI通胀数据</strong> —— 下周最大事件，决定利率预期走向<br>
-    📅 <strong>8/13 周四 · PPI + 初请失业金</strong> —— 补充验证通胀和就业<br>
-    📅 <strong>8/14 周五 · 零售销售</strong> —— 消费是否依然强劲？
+    <div class="w-trigger">回调>10%加仓 · 同店连2季负增长或P/E>30→减仓</div>
   </div>
 </div>
 
 <!-- 🧘 今日建议 -->
 <div class="advice">
   <div class="advice-head">
-    <span class="signal-pill calm">🟢 今日无信号</span>
-    <span class="advice-summary">非农落地利好，周末安心休息</span>
+    <span class="signal-pill alert">🟡 今日有信号</span>
+    <span class="advice-summary">WDC加仓信号激活但等企稳，现金30%待CPI后部署</span>
   </div>
   <div class="hold-chips">
     <span class="hchip">📈 VOO <span class="s-ok">持有</span></span>
     <span class="hchip">🚀 QQQ <span class="s-ok">持有</span></span>
     <span class="hchip">💎 SCHD <span class="s-ok">持有</span></span>
-    <span class="hchip">💾 WDC <span class="s-wait">等企稳</span></span>
+    <span class="hchip">💾 WDC <span class="s-alert">等企稳$440</span></span>
     <span class="hchip">🏥 UNH <span class="s-wait">等DOJ</span></span>
     <span class="hchip">🍔 MCD <span class="s-ok">稳健</span></span>
   </div>
   <div class="advice-why">
-    <div class="why-title">为什么今天不动（周六休市，享受周末）</div>
-    <div class="why-item">1️⃣ 非农已经落地且结果利好（加息概率降），ETF核心都在涨，没必要焦虑WDC的短期回调</div>
-    <div class="why-item">2️⃣ WDC虽连跌21%但财报beat、逻辑没破——按规则不因为跌了就卖，等下季财报再评估</div>
-    <div class="why-item">3️⃣ 现金$913.70(~30%)偏高，非农已落地，下周可以考虑分批投出部分 —— 先投一半，留一半等8/12 CPI</div>
+    <div class="why-title">为什么今天不动</div>
+    <div class="why-item">1️⃣ 周末休市，市场关闭，无法操作</div>
+    <div class="why-item">2️⃣ WDC $434 还在跌，等企稳$440以上再加仓（财报beat+指引上调，逻辑没破）</div>
+    <div class="why-item">3️⃣ 下周三(8/12)CPI是关键数据，现金留着等结果再部署</div>
   </div>
-  <div class="advice-action">💡 <strong>什么时候会让你动</strong>：持仓股逻辑破坏（财报 miss / 监管拆分）、大盘单周跌&gt;10%、换汇到账、或 30 天内有重大事件。详见 portfolio-thesis.md「操作信号分级」。<br><br>📌 <strong>关于现金投出</strong>：非农已落地，利率前景改善。建议考虑分批投出约$450（一半现金），按 VOO 40% / QQQ 20% / SCHD 30% / 个股 10% 分配。剩下一半留到8/12 CPI之后再投。这不是必须今天做，下周交易时间再操作。</div>
+  <div class="advice-action">💡 <strong>什么时候会让你动</strong>：WDC企稳$440以上→用10%现金加仓 · CPI利好→开始分批投出现金(VOO 40%/QQQ 20%/SCHD 30%) · 持仓股逻辑破坏(财报miss/监管拆分)→立即评估卖出。详见 portfolio-thesis.md「操作信号分级」。</div>
 </div>
 
 <!-- 🔭 机会雷达 -->
 <div class="section-title">🔭 机会雷达</div>
 <div class="opportunity-box">
-  <div class="op-title">💾 WDC 错杀机会 — 🟡 继续观察</div>
-  <div class="op-body">两天跌掉21%（$548→$434），但Q4财报全部beat（营收+44%、指引强劲）。存储板块情绪导致抛售而非基本面恶化。等$420-440区间企稳后再考虑是否用10%现金加仓。</div>
+  <div class="op-title">💾 半导体存储芯片 — 🟡 追踪中（财报beat但暴跌）</div>
+  <div class="op-body">WDC财报全面beat（收入+44%、EPS $3.56超预期、指引上调），但两天暴跌16%到$434。暴跌是获利回吐不是基本面变差。苹果称存储芯片"百年一遇短缺"，亚马逊CapEx $2200亿创纪录。非农弱=加息预期降=利好科技估值。等WDC企稳$440以上是加仓窗口。→ 已持仓WDC，等信号加仓</div>
 </div>
 <div class="opportunity-box">
-  <div class="op-title">📊 非农后利率拐点 — 🟢 利好ETF定投</div>
-  <div class="op-body">加息概率从55%降至44%，如果8/12 CPI也温和，9月不加息将进一步确认。利好VOO/QQQ估值环境。可以趁这个窗口把偏高的现金投出一部分。</div>
+  <div class="op-title">🛢️ 能源板块 — 🟡 追踪中（霍尔木兹僵局+油价高位）</div>
+  <div class="op-body">WTI $78维持高位，霍尔木兹海峡通行量暴降（33艘vs上周50艘）。美国说协议"快了"但伊朗提出禁止美以船只通行。沙特/巴基斯坦/土耳其签防务协定。如果协议达成油价回落→通胀降→利好股市；如果谈崩油价飙升→通胀升→加息压力。→ 暂不行动，等中东局势明朗</div>
 </div>
 <div class="opportunity-box">
-  <div class="op-title">🛢️ 中东地缘风险 — 🟡 关注通胀扰动</div>
-  <div class="op-body">伊朗审议霍尔木兹限航、胡塞袭击沙特，油价从$75反弹到$78。如果冲突升级推高油价→通胀预期回升→可能重新推高加息预期。对SCHD里的能源股是利好，但对整体股市是潜在风险。</div>
+  <div class="op-title">⚠️ 市场过热信号 — 🟡 新增观察</div>
+  <div class="op-body">美银看涨看跌指标升到9.7（2021年来最高），美银分析师警告"极度乐观时要撤回高风险资产转防御"。标普逼近历史新高，VIX 14.9正常偏低。不是说马上要跌，但"所有人都乐观"时往往是反向信号。→ 对你意味着：不要追涨，等回调再加仓。定投节奏不受影响</div>
 </div>
 
 <!-- 📖 每日一词 -->
 <div class="term-box">
-  <div class="term-title">📖 非农就业 (Nonfarm Payrolls) · 每月最重数据</div>
-  <div style="font-size:15px;color:var(--brown);margin:8px 0;">美国劳工部每个月第一个周五发布的就业报告，统计除农业以外的所有行业新增就业人数。这是全市场最关注的月度数据——因为它决定美联储会加息还是降息。就业强=经济热=可能加息（股市怕）；就业弱=经济凉=可能降息（股市喜）。这次7月数据意外减少2.3万（市场以为会增8万），就是典型的"坏消息=好消息"——数据越差，美联储越不敢加息，股市反而涨。</div>
+  <div class="term-title">📖 劳动参与率 · Labor Force Participation Rate</div>
+  <div style="font-size:15px;color:var(--brown);margin:8px 0;">
+    什么叫劳动参与率？就是"正在工作或正在找工作的人"占"适龄劳动人口"的比例。<br><br>
+    今天这个数据降到61.4%，是2021年2月以来最低（排除疫情是1970年代以来最低）。这意味着越来越多人直接退出劳动力市场——不找工作了。<br><br>
+    为什么重要？失业率降到4.1%看起来是好事，但实际是因为人退出统计了，不是因为找到工作了。劳动力缩水=经济活力下降=长期增长动力减弱。这就是为什么市场对非农暴冷的反应是"加息概率降"而不是"经济好"。
+  </div>
 </div>
 
 <!-- 🐦 分析师笔记 -->
 <div class="section-title">🐦 分析师笔记</div>
 <div class="kol-item">
   <div class="name">🎯 Eric Balchunas</div>
-  <div class="handle">@EricBalchunas · Bloomberg ETF首席 · 常驻</div>
-  <div class="take">"半导体ETF在反弹前吸引约$120亿资金流入——这些ETF只占ETF总规模的~1%，但这周吃掉了全市场ETF净流入的25%。资金极度集中地抄底半导体。"</div>
-  <div class="why">→ WDC虽然还在跌，但聪明钱在抄底整个半导体板块——等板块情绪修复时你会感谢自己没在恐慌中卖</div>
+  <div class="handle">@EricBalchunas · Bloomberg ETF首席 · 常驻 · 近期观点(7月17日)</div>
+  <div class="take">"比特币ETF(IBIT)正在重演黄金ETF(GLD)的套路——两者都是靠情绪推上去的价值储存工具，不产生现金流。IBIT管理资产从峰值1000亿缩到600亿。"</div>
+  <div class="why">→ 跟你持仓没直接关系，但提醒：情绪推动的暴涨终会回调，定投纪律比追涨重要</div>
 </div>
 <div class="kol-item">
-  <div class="name">📊 CME FedWatch</div>
-  <div class="handle">利率期货市场 · 轮换</div>
-  <div class="take">"非农发布后，9月加息概率从55%降至44.1%。维持利率不变的概率升至55.9%。市场完全定价年内仅再加息一次25bp。"</div>
-  <div class="why">→ 利率前景明显改善。如果8/12 CPI也温和，加息预期可能进一步消退，利好你的科技股持仓</div>
+  <div class="name">📊 Ben Carlson</div>
+  <div class="handle">@awealthofcs · 机构资管总监 · 轮换 · 近期观点</div>
+  <div class="take">"美银看涨指标升到9.7（2021年来最高），标普逼近历史新高。极度乐观是反向信号——不是说马上要跌，但这时候追涨的风险回报比不好。历史上这种极端读数后6个月平均回报趋平。"</div>
+  <div class="why">→ 不要追涨加仓，等回调。定投节奏继续，但大笔加仓等VIX>20或回调5%+</div>
 </div>
-<div class="kol-item">
-  <div class="name">🥇 贵金属策略师</div>
-  <div class="handle">避险情绪 · 轮换</div>
-  <div class="take">"黄金突破$4,340，单周涨超5%。非农+弱美元+中东地缘三重共振。全球央行Q2增持289吨黄金(+62%)，去美元化趋势加速。"</div>
-  <div class="why">→ 跟你无关（没买黄金），但央行疯狂囤金说明全球对美元信心在下降，长期利好你的美股资产（美元购买力下降=股票名义价格上涨）</div>
+
+<!-- 📅 本周关注 -->
+<div class="section-title">📅 下周关注</div>
+<div class="opportunity-box">
+  <div class="op-title">📅 8月12日（周三）· CPI通胀数据</div>
+  <div class="op-body">⭐⭐⭐ <strong>本周最重磅</strong>。非农暴冷后CPI是定乾坤的数据。CPI低=加息彻底没戏=股市继续涨；CPI高=即使就业弱美联储也可能加息=股市回调。摩根士丹利首席策略师说"CPI是下一次利率会议的决定性因素"。</div>
+</div>
+<div class="opportunity-box">
+  <div class="op-title">📅 8月13日（周四）· PPI + 初请失业金</div>
+  <div class="op-body">⭐⭐ PPI是生产者价格指数（CPI的前瞻指标）。初请失业金继续跟踪就业市场是否进一步恶化。</div>
+</div>
+<div class="opportunity-box">
+  <div class="op-title">📅 8月14日（周五）· 零售销售数据</div>
+  <div class="op-body">⭐⭐ 消费者还在花钱吗？非农弱但零售强=滞胀风险；零售也弱=经济衰退风险。对MCD持仓有直接影响。</div>
 </div>
 
 <!-- 🔗 快速入口 -->
@@ -378,7 +378,7 @@ footer { text-align: center; padding: 24px; color: var(--gray); font-size: 12px;
 
 <footer>
   🍉 Zoe的每日果园 · 2026-08-08<br>
-  数据来源：Yahoo Finance / CBOE / 新华社 / 路透 / 美国劳工统计局 / 公司财报（截至8/7美股收盘）<br>
+  数据来源：新华社/东方财富/BLS/Nasdaq.com/CAMS/路透/财联社/国际金融要情<br>
   ⚠️ <strong>免责声明：</strong>本日报仅供个人学习参考，不构成任何投资建议。投资有风险，决策请独立判断。<br>
   Made with 💛 for Zoe
 </footer>
