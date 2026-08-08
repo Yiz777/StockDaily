@@ -69,6 +69,9 @@ body { background: var(--cream); color: var(--brown); font-family: 'Nunito', 'Pi
 .card .change.down { background: var(--red-light); color: var(--red); }
 .card .note { font-size: 11px; color: var(--gray); margin-top: 4px; }
 .alert-box { background: var(--red-light); border: 1px solid var(--red); border-radius: 16px; padding: 16px; margin-bottom: 20px; }
+.alert-box .alert-title { font-weight: 800; font-size: 16px; color: var(--red); margin-bottom: 8px; }
+.alert-box .alert-body { font-size: 14px; color: var(--brown); line-height: 2; }
+.alert-box .alert-body .rule { color: var(--red); font-weight: 600; }
 .translate-box { background: white; border-radius: 16px; padding: 20px; margin-bottom: 20px; box-shadow: var(--card-shadow); }
 .translate-item { padding: 12px 0; border-bottom: 1px dashed var(--blue-light); }
 .translate-item:last-child { border-bottom: none; }
@@ -84,11 +87,16 @@ body { background: var(--cream); color: var(--brown); font-family: 'Nunito', 'Pi
 .bag-item .icon { font-size: 20px; } .bag-item .n { font-weight: 700; font-size: 14px; } .bag-item .d { font-size: 11px; color: var(--gray); }
 .bag-item .v { font-weight: 700; font-size: 14px; text-align: right; } .bag-item .p { font-size: 11px; font-weight: 600; text-align: right; }
 .bag-item .p.up { color: var(--green); } .bag-item .p.down { color: var(--red); }
+.portfolio .summary { text-align: center; margin-top: 12px; padding: 10px; background: var(--yolk-light); border-radius: 12px; font-size: 14px; font-weight: 700; color: var(--brown); }
+.portfolio .cleared { text-align: center; margin-top: 8px; padding: 8px; background: var(--green-light); border-radius: 12px; font-size: 13px; font-weight: 600; color: var(--green); }
 .advice { background: var(--yolk); border-radius: 20px; padding: 24px; margin-bottom: 20px; text-align: center; }
 .advice .emoji { font-size: 36px; } .advice .text { font-family: 'ZCOOL KuaiLe', sans-serif; font-size: 22px; color: var(--brown); margin: 6px 0; }
 .advice .sub { font-size: 13px; color: var(--brown); opacity: 0.75; }
 .term-box { background: white; border-left: 4px solid var(--yolk); border-radius: 0 16px 16px 0; padding: 20px; margin-bottom: 20px; box-shadow: var(--card-shadow); }
+.term-box .term-title { font-weight: 800; font-size: 18px; color: var(--blue-dark); margin-bottom: 4px; }
 .opportunity-box { background: white; border-radius: 16px; padding: 20px; margin-bottom: 20px; box-shadow: var(--card-shadow); border-left: 4px solid var(--blue); }
+.opportunity-box .op-title { font-weight: 700; font-size: 15px; color: var(--blue-dark); margin-bottom: 8px; }
+.opportunity-box .op-body { font-size: 14px; color: var(--brown); line-height: 1.8; }
 .kol-item { background: white; border-radius: 14px; padding: 12px 16px; margin-bottom: 8px; }
 .kol-item .name { font-weight: 700; font-size: 14px; color: var(--blue-dark); }
 .kol-item .handle { font-size: 11px; color: var(--gray); } .kol-item .take { font-size: 14px; color: var(--brown); margin-top: 4px; }
@@ -120,7 +128,7 @@ footer { text-align: center; padding: 24px; color: var(--gray); font-size: 12px;
 @media (max-width:600px){ .watch-grid{ grid-template-columns:1fr; } }
 
 /* ===== v6.4 今日建议：信号pill + 持仓chips + 高亮行动条 ===== */
-.advice-head { display:flex; align-items:center; gap:10px; flex-wrap:wrap; justify-content:center; margin-bottom:12px; }
+.advice-head { display:flex; flex-direction:column; align-items:center; gap:8px; margin-bottom:14px; }
 .signal-pill { font-size:15px; font-weight:800; padding:4px 16px; border-radius:20px; }
 .signal-pill.calm { background:var(--green-light); color:var(--green); }
 .signal-pill.alert { background:var(--red); color:white; }
@@ -213,9 +221,10 @@ footer { text-align: center; padding: 24px; color: var(--gray); font-size: 12px;
   <div class="bag-item"><div><span class="icon">🇺🇸</span><span class="n">VOO</span><span class="d">标普500ETF</span></div><div style="text-align:right;"><div class="v">$[PRICE]</div><div class="p up">[CHANGE] 🙂</div></div></div>
   <!-- ... more bag-items -->
   <!-- v6.2: 持仓速览底部必须有总结行 -->
-  <div style="text-align:center;margin-top:12px;padding:10px;background:var(--yolk-light);border-radius:12px;font-size:14px;font-weight:700;color:var(--brown);">
+  <div class="summary">
     💰 现金$[CASH] · 总净值~$[TOTAL]([+/-X%]) · [X涨Y跌] · [最佳] 🚀 · [最差] 🤧
   </div>
+  <!-- 清仓提示（如有）：<div class="cleared">✅ [TICKER] 已清仓，回笼现金并入 $[CASH]</div> -->
 </div>
 
 <!-- 👀 待观察清单（v6.4: 2列紧凑卡片，每只持仓触发线） -->
@@ -248,8 +257,8 @@ footer { text-align: center; padding: 24px; color: var(--gray); font-size: 12px;
 </div>
 
 <div class="opportunity-box">
-  <div style="font-weight:700;font-size:15px;color:var(--blue-dark);margin-bottom:8px;">📅 本周关键事件</div>
-  <div style="font-size:14px;color:var(--brown);line-height:2;">
+  <div class="op-title">📅 本周关键事件</div>
+  <div class="op-body">
     📅 <strong>[日期] · [事件]</strong> [影响说明]
   </div>
 </div>
@@ -280,18 +289,18 @@ footer { text-align: center; padding: 24px; color: var(--gray); font-size: 12px;
 <!-- 🔭 机会雷达（v6.2: 2-3个方向） -->
 <div class="section-title">🔭 机会雷达</div>
 <div class="opportunity-box">
-  <div style="font-weight:700;font-size:15px;color:var(--blue-dark);margin-bottom:8px;">[emoji] [方向名] — [🟢/🟡/🔴] [状态]</div>
-  <div style="font-size:14px;color:var(--brown);line-height:1.8;">[今日信号 + 对你的意义]</div>
+  <div class="op-title">[emoji] [方向名] — [🟢/🟡/🔴] [状态]</div>
+  <div class="op-body">[今日信号 + 对你的意义]</div>
 </div>
 <div class="opportunity-box">
-  <div style="font-weight:700;font-size:15px;color:var(--blue-dark);margin-bottom:8px;">[emoji] [方向名] — [🟢/🟡/🔴] [状态]</div>
-  <div style="font-size:14px;color:var(--brown);line-height:1.8;">[今日信号 + 对你的意义]</div>
+  <div class="op-title">[emoji] [方向名] — [🟢/🟡/🔴] [状态]</div>
+  <div class="op-body">[今日信号 + 对你的意义]</div>
 </div>
 <!-- 第3个方向如有 -->
 
 <!-- 📖 每日一词 -->
 <div class="term-box">
-  <div style="font-weight:800;font-size:18px;color:var(--blue-dark);margin-bottom:4px;">📖 [TERM] · [ENGLISH]</div>
+  <div class="term-title">📖 [TERM] · [ENGLISH]</div>
   <div style="font-size:15px;color:var(--brown);margin:8px 0;">[解释]</div>
 </div>
 

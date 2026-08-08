@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>🍉 Zoe的每日果园 · 2026-08-07</title>
+<title>🍉 Zoe的每日果园 · 2026-08-08</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=ZCOOL+KuaiLe&display=swap');
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -35,6 +35,9 @@ body { background: var(--cream); color: var(--brown); font-family: 'Nunito', 'Pi
 .card .change.down { background: var(--red-light); color: var(--red); }
 .card .note { font-size: 11px; color: var(--gray); margin-top: 4px; }
 .alert-box { background: var(--red-light); border: 1px solid var(--red); border-radius: 16px; padding: 16px; margin-bottom: 20px; }
+.alert-box .alert-title { font-weight: 800; font-size: 16px; color: var(--red); margin-bottom: 8px; }
+.alert-box .alert-body { font-size: 14px; color: var(--brown); line-height: 2; }
+.alert-box .alert-body .rule { color: var(--red); font-weight: 600; }
 .translate-box { background: white; border-radius: 16px; padding: 20px; margin-bottom: 20px; box-shadow: var(--card-shadow); }
 .translate-item { padding: 12px 0; border-bottom: 1px dashed var(--blue-light); }
 .translate-item:last-child { border-bottom: none; }
@@ -50,11 +53,16 @@ body { background: var(--cream); color: var(--brown); font-family: 'Nunito', 'Pi
 .bag-item .icon { font-size: 20px; } .bag-item .n { font-weight: 700; font-size: 14px; } .bag-item .d { font-size: 11px; color: var(--gray); }
 .bag-item .v { font-weight: 700; font-size: 14px; text-align: right; } .bag-item .p { font-size: 11px; font-weight: 600; text-align: right; }
 .bag-item .p.up { color: var(--green); } .bag-item .p.down { color: var(--red); }
+.portfolio .summary { text-align: center; margin-top: 12px; padding: 10px; background: var(--yolk-light); border-radius: 12px; font-size: 14px; font-weight: 700; color: var(--brown); }
+.portfolio .cleared { text-align: center; margin-top: 8px; padding: 8px; background: var(--green-light); border-radius: 12px; font-size: 13px; font-weight: 600; color: var(--green); }
 .advice { background: var(--yolk); border-radius: 20px; padding: 24px; margin-bottom: 20px; text-align: center; }
 .advice .emoji { font-size: 36px; } .advice .text { font-family: 'ZCOOL KuaiLe', sans-serif; font-size: 22px; color: var(--brown); margin: 6px 0; }
 .advice .sub { font-size: 13px; color: var(--brown); opacity: 0.75; }
 .term-box { background: white; border-left: 4px solid var(--yolk); border-radius: 0 16px 16px 0; padding: 20px; margin-bottom: 20px; box-shadow: var(--card-shadow); }
+.term-box .term-title { font-weight: 800; font-size: 18px; color: var(--blue-dark); margin-bottom: 4px; }
 .opportunity-box { background: white; border-radius: 16px; padding: 20px; margin-bottom: 20px; box-shadow: var(--card-shadow); border-left: 4px solid var(--blue); }
+.opportunity-box .op-title { font-weight: 700; font-size: 15px; color: var(--blue-dark); margin-bottom: 8px; }
+.opportunity-box .op-body { font-size: 14px; color: var(--brown); line-height: 1.8; }
 .kol-item { background: white; border-radius: 14px; padding: 12px 16px; margin-bottom: 8px; }
 .kol-item .name { font-weight: 700; font-size: 14px; color: var(--blue-dark); }
 .kol-item .handle { font-size: 11px; color: var(--gray); } .kol-item .take { font-size: 14px; color: var(--brown); margin-top: 4px; }
@@ -72,7 +80,7 @@ footer { text-align: center; padding: 24px; color: var(--gray); font-size: 12px;
 .flow-reason strong { color: var(--blue-dark); }
 .flow-conclusion { background: var(--yolk-light); padding: 8px 14px; border-radius: 10px; font-size: 14px; color: var(--brown); font-weight: 600; margin-top: 10px; }
 
-/* ===== v6.4 待观察清单：2列紧凑卡片（替代密集虚线文字块）===== */
+/* ===== v6.4 待观察清单：2列紧凑卡片 ===== */
 .watch-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:10px; margin-bottom:8px; }
 .watch-card { background:white; border-radius:12px; padding:12px 14px; box-shadow:var(--card-shadow); border-left:4px solid var(--blue); }
 .watch-card .w-top { display:flex; justify-content:space-between; align-items:center; gap:6px; }
@@ -105,148 +113,148 @@ footer { text-align: center; padding: 24px; color: var(--gray); font-size: 12px;
 <!-- 🍉 Header -->
 <div class="header">
   <h1>🍉 Zoe的每日果园</h1>
-  <div class="date">2026-08-07 · 周五 · 美股休市中（等待今晚 20:30 非农）</div>
+  <div class="date">2026-08-08 · 周六 · 美股休市（周末）</div>
   <div>
-    <span class="badge">美元/人民币 6.77</span>
-    <span class="badge">金价 $4,308</span>
-    <span class="badge">VIX 15.2 平静</span>
+    <span class="badge alert">🚨 非农爆冷 -2.3万！</span>
+    <span class="badge">美元/人民币 6.75</span>
+    <span class="badge">金价 $4,342</span>
+    <span class="badge">VIX 14.97 乐观</span>
   </div>
 </div>
 
 <!-- 🍓 今日一句话 -->
 <div class="one-liner">
   <div class="label">🍓 今日一句话</div>
-  <div class="text">美股8/6小幅回调，WDC财报虽beat股价却跌13%（利好出尽+存储板块弱）；今晚20:30非农是本月重头戏，现金先按兵不动。</div>
+  <div class="text">7月非农意外减少2.3万（预期+8万），加息预期大降温，标普再创历史新高7,758点！周末愉快，安心休息。</div>
 </div>
 
 <!-- 🌡️ 市场温度计 -->
-<div class="section-title">🌡️ 市场温度计 · 2026-08-07（8/6收盘）</div>
+<div class="section-title">🌡️ 市场温度计 · 2026-08-08（8/7收盘）</div>
 <div class="cards">
   <div class="card">
     <div class="emoji">📈</div>
     <div class="name">标普500</div>
-    <div class="price">7,709.96</div>
-    <div class="change down">-0.18%</div>
-    <div class="note">从新高小幅回落</div>
+    <div class="price">7,757.64</div>
+    <div class="change up">+0.62%</div>
+    <div class="note">🆕 再创历史新高！</div>
   </div>
   <div class="card">
     <div class="emoji">💻</div>
     <div class="name">纳斯达克</div>
-    <div class="price">26,348.35</div>
-    <div class="change down">-0.06%</div>
-    <div class="note">基本持平</div>
+    <div class="price">26,690.62</div>
+    <div class="change up">+1.30%</div>
+    <div class="note">科技强势反弹</div>
   </div>
   <div class="card">
     <div class="emoji">🏦</div>
     <div class="name">道琼斯</div>
-    <div class="price">53,885.10</div>
-    <div class="change down">-0.85%</div>
-    <div class="note">纪录高位回落</div>
+    <div class="price">54,036.93</div>
+    <div class="change up">+0.28%</div>
+    <div class="note">稳定上涨</div>
   </div>
   <div class="card">
     <div class="emoji">😌</div>
     <div class="name">VIX恐慌</div>
-    <div class="price">15.2</div>
-    <div class="change down">平静</div>
-    <div class="note">市场不慌</div>
+    <div class="price">14.97</div>
+    <div class="change down">乐观</div>
+    <div class="note">低于15，极度平静</div>
   </div>
   <div class="card">
     <div class="emoji">🥇</div>
     <div class="name">黄金</div>
-    <div class="price">$4,308</div>
-    <div class="change up">+3.74%</div>
-    <div class="note">避险+弱美元</div>
+    <div class="price">$4,342</div>
+    <div class="change up">+2.39%</div>
+    <div class="note">非农+弱美元推高</div>
   </div>
   <div class="card">
     <div class="emoji">🛢️</div>
     <div class="name">WTI原油</div>
-    <div class="price">$75.22</div>
-    <div class="change down">-0.7%</div>
-    <div class="note">中东缓和低位</div>
+    <div class="price">$78.18</div>
+    <div class="change up">+1.15%</div>
+    <div class="note">中东地缘风险升温</div>
   </div>
   <div class="card">
     <div class="emoji">💱</div>
     <div class="name">美元/人民币</div>
-    <div class="price">6.77</div>
+    <div class="price">6.75</div>
     <div class="change down">弱美元</div>
-    <div class="note">人民币小升</div>
+    <div class="note">人民币继续走强</div>
   </div>
   <div class="card">
     <div class="emoji">₿</div>
     <div class="name">比特币</div>
     <div class="price">$64,400</div>
     <div class="change down">持平</div>
-    <div class="note">观望</div>
+    <div class="note">ETF流入回暖</div>
   </div>
 </div>
 
 <!-- ⚠️ 持仓预警 -->
 <div class="alert-box">
-  <div style="font-weight:800;font-size:16px;color:var(--red);margin-bottom:8px;">⚠️ 持仓预警 · 2件大事</div>
-  <div style="font-size:14px;color:var(--brown);line-height:2;">
-    <strong>① WDC财报beat但股价-13%</strong>：营收$37.5亿(+44%超预期)、EPS $3.56(超预期)、下季指引强劲(营收+45%)。但股价因"利好出尽"+存储板块普跌(闪迪-8%、AMD-7%)而单日大跌。<br>
-    <span style="color:var(--red);">→ 按你的规则：业绩没miss、逻辑没破 → 持有不动，不因为跌了就卖。</span><br>
-    <strong>② 今晚20:30 非农</strong>：7月就业数据发布，市场屏息。9月加息概率约55% vs 维持45%。<br>
-    <span style="color:var(--red);">→ 重大事件，现金先留着等结果。</span>
+  <div class="alert-title">⚠️ 持仓预警 · 非农落地 + WDC连跌</div>
+  <div class="alert-body">
+    <strong>① 🚨 非农结果揭晓：意外负增长 -2.3万</strong>（预期+8万）。5月从+12.9万下修至+6.3万，6月从+5.7万下修至+2万，两个月合计下修10.3万。<span class="rule">→ 9月加息概率从55%骤降至44%，利好你手里的VOO/QQQ（加息预期降=估值压力小）。</span><br>
+    <strong>② WDC连跌第2天：$434.30 (-3.81%)</strong>。从财报前$548跌到$434，两天跌掉21%。存储板块整体弱（希捷-4%、闪迪-3%、海力士-3%）。<span class="rule">→ 按规则：财报beat+逻辑没破 → 持有不动，不因为跌了就卖。</span><br>
+    <strong>③ 现金$913.70仍然偏高（~30%）</strong>：非农已落地，可以开始考虑分批投出了。<span class="rule">→ 但下周有CPI（周三），建议分批：先投一半，留一半等CPI。</span>
   </div>
 </div>
 
 <!-- 📈 大资金流向 -->
-<div class="section-title">📈 大资金流向 · 2026-08-07</div>
+<div class="section-title">📈 大资金流向 · 2026-08-07（周五收盘）</div>
 <div class="flow-box">
-  <div class="flow-title">钱从存储/半导体撤出，涌向黄金避险</div>
+  <div class="flow-title">非农炸出利率拐点预期，钱涌向科技成长和黄金</div>
   <div class="flow-reason">
     <strong>为什么？</strong><br>
-    • WDC/闪迪财报虽beat但指引不够炸裂，存储板块单日跌7%+（WDC -13%、闪迪 -8%）<br>
-    • 中东缓和+油价低位($75)，通胀预期降，但资金反而避险，黄金单日+3.7%破$4300<br>
-    • 非农前夜，市场不愿押方向，整体成交清淡，指数仅微跌
+    • 非农-2.3万远超预期→加息概率从55%降至44%→科技成长股（QQQ+1.3%）重新获得资金青睐，软件股暴涨（Atlassian+35%、Twilio+25%）<br>
+    • 黄金单日+2.39%破$4,340：弱美元+降息预期+避险三重驱动，全球央行Q2增持289吨黄金（+62%），说明各国也在用脚投票弱美元<br>
+    • 存储芯片继续失血：WDC/闪迪/海力士全线-3%到-4%，市场在担心存储周期接近顶部，但光通信（Coherent+13%）逆势暴涨——钱不是离开半导体，是在半导体内部调仓
   </div>
-  <div class="flow-conclusion">→ 对你的意义：WDC短期被板块拖累，但基本面(云需求+44%)没坏；黄金涨跟你无关(你没买)，ETF核心稳。</div>
+  <div class="flow-conclusion">→ 对你的意义：QQQ/VOO受益于加息预期降温，存储短期拖累WDC但不改长期逻辑。黄金跟你无关（没买），ETF核心稳住。</div>
 </div>
 
 <!-- 🔤 新闻翻译官 -->
 <div class="section-title">🔤 新闻翻译官</div>
 <div class="translate-box">
   <div class="translate-item">
-    <span class="tag green">存储财报</span>
-    <div class="original">WDC Q4 revenue $3.75B (+44% YoY, beat); EPS $3.56 (beat); Sandisk +372% YoY — both beat, both stocks fell post-earnings</div>
-    <div class="simple">💬 西部数据和闪迪Q4业绩都超预期的亮眼，但财报后股价反而大跌</div>
-    <div class="impact">→ 你的WDC逻辑没破（云需求+44%、指引强劲），别被股价吓卖</div>
+    <span class="tag red">🚨 非农炸了</span>
+    <div class="original">July NFP: -23,000 vs expected +80,000. Unemployment 4.1% vs 4.2%. Labor participation 61.4% (lowest since 2021). May revised 129K→63K, June 57K→20K. Sept rate hike probability drops from 55% to 44%.</div>
+    <div class="simple">💬 7月美国不但没增加就业，反而少了2.3万个岗位——市场原本以为会增加8万个。失业率降到4.1%，但这是因为26.4万人退出劳动力市场（不找工作了），不是真的人人都有工作</div>
+    <div class="impact">→ 9月加息概率从55%降到44%，加息预期降温利好你的VOO和QQQ（利率不涨=股票估值压力小）</div>
   </div>
   <div class="translate-item">
-    <span class="tag red">今晚非农</span>
-    <div class="original">July Nonfarm Payrolls due 8:30 AM ET (20:30 Beijing). Consensus +83K jobs, unemployment 4.2%; June was +57K (big miss)</div>
-    <div class="simple">💬 今晚20:30发布7月就业数据，预期新增8.3万、失业率4.2%；6月才5.7万大miss</div>
-    <div class="impact">→ 决定9月加息与否，本月最重事件，现金等它落地</div>
+    <span class="tag green">标普新高</span>
+    <div class="original">S&P 500 closed at 7,757.64 (+0.62%), a new all-time high. Nasdaq +1.30%, Dow +0.28%. Russell 2000 +1.10%. 9 of 11 sectors gained; Materials +1.52%, Consumer Discretionary +1.34% led.</div>
+    <div class="simple">💬 非农越差股市越涨——因为市场赌美联储不敢再加息了。标普500突破前高，又又又创历史新高了。几乎所有板块都在涨，只有能源小跌</div>
+    <div class="impact">→ 你的VOO（标普500）和QQQ（科技）都涨了，账户在回血中</div>
   </div>
   <div class="translate-item">
-    <span class="tag">中东缓和</span>
-    <div class="original">Iran & Oman close to deal on new Hormuz shipping route; WTI holds ~$75</div>
-    <div class="simple">💬 伊朗与阿曼就霍尔木兹海峡新航线谈判接近达成，油价守在$75低位</div>
-    <div class="impact">→ 通胀预期降，利好你的VOO/QQQ定投环境</div>
+    <span class="tag">软件大爆发</span>
+    <div class="original">Atlassian +35%, Twilio +25% on blowout earnings; SpaceX +15.83% bounce. But WDC -3.81%, Seagate -4%, Sandisk -3% as storage weakness continues.</div>
+    <div class="simple">💬 软件公司Atlassian财报超预期单日涨35%，Twilio涨25%——市场在奖励"AI真的帮他们赚到钱"的公司。存储芯片继续跌，但半导体整体涨了2%（SOXX+2.13%）——钱在板块内部换座位</div>
+    <div class="impact">→ WDC被存储板块拖累但逻辑没破（云需求还在涨），耐心等板块情绪修复</div>
   </div>
   <div class="translate-item">
-    <span class="tag">科技分化</span>
-    <div class="original">SpaceX -13% (lockup expiry), AMD -7% post-earnings; Nvidia +3.4%</div>
-    <div class="simple">💬 SpaceX锁定期到期跌13%、AMD财报后跌7%，但英伟达涨3.4%</div>
-    <div class="impact">→ 科技股内部分化，不改变你QQQ的长期逻辑</div>
+    <span class="tag">霍尔木兹升温</span>
+    <div class="original">Iran reviewing Hormuz Strait shipping restrictions; Yemen Houthi attacks on Saudi Arabia. Oil +1.15% to $78.18. Gold +2.39% to $4,342.</div>
+    <div class="simple">💬 伊朗在审查霍尔木兹海峡航行限制草案，也门胡塞武装袭击沙特——中东又不太平了。油价小涨、黄金大涨，说明市场同时在担心"通胀可能又起来"和"美国经济可能变差"这两种矛盾的事</div>
+    <div class="impact">→ 油价涨对你的SCHD里能源股是利好；黄金涨跟你无关（你没买），但反映市场在避险</div>
   </div>
 </div>
 
 <!-- 👜 持仓速览 -->
 <div class="section-title">👜 持仓速览</div>
 <div class="portfolio">
-  <div class="title">📋 持仓速览 · 数据截至8/6收盘</div>
-  <div class="bag-item"><div><span class="icon">🇺🇸</span><span class="n">VOO</span><span class="d">标普500ETF</span></div><div style="text-align:right;"><div class="v">$706</div><div class="p down">-0.2% 🙂</div></div></div>
-  <div class="bag-item"><div><span class="icon">🚀</span><span class="n">QQQ</span><span class="d">纳斯达克100</span></div><div style="text-align:right;"><div class="v">$716</div><div class="p down">-0.1% 🙂</div></div></div>
-  <div class="bag-item"><div><span class="icon">💎</span><span class="n">SCHD</span><span class="d">红利ETF</span></div><div style="text-align:right;"><div class="v">$33.70</div><div class="p down">-0.1% 🙂</div></div></div>
-  <div class="bag-item"><div><span class="icon">💾</span><span class="n">WDC</span><span class="d">西部数据</span></div><div style="text-align:right;"><div class="v">$449</div><div class="p down">-13% 🚨</div></div></div>
-  <div class="bag-item"><div><span class="icon">🍔</span><span class="n">MCD</span><span class="d">麦当劳</span></div><div style="text-align:right;"><div class="v">$276</div><div class="p down">-0.2% 🙂</div></div></div>
-  <div class="bag-item"><div><span class="icon">🏥</span><span class="n">UNH</span><span class="d">联合健康</span></div><div style="text-align:right;"><div class="v">$404</div><div class="p up">+0.1% 😐</div></div></div>
-  <div style="text-align:center;margin-top:12px;padding:10px;background:var(--yolk-light);border-radius:12px;font-size:14px;font-weight:700;color:var(--brown);">
-    💰 现金$913.70 · 总净值~$3,100 · 6只持仓(WDC财报后-13%最差🤧，其余平稳)
+  <div class="title">📋 持仓速览 · 数据截至8/7美股收盘</div>
+  <div class="bag-item"><div><span class="icon">🇺🇸</span><span class="n">VOO</span><span class="d">标普500ETF</span></div><div style="text-align:right;"><div class="v">$710.71</div><div class="p up">+0.61% 🙂</div></div></div>
+  <div class="bag-item"><div><span class="icon">🚀</span><span class="n">QQQ</span><span class="d">纳斯达克100</span></div><div style="text-align:right;"><div class="v">$723.03</div><div class="p up">+1.17% 🙂</div></div></div>
+  <div class="bag-item"><div><span class="icon">💎</span><span class="n">SCHD</span><span class="d">红利ETF</span></div><div style="text-align:right;"><div class="v">$33.90</div><div class="p up">+0.59% 🙂</div></div></div>
+  <div class="bag-item"><div><span class="icon">💾</span><span class="n">WDC</span><span class="d">西部数据</span></div><div style="text-align:right;"><div class="v">$434.30</div><div class="p down">-3.81% 😅</div></div></div>
+  <div class="bag-item"><div><span class="icon">🍔</span><span class="n">MCD</span><span class="d">麦当劳</span></div><div style="text-align:right;"><div class="v">$274.48</div><div class="p down">-0.64% 🤧</div></div></div>
+  <div class="bag-item"><div><span class="icon">🏥</span><span class="n">UNH</span><span class="d">联合健康</span></div><div style="text-align:right;"><div class="v">$407.08</div><div class="p up">+0.77% 🙂</div></div></div>
+  <div class="summary">
+    💰 现金$913.70 · 总净值~$3,014 · 4涨2跌 · QQQ +1.17%最佳🚀 · WDC -3.81%最差😅
   </div>
-  <div style="text-align:center;margin-top:8px;padding:8px;background:var(--green-light);border-radius:12px;font-size:13px;font-weight:600;color:var(--green);">
+  <div class="cleared">
     ✅ NOK / ECHO 已清仓（按v2策略），回笼现金并入$913.70
   </div>
 </div>
@@ -255,102 +263,104 @@ footer { text-align: center; padding: 24px; color: var(--gray); font-size: 12px;
 <div class="section-title">👀 待观察清单 · 每只持仓什么时候该动</div>
 <div class="watch-grid">
   <div class="watch-card">
-    <div class="w-top"><span class="w-name">💾 WDC <em>$449</em></span><span class="w-badge ok">✅ 财报beat</span></div>
-    <div class="w-trigger">逻辑强化(云需求+44%、指引强劲)→持有；下季miss才减仓1/2</div>
+    <div class="w-top"><span class="w-name">💾 WDC <em>$434</em></span><span class="w-badge wait">🟡 等企稳</span></div>
+    <div class="w-trigger">财报beat+逻辑没破→持有；下季miss才减仓1/2。连跌21%后等$420-440区间企稳</div>
   </div>
   <div class="watch-card">
-    <div class="w-top"><span class="w-name">🏥 UNH <em>$404</em></span><span class="w-badge wait">🟡 等DOJ</span></div>
+    <div class="w-top"><span class="w-name">🏥 UNH <em>$407</em></span><span class="w-badge wait">🟡 等DOJ</span></div>
     <div class="w-trigger">DOJ反垄断升级 → 立即评估减仓</div>
   </div>
   <div class="watch-card">
-    <div class="w-top"><span class="w-name">🇺🇸 VOO <em>$706</em></span><span class="w-badge ok">✅ 持有</span></div>
+    <div class="w-top"><span class="w-name">🇺🇸 VOO <em>$711</em></span><span class="w-badge ok">✅ 持有</span></div>
     <div class="w-trigger">换汇到账分配40% · VIX&gt;30加仓窗口 · 永不减仓</div>
   </div>
   <div class="watch-card">
-    <div class="w-top"><span class="w-name">🚀 QQQ <em>$716</em></span><span class="w-badge ok">✅ 持有</span></div>
+    <div class="w-top"><span class="w-name">🚀 QQQ <em>$723</em></span><span class="w-badge ok">✅ 持有</span></div>
     <div class="w-trigger">换汇到账分配20% · 回调&gt;15%加仓 · VIX&gt;35减仓1/3</div>
   </div>
   <div class="watch-card">
-    <div class="w-top"><span class="w-name">💎 SCHD <em>$33.70</em></span><span class="w-badge ok">✅ 持有</span></div>
+    <div class="w-top"><span class="w-name">💎 SCHD <em>$33.90</em></span><span class="w-badge ok">✅ 持有</span></div>
     <div class="w-trigger">换汇到账分配30% · 回调&gt;5%加仓 · VIX&gt;30加仓窗口</div>
   </div>
   <div class="watch-card">
-    <div class="w-top"><span class="w-name">🍔 MCD <em>$276</em></span><span class="w-badge ok">✅ 持有</span></div>
+    <div class="w-top"><span class="w-name">🍔 MCD <em>$274</em></span><span class="w-badge ok">✅ 持有</span></div>
     <div class="w-trigger">回调&gt;10%加仓 · 同店连2季负增长或P/E&gt;30 → 减仓</div>
   </div>
 </div>
 
 <div class="opportunity-box">
-  <div style="font-weight:700;font-size:15px;color:var(--blue-dark);margin-bottom:8px;">📅 本周关键事件</div>
-  <div style="font-size:14px;color:var(--brown);line-height:2;">
-    📅 <strong>8/7（今晚20:30）· 🚨 美国7月非农就业数据</strong> —— 决定9月加息与否，本月最重事件<br>
-    📅 <strong>8/7（今晚21:30）· 美股开盘</strong> —— 消化非农数据，可能波动加大
+  <div class="op-title">📅 本周关键事件回顾 + 下周前瞻</div>
+  <div class="op-body">
+    📅 <strong>8/7（已落地✅）· 🚨 非农 -2.3万</strong> —— 结果：9月加息概率55%→44%，利好股市<br>
+    📅 <strong>8/12 周三 · CPI通胀数据</strong> —— 下周最大事件，决定利率预期走向<br>
+    📅 <strong>8/13 周四 · PPI + 初请失业金</strong> —— 补充验证通胀和就业<br>
+    📅 <strong>8/14 周五 · 零售销售</strong> —— 消费是否依然强劲？
   </div>
 </div>
 
 <!-- 🧘 今日建议 -->
 <div class="advice">
   <div class="advice-head">
-    <span class="signal-pill alert">🟡 今日有信号</span>
-    <span class="advice-summary">今晚20:30非农发布 + WDC财报落地，现金先留着等结果</span>
+    <span class="signal-pill calm">🟢 今日无信号</span>
+    <span class="advice-summary">非农落地利好，周末安心休息</span>
   </div>
   <div class="hold-chips">
     <span class="hchip">📈 VOO <span class="s-ok">持有</span></span>
     <span class="hchip">🚀 QQQ <span class="s-ok">持有</span></span>
     <span class="hchip">💎 SCHD <span class="s-ok">持有</span></span>
-    <span class="hchip">💾 WDC <span class="s-ok">逻辑强化</span></span>
+    <span class="hchip">💾 WDC <span class="s-wait">等企稳</span></span>
     <span class="hchip">🏥 UNH <span class="s-wait">等DOJ</span></span>
     <span class="hchip">🍔 MCD <span class="s-ok">稳健</span></span>
   </div>
   <div class="advice-why">
-    <div class="why-title">为什么今天不动（等信号落地，不是亏钱）</div>
-    <div class="why-item">1️⃣ 今晚非农是本月最大事件，9月加息概率五五开，落地前不赌方向</div>
-    <div class="why-item">2️⃣ WDC虽跌13%但财报beat、逻辑没破，按规则不因为跌了就卖</div>
-    <div class="why-item">3️⃣ ETF核心占75%+，单日波动伤不到根本</div>
+    <div class="why-title">为什么今天不动（周六休市，享受周末）</div>
+    <div class="why-item">1️⃣ 非农已经落地且结果利好（加息概率降），ETF核心都在涨，没必要焦虑WDC的短期回调</div>
+    <div class="why-item">2️⃣ WDC虽连跌21%但财报beat、逻辑没破——按规则不因为跌了就卖，等下季财报再评估</div>
+    <div class="why-item">3️⃣ 现金$913.70(~30%)偏高，非农已落地，下周可以考虑分批投出部分 —— 先投一半，留一半等8/12 CPI</div>
   </div>
-  <div class="advice-action">💡 <strong>什么时候会让你动</strong>：持仓股逻辑破坏（财报 miss / 监管拆分）、大盘单周跌&gt;10%、换汇到账、或 30 天内有重大事件。详见 portfolio-thesis.md「操作信号分级」。</div>
+  <div class="advice-action">💡 <strong>什么时候会让你动</strong>：持仓股逻辑破坏（财报 miss / 监管拆分）、大盘单周跌&gt;10%、换汇到账、或 30 天内有重大事件。详见 portfolio-thesis.md「操作信号分级」。<br><br>📌 <strong>关于现金投出</strong>：非农已落地，利率前景改善。建议考虑分批投出约$450（一半现金），按 VOO 40% / QQQ 20% / SCHD 30% / 个股 10% 分配。剩下一半留到8/12 CPI之后再投。这不是必须今天做，下周交易时间再操作。</div>
 </div>
 
 <!-- 🔭 机会雷达 -->
 <div class="section-title">🔭 机会雷达</div>
 <div class="opportunity-box">
-  <div style="font-weight:700;font-size:15px;color:var(--blue-dark);margin-bottom:8px;">💾 WDC 错杀机会 — 🟡 可关注</div>
-  <div style="font-size:14px;color:var(--brown);line-height:1.8;">财报beat但股价-13%，若你认同存储逻辑，可用10%现金在低位加仓。可选，不急——等今晚非农后再说。</div>
+  <div class="op-title">💾 WDC 错杀机会 — 🟡 继续观察</div>
+  <div class="op-body">两天跌掉21%（$548→$434），但Q4财报全部beat（营收+44%、指引强劲）。存储板块情绪导致抛售而非基本面恶化。等$420-440区间企稳后再考虑是否用10%现金加仓。</div>
 </div>
 <div class="opportunity-box">
-  <div style="font-weight:700;font-size:15px;color:var(--blue-dark);margin-bottom:8px;">🛢️ 油价低位 — 🟢 利好</div>
-  <div style="font-size:14px;color:var(--brown);line-height:1.8;">中东缓和，油价守在$75低位，通胀预期降，利好你的VOO/QQQ定投环境。</div>
+  <div class="op-title">📊 非农后利率拐点 — 🟢 利好ETF定投</div>
+  <div class="op-body">加息概率从55%降至44%，如果8/12 CPI也温和，9月不加息将进一步确认。利好VOO/QQQ估值环境。可以趁这个窗口把偏高的现金投出一部分。</div>
 </div>
 <div class="opportunity-box">
-  <div style="font-weight:700;font-size:15px;color:var(--blue-dark);margin-bottom:8px;">📊 非农揭晓 — 🟡 今晚</div>
-  <div style="font-size:14px;color:var(--brown);line-height:1.8;">弱于预期→降息预期升温利好成长股(QQQ)；强于预期→加息预期升压制估值。今晚20:30见分晓。</div>
+  <div class="op-title">🛢️ 中东地缘风险 — 🟡 关注通胀扰动</div>
+  <div class="op-body">伊朗审议霍尔木兹限航、胡塞袭击沙特，油价从$75反弹到$78。如果冲突升级推高油价→通胀预期回升→可能重新推高加息预期。对SCHD里的能源股是利好，但对整体股市是潜在风险。</div>
 </div>
 
 <!-- 📖 每日一词 -->
 <div class="term-box">
-  <div style="font-weight:800;font-size:18px;color:var(--blue-dark);margin-bottom:4px;">📖 利好出尽 (Sell the News) · 用脚投票</div>
-  <div style="font-size:15px;color:var(--brown);margin:8px 0;">业绩/利好明明很好，股价反而跌。因为之前涨太多、大家预期更高，利好一兑现就有人获利了结。你的WDC就是典型：财报亮眼，但存储板块整体回调+估值太高，资金选择卖出。这不代表公司变差，只是"买预期、卖事实"。</div>
+  <div class="term-title">📖 非农就业 (Nonfarm Payrolls) · 每月最重数据</div>
+  <div style="font-size:15px;color:var(--brown);margin:8px 0;">美国劳工部每个月第一个周五发布的就业报告，统计除农业以外的所有行业新增就业人数。这是全市场最关注的月度数据——因为它决定美联储会加息还是降息。就业强=经济热=可能加息（股市怕）；就业弱=经济凉=可能降息（股市喜）。这次7月数据意外减少2.3万（市场以为会增8万），就是典型的"坏消息=好消息"——数据越差，美联储越不敢加息，股市反而涨。</div>
 </div>
 
 <!-- 🐦 分析师笔记 -->
 <div class="section-title">🐦 分析师笔记</div>
 <div class="kol-item">
-  <div class="name">🎯 内存行业观察</div>
-  <div class="handle">内存周期 · 常驻</div>
-  <div class="take">"WDC指引虽beat但不算炸裂，市场担心存储周期接近顶部"</div>
-  <div class="why">→ 影响：警惕但不卖，等下季财报验证</div>
+  <div class="name">🎯 Eric Balchunas</div>
+  <div class="handle">@EricBalchunas · Bloomberg ETF首席 · 常驻</div>
+  <div class="take">"半导体ETF在反弹前吸引约$120亿资金流入——这些ETF只占ETF总规模的~1%，但这周吃掉了全市场ETF净流入的25%。资金极度集中地抄底半导体。"</div>
+  <div class="why">→ WDC虽然还在跌，但聪明钱在抄底整个半导体板块——等板块情绪修复时你会感谢自己没在恐慌中卖</div>
 </div>
 <div class="kol-item">
-  <div class="name">📊 利率策略师</div>
-  <div class="handle">FedWatch · 轮换</div>
-  <div class="take">"非农若弱于预期，9月降息预期将升温，利好成长股(QQQ)"</div>
-  <div class="why">→ 影响：今晚重点关注</div>
+  <div class="name">📊 CME FedWatch</div>
+  <div class="handle">利率期货市场 · 轮换</div>
+  <div class="take">"非农发布后，9月加息概率从55%降至44.1%。维持利率不变的概率升至55.9%。市场完全定价年内仅再加息一次25bp。"</div>
+  <div class="why">→ 利率前景明显改善。如果8/12 CPI也温和，加息预期可能进一步消退，利好你的科技股持仓</div>
 </div>
 <div class="kol-item">
-  <div class="name">🥇 贵金属分析师</div>
+  <div class="name">🥇 贵金属策略师</div>
   <div class="handle">避险情绪 · 轮换</div>
-  <div class="take">"黄金破$4300，避险+弱美元双驱动"</div>
-  <div class="why">→ 影响：与你无关(没买黄金)，但反映市场谨慎</div>
+  <div class="take">"黄金突破$4,340，单周涨超5%。非农+弱美元+中东地缘三重共振。全球央行Q2增持289吨黄金(+62%)，去美元化趋势加速。"</div>
+  <div class="why">→ 跟你无关（没买黄金），但央行疯狂囤金说明全球对美元信心在下降，长期利好你的美股资产（美元购买力下降=股票名义价格上涨）</div>
 </div>
 
 <!-- 🔗 快速入口 -->
@@ -367,8 +377,8 @@ footer { text-align: center; padding: 24px; color: var(--gray); font-size: 12px;
 </div>
 
 <footer>
-  🍉 Zoe的每日果园 · 2026-08-07<br>
-  数据来源：Yahoo Finance / 新华社 / 路透 / 公司财报（截至8/6美股收盘）<br>
+  🍉 Zoe的每日果园 · 2026-08-08<br>
+  数据来源：Yahoo Finance / CBOE / 新华社 / 路透 / 美国劳工统计局 / 公司财报（截至8/7美股收盘）<br>
   ⚠️ <strong>免责声明：</strong>本日报仅供个人学习参考，不构成任何投资建议。投资有风险，决策请独立判断。<br>
   Made with 💛 for Zoe
 </footer>
