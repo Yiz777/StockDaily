@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🍉 Zoe的每日果园 · 2026-09-03</title>
+<!--
+  ██████╗ ██████╗  ██████╗ ██╗  ██╗ █████╗ ███╗   ██╗
+  ╚════██╗██╔══██╗██╔═══██╗╚██╗██╔╝██╔══╝ ████╗  ██║
+   █████╔╝██████╔╝██║   ██║ ╚███╔╝ █████╗ ██╔██╗ ██║
+  ██╔═══╝ ██╔══██╗██║   ██║ ██╔██╗ ██╔══╝ ██║╚██╗██║
+  ███████╗██║  ██║╚██████╔╝██╔╝ ██╗ ███████╗██║ ╚████║
+  ╚══════╝╚═╝  ╚═╝ ╚═════╝ ╚═╝  ╚═╝ ╚══════╝╚═╝  ╚═╝
+
+  ⚠️ 这是果园风格 CSS 模板文件（v6.4 清爽阅读版）。
+  ⚠️ AI 生成日报时必须读取此文件获取完整 <style> 块。
+  ⚠️ 不要自己写 CSS，不要修改 <style> 块，只替换 <body> 里的内容。
+  ⚠️ 标题必须是「🍉 Zoe的每日果园」。
+
+  v6.4 核心原则：不用图表，但要把"为什么"讲清楚。HOLD不是默认答案——必须让读者看到每只持仓的触发线。排版清爽、好扫读优先。
+  v6.4 更新：
+  - 待观察清单改为「2列紧凑卡片」：每只持仓 = 名称+现价 + 状态badge + 1行触发线。不用密集虚线文字块。
+  - 今日建议改为「信号pill + 持仓状态chips + 为什么不动3条 + 什么时候会动高亮条」，不再密密麻麻一段字。
+  - 新闻翻译官至少 3 条。
+  v6.3 遗留：今日建议必须明确「今天的信号状态」（🟢无信号安心持 / 🟡有信号要动），并写明「什么时候会让你动」。
+  - 大资金流向：三段式（流向总结 + 为什么2-3条 + 对你的意义）
+  - 待观察清单：2列紧凑卡片（名称+现价+状态badge+触发线）
+  - 今日建议：信号pill + 持仓状态chips + 为什么不动3条 + 什么时候会动高亮条
+  - 机会雷达：2-3个方向
+  - 分析师笔记：3条（1常驻+2轮换）
+  - 不再有"市场Regime判断"板块（结论永远一样，不需要单独板块）
+  - 不再有 bar-row / flow-grid / risk-meter / position-grid / antiheld-chips
+
+  果园风格核心特征：
+  - 鸡蛋黄背景 #fef9e7 + 蛋黄标题 #ffd43b + 棕色文字 #5d4e37
+  - ZCOOL KuaiLe 字体（标题）+ Nunito（正文）
+  - 页面宽度 900px
+  - 温度计 4 列卡片（手机端 2 列）
+  - 持仓速览蓝色背景 #d6e8f7
+-->
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=ZCOOL+KuaiLe&display=swap');
+* { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  --cream: #fef9e7; --yolk: #ffd43b; --yolk-light: #fff3bf;
+  --blue: #4a90d9; --blue-light: #d6e8f7; --blue-dark: #2c5f8a;
+  --red: #e74c3c; --red-light: #fce4e4;
+  --green: #27ae60; --green-light: #d5f5e3;
+  --brown: #5d4e37; --gray: #95a5a6;
+  --card-shadow: 0 3px 15px rgba(74, 144, 217, 0.1);
+}
+body { background: var(--cream); color: var(--brown); font-family: 'Nunito', 'PingFang SC', 'Microsoft YaHei', sans-serif; line-height: 1.7; padding: 16px; max-width: 900px; margin: 0 auto; }
+.header { background: var(--yolk); border-radius: 24px; padding: 28px 24px; margin-bottom: 20px; text-align: center; }
+.header h1 { font-family: 'ZCOOL KuaiLe', sans-serif; font-size: 28px; color: var(--brown); margin-bottom: 6px; }
+.header .date { font-size: 14px; color: var(--brown); font-weight: 600; }
+.header .badge { display: inline-block; background: white; padding: 4px 14px; border-radius: 20px; font-size: 12px; color: var(--blue-dark); margin-top: 10px; }
+.header .badge.alert { background: var(--red); color: white; }
+.one-liner { background: white; border-left: 5px solid var(--red); border-radius: 0 16px 16px 0; padding: 20px 24px; margin-bottom: 20px; box-shadow: var(--card-shadow); }
+.one-liner .label { font-size: 12px; color: var(--red); font-weight: 800; letter-spacing: 2px; }
+.one-liner .text { font-size: 17px; font-weight: 700; color: var(--brown); margin-top: 6px; }
+.section-title { font-family: 'ZCOOL KuaiLe', sans-serif; font-size: 22px; color: var(--blue-dark); margin: 28px 0 14px; border-bottom: 2px solid var(--blue-light); padding-bottom: 8px; }
+.cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 8px; max-width: 780px; margin-left: auto; margin-right: auto; }
+.card { background: white; border-radius: 16px; padding: 16px; box-shadow: var(--card-shadow); text-align: center; border-top: 4px solid var(--blue); }
+.card .emoji { font-size: 22px; display: block; margin-bottom: 2px; }
+.card .name { font-size: 12px; color: var(--gray); font-weight: 600; display: block; }
+.card .price { font-size: 22px; font-weight: 800; color: var(--brown); margin: 4px 0; }
+.card .change { font-size: 13px; font-weight: 700; padding: 2px 10px; border-radius: 10px; display: inline-block; }
+.card .change.up { background: var(--green-light); color: var(--green); }
+.card .change.down { background: var(--red-light); color: var(--red); }
+.card .note { font-size: 11px; color: var(--gray); margin-top: 4px; }
+.alert-box { background: var(--red-light); border: 1px solid var(--red); border-radius: 16px; padding: 16px; margin-bottom: 20px; }
+.alert-box .alert-title { font-weight: 800; font-size: 16px; color: var(--red); margin-bottom: 8px; }
+.alert-box .alert-body { font-size: 14px; color: var(--brown); line-height: 2; }
+.alert-box .alert-body .rule { color: var(--red); font-weight: 600; }
+.translate-box { background: white; border-radius: 16px; padding: 20px; margin-bottom: 20px; box-shadow: var(--card-shadow); }
+.translate-item { padding: 12px 0; border-bottom: 1px dashed var(--blue-light); }
+.translate-item:last-child { border-bottom: none; }
+.translate-item .tag { background: var(--blue); color: white; padding: 1px 8px; border-radius: 8px; font-size: 11px; }
+.translate-item .tag.red { background: var(--red); }
+.translate-item .tag.green { background: var(--green); }
+.translate-item .original { font-size: 13px; color: var(--gray); margin-bottom: 4px; }
+.translate-item .simple { font-size: 15px; color: var(--brown); font-weight: 600; }
+.translate-item .impact { font-size: 13px; color: var(--red); margin-top: 4px; font-weight: 600; }
+.portfolio { background: var(--blue-light); border-radius: 20px; padding: 20px; margin-bottom: 20px; }
+.portfolio .title { font-weight: 700; font-size: 16px; margin-bottom: 12px; }
+.bag-item { background: white; border-radius: 12px; padding: 12px 16px; margin-bottom: 8px; display: flex; justify-content: space-between; align-items: center; }
+.bag-item .icon { font-size: 20px; } .bag-item .n { font-weight: 700; font-size: 14px; } .bag-item .d { font-size: 11px; color: var(--gray); }
+.bag-item .v { font-weight: 700; font-size: 14px; text-align: right; } .bag-item .p { font-size: 11px; font-weight: 600; text-align: right; }
+.bag-item .p.up { color: var(--green); } .bag-item .p.down { color: var(--red); }
+.portfolio .summary { text-align: center; margin-top: 12px; padding: 10px; background: var(--yolk-light); border-radius: 12px; font-size: 14px; font-weight: 700; color: var(--brown); }
+.portfolio .cleared { text-align: center; margin-top: 8px; padding: 8px; background: var(--green-light); border-radius: 12px; font-size: 13px; font-weight: 600; color: var(--green); }
+.advice { background: var(--yolk); border-radius: 20px; padding: 24px; margin-bottom: 20px; text-align: center; }
+.advice .emoji { font-size: 36px; } .advice .text { font-family: 'ZCOOL KuaiLe', sans-serif; font-size: 22px; color: var(--brown); margin: 6px 0; }
+.advice .sub { font-size: 13px; color: var(--brown); opacity: 0.75; }
+.term-box { background: white; border-left: 4px solid var(--yolk); border-radius: 0 16px 16px 0; padding: 20px; margin-bottom: 20px; box-shadow: var(--card-shadow); }
+.term-box .term-title { font-weight: 800; font-size: 18px; color: var(--blue-dark); margin-bottom: 4px; }
+.opportunity-box { background: white; border-radius: 16px; padding: 20px; margin-bottom: 20px; box-shadow: var(--card-shadow); border-left: 4px solid var(--blue); }
+.opportunity-box .op-title { font-weight: 700; font-size: 15px; color: var(--blue-dark); margin-bottom: 8px; }
+.opportunity-box .op-body { font-size: 14px; color: var(--brown); line-height: 1.8; }
+.kol-item { background: white; border-radius: 14px; padding: 12px 16px; margin-bottom: 8px; }
+.kol-item .name { font-weight: 700; font-size: 14px; color: var(--blue-dark); }
+.kol-item .handle { font-size: 11px; color: var(--gray); } .kol-item .take { font-size: 14px; color: var(--brown); margin-top: 4px; }
+.kol-item .why { font-size: 12px; color: var(--red); margin-top: 4px; font-weight: 600; }
+.links-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 10px; margin-bottom: 20px; }
+.link-card { background: white; border-radius: 14px; padding: 14px 10px; text-align: center; text-decoration: none; color: var(--brown); box-shadow: var(--card-shadow); border: 2px solid transparent; }
+.link-card:hover { border-color: var(--blue); } .link-card .emoji { font-size: 26px; display: block; } .link-card .name { font-size: 13px; font-weight: 700; }
+footer { text-align: center; padding: 24px; color: var(--gray); font-size: 12px; }
+@media (max-width: 600px) { .header h1 { font-size: 24px; } .card .price { font-size: 19px; } .cards { grid-template-columns: repeat(2, 1fr) !important; } }
+
+/* ===== v6.1 资金流向（文字三段式：流向 + 为什么 + 对你的意义，不用图表）===== */
+.flow-box { background: white; border-radius: 16px; padding: 20px; margin-bottom: 20px; box-shadow: var(--card-shadow); border-left: 4px solid var(--blue); }
+.flow-title { font-family: 'ZCOOL KuaiLe', sans-serif; font-size: 20px; color: var(--blue-dark); margin-bottom: 10px; }
+.flow-reason { font-size: 14px; color: var(--brown); line-height: 2; margin-top: 6px; padding: 10px 14px; background: #f8f6f0; border-radius: 10px; }
+.flow-reason strong { color: var(--blue-dark); }
+.flow-conclusion { background: var(--yolk-light); padding: 8px 14px; border-radius: 10px; font-size: 14px; color: var(--brown); font-weight: 600; margin-top: 10px; }
+
+/* ===== v6.4 待观察清单：2列紧凑卡片（替代密集虚线文字块）===== */
+.watch-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:10px; margin-bottom:8px; }
+.watch-card { background:white; border-radius:12px; padding:12px 14px; box-shadow:var(--card-shadow); border-left:4px solid var(--blue); }
+.watch-card .w-top { display:flex; justify-content:space-between; align-items:center; gap:6px; }
+.watch-card .w-name { font-weight:700; font-size:14px; color:var(--brown); }
+.watch-card .w-name em { font-style:normal; color:var(--gray); font-size:12px; margin-left:5px; }
+.watch-card .w-badge { font-size:11px; font-weight:700; padding:2px 9px; border-radius:10px; white-space:nowrap; }
+.watch-card .w-badge.ok { background:var(--green-light); color:var(--green); }
+.watch-card .w-badge.wait { background:var(--yolk-light); color:var(--brown); }
+.watch-card .w-badge.alert { background:var(--red-light); color:var(--red); }
+.watch-card .w-trigger { font-size:12px; color:var(--brown); margin-top:7px; line-height:1.5; }
+@media (max-width:600px){ .watch-grid{ grid-template-columns:1fr; } }
+
+/* ===== v6.4 今日建议：信号pill + 持仓chips + 高亮行动条 ===== */
+.advice-head { display:flex; flex-direction:column; align-items:center; gap:8px; margin-bottom:14px; }
+.signal-pill { font-size:15px; font-weight:800; padding:4px 16px; border-radius:20px; }
+.signal-pill.calm { background:var(--green-light); color:var(--green); }
+.signal-pill.alert { background:var(--red); color:white; }
+.advice-summary { font-family:'ZCOOL KuaiLe',sans-serif; font-size:19px; color:var(--brown); }
+.hold-chips { display:flex; flex-wrap:wrap; gap:6px; justify-content:center; margin-bottom:14px; }
+.hchip { font-size:12px; font-weight:600; padding:3px 11px; border-radius:12px; background:white; color:var(--blue-dark); box-shadow:var(--card-shadow); }
+.hchip .s-ok { color:var(--green); } .hchip .s-wait { color:var(--brown); } .hchip .s-alert { color:var(--red); }
+.advice-why { text-align:left; background:rgba(255,255,255,0.55); border-radius:12px; padding:12px 14px; margin-bottom:12px; }
+.advice-why .why-title { font-weight:800; font-size:13px; color:var(--blue-dark); margin-bottom:6px; }
+.advice-why .why-item { font-size:13px; color:var(--brown); line-height:1.7; }
+.advice-action { background:var(--blue); color:white; border-radius:12px; padding:10px 14px; font-size:13px; font-weight:600; line-height:1.6; }
+</style>
+</head>
+<body>
+
+<!-- 🍉 Header — 标题必须是「🍉 Zoe的每日果园」 -->
+<div class="header">
+  <h1>🍉 Zoe的每日果园</h1>
+  <div class="date">2026-09-03 · 周四 · 盘前时段（美东8:55）</div>
+  <div>
+    <span class="badge">💱 1 USD ≈ 6.72 CNY</span>
+    <span class="badge">🥇 金价 $4,425</span>
+    <span class="badge">⚡ VIX 15.20</span>
+    <span class="badge alert">📅 非农倒计时1天</span>
+    <span class="badge alert">⚠️ 伊朗袭击科威特基地</span>
+  </div>
+</div>
+
+<!-- 🍓 今日一句话 -->
+<div class="one-liner">
+  <div class="label">🍓 今日一句话</div>
+  <div class="text">伊朗升级打科威特+明天非农，现金留一半等结果，盘前别追。</div>
+</div>
+
+<!-- 🌡️ 市场温度计 — 4列卡片，手机端2列 -->
+<div class="section-title">🌡️ 市场温度计 · 2026-09-03 盘前（指数用9/2收盘）</div>
+<div class="cards">
+  <div class="card">
+    <div class="emoji">📈</div>
+    <div class="name">标普500期货</div>
+    <div class="price">+0.07%</div>
+    <div class="change up">盘前微涨</div>
+    <div class="note">9/2 收盘 7,666.60 (+0.46%)</div>
+  </div>
+  <div class="card">
+    <div class="emoji">🚀</div>
+    <div class="name">纳斯达克期货</div>
+    <div class="price">-0.15%</div>
+    <div class="change down">盘前微跌</div>
+    <div class="note">9/2 收盘 26,217.83 (+0.45%)</div>
+  </div>
+  <div class="card">
+    <div class="emoji">🏭</div>
+    <div class="name">道琼斯期货</div>
+    <div class="price">+0.20%</div>
+    <div class="change up">盘前微涨</div>
+    <div class="note">9/2 收盘 53,061.95 (+0.56%)</div>
+  </div>
+  <div class="card">
+    <div class="emoji">😰</div>
+    <div class="name">VIX 恐慌指数</div>
+    <div class="price">15.20</div>
+    <div class="change up">-7.0%</div>
+    <div class="note">正常区间</div>
+  </div>
+  <div class="card">
+    <div class="emoji">🥇</div>
+    <div class="name">现货黄金</div>
+    <div class="price">$4,425</div>
+    <div class="change up">+0.87%</div>
+    <div class="note">盘前继续涨</div>
+  </div>
+  <div class="card">
+    <div class="emoji">🛢️</div>
+    <div class="name">WTI原油</div>
+    <div class="price">$92.05</div>
+    <div class="change up">+1.12%</div>
+    <div class="note">盘前跳升</div>
+  </div>
+  <div class="card">
+    <div class="emoji">📉</div>
+    <div class="name">10年美债收益率</div>
+    <div class="price">4.75%</div>
+    <div class="change up">-3bp</div>
+    <div class="note">盘前微降</div>
+  </div>
+  <div class="card">
+    <div class="emoji">💱</div>
+    <div class="name">美元指数 DXY</div>
+    <div class="price">99.56</div>
+    <div class="change down">-0.11%</div>
+    <div class="note">持平</div>
+  </div>
+</div>
+
+<!-- 📈 大资金流向（v6.1 三段式） -->
+<div class="section-title">📈 大资金流向 · 2026-09-03</div>
+<div class="flow-box">
+  <div class="flow-title">对冲基金创2008年来最大单周买入，但盘前存储芯片获利了结</div>
+  <div class="flow-reason">
+    <strong>为什么？</strong><br>
+    • BofA数据：上周对冲基金净买入美股创2008年以来最大单周（科技ETF流入史上第二大，仅97百分位），说明大资金仍在加仓Risk-On。<br>
+    • 戴尔FY27 Q2营收+58%、AI服务器订单创纪录$609亿，多项AI需求继续验证；但博通Q4营收指引$348亿略miss预期$350.5亿，盘后跌超5%，说明高估值要求更高，<strong>AI叙事从"催化剂兑现"降为"需求确认+估值消化"</strong>。<br>
+    • <strong style="color:var(--red);">伊朗凌晨空袭科威特+阿联酋美军基地</strong>（导弹+无人机），霍尔木兹海峡风险升级，盘前WTI原油跳到$92.05（+1.12%），黄金$4,425（+0.87%）；存储芯片SK海力士/闪迪/美光/希捷盘前普跌0.6-2%+，是地缘+前日博通miss双重冲击下的获利了结。
+  </div>
+  <div class="flow-conclusion">→ 对你的意义：现金$823（28%）留50%（~$412）等明天非农 + 9/11 CPI + 9/16 FOMC；盘前存储芯片回调反而是观察WDC加仓窗口（$440-460区间未变）的好时机，但今天不急着加。</div>
+</div>
+
+<!-- 🧭 市场 Regime 判断 -->
+<div class="section-title">🧭 市场现在是啥风格？</div>
+<div class="regime-box" style="background:white; border-radius:16px; padding:20px; margin-bottom:20px; box-shadow:0 3px 15px rgba(74,144,217,0.1); border-left:4px solid #e67e22;">
+  <div style="font-family:'ZCOOL KuaiLe',sans-serif; font-size:20px; color:#2c5f8a; margin-bottom:10px;">🧭 市场现在是啥风格？</div>
+  <div style="font-size:16px; margin-bottom:10px;">
+    当前：<span style="background:#fdebd0; color:#d35400; padding:4px 12px; border-radius:12px; font-weight:800;">🤔 谨慎乐观（地缘+非农双警报）</span>
+  </div>
+  <div style="font-size:14px; color:#5d4e37; margin-bottom:10px; line-height:1.8;">
+    为什么这么说：<br>
+    • 9/2收盘VIX降到15.20、标普/纳指/道指齐涨，Risk-On表面OK；但盘前VIX还可能因伊朗袭击再涨。<br>
+    • 10年美债4.75%（高位），油价>92（盘前），借钱贵+通胀贵是悬而未决的风险。<br>
+    • 明天8月非农（共识+5.6万）才是9月加息的"开门钥匙"，但美银强调真正决定加息的是9/11 CPI，今天非农只是预热。
+  </div>
+  <div style="background:#d6e8f7; padding:10px 14px; border-radius:10px; font-size:14px; color:#2c5f8a; font-weight:600;">
+    → 你该怎么做：今天不动，现金保留50%以上。明天非农后再分批投出（VOO 40% / QQQ 20% / SCHD 30% / 个股 10%）。
+  </div>
+</div>
+
+<!-- 📰 新闻翻译官 -->
+<div class="section-title">📰 新闻翻译官</div>
+<div class="translate-box">
+  <div class="translate-item">
+    <span class="tag red">地缘</span>
+    <div class="original">Iran launched missiles and drones at US military bases in Kuwait (Ahmad al-Jaber Air Base) and UAE (Minhad) early Thursday, with smoke rising at site.</div>
+    <div class="simple">💬 伊朗凌晨用导弹和无人机打美国在科威特和阿联酋的空军基地（艾哈迈德·贾比尔基地、敏哈德基地），现场浓烟滚滚。</div>
+    <div class="impact">→ 直接影响：油价盘前跳到$92.05 (+1.12%)、黄金$4,425 (+0.87%)；霍尔木兹海峡风险升级。明天非农前不要追涨。</div>
+  </div>
+  <div class="translate-item">
+    <span class="tag green">AI财报</span>
+    <div class="original">Dell FY27 Q2 revenue $47bn (+58% YoY), AI server orders $60.9bn (record), full-year guidance raised by $25bn to $192bn; stock jumped 15.7%.</div>
+    <div class="simple">💬 戴尔Q2营收$470亿同比+58%，AI服务器订单创纪录$609亿，全年营收指引从$1670亿上调到$1920亿；股价涨15.7%。</div>
+    <div class="impact">→ AI需求验证再+1重磅数据，间接利好WDC存储逻辑；但同时博通Q4指引稍miss，说明AI基建估值已经不算便宜。</div>
+  </div>
+  <div class="translate-item">
+    <span class="tag">非农预热</span>
+    <div class="original">BofA: Friday non-farm payrolls is just "appetizer"; September rate hike's true hurdle is CPI. Consensus +56k, unemployment expected 4.1%.</div>
+    <div class="simple">💬 美银说：明天非农只是"开胃菜"，9月加息真正门槛在9/11 CPI。共识新增就业+5.6万，失业率维持4.1%。</div>
+    <div class="impact">→ 关键看的是平均小时工资（YoY 3.0% vs 前 3.2%），如果加速，加息概率会从60%进一步走高；如果放缓，可能给现金入场机会。</div>
+  </div>
+  <div class="translate-item">
+    <span class="tag">宏观政策</span>
+    <div class="original">Fed Beige Book: Economic activity expanded modestly in July-early Aug, but energy prices + policy uncertainty + international conflicts increased uncertainty; 10 of 12 districts saw modest growth.</div>
+    <div class="simple">💬 美联储褐皮书：7月初到8月24日经济温和增长，但能源涨价+政策变化+国际冲突让不确定性上升；12个联邦储备区中10个温和增长，2个没变化。</div>
+    <div class="impact">→ 通胀压力还没解除，但经济增长在放缓——这是经典的"滞胀前兆"，但目前还不是。看美联储如何平衡。</div>
+  </div>
+</div>
+
+<!-- 👜 持仓速览 -->
+<div class="section-title">👜 持仓速览</div>
+<div class="portfolio">
+  <div class="title">📋 持仓速览 · 数据截至2026-09-02收盘</div>
+  <div class="bag-item"><div><span class="icon">🇺🇸</span><span class="n">VOO</span><span class="d">标普500 ETF</span></div><div style="text-align:right;"><div class="v">$703.41</div><div class="p up">+0.45% 🙂</div></div></div>
+  <div class="bag-item"><div><span class="icon">🚀</span><span class="n">QQQ</span><span class="d">纳斯达克100 ETF</span></div><div style="text-align:right;"><div class="v">$709.24</div><div class="p up">+0.23% 🙂</div></div></div>
+  <div class="bag-item"><div><span class="icon">💎</span><span class="n">SCHD</span><span class="d">红利 ETF</span></div><div style="text-align:right;"><div class="v">$35.01</div><div class="p up">+0.57% 🙂</div></div></div>
+  <div class="bag-item"><div><span class="icon">💾</span><span class="n">WDC</span><span class="d">西部数据（盘前-0.88%）</span></div><div style="text-align:right;"><div class="v">$448.90</div><div class="p down">-0.34% 🤧</div></div></div>
+  <div class="bag-item"><div><span class="icon">🏥</span><span class="n">UNH</span><span class="d">联合健康</span></div><div style="text-align:right;"><div class="v">$399.66</div><div class="p up">+0.85% 🙂</div></div></div>
+  <div class="bag-item"><div><span class="icon">🍔</span><span class="n">MCD</span><span class="d">麦当劳</span></div><div style="text-align:right;"><div class="v">$260.95</div><div class="p down">-0.06% 🙂</div></div></div>
+  <div class="summary">
+    💰 现金$823 · 总净值~$2,926（+0.23%） · 4涨2跌 · UNH 🚀 · WDC 🤧
+  </div>
+</div>
+
+<!-- 👀 待观察清单 -->
+<div class="section-title">👀 待观察清单 · 每只持仓什么时候该动</div>
+<div class="watch-grid">
+  <div class="watch-card">
+    <div class="w-top"><span class="w-name">💾 WDC <em>$448.90（盘前-0.88%）</em></span><span class="w-badge alert">🚨 加仓区间</span></div>
+    <div class="w-trigger">$440-460区间可分2次加仓；财报miss或CapEx指引下修 → 减仓。戴尔+15%验证AI存储逻辑，逻辑未破。</div>
+  </div>
+  <div class="watch-card">
+    <div class="w-top"><span class="w-name">🏥 UNH <em>$399.66</em></span><span class="w-badge wait">🟡 等DOJ</span></div>
+    <div class="w-trigger">DOJ强制拆分或赔付率连续&gt;90% → 立即评估减仓。今天+0.85%医疗板块避险仍受益。</div>
+  </div>
+  <div class="watch-card">
+    <div class="w-top"><span class="w-name">🇺🇸 VOO <em>$703.41</em></span><span class="w-badge ok">✅ 持有</span></div>
+    <div class="w-trigger">换汇到账分配40%；大盘单周跌&gt;10%加仓；永不减仓。9/2反弹+0.46%。</div>
+  </div>
+  <div class="watch-card">
+    <div class="w-top"><span class="w-name">🚀 QQQ <em>$709.24</em></span><span class="w-badge ok">✅ 持有</span></div>
+    <div class="w-trigger">换汇到账分配20%；回调&gt;15%加仓；Mag7单周跌&gt;5%等权化。博通miss短期谨慎。</div>
+  </div>
+  <div class="watch-card">
+    <div class="w-top"><span class="w-name">💎 SCHD <em>$35.01</em></span><span class="w-badge ok">✅ 持有</span></div>
+    <div class="w-trigger">换汇到账分配30%；回调&gt;5%加仓；VIX&gt;30加仓窗口。红利底仓稳健，+0.57%。</div>
+  </div>
+  <div class="watch-card">
+    <div class="w-top"><span class="w-name">🍔 MCD <em>$260.95</em></span><span class="w-badge ok">✅ 持有</span></div>
+    <div class="w-trigger">回调&gt;10%加仓；同店连2季负增长或P/E&gt;30 → 减仓。防御底仓之一。</div>
+  </div>
+</div>
+
+<!-- 🧘 今日建议 -->
+<div class="advice">
+  <div class="advice-head">
+    <span class="signal-pill alert">🟡 今日有信号</span>
+    <span class="advice-summary">伊朗地缘升级+明天非农+30天内CPI/FOMC，现金留一半等结果。</span>
+  </div>
+  <div class="hold-chips">
+    <span class="hchip">📈 VOO <span class="s-ok">持有</span></span>
+    <span class="hchip">🚀 QQQ <span class="s-ok">持有</span></span>
+    <span class="hchip">💎 SCHD <span class="s-ok">持有</span></span>
+    <span class="hchip">💾 WDC <span class="s-alert">等非农</span></span>
+    <span class="hchip">🏥 UNH <span class="s-wait">等DOJ</span></span>
+    <span class="hchip">🍔 MCD <span class="s-ok">稳健</span></span>
+  </div>
+  <div class="advice-why">
+    <div class="why-title">为什么今天不动（地缘+数据双警报，不是亏钱）</div>
+    <div class="why-item">1️⃣ 伊朗凌晨空袭科威特+阿联酋美军基地，地缘风险升级；盘前存储芯片已普跌，今天不是加仓窗口。</div>
+    <div class="why-item">2️⃣ 6只持仓全部无逻辑破坏：Dell+15%强化WDC存储逻辑、UNH+0.85%受益医疗避险、ETF齐齐反弹。</div>
+    <div class="why-item">3️⃣ 明天9/4非农（共识+5.6万）+ 9/11 CPI + 9/16 FOMC，30天内3个重大事件叠加，按规则留50%现金等结果。</div>
+  </div>
+  <div class="advice-action">💡 <strong>什么时候会让你动</strong>：非农数据出炉后（弱→投第一批~$400，强→继续等）；WDC跌回$440-460区间且逻辑没破→用10%现金(~$91)分2次加仓；出现大盘单周跌&gt;10% → 用30%现金加仓占比最低的持仓。详见 portfolio-thesis.md「操作信号分级」。</div>
+</div>
+
+<!-- 🔭 机会雷达 -->
+<div class="section-title">🔭 机会雷达</div>
+<div class="opportunity-box">
+  <div class="op-title">💾 半导体存储芯片 — 🟡 追踪中（AI需求验证+博通miss的拉扯）</div>
+  <div class="op-body">
+    戴尔FY27 Q2 AI服务器订单创纪录$609亿（年增趋势极强），盘前SK海力士/闪迪/美光普跌0.6-2%+，是博通Q4指引稍miss引发的获利了结，不是基本面变化。WDC处于$440-460加仓区间内，但今天不动，等非农明朗后再分批加。
+  </div>
+</div>
+<div class="opportunity-box">
+  <div class="op-title">🛢️ 能源板块 — 🟡 追踪中（地缘驱动）</div>
+  <div class="op-body">
+    伊朗袭击科威特+阿联酋美军基地，霍尔木兹海峡风险升级，WTI盘前跳到$92.05（+1.12%）。能源ETF不追涨（地缘风险可能快速反转），继续观察原油运输是否受阻及OPEC周一会谈。
+  </div>
+</div>
+<div class="opportunity-box">
+  <div class="op-title">🤖 AI数据中心基础设施 — 🔵 催化剂兑现（估值待消化）</div>
+  <div class="op-body">
+    戴尔+15%验证AI服务器需求火爆 / 英伟达盘前涨0.71% / Snowflake Q2 beat涨23.76%。但博通Q4指引miss说明——AI需求真实，估值要求更高。你的QQQ和WDC已经覆盖这个主题，不需要新增仓位。
+  </div>
+</div>
+
+<!-- 📖 每日一词 -->
+<div class="term-box">
+  <div class="term-title">📖 非农就业报告 · Non-Farm Payrolls (NFP)</div>
+  <div style="font-size:15px;color:var(--brown);margin:8px 0;">
+    每月第一个周五，美国劳工统计局公布的"非农业就业人口新增数"。因为它直接反映美国经济是否健康、是否过热（太热就会推高工资→推高通胀→逼美联储加息）。市场预期明天新增+5.6万，失业率维持4.1%；但美银提示关键其实在9/11的CPI，NFP只是"开胃菜"。如果新增就业<5万=经济降温（利好降息预期，利好债市和成长股），新增>10万=经济强劲（推高加息预期，可能重创高估值科技股）。
+  </div>
+</div>
+
+<!-- 🐦 分析师笔记 -->
+<div class="section-title">🐦 分析师笔记</div>
+<div class="kol-item">
+  <div class="name">🎯 Eric Balchunas</div>
+  <div class="handle">@EricBalchunas · Bloomberg ETF 首席 · 常驻 · 近期观点</div>
+  <div class="take">"Investors pulled $20bn from equities last week, but tech ETFs saw record inflows — selective dip-buying, not broad exit."</div>
+  <div class="why">→ 大资金一边撤出一边抄底科技ETF，是典型的"看好但谨慎"心态——跟你的"留50%现金等结果"逻辑一致。</div>
+</div>
+<div class="kol-item">
+  <div class="name">📊 Ben Carlson</div>
+  <div class="handle">@awealthofcs · Ritholtz 资管总监 · 轮换 · 近期观点</div>
+  <div class="take">"Trying to time Fed decisions is usually a losing game for long-term investors. The best move is usually no move."</div>
+  <div class="why">→ 美联储决议前最好的操作往往是不操作。你的定投策略天然免疫"择时焦虑"——只要你按规则行动，不会错。</div>
+</div>
+<div class="kol-item">
+  <div class="name">🔢 10kdiver</div>
+  <div class="handle">@10kdiver · 投资数学 · 轮换 · 近期观点</div>
+  <div class="take">"A 28% cash position earns 4-5% in money market funds. That's $30-40/year on $800 — meaningful for compounding."</div>
+  <div class="why">→ 现金不是"闲置"，而是"等待机会的资金"，还能在货币基金赚利息。等非农/CPI落地后再行动，并非浪费。</div>
+</div>
+
+<!-- 📅 本周关注 -->
+<div class="section-title">📅 本周关注</div>
+<div class="cards">
+  <div class="card">
+    <div class="emoji">📅</div>
+    <div class="name">明天 周五 9/4</div>
+    <div class="price">8月非农</div>
+    <div class="change up">⭐⭐⭐</div>
+    <div class="note">共识+5.6万，关键看时薪</div>
+  </div>
+  <div class="card">
+    <div class="emoji">🏖️</div>
+    <div class="name">周一 9/7</div>
+    <div class="price">劳动节</div>
+    <div class="change down">休市</div>
+    <div class="note">美股全天休市</div>
+  </div>
+  <div class="card">
+    <div class="emoji">📊</div>
+    <div class="name">9/11 周四</div>
+    <div class="price">8月CPI</div>
+    <div class="change up">⭐⭐⭐</div>
+    <div class="note">9月加息真正门槛</div>
+  </div>
+  <div class="card">
+    <div class="emoji">🏦</div>
+    <div class="name">9/16 周二</div>
+    <div class="price">FOMC</div>
+    <div class="change up">⭐⭐⭐</div>
+    <div class="note">利率决议+点阵图</div>
+  </div>
+</div>
+
+<!-- 🔗 快速入口 -->
+<div class="section-title">🔗 快速入口</div>
+<div class="links-grid">
+  <a href="https://finance.yahoo.com/quote/VOO/" target="_blank" class="link-card"><span class="emoji">📈</span><span class="name">VOO</span></a>
+  <a href="https://finance.yahoo.com/quote/QQQ/" target="_blank" class="link-card"><span class="emoji">🚀</span><span class="name">QQQ</span></a>
+  <a href="https://finance.yahoo.com/quote/SCHD/" target="_blank" class="link-card"><span class="emoji">💎</span><span class="name">SCHD</span></a>
+  <a href="https://finance.yahoo.com/quote/WDC/" target="_blank" class="link-card"><span class="emoji">💾</span><span class="name">WDC</span></a>
+  <a href="https://finance.yahoo.com/quote/MCD/" target="_blank" class="link-card"><span class="emoji">🍔</span><span class="name">MCD</span></a>
+  <a href="https://finance.yahoo.com/quote/UNH/" target="_blank" class="link-card"><span class="emoji">🏥</span><span class="name">UNH</span></a>
+  <a href="https://www.cnbc.com/" target="_blank" class="link-card"><span class="emoji">📺</span><span class="name">CNBC</span></a>
+  <a href="https://wallstreetcn.com/" target="_blank" class="link-card"><span class="emoji">📰</span><span class="name">华尔街见闻</span></a>
+</div>
+
+<footer>
+  🍉 Zoe的每日果园 · 2026-09-03<br>
+  数据来源：Wind、Yahoo Finance、新浪财经、东方财富、CNBC、华尔街见闻、BofA Flow Show<br>
+  ⚠️ <strong>免责声明：</strong>本日报仅供个人学习参考，不构成任何投资建议。投资有风险，决策请独立判断。<br>
+  Made with 💛 for Zoe
+</footer>
+
+</body>
+</html>
