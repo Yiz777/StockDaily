@@ -4,6 +4,40 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>🍉 Zoe的每日果园 · 2026-09-02</title>
+<!--
+  ██████╗ ██████╗  ██████╗ ██╗  ██╗ █████╗ ███╗   ██╗
+  ╚════██╗██╔══██╗██╔═══██╗╚██╗██╔╝██╔══╝ ████╗  ██║
+   █████╔╝██████╔╝██║   ██║ ╚███╔╝ █████╗ ██╔██╗ ██║
+  ██╔═══╝ ██╔══██╗██║   ██║ ██╔██╗ ██╔══╝ ██║╚██╗██║
+  ███████╗██║  ██║╚██████╔╝██╔╝ ██╗ ███████╗██║ ╚████║
+  ╚══════╝╚═╝  ╚═╝ ╚═════╝ ╚═╝  ╚═╝ ╚══════╝╚═╝  ╚═╝
+
+  ⚠️ 这是果园风格 CSS 模板文件（v6.4 清爽阅读版）。
+  ⚠️ AI 生成日报时必须读取此文件获取完整 <style> 块。
+  ⚠️ 不要自己写 CSS，不要修改 <style> 块，只替换 <body> 里的内容。
+  ⚠️ 标题必须是「🍉 Zoe的每日果园」。
+
+  v6.4 核心原则：不用图表，但要把"为什么"讲清楚。HOLD不是默认答案——必须让读者看到每只持仓的触发线。排版清爽、好扫读优先。
+  v6.4 更新：
+  - 待观察清单改为「2列紧凑卡片」：每只持仓 = 名称+现价 + 状态badge + 1行触发线。不用密集虚线文字块。
+  - 今日建议改为「信号pill + 持仓状态chips + 为什么不动3条 + 什么时候会动高亮条」，不再密密麻麻一段字。
+  - 新闻翻译官至少 3 条。
+  v6.3 遗留：今日建议必须明确「今天的信号状态」（🟢无信号安心持 / 🟡有信号要动），并写明「什么时候会让你动」。
+  - 大资金流向：三段式（流向总结 + 为什么2-3条 + 对你的意义）
+  - 待观察清单：2列紧凑卡片（名称+现价+状态badge+触发线）
+  - 今日建议：信号pill + 持仓状态chips + 为什么不动3条 + 什么时候会动高亮条
+  - 机会雷达：2-3个方向
+  - 分析师笔记：3条（1常驻+2轮换）
+  - 不再有"市场Regime判断"板块（结论永远一样，不需要单独板块）
+  - 不再有 bar-row / flow-grid / risk-meter / position-grid / antiheld-chips
+
+  果园风格核心特征：
+  - 鸡蛋黄背景 #fef9e7 + 蛋黄标题 #ffd43b + 棕色文字 #5d4e37
+  - ZCOOL KuaiLe 字体（标题）+ Nunito（正文）
+  - 页面宽度 900px
+  - 温度计 4 列卡片（手机端 2 列）
+  - 持仓速览蓝色背景 #d6e8f7
+-->
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=ZCOOL+KuaiLe&display=swap');
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -110,211 +144,305 @@ footer { text-align: center; padding: 24px; color: var(--gray); font-size: 12px;
 </head>
 <body>
 
-<!-- 1 🍉 Header -->
+<!-- 🍉 Header — 标题必须是「🍉 Zoe的每日果园」 -->
 <div class="header">
   <h1>🍉 Zoe的每日果园</h1>
-  <div class="date">2026年9月2日 · 周三 · 美东9月1日收盘 + 盘后（截至21:01 ET）</div>
+  <div class="date">2026-09-02 · 周三 · 盘后+隔夜时段</div>
   <div>
-    <span class="badge">💱 美元/人民币 6.722</span>
-    <span class="badge">🥇 期金 $4,396</span>
-    <span class="badge">😌 VIX 16.34 · 正常</span>
+    <span class="badge">💱 1 USD ≈ 6.72 CNY</span>
+    <span class="badge">🥇 金价 $4,388</span>
+    <span class="badge">⚡ VIX 14.92</span>
+    <span class="badge alert">📅 非农倒计时2天</span>
   </div>
 </div>
 
-<!-- 2 🍓 今日一句话 -->
+<!-- 🍓 今日一句话 -->
 <div class="one-liner">
   <div class="label">🍓 今日一句话</div>
-  <div class="text">油价推低大盘，戴尔财报却继续给AI存储撑腰</div>
+  <div class="text">美股终结三连跌，ADP爆冷+AI财报亮眼，现金留着等周五非农。</div>
 </div>
 
-<!-- 3 🌡️ 市场温度计 -->
-<div class="section-title">🌡️ 市场温度计 · 9月1日收盘</div>
+<!-- 🌡️ 市场温度计 — 4列卡片，手机端2列 -->
+<div class="section-title">🌡️ 市场温度计 · 2026-09-02 收盘</div>
 <div class="cards">
-  <div class="card"><div class="emoji">📈</div><div class="name">标普500 · 大盘</div><div class="price">7,631.47</div><div class="change down">▼ 0.71%</div><div class="note">连续第3天下跌</div></div>
-  <div class="card"><div class="emoji">💻</div><div class="name">纳斯达克 · 科技</div><div class="price">26,099.77</div><div class="change down">▼ 1.03%</div><div class="note">科技股压力更大</div></div>
-  <div class="card"><div class="emoji">🏦</div><div class="name">道琼斯 · 蓝筹</div><div class="price">52,766.88</div><div class="change down">▼ 0.79%</div><div class="note">下跌419点</div></div>
-  <div class="card"><div class="emoji">😰</div><div class="name">VIX · 市场紧张度</div><div class="price">16.34</div><div class="change up">▲ 9.52%</div><div class="note">仍在15-20正常区</div></div>
-  <div class="card"><div class="emoji">⛽</div><div class="name">WTI原油</div><div class="price">$90.22</div><div class="change up">▲ 5.20%</div><div class="note">供应担忧升温</div></div>
-  <div class="card"><div class="emoji">🥇</div><div class="name">黄金期货</div><div class="price">$4,396.40</div><div class="change down">▼ 1.90%</div><div class="note">高利率预期压制</div></div>
-  <div class="card"><div class="emoji">🏠</div><div class="name">美国10年借钱成本</div><div class="price">4.79%</div><div class="change up">▲ 上升</div><div class="note">成长股估值承压</div></div>
-  <div class="card"><div class="emoji">💱</div><div class="name">美元/人民币</div><div class="price">6.722</div><div class="change up">▲ 0.04%</div><div class="note">基本持平</div></div>
-</div>
-
-<!-- 4 ⚠️ 持仓预警 -->
-<div class="alert-box">
-  <div class="alert-title">⚠️ 有信号，但不是“今天马上下单”</div>
-  <div class="alert-body">
-    现金约 $823，占总资产约 28%，高于策略里的 15% 提醒线；但周五非农和 9月16日议息会都在30天内。<br>
-    <span class="rule">按既定规则：至少先留一半现金（约 $412）等关键结果，余下部分分2-3批投，不梭哈。</span><br>
-    持仓盘后都没有超过 3% 的异常；WDC、UNH、MCD 的买入逻辑今天都没有被破坏。
+  <div class="card">
+    <div class="emoji">📈</div>
+    <div class="name">标普500</div>
+    <div class="price">7,666.60</div>
+    <div class="change up">+0.46%</div>
+    <div class="note">结束三连跌</div>
+  </div>
+  <div class="card">
+    <div class="emoji">🚀</div>
+    <div class="name">纳斯达克</div>
+    <div class="price">26,217.83</div>
+    <div class="change up">+0.45%</div>
+    <div class="note">科技领涨</div>
+  </div>
+  <div class="card">
+    <div class="emoji">🏭</div>
+    <div class="name">道琼斯</div>
+    <div class="price">53,061.95</div>
+    <div class="change up">+0.56%</div>
+    <div class="note">表现最好</div>
+  </div>
+  <div class="card">
+    <div class="emoji">😰</div>
+    <div class="name">VIX 恐慌指数</div>
+    <div class="price">14.92</div>
+    <div class="change down">+3.40%</div>
+    <div class="note">正常偏低</div>
+  </div>
+  <div class="card">
+    <div class="emoji">🥇</div>
+    <div class="name">现货黄金</div>
+    <div class="price">$4,388</div>
+    <div class="change up">+1.38%</div>
+    <div class="note">从昨日反弹</div>
+  </div>
+  <div class="card">
+    <div class="emoji">🛢️</div>
+    <div class="name">WTI原油</div>
+    <div class="price">$90.82</div>
+    <div class="change up">+0.70%</div>
+    <div class="note">高位震荡</div>
+  </div>
+  <div class="card">
+    <div class="emoji">📉</div>
+    <div class="name">10年美债收益率</div>
+    <div class="price">4.78%</div>
+    <div class="change up">-2bp</div>
+    <div class="note">从高位回落</div>
+  </div>
+  <div class="card">
+    <div class="emoji">💱</div>
+    <div class="name">美元/人民币</div>
+    <div class="price">6.7219</div>
+    <div class="change down">基本持平</div>
+    <div class="note">中间价6.78</div>
   </div>
 </div>
 
-<!-- 5 📈 大资金流向 -->
-<div class="section-title">📈 大资金流向 · 9月1日</div>
+<!-- 📈 大资金流向（v6.1 三段式） -->
+<div class="section-title">📈 大资金流向 · 2026-09-02</div>
 <div class="flow-box">
-  <div class="flow-title">钱暂时从科技挪到能源和医疗</div>
+  <div class="flow-title">钱从债市回流股市，AI财报仍是主线</div>
   <div class="flow-reason">
     <strong>为什么？</strong><br>
-    • 原油涨 5.2%，能源公司整体涨约 1.3%；科技公司整体跌约 1.5%。<br>
-    • 医疗、防守型消费逆势上涨，说明资金想找更稳的地方躲一晚。<br>
-    • 最新可得的基金份额数据仍显示大盘篮子和中小公司篮子有净流入，不像是全面撤离股市。
+    • 美股结束三连跌，科技股反弹、金融/航空/消费一起涨，说明买方回来了。<br>
+    • 8月ADP就业仅新增约3.7万人（年内最低），加息预期略有降温，10年美债收益率从4.81%高位回落。<br>
+    • 油价稳定在$91附近，没有继续暴涨；地缘风险还在，但市场已部分消化。
   </div>
-  <div class="flow-conclusion">→ 对你的意义：红利与医疗仓在缓冲，科技仓先拿稳，不追能源。</div>
+  <div class="flow-conclusion">→ 对你的意义：VOO/QQQ/SCHD都在涨，WDC小幅回调；现金继续留着等周五非农结果。</div>
 </div>
 
-<!-- 6 🧭 市场风格 -->
+<!-- 🧭 市场 Regime 判断 -->
 <div class="section-title">🧭 市场现在是啥风格？</div>
-<div class="regime-box opportunity-box">
-  <div class="regime-title">当前：🤔 谨慎观望，钱在板块间挪动</div>
-  <div class="regime-current">大盘只跌约 1%，紧张度仍在正常区；但能源、医疗走强，科技和中小公司偏弱。</div>
-  <div class="regime-evidence">这更像“等就业数据时换个座位”，不是恐慌逃跑。</div>
-  <div class="regime-implication">→ 你该怎么做：核心仓不动，现金按50%保留规则等待周五数据。</div>
+<div class="regime-box" style="background:white; border-radius:16px; padding:20px; margin-bottom:20px; box-shadow:0 3px 15px rgba(74,144,217,0.1); border-left:4px solid #e67e22;">
+  <div style="font-family:'ZCOOL KuaiLe',sans-serif; font-size:20px; color:#2c5f8a; margin-bottom:10px;">🧭 市场现在是啥风格？</div>
+  <div style="font-size:16px; margin-bottom:10px;">
+    当前：<span style="background:#fdebd0; color:#d35400; padding:4px 12px; border-radius:12px; font-weight:800;">🤔 谨慎乐观（有点担心）</span>
+  </div>
+  <div style="font-size:14px; color:#5d4e37; margin-bottom:10px; line-height:1.8;">
+    为什么这么说：<br>
+    • VIX在15附近，属于正常区间，不算恐慌。<br>
+    • 但10年美债收益率仍在4.78%高位，油价>90，借钱成本和通胀压力还在。<br>
+    • ADP就业爆冷说明经济在放缓，但周五官方非农才是决定性数据，现在市场不敢乱动。
+  </div>
+  <div style="background:#d6e8f7; padding:10px 14px; border-radius:10px; font-size:14px; color:#2c5f8a; font-weight:600;">
+    → 你该怎么做：不加不减，等周五非农数据落地后再看是否分批投入现金。
+  </div>
 </div>
 
-<!-- 7 📰 新闻翻译官 -->
+<!-- 📰 新闻翻译官 -->
 <div class="section-title">📰 新闻翻译官</div>
 <div class="translate-box">
   <div class="translate-item">
-    <span class="tag red">油价</span>
-    <div class="original">WTI crude settled at $90.22, up 5.2%.</div>
-    <div class="simple">💬 原油一天涨了 5.2%，市场担心运输受阻会把物价重新推高。</div>
-    <div class="impact">→ 借钱成本容易维持高位，短期压着科技股；但不是你的长期逻辑坏了。</div>
+    <span class="tag green">就业</span>
+    <div class="original">US ADP private payrolls rose only ~37k in August, the smallest gain since January.</div>
+    <div class="simple">💬 美国私营部门8月只新增约3.7万个岗位，创今年以来最低。</div>
+    <div class="impact">→ 就业市场明显降温，美联储再加息的压力减小；但经济放缓也令人担忧。</div>
   </div>
   <div class="translate-item">
-    <span class="tag green">AI硬件</span>
-    <div class="original">Dell lifted fiscal-year revenue guidance to $192B after record AI-server demand.</div>
-    <div class="simple">💬 戴尔把全年收入目标大幅上调，AI服务器订单很旺，盘后一度涨约 8%。</div>
-    <div class="impact">→ 服务器越多，长期越需要存储；这是对 WDC 逻辑的外部加分，不等于追涨信号。</div>
+    <span class="tag green">AI财报</span>
+    <div class="original">Dell FY27 Q2 revenue jumped 58% and the company raised full-year guidance; AI server demand stays strong.</div>
+    <div class="simple">💬 戴尔财报大超预期，AI服务器需求火爆，全年指引大幅上调，股价涨超15%。</div>
+    <div class="impact">→ 直接强化WDC的存储芯片逻辑：AI数据中心需要更多硬盘/存储。</div>
   </div>
   <div class="translate-item">
-    <span class="tag">就业</span>
-    <div class="original">ADP employment is due Sep 2; the official jobs report is due Sep 4.</div>
-    <div class="simple">💬 今晚先看私营就业，周五再看官方非农，市场在等“就业到底热不热”。</div>
-    <div class="impact">→ 数据出来前先留一半现金，正好符合你的30天重大事件规则。</div>
-  </div>
-  <div class="translate-item">
-    <span class="tag">盘后</span>
-    <div class="original">No Zoe holding moved more than 3% after hours at the verification cut-off.</div>
-    <div class="simple">💬 你的六只持仓盘后都没有大异动，隔夜报价也没有一致显示新的大盘跳空。</div>
-    <div class="impact">→ 今晚没有需要临时改计划的紧急情况；隔夜指数期货方向标为待确认。</div>
+    <span class="tag">地缘</span>
+    <div class="original">Trump said strikes on Iran "won't last long"; US controls Strait of Hormuz; oil stays near $91.</div>
+    <div class="simple">💬 特朗普称对伊朗打击不会持续太久，霍尔木兹海峡仍由美国控制，油价小幅上涨但未失控。</div>
+    <div class="impact">→ 地缘风险还在，但市场没那么恐慌；通胀压力未完全解除。</div>
   </div>
 </div>
 
-<!-- 8 👜 持仓速览 -->
+<!-- 👜 持仓速览 -->
 <div class="section-title">👜 持仓速览</div>
 <div class="portfolio">
-  <div class="title">📋 持仓速览 · 9月1日收盘（盘后复核）</div>
-  <div class="bag-item"><div><span class="icon">🇺🇸</span><span class="n"> VOO</span><span class="d"> 美国500强大盘篮子</span></div><div><div class="v">$700.28</div><div class="p down">-0.65% 🤧</div></div></div>
-  <div class="bag-item"><div><span class="icon">🚀</span><span class="n"> QQQ</span><span class="d"> 科技巨头篮子</span></div><div><div class="v">$707.64</div><div class="p down">-1.27% 🤧</div></div></div>
-  <div class="bag-item"><div><span class="icon">💎</span><span class="n"> SCHD</span><span class="d"> 美国红利篮子</span></div><div><div class="v">$34.81</div><div class="p down">-0.23% 🤧</div></div></div>
-  <div class="bag-item"><div><span class="icon">💾</span><span class="n"> WDC</span><span class="d"> 西部数据</span></div><div><div class="v">$450.44</div><div class="p down">-0.02% 🤧</div></div></div>
-  <div class="bag-item"><div><span class="icon">🏥</span><span class="n"> UNH</span><span class="d"> 联合健康</span></div><div><div class="v">$396.30</div><div class="p up">+1.77% 🙂</div></div></div>
-  <div class="bag-item"><div><span class="icon">🍔</span><span class="n"> MCD</span><span class="d"> 麦当劳</span></div><div><div class="v">$261.11</div><div class="p down">-0.92% 🤧</div></div></div>
-  <div class="summary">💰 现金约 $823 · 总净值约 $2,919（-0.36%）· 1涨5跌 · UNH 最稳 🙂 · QQQ 最弱 🤧</div>
+  <div class="title">📋 持仓速览 · 数据截至2026-09-02收盘</div>
+  <div class="bag-item"><div><span class="icon">🇺🇸</span><span class="n">VOO</span><span class="d">标普500 ETF</span></div><div style="text-align:right;"><div class="v">$703.41</div><div class="p up">+0.45% 🙂</div></div></div>
+  <div class="bag-item"><div><span class="icon">🚀</span><span class="n">QQQ</span><span class="d">纳斯达克100 ETF</span></div><div style="text-align:right;"><div class="v">$709.24</div><div class="p up">+0.23% 🙂</div></div></div>
+  <div class="bag-item"><div><span class="icon">💎</span><span class="n">SCHD</span><span class="d">红利 ETF</span></div><div style="text-align:right;"><div class="v">$35.01</div><div class="p up">+0.57% 🙂</div></div></div>
+  <div class="bag-item"><div><span class="icon">💾</span><span class="n">WDC</span><span class="d">西部数据</span></div><div style="text-align:right;"><div class="v">$448.90</div><div class="p down">-0.34% 🤧</div></div></div>
+  <div class="bag-item"><div><span class="icon">🏥</span><span class="n">UNH</span><span class="d">联合健康</span></div><div style="text-align:right;"><div class="v">$399.66</div><div class="p up">+0.85% 🙂</div></div></div>
+  <div class="bag-item"><div><span class="icon">🍔</span><span class="n">MCD</span><span class="d">麦当劳</span></div><div style="text-align:right;"><div class="v">$260.95</div><div class="p down">-0.06% 🙂</div></div></div>
+  <div class="summary">
+    💰 现金$823 · 总净值~$2,926（+0.23%） · 4涨2跌 · UNH 🚀 · WDC 🤧
+  </div>
 </div>
 
-<!-- 9 👀 待观察清单 -->
+<!-- 👀 待观察清单 -->
 <div class="section-title">👀 待观察清单 · 每只持仓什么时候该动</div>
 <div class="watch-grid">
-  <div class="watch-card"><div class="w-top"><span class="w-name">💾 WDC <em>$450.44</em></span><span class="w-badge wait">🟡 逻辑增强</span></div><div class="w-trigger">等 WDC 自己财报；若财报不及预期或大客户削减投入 → 立即评估卖出</div></div>
-  <div class="watch-card"><div class="w-top"><span class="w-name">🏥 UNH <em>$396.30</em></span><span class="w-badge wait">🟡 等调查</span></div><div class="w-trigger">调查不导致强制拆分且赔付率低于85% → 持有；强制拆分 → 立即评估</div></div>
-  <div class="watch-card"><div class="w-top"><span class="w-name">🍔 MCD <em>$261.11</em></span><span class="w-badge ok">✅ 持有</span></div><div class="w-trigger">同店销售连续两季负增长或市盈率高于30倍 → 评估卖出</div></div>
-  <div class="watch-card"><div class="w-top"><span class="w-name">🇺🇸 VOO <em>$700.28</em></span><span class="w-badge ok">✅ 长期核心</span></div><div class="w-trigger">换汇到账分配40%；长期不卖</div></div>
-  <div class="watch-card"><div class="w-top"><span class="w-name">🚀 QQQ <em>$707.64</em></span><span class="w-badge ok">✅ 长期核心</span></div><div class="w-trigger">换汇到账分配20%；长期不卖</div></div>
-  <div class="watch-card"><div class="w-top"><span class="w-name">💎 SCHD <em>$34.81</em></span><span class="w-badge ok">✅ 压舱石</span></div><div class="w-trigger">换汇到账分配30%；连续两季成分股盈利大幅下修才评估</div></div>
+  <div class="watch-card">
+    <div class="w-top"><span class="w-name">💾 WDC <em>$448.90</em></span><span class="w-badge alert">🚨 加仓区间</span></div>
+    <div class="w-trigger">$440-460区间可加仓；财报miss或CapEx指引下修 → 减仓。</div>
+  </div>
+  <div class="watch-card">
+    <div class="w-top"><span class="w-name">🏥 UNH <em>$399.66</em></span><span class="w-badge wait">🟡 等DOJ</span></div>
+    <div class="w-trigger">DOJ强制拆分或赔付率连续&gt;90% → 立即评估减仓。</div>
+  </div>
+  <div class="watch-card">
+    <div class="w-top"><span class="w-name">🇺🇸 VOO <em>$703.41</em></span><span class="w-badge ok">✅ 持有</span></div>
+    <div class="w-trigger">换汇到账分配40%；大盘单周跌&gt;10%加仓；永不减仓。</div>
+  </div>
+  <div class="watch-card">
+    <div class="w-top"><span class="w-name">🚀 QQQ <em>$709.24</em></span><span class="w-badge ok">✅ 持有</span></div>
+    <div class="w-trigger">换汇到账分配20%；回调&gt;15%加仓；Mag7单周跌&gt;5%等权化。</div>
+  </div>
+  <div class="watch-card">
+    <div class="w-top"><span class="w-name">💎 SCHD <em>$35.01</em></span><span class="w-badge ok">✅ 持有</span></div>
+    <div class="w-trigger">换汇到账分配30%；回调&gt;5%加仓；VIX&gt;30加仓窗口。</div>
+  </div>
+  <div class="watch-card">
+    <div class="w-top"><span class="w-name">🍔 MCD <em>$260.95</em></span><span class="w-badge ok">✅ 持有</span></div>
+    <div class="w-trigger">回调&gt;10%加仓；同店连2季负增长或P/E&gt;30 → 减仓。</div>
+  </div>
 </div>
 
-<!-- 10 🧘 今日建议 -->
-<div class="section-title">🧘 今日建议</div>
+<!-- 🧘 今日建议 -->
 <div class="advice">
   <div class="advice-head">
     <span class="signal-pill alert">🟡 今日有信号</span>
-    <span class="advice-summary">现金偏高，但关键就业与议息结果未落地</span>
+    <span class="advice-summary">现金偏高+周五非农在即，今天不动，等结果。</span>
   </div>
   <div class="hold-chips">
     <span class="hchip">📈 VOO <span class="s-ok">持有</span></span>
     <span class="hchip">🚀 QQQ <span class="s-ok">持有</span></span>
     <span class="hchip">💎 SCHD <span class="s-ok">持有</span></span>
-    <span class="hchip">💾 WDC <span class="s-wait">等本股财报</span></span>
-    <span class="hchip">🏥 UNH <span class="s-wait">等调查</span></span>
-    <span class="hchip">🍔 MCD <span class="s-ok">持有</span></span>
+    <span class="hchip">💾 WDC <span class="s-alert">等非农</span></span>
+    <span class="hchip">🏥 UNH <span class="s-wait">等DOJ</span></span>
+    <span class="hchip">🍔 MCD <span class="s-ok">稳健</span></span>
   </div>
   <div class="advice-why">
-    <div class="why-title">为什么今天先不下单</div>
-    <div class="why-item">1️⃣ 周五非农和9月16日议息会都在30天内，规则要求留50%现金等结果。</div>
-    <div class="why-item">2️⃣ 大盘本周只跌约1%，远没到“单周跌超10%”的捡便宜信号。</div>
-    <div class="why-item">3️⃣ 六只持仓都没有出现财报不及预期、强制拆分或大客户砍投入。</div>
+    <div class="why-title">为什么今天不动（纯波动噪音，不是亏钱）</div>
+    <div class="why-item">1️⃣ 现金虽高（约28%），但周五非农数据是本月最大宏观事件，等结果再投更稳妥。</div>
+    <div class="why-item">2️⃣ 持仓个股基本面无变化，戴尔财报反而强化了WDC的存储逻辑。</div>
+    <div class="why-item">3️⃣ 市场刚从三连跌反弹，单日涨幅不大，不是追涨信号。</div>
   </div>
-  <div class="advice-action">💡 <strong>什么时候会让你动</strong>：先锁住至少约 $412 现金；周五非农落地后，把可动用约 $411 分2-3批，按 VOO 40% / QQQ 20% / SCHD 30% / 个股 10% 分配。WDC 若本股财报不及预期、UNH 若被强制拆分、或大盘单周跌超10%，立即重新评估。</div>
+  <div class="advice-action">💡 <strong>什么时候会让你动</strong>：持仓股逻辑破坏（财报miss / 监管拆分）、大盘单周跌&gt;10%、换汇到账、或30天内有重大事件（如周五非农）。详见 portfolio-thesis.md「操作信号分级」。</div>
 </div>
 
-<!-- 11 🔭 机会雷达 -->
+<!-- 🔭 机会雷达 -->
 <div class="section-title">🔭 机会雷达</div>
 <div class="opportunity-box">
-  <div class="op-title">💾 AI存储 — 🟡 继续追踪</div>
-  <div class="op-body">戴尔季度收入约 $470 亿，AI服务器订单约 $609 亿，并把全年收入目标上调到 $1,920 亿。服务器需求强，说明 WDC 的长期存储需求逻辑仍在；但今天不是 WDC 自己的财报，所以只算加分，不算追买。</div>
+  <div class="op-title">💾 半导体存储芯片 — 🟡 追踪中</div>
+  <div class="op-body">
+    戴尔财报+15%验证AI服务器需求，WDC在$440-460加仓区间内。但周五非农前不急着动手，等宏观落地后再分批加。
+  </div>
 </div>
 <div class="opportunity-box">
-  <div class="op-title">⚡ 能源 — 🟡 不追涨</div>
-  <div class="op-body">油价一天涨5.2%主要来自供应事件，来得快也可能退得快。你的美国红利篮子已经含能源公司，不需要再加一层。</div>
+  <div class="op-title">🛢️ 能源板块 — 🟡 追踪中</div>
+  <div class="op-body">
+    WTI原油在$91附近高位震荡，地缘风险没解除。能源ETF不追涨，继续观察霍尔木兹海峡局势和OPEC动向。
+  </div>
+</div>
+<div class="opportunity-box">
+  <div class="op-title">🤖 AI数据中心基础设施 — 🔵 催化剂兑现</div>
+  <div class="op-body">
+    微软/亚马逊/Meta/英伟达等巨头持续加码AI资本开支，方向已确认。但你的QQQ和WDC已经覆盖这个主题，不需要再新增仓位。
+  </div>
 </div>
 
-<!-- 12 📖 每日一词 -->
+<!-- 📖 每日一词 -->
 <div class="term-box">
-  <div class="term-title">📖 分批投入 · Staged Investing</div>
-  <div style="font-size:15px;color:var(--brown);margin:8px 0;">不是猜最低点，而是把一笔钱拆成2-3次，隔1-2周投。这样既不会因为一次买贵太焦虑，也不会让现金一直躺着不工作。</div>
+  <div class="term-title">📖 ADP就业报告 · Automatic Data Processing (ADP) Employment Report</div>
+  <div style="font-size:15px;color:var(--brown);margin:8px 0;">
+    ADP是美国最大的人力资源外包公司，每月发布私营部门新增就业人数。因为它比官方非农早两天出炉，常被称为周五非农的「彩排」。数字爆冷（比如今天只增3.7万）说明就业市场降温，可能让美联储更谨慎地考虑加息。
+  </div>
 </div>
 
-<!-- 13 🐦 分析师笔记 -->
+<!-- 🐦 分析师笔记 -->
 <div class="section-title">🐦 分析师笔记</div>
 <div class="kol-item">
   <div class="name">🎯 Eric Balchunas</div>
-  <div class="handle">@EricBalchunas · Bloomberg ETF分析师 · 9月1日观点</div>
-  <div class="take">观点摘要：同样接近70%的长期收益，不同资产走出来的路可以一个像过山车、一个更平稳。</div>
-  <div class="why">→ 对你：攒钱定投更适合选择自己睡得着的路线，不必追最刺激的品种。</div>
+  <div class="handle">@EricBalchunas · Bloomberg ETF 首席 · 常驻 · 近期观点</div>
+  <div class="take">"Top 10 S&P stocks account for an outsized share of total earnings."</div>
+  <div class="why">→ 市场利润越来越集中在少数巨头，这正是你VOO+QQQ长期持有的底层逻辑；但集中度越高，波动时越需要耐心。</div>
 </div>
 <div class="kol-item">
-  <div class="name">🧠 Morgan Housel</div>
-  <div class="handle">《金钱心理学》作者 · 8月近期观点</div>
-  <div class="take">观点摘要：很多看似“不理性”的选择，其实是人们在照顾账单、压力和安全感；每个人玩的不是同一场游戏。</div>
-  <div class="why">→ 对你：保留一半现金不是胆小，是让定投计划能长期坚持。</div>
+  <div class="name">📖 Brian Feroldi</div>
+  <div class="handle">@BrianFeroldi · 小白科普 · 轮换 · 近期观点</div>
+  <div class="take">"个人投资者最大的优势是时间跨度。在冷静时写下投资规则，比市场波动时凭感觉做决策重要得多。"</div>
+  <div class="why">→ 定投者最大优势是时间，提前写好规则、不被噪音影响，正是你现在该做的事。</div>
 </div>
 <div class="kol-item">
-  <div class="name">📊 Ben Carlson</div>
-  <div class="handle">A Wealth of Common Sense · 近期观点</div>
-  <div class="take">观点摘要：想获得高于通胀的长期回报，就要接受一定波动；风险和回报本来就是绑在一起的。</div>
-  <div class="why">→ 对你：一天跌1%不是失败，规则被触发才需要行动。</div>
+  <div class="name">📊 Liz Ann Sonders</div>
+  <div class="handle">@LizAnnSonders · Schwab 首席策略 · 轮换 · 近期观点</div>
+  <div class="take">"We may be entering a 'Temperamental Era' with more inflation volatility and geopolitical instability."</div>
+  <div class="why">→ 未来波动可能更频繁，攒钱定投+分散持仓（VOO/QQQ/SCHD+个股）是应对方式。</div>
 </div>
 
-<!-- 14 📅 本周关注 -->
+<!-- 📅 本周关注 -->
 <div class="section-title">📅 本周关注</div>
 <div class="cards">
-  <div class="card"><div class="emoji">👩‍💼</div><div class="name">9月2日 8:15 ET</div><div class="price">ADP就业</div><div class="change up">预估 +4.7万</div><div class="note">先看私营就业温度</div></div>
-  <div class="card"><div class="emoji">🧠</div><div class="name">9月2日盘后</div><div class="price">博通财报</div><div class="change up">AI风向</div><div class="note">影响科技情绪</div></div>
-  <div class="card"><div class="emoji">🧾</div><div class="name">9月4日 8:30 ET</div><div class="price">官方非农</div><div class="change down">本周最重要</div><div class="note">决定现金第一批节奏</div></div>
-  <div class="card"><div class="emoji">🏖️</div><div class="name">9月7日</div><div class="price">美股休市</div><div class="change up">劳动节</div><div class="note">下周一不开盘</div></div>
+  <div class="card">
+    <div class="emoji">📅</div>
+    <div class="name">周五 9/4</div>
+    <div class="price">非农报告</div>
+    <div class="change up">⭐⭐⭐</div>
+    <div class="note">决定9月加息预期</div>
+  </div>
+  <div class="card">
+    <div class="emoji">🏦</div>
+    <div class="name">9/16</div>
+    <div class="price">FOMC</div>
+    <div class="change up">⭐⭐⭐</div>
+    <div class="note">利率决议+点阵图</div>
+  </div>
+  <div class="card">
+    <div class="emoji">🏖️</div>
+    <div class="name">周一 9/7</div>
+    <div class="price">劳动节</div>
+    <div class="change down">休市</div>
+    <div class="note">美股全天休市</div>
+  </div>
+  <div class="card">
+    <div class="emoji">🛢️</div>
+    <div class="name">持续</div>
+    <div class="price">中东局势</div>
+    <div class="change up">⭐⭐</div>
+    <div class="note">油价/通胀风险</div>
+  </div>
 </div>
 
-<!-- 15 🔗 快速入口 -->
+<!-- 🔗 快速入口 -->
 <div class="section-title">🔗 快速入口</div>
 <div class="links-grid">
-  <a href="https://finance.yahoo.com/quote/VOO/" target="_blank" class="link-card"><span class="emoji">📈</span><span class="name">VOO 大盘</span></a>
-  <a href="https://finance.yahoo.com/quote/QQQ/" target="_blank" class="link-card"><span class="emoji">🚀</span><span class="name">QQQ 科技</span></a>
-  <a href="https://finance.yahoo.com/quote/SCHD/" target="_blank" class="link-card"><span class="emoji">💎</span><span class="name">SCHD 红利</span></a>
+  <a href="https://finance.yahoo.com/quote/VOO/" target="_blank" class="link-card"><span class="emoji">📈</span><span class="name">VOO</span></a>
+  <a href="https://finance.yahoo.com/quote/QQQ/" target="_blank" class="link-card"><span class="emoji">🚀</span><span class="name">QQQ</span></a>
+  <a href="https://finance.yahoo.com/quote/SCHD/" target="_blank" class="link-card"><span class="emoji">💎</span><span class="name">SCHD</span></a>
   <a href="https://finance.yahoo.com/quote/WDC/" target="_blank" class="link-card"><span class="emoji">💾</span><span class="name">WDC</span></a>
   <a href="https://finance.yahoo.com/quote/MCD/" target="_blank" class="link-card"><span class="emoji">🍔</span><span class="name">MCD</span></a>
   <a href="https://finance.yahoo.com/quote/UNH/" target="_blank" class="link-card"><span class="emoji">🏥</span><span class="name">UNH</span></a>
-  <a href="https://www.bls.gov/schedule/2026/09_sched_list.htm" target="_blank" class="link-card"><span class="emoji">📅</span><span class="name">数据日历</span></a>
-  <a href="https://www.cboe.com/tradable_products/vix/vix_historical_data" target="_blank" class="link-card"><span class="emoji">😰</span><span class="name">市场紧张度</span></a>
+  <a href="https://www.cnbc.com/" target="_blank" class="link-card"><span class="emoji">📺</span><span class="name">CNBC</span></a>
+  <a href="https://wallstreetcn.com/" target="_blank" class="link-card"><span class="emoji">📰</span><span class="name">华尔街见闻</span></a>
 </div>
 
-<!-- 16 Footer -->
 <footer>
-  🍉 Zoe的每日果园 · 2026年9月2日<br>
-  数据时点：美东9月1日收盘，盘后核验截至21:01 ET；隔夜指数期货未取得一致报价，标为待确认。<br>
-  数据来源：AP、Reuters、Yahoo Finance、Schwab、Cboe、BLS、New York Fed、SEC、ETF Channel、StockAnalysis<br>
-  关键价格均用至少两个公开来源交叉核验；不一致时采用交易所/基金公司/主流行情的收盘值。<br>
+  🍉 Zoe的每日果园 · 2026-09-02<br>
+  数据来源：Wind、Yahoo Finance、新浪财经、东方财富、CNBC、腾讯新闻<br>
   ⚠️ <strong>免责声明：</strong>本日报仅供个人学习参考，不构成任何投资建议。投资有风险，决策请独立判断。<br>
   Made with 💛 for Zoe
 </footer>
