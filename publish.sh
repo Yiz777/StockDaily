@@ -101,14 +101,16 @@ if [ ! -f "$NEWSLETTER_DIR/${DATE}.md" ]; then
     echo ""
 fi
 
-# Step 3: 归档旧日报（主目录中只保留今天的）
-echo "=== Step 3: 归档旧日报 ==="
+# Step 3: 归档旧日报，同时保留公开网页的永久链接
+# GitHub Pages 的推送链接指向根目录 /YYYY-MM-DD.html；如果移动 HTML，
+# 前一天的手机通知会在下次发布后变成 404。因此这里只复制归档，不再移动。
+echo "=== Step 3: 归档旧日报（保留公开链接） ==="
 for f in "$NEWSLETTER_DIR"/2026-*.md "$NEWSLETTER_DIR"/2026-*.html; do
     [ -f "$f" ] || continue
     fname=$(basename "$f")
     [ "$fname" = "${DATE}.md" ] && continue
     [ "$fname" = "${DATE}.html" ] && continue
-    mv "$f" "$MAIN_ARCHIVE/" 2>/dev/null && echo "  归档: $fname"
+    cp -p "$f" "$MAIN_ARCHIVE/" 2>/dev/null && echo "  已归档并保留公开链接: $fname"
 done
 echo ""
 
