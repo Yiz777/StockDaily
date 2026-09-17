@@ -1,0 +1,4 @@
+_work/
+*.secrets.*
+publish.local.ps1
+.publish-state.json
