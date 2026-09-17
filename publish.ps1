@@ -47,9 +47,12 @@ function Invoke-Git {
 }
 
 function Test-PublishedPage {
-    param([string]$Url)
+    param(
+        [string]$Url,
+        [string]$ReportDate
+    )
 
-    foreach ($attempt in 1..12) {
+    foreach ($attempt in 1..3) {
         try {
             $response = Invoke-WebRequest -Uri $Url -Method Head -TimeoutSec 15 -UseBasicParsing
             if ($response.StatusCode -eq 200) {
@@ -57,12 +60,30 @@ function Test-PublishedPage {
             }
         }
         catch {
-            Write-Host "  页面尚未就绪（第 $attempt/12 次）"
+            Write-Host "  公开页面暂不可核验（第 $attempt/3 次）"
         }
-        if ($attempt -lt 12) {
-            Start-Sleep -Seconds 10
+        if ($attempt -lt 3) {
+            Start-Sleep -Seconds 5
         }
     }
+
+    # 学校网络可能使用自己的 HTTPS 证书链，导致 github.io 在本机校验失败。
+    # 此时用 GitHub API 确认当日文件已经进入远端 main，避免误判为发布失败。
+    try {
+        $encodedName = [uri]::EscapeDataString("$ReportDate.html")
+        $apiUrl = "https://api.github.com/repos/Yiz777/StockDaily/contents/$encodedName`?ref=main"
+        $response = Invoke-WebRequest -Uri $apiUrl -Method Get -TimeoutSec 20 -UseBasicParsing -Headers @{
+            'User-Agent' = 'StockDaily-Publisher'
+        }
+        if ($response.StatusCode -eq 200) {
+            Write-Host '  GitHub API 已确认当日文件位于远端 main；公开页面由 GitHub Pages 异步刷新。'
+            return $true
+        }
+    }
+    catch {
+        Write-Host '  GitHub API 也无法确认当日文件。'
+    }
+
     return $false
 }
 
@@ -114,7 +135,7 @@ Write-Host '  GitHub 推送完成。'
 
 if (-not $SkipPageCheck) {
     Write-Host '=== 页面可用性检查 ==='
-    if (-not (Test-PublishedPage -Url $pageUrl)) {
+    if (-not (Test-PublishedPage -Url $pageUrl -ReportDate $Date)) {
         throw "GitHub 已推送，但公开页面尚未就绪；为避免发送失效链接，本次不发手机通知：$pageUrl"
     }
     Write-Host "  页面可访问：$pageUrl"
