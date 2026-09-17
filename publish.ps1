@@ -106,6 +106,8 @@ $publishFiles = @(
     'index.html',
     'watchlist.md',
     'rotation-review.md',
+    'prompt-v5.md',
+    'template.html',
     'publish.ps1',
     'publish.sh',
     'send_wechat.py',

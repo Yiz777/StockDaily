@@ -21,7 +21,7 @@
   v6.4 更新：
   - 待观察清单改为「2列紧凑卡片」：每只持仓 = 名称+现价 + 状态badge + 1行触发线。不用密集虚线文字块。
   - 今日建议改为「信号pill + 持仓状态chips + 为什么不动3条 + 什么时候会动高亮条」，不再密密麻麻一段字。
-  - 新闻翻译官至少 3 条。
+  - 新闻翻译官目标 3–5 条有效新闻；必须有原始标题、来源、时间、直链和「为什么今天重要」，宁缺毋滥。
   v6.3 遗留：今日建议必须明确「今天的信号状态」（🟢无信号安心持 / 🟡有信号要动），并写明「什么时候会让你动」。
   - 大资金流向：三段式（流向总结 + 为什么2-3条 + 对你的意义）
   - 待观察清单：2列紧凑卡片（名称+现价+状态badge+触发线）
@@ -190,27 +190,30 @@ footer { text-align: center; padding: 24px; color: var(--gray); font-size: 12px;
   <div class="flow-conclusion">→ 对你的意义：[1句话大白话，≤30字]</div>
 </div>
 
-<!-- 🔤 新闻翻译官（至少 3 条） -->
+<!-- 🔤 新闻翻译官（目标 3–5 条有效新闻；不允许用行情数字/财报日历/无原因异动凑数） -->
 <div class="section-title">🔤 新闻翻译官</div>
 <div class="translate-box">
   <div class="translate-item">
     <span class="tag green">[TAG]</span>
-    <div class="original">[ENGLISH]</div>
-    <div class="simple">💬 [大白话翻译]</div>
-    <div class="impact">→ [影响]</div>
+    <div class="original"><a href="[SOURCE_URL]" target="_blank" rel="noopener">[ORIGINAL_HEADLINE] ↗</a></div>
+    <div class="simple"><strong>来源/时间：</strong>[SOURCE] · [PUBLISHED_AT]</div>
+    <div class="simple">💬 [发生了什么：大白话事实]</div>
+    <div class="impact">→ <strong>为什么今天重要：</strong>[对持仓、现金节奏或触发线的具体影响]</div>
   </div>
-  <!-- 至少再补 2 条，总共 ≥3 条 -->
+  <!-- 复制 2–4 条；若只能核验 2 条，明确写「今天仅核验到 2 条有效新闻」，不要用无效内容凑数 -->
   <div class="translate-item">
     <span class="tag red">[TAG]</span>
-    <div class="original">[ENGLISH]</div>
-    <div class="simple">💬 [大白话翻译]</div>
-    <div class="impact">→ [影响]</div>
+    <div class="original"><a href="[SOURCE_URL]" target="_blank" rel="noopener">[ORIGINAL_HEADLINE] ↗</a></div>
+    <div class="simple"><strong>来源/时间：</strong>[SOURCE] · [PUBLISHED_AT]</div>
+    <div class="simple">💬 [发生了什么：大白话事实]</div>
+    <div class="impact">→ <strong>为什么今天重要：</strong>[对持仓、现金节奏或触发线的具体影响]</div>
   </div>
   <div class="translate-item">
     <span class="tag">[TAG]</span>
-    <div class="original">[ENGLISH]</div>
-    <div class="simple">💬 [大白话翻译]</div>
-    <div class="impact">→ [影响]</div>
+    <div class="original"><a href="[SOURCE_URL]" target="_blank" rel="noopener">[ORIGINAL_HEADLINE] ↗</a></div>
+    <div class="simple"><strong>来源/时间：</strong>[SOURCE] · [PUBLISHED_AT]</div>
+    <div class="simple">💬 [发生了什么：大白话事实]</div>
+    <div class="impact">→ <strong>为什么今天重要：</strong>[对持仓、现金节奏或触发线的具体影响]</div>
   </div>
 </div>
 
