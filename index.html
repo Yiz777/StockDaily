@@ -3,377 +3,257 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>美股日报 · 首页</title>
+<title>🍉 Zoe的每日果园 · 2026-11-13</title>
+<!--
+  ██████╗ ██████╗  ██████╗ ██╗  ██╗ █████╗ ███╗   ██╗
+  ╚════██╗██╔══██╗██╔═══██╗╚██╗██╔╝██╔══╝ ████╗  ██║
+   █████╔╝██████╔╝██║   ██║ ╚███╔╝ █████╗ ██╔██╗ ██║
+  ██╔═══╝ ██╔══██╗██║   ██║ ██╔██╗ ██╔══╝ ██║╚██╗██║
+  ███████╗██║  ██║╚██████╔╝██╔╝ ██╗ ███████╗██║ ╚████║
+  ╚══════╝╚═╝  ╚═╝ ╚═════╝ ╚═╝  ╚═╝ ╚══════╝╚═╝  ╚═╝
+
+  ⚠️ 这是果园风格 CSS 模板文件（v6.4 清爽阅读版）。
+  ⚠️ AI 生成日报时必须读取此文件获取完整 <style> 块。
+  ⚠️ 不要自己写 CSS，不要修改 <style> 块，只替换 <body> 里的内容。
+  ⚠️ 标题必须是「🍉 Zoe的每日果园」。
+
+  v6.4 核心原则：不用图表，但要把"为什么"讲清楚。HOLD不是默认答案——必须让读者看到每只持仓的触发线。排版清爽、好扫读优先。
+  v6.4 更新：
+  - 待观察清单改为「2列紧凑卡片」：每只持仓 = 名称+现价 + 状态badge + 1行触发线。不用密集虚线文字块。
+  - 今日建议改为「信号pill + 持仓状态chips + 为什么不动3条 + 什么时候会动高亮条」，不再密密麻麻一段字。
+  - 新闻翻译官目标 4–5 条有效新闻；复刻8月中旬「英文高密度事实句→大白话解释→持仓因果链」，来源时间放在英文句末尾，不另起资料卡。
+  v6.3 遗留：今日建议必须明确「今天的信号状态」（🟢无信号安心持 / 🟡有信号要动），并写明「什么时候会让你动」。
+  - 大资金流向：三段式（流向总结 + 为什么2-3条 + 对你的意义）
+  - 待观察清单：2列紧凑卡片（名称+现价+状态badge+触发线）
+  - 今日建议：信号pill + 持仓状态chips + 为什么不动3条 + 什么时候会动高亮条
+  - 机会雷达：2-3个方向
+  - 分析师笔记：3条（1常驻+2轮换）
+  - 不再有"市场Regime判断"板块（结论永远一样，不需要单独板块）
+  - 不再有 bar-row / flow-grid / risk-meter / position-grid / antiheld-chips
+
+  果园风格核心特征：
+  - 鸡蛋黄背景 #fef9e7 + 蛋黄标题 #ffd43b + 棕色文字 #5d4e37
+  - ZCOOL KuaiLe 字体（标题）+ Nunito（正文）
+  - 页面宽度 900px
+  - 温度计 4 列卡片（手机端 2 列）
+  - 持仓速览蓝色背景 #d6e8f7
+-->
 <style>
-@import url('https://fonts.googleapis.com/css2?family=ZCOOL+KuaiLe&family=Nunito:wght@400;600;700;800&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=ZCOOL+KuaiLe&display=swap');
 * { margin: 0; padding: 0; box-sizing: border-box; }
-
-body {
-  background: #fef9e7;
-  font-family: 'Nunito', 'PingFang SC', sans-serif;
-  color: #333;
-  padding: 20px;
-  max-width: 720px;
-  margin: 0 auto;
+:root {
+  --cream: #fef9e7; --yolk: #ffd43b; --yolk-light: #fff3bf;
+  --blue: #4a90d9; --blue-light: #d6e8f7; --blue-dark: #2c5f8a;
+  --red: #e74c3c; --red-light: #fce4e4;
+  --green: #27ae60; --green-light: #d5f5e3;
+  --brown: #5d4e37; --gray: #95a5a6;
+  --card-shadow: 0 3px 15px rgba(74, 144, 217, 0.1);
 }
+body { background: var(--cream); color: var(--brown); font-family: 'Nunito', 'PingFang SC', 'Microsoft YaHei', sans-serif; line-height: 1.7; padding: 16px; max-width: 900px; margin: 0 auto; }
+.header { background: var(--yolk); border-radius: 24px; padding: 28px 24px; margin-bottom: 20px; text-align: center; }
+.header h1 { font-family: 'ZCOOL KuaiLe', sans-serif; font-size: 28px; color: var(--brown); margin-bottom: 6px; }
+.header .date { font-size: 14px; color: var(--brown); font-weight: 600; }
+.header .badge { display: inline-block; background: white; padding: 4px 14px; border-radius: 20px; font-size: 12px; color: var(--blue-dark); margin-top: 10px; }
+.header .badge.alert { background: var(--red); color: white; }
+.one-liner { background: white; border-left: 5px solid var(--red); border-radius: 0 16px 16px 0; padding: 20px 24px; margin-bottom: 20px; box-shadow: var(--card-shadow); }
+.one-liner .label { font-size: 12px; color: var(--red); font-weight: 800; letter-spacing: 2px; }
+.one-liner .text { font-size: 17px; font-weight: 700; color: var(--brown); margin-top: 6px; }
+.section-title { font-family: 'ZCOOL KuaiLe', sans-serif; font-size: 22px; color: var(--blue-dark); margin: 28px 0 14px; border-bottom: 2px solid var(--blue-light); padding-bottom: 8px; }
+.cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 8px; max-width: 780px; margin-left: auto; margin-right: auto; }
+.card { background: white; border-radius: 16px; padding: 16px; box-shadow: var(--card-shadow); text-align: center; border-top: 4px solid var(--blue); }
+.card .emoji { font-size: 22px; display: block; margin-bottom: 2px; }
+.card .name { font-size: 12px; color: var(--gray); font-weight: 600; display: block; }
+.card .price { font-size: 22px; font-weight: 800; color: var(--brown); margin: 4px 0; }
+.card .change { font-size: 13px; font-weight: 700; padding: 2px 10px; border-radius: 10px; display: inline-block; }
+.card .change.up { background: var(--green-light); color: var(--green); }
+.card .change.down { background: var(--red-light); color: var(--red); }
+.card .note { font-size: 11px; color: var(--gray); margin-top: 4px; }
+.alert-box { background: var(--red-light); border: 1px solid var(--red); border-radius: 16px; padding: 16px; margin-bottom: 20px; }
+.alert-box .alert-title { font-weight: 800; font-size: 16px; color: var(--red); margin-bottom: 8px; }
+.alert-box .alert-body { font-size: 14px; color: var(--brown); line-height: 2; }
+.alert-box .alert-body .rule { color: var(--red); font-weight: 600; }
+.translate-box { background: white; border-radius: 16px; padding: 20px; margin-bottom: 20px; box-shadow: var(--card-shadow); }
+.translate-item { padding: 12px 0; border-bottom: 1px dashed var(--blue-light); }
+.translate-item:last-child { border-bottom: none; }
+.translate-item .tag { background: var(--blue); color: white; padding: 1px 8px; border-radius: 8px; font-size: 11px; }
+.translate-item .tag.red { background: var(--red); }
+.translate-item .tag.green { background: var(--green); }
+.translate-item .original { font-size: 13px; color: var(--gray); margin-bottom: 4px; }
+.translate-item .simple { font-size: 15px; color: var(--brown); font-weight: 600; }
+.translate-item .impact { font-size: 13px; color: var(--red); margin-top: 4px; font-weight: 600; }
+.portfolio { background: var(--blue-light); border-radius: 20px; padding: 20px; margin-bottom: 20px; }
+.portfolio .title { font-weight: 700; font-size: 16px; margin-bottom: 12px; }
+.bag-item { background: white; border-radius: 12px; padding: 12px 16px; margin-bottom: 8px; display: flex; justify-content: space-between; align-items: center; }
+.bag-item .icon { font-size: 20px; } .bag-item .n { font-weight: 700; font-size: 14px; } .bag-item .d { font-size: 11px; color: var(--gray); }
+.bag-item .v { font-weight: 700; font-size: 14px; text-align: right; } .bag-item .p { font-size: 11px; font-weight: 600; text-align: right; }
+.bag-item .p.up { color: var(--green); } .bag-item .p.down { color: var(--red); }
+.portfolio .summary { text-align: center; margin-top: 12px; padding: 10px; background: var(--yolk-light); border-radius: 12px; font-size: 14px; font-weight: 700; color: var(--brown); }
+.portfolio .cleared { text-align: center; margin-top: 8px; padding: 8px; background: var(--green-light); border-radius: 12px; font-size: 13px; font-weight: 600; color: var(--green); }
+.advice { background: var(--yolk); border-radius: 20px; padding: 24px; margin-bottom: 20px; text-align: center; }
+.advice .emoji { font-size: 36px; } .advice .text { font-family: 'ZCOOL KuaiLe', sans-serif; font-size: 22px; color: var(--brown); margin: 6px 0; }
+.advice .sub { font-size: 13px; color: var(--brown); opacity: 0.75; }
+.term-box { background: white; border-left: 4px solid var(--yolk); border-radius: 0 16px 16px 0; padding: 20px; margin-bottom: 20px; box-shadow: var(--card-shadow); }
+.term-box .term-title { font-weight: 800; font-size: 18px; color: var(--blue-dark); margin-bottom: 4px; }
+.opportunity-box { background: white; border-radius: 16px; padding: 20px; margin-bottom: 20px; box-shadow: var(--card-shadow); border-left: 4px solid var(--blue); }
+.opportunity-box .op-title { font-weight: 700; font-size: 15px; color: var(--blue-dark); margin-bottom: 8px; }
+.opportunity-box .op-body { font-size: 14px; color: var(--brown); line-height: 1.8; }
+.kol-item { background: white; border-radius: 14px; padding: 12px 16px; margin-bottom: 8px; }
+.kol-item .name { font-weight: 700; font-size: 14px; color: var(--blue-dark); }
+.kol-item .handle { font-size: 11px; color: var(--gray); } .kol-item .take { font-size: 14px; color: var(--brown); margin-top: 4px; }
+.kol-item .why { font-size: 12px; color: var(--red); margin-top: 4px; font-weight: 600; }
+.links-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 10px; margin-bottom: 20px; }
+.link-card { background: white; border-radius: 14px; padding: 14px 10px; text-align: center; text-decoration: none; color: var(--brown); box-shadow: var(--card-shadow); border: 2px solid transparent; }
+.link-card:hover { border-color: var(--blue); } .link-card .emoji { font-size: 26px; display: block; } .link-card .name { font-size: 13px; font-weight: 700; }
+footer { text-align: center; padding: 24px; color: var(--gray); font-size: 12px; }
+@media (max-width: 600px) { .header h1 { font-size: 24px; } .card .price { font-size: 19px; } .cards { grid-template-columns: repeat(2, 1fr) !important; } }
 
-h1 {
-  font-family: 'ZCOOL KuaiLe', sans-serif;
-  font-size: 32px;
-  color: #4a90d9;
-  text-align: center;
-  margin-bottom: 8px;
-}
+/* ===== v6.1 资金流向（文字三段式：流向 + 为什么 + 对你的意义，不用图表）===== */
+.flow-box { background: white; border-radius: 16px; padding: 20px; margin-bottom: 20px; box-shadow: var(--card-shadow); border-left: 4px solid var(--blue); }
+.flow-title { font-family: 'ZCOOL KuaiLe', sans-serif; font-size: 20px; color: var(--blue-dark); margin-bottom: 10px; }
+.flow-reason { font-size: 14px; color: var(--brown); line-height: 2; margin-top: 6px; padding: 10px 14px; background: #f8f6f0; border-radius: 10px; }
+.flow-reason strong { color: var(--blue-dark); }
+.flow-conclusion { background: var(--yolk-light); padding: 8px 14px; border-radius: 10px; font-size: 14px; color: var(--brown); font-weight: 600; margin-top: 10px; }
 
-.subtitle {
-  text-align: center;
-  color: #888;
-  font-size: 14px;
-  margin-bottom: 24px;
-}
+/* ===== v6.4 待观察清单：2列紧凑卡片（替代密集虚线文字块）===== */
+.watch-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:10px; margin-bottom:8px; }
+.watch-card { background:white; border-radius:12px; padding:12px 14px; box-shadow:var(--card-shadow); border-left:4px solid var(--blue); }
+.watch-card .w-top { display:flex; justify-content:space-between; align-items:center; gap:6px; }
+.watch-card .w-name { font-weight:700; font-size:14px; color:var(--brown); }
+.watch-card .w-name em { font-style:normal; color:var(--gray); font-size:12px; margin-left:5px; }
+.watch-card .w-badge { font-size:11px; font-weight:700; padding:2px 9px; border-radius:10px; white-space:nowrap; }
+.watch-card .w-badge.ok { background:var(--green-light); color:var(--green); }
+.watch-card .w-badge.wait { background:var(--yolk-light); color:var(--brown); }
+.watch-card .w-badge.alert { background:var(--red-light); color:var(--red); }
+.watch-card .w-trigger { font-size:12px; color:var(--brown); margin-top:7px; line-height:1.5; }
+@media (max-width:600px){ .watch-grid{ grid-template-columns:1fr; } }
 
-.daily-link {
-  display: block;
-  background: white;
-  border-radius: 14px;
-  padding: 16px 20px;
-  margin-bottom: 12px;
-  text-decoration: none;
-  color: #333;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-  transition: transform 0.2s;
-}
-
-.daily-link:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-}
-
-.daily-link .date {
-  font-size: 18px;
-  font-weight: 800;
-  color: #4a90d9;
-  font-family: 'Nunito', sans-serif;
-}
-
-.daily-link .summary {
-  font-size: 14px;
-  color: #666;
-  margin-top: 4px;
-}
-
-.daily-link .badge {
-  display: inline-block;
-  background: #e74c3c;
-  color: white;
-  border-radius: 6px;
-  padding: 2px 8px;
-  font-size: 11px;
-  margin-left: 8px;
-  vertical-align: middle;
-}
-
-.footer {
-  text-align: center;
-  color: #aaa;
-  font-size: 12px;
-  margin-top: 30px;
-  padding-top: 16px;
-  border-top: 1px solid #eee;
-}
+/* ===== v6.4 今日建议：信号pill + 持仓chips + 高亮行动条 ===== */
+.advice-head { display:flex; flex-direction:column; align-items:center; gap:8px; margin-bottom:14px; }
+.signal-pill { font-size:15px; font-weight:800; padding:4px 16px; border-radius:20px; }
+.signal-pill.calm { background:var(--green-light); color:var(--green); }
+.signal-pill.alert { background:var(--red); color:white; }
+.advice-summary { font-family:'ZCOOL KuaiLe',sans-serif; font-size:19px; color:var(--brown); }
+.hold-chips { display:flex; flex-wrap:wrap; gap:6px; justify-content:center; margin-bottom:14px; }
+.hchip { font-size:12px; font-weight:600; padding:3px 11px; border-radius:12px; background:white; color:var(--blue-dark); box-shadow:var(--card-shadow); }
+.hchip .s-ok { color:var(--green); } .hchip .s-wait { color:var(--brown); } .hchip .s-alert { color:var(--red); }
+.advice-why { text-align:left; background:rgba(255,255,255,0.55); border-radius:12px; padding:12px 14px; margin-bottom:12px; }
+.advice-why .why-title { font-weight:800; font-size:13px; color:var(--blue-dark); margin-bottom:6px; }
+.advice-why .why-item { font-size:13px; color:var(--brown); line-height:1.7; }
+.advice-action { background:var(--blue); color:white; border-radius:12px; padding:10px 14px; font-size:13px; font-weight:600; line-height:1.6; }
 </style>
 </head>
 <body>
-
-<h1>📊 美股日报</h1>
-<p class="subtitle">每日更新 · 大白话看懂美股 · 仅供参考</p>
-
-<a href="2026-11-12.html" class="daily-link">
-  <span class="date">2026-11-12 周四</span>
-  <span class="badge">🟡 热CPI后等PPI</span>
-  <div class="summary">AI与存储链反弹，WDC涨8.34%但无公司级新催化；今晚初请、明晚PPI前六只HOLD，至少保留约$412现金。</div>
-</a>
-
-<a href="2026-11-10.html" class="daily-link">
-  <span class="date">2026-11-10 周二</span>
-  <span class="badge">🟡 CPI前不追涨</span>
-  <div class="summary">大盘广泛反弹、WDC涨9.8%但无公司级新证据；今晚CPI后再决定11月新钱首批。</div>
-</a>
-
-<a href="2026-11-09.html" class="daily-link">
-  <span class="date">2026-11-09 周一</span>
-  <span class="badge">🟡 CPI前只核单</span>
-  <div class="summary">强就业推高利率预期；科技周五反弹但广度偏窄，今天不追，明晚CPI后再决定11月首批新钱。</div>
-</a>
-
-<a href="2026-11-06.html" class="daily-link">
-  <span class="date">2026-11-06 周五</span>
-  <span class="badge">🟡 AI链大跌/就业前复核</span>
-  <div class="summary">AI股急跌拖累大盘，WDC跌17.35%但未见公司级逻辑破坏；今晚就业报告前不抄底，至少保留约$412现金。</div>
-</a>
-
-<a href="2026-11-05.html" class="daily-link">
-  <span class="date">2026-11-05 周四</span>
-  <span class="badge">🟡 MCD过关/WDC复核</span>
-  <div class="summary">油价大跌带动普涨；MCD财报过关不追价，WDC跌超6%只复核，周五就业前至少保留约$412现金。</div>
-</a>
-
-<a href="2026-11-04.html" class="daily-link">
-  <span class="date">2026-11-04 周三</span>
-  <span class="badge">🟡 财报/就业前核单</span>
-  <div class="summary">芯片反弹托住大盘；月度定投仍亮灯，但先核旧单，MCD财报和就业报告前至少保留约$412现金。</div>
-</a>
-
-<a href="2026-11-03.html" class="daily-link">
-  <span class="date">2026-11-03 周二</span>
-  <span class="badge">🟡 月初分批</span>
-  <div class="summary">科技与能源回落、消费和红利接力；先核旧单与到账，WDC急跌只复核不补仓。</div>
-</a>
-
-<a href="2026-10-30.html" class="daily-link">
-  <span class="date">2026-10-30 周五</span>
-  <span class="badge">🟡 热PCE后继续HOLD</span>
-  <div class="summary">GDP 3.4%、PCE 3.6%；科技回落但市场宽度改善，MCD预计财报和就业数据前至少保留约412美元现金。</div>
-</a>
-
-<a href="2026-10-29.html" class="daily-link">
-  <span class="date">2026-10-29 周四</span>
-  <span class="badge">🟡 偏鹰暂停</span>
-  <div class="summary">美联储维持3.75%—4.00%，但12月加息预期仍高；今晚GDP与PCE前六只HOLD，至少保留约412美元现金。</div>
-</a>
-
-<a href="2026-10-28.html" class="daily-link">
-  <span class="date">2026-10-28 周三</span>
-  <span class="badge">🟡 FOMC明晨复核</span>
-  <div class="summary">科技和WDC继续反弹；明晨FOMC前只核旧订单、不追涨，至少保留约412美元现金。</div>
-</a>
-
-<a href="2026-10-27.html" class="daily-link">
-  <span class="date">2026-10-27 周二</span>
-  <span class="badge">🟡 FOMC前不追</span>
-  <div class="summary">科技反弹、WDC领跑持仓；明晨FOMC前只核旧订单，至少保留约412美元现金。</div>
-</a>
-
-<a href="2026-10-26.html" class="daily-link">
-  <span class="date">2026-10-26 周一</span>
-  <span class="badge">🟡 FOMC前查订单</span>
-  <div class="summary">周五油价和长债压盘，今晚期指回暖；FOMC前只查旧订单，不加大仓，至少保留约412美元现金。</div>
-</a>
-
-<a href="2026-10-23.html" class="daily-link">
-  <span class="date">2026-10-23 周五</span>
-  <span class="badge">🟡 WDC财报通过</span>
-  <div class="summary">WDC收入、利润率和指引均超预期；只执行原约10美元计划，其余额度留到FOMC后复核。</div>
-</a>
-
-<a href="2026-10-22.html" class="daily-link">
-  <span class="date">2026-10-22 周四</span>
-  <span class="badge">🟡 WDC/FOMC前HOLD</span>
-  <div class="summary">科技财报托市但Tesla盘后回落；WDC明晨验货，旧订单只查成交，至少保留约412美元现金。</div>
-</a>
-
-<a href="2026-10-21.html" class="daily-link">
-  <span class="date">2026-10-21 周三</span>
-  <span class="badge">🟡 财报/FOMC前HOLD</span>
-  <div class="summary">科技歇脚，医疗、红利和小盘接棒；WDC财报与FOMC前全仓HOLD，旧订单只查成交，至少保留约412美元现金。</div>
-</a>
-
-<a href="2026-10-20.html" class="daily-link">
-  <span class="date">2026-10-20 周二</span>
-  <span class="badge">🟡 WDC财报前不追</span>
-  <div class="summary">AI股反弹但多数股票未跟；WDC涨6.09%无公司级新催化，旧订单只查成交，至少保留约412美元现金。</div>
-</a>
-
-<a href="2026-10-19.html" class="daily-link">
-  <span class="date">2026-10-19 周一</span>
-  <span class="badge">🟡 休市等WDC财报</span>
-  <div class="summary">科技与芯片周线承压、资金转向防御；今天现货休市不交易，WDC跌破价格复核线但尚未触发基本面卖出条件。</div>
-</a>
-
-<a href="2026-10-16.html" class="daily-link">
-  <span class="date">2026-10-16 周五</span>
-  <span class="badge">🟡 热PPI后等财报</span>
-  <div class="summary">热PPI没有压垮大盘，资金转向小盘与红利；先查约90美元ETF旧订单，WDC继续等10月22日财报。</div>
-</a>
-
-<a href="2026-10-15.html" class="daily-link">
-  <span class="date">2026-10-15 周四</span>
-  <span class="badge">🟡 热CPI等PPI</span>
-  <div class="summary">热CPI压科技、资金转向防御；先查约90美元ETF旧订单，今晚PPI前不新增，WDC继续等10月22日财报。</div>
-</a>
-
-<a href="2026-10-14.html" class="daily-link">
-  <span class="date">2026-10-14 周三</span>
-  <span class="badge">🟡 财报过关等CPI</span>
-  <div class="summary">UNH财报beat且医疗成本率改善；今晚CPI前先查旧订单，WDC继续等10月22日财报。</div>
-</a>
-
-<a href="2026-10-13.html" class="daily-link">
-  <span class="date">2026-10-13 周二</span>
-  <span class="badge">🟡 财报前不猜</span>
-  <div class="summary">科技拖累指数但多数个股上涨；UNH财报与CPI接力，先查旧订单，不下新单。</div>
-</a>
-
-<a href="2026-10-12.html" class="daily-link">
-  <span class="date">2026-10-12 周一</span>
-  <span class="badge">🟡 事件前只核对</span>
-  <div class="summary">上周防御领涨、半导体回撤；今晚期货温和走强，但UNH财报与CPI前只查旧订单，不下新单。</div>
-</a>
-
-<a href="2026-10-09.html" class="daily-link">
-  <span class="date">2026-10-09 周五</span>
-  <span class="badge">🟡 两场大考</span>
-  <div class="summary">科技回撤但多数个股上涨；先查约90美元ETF订单，UNH财报与CPI前不新增计划，WDC改为10月22日验货。</div>
-</a>
-
-<a href="2026-10-08.html" class="daily-link">
-  <span class="date">2026-10-08 周四</span>
-  <span class="badge">🟡 Fed偏鹰</span>
-  <div class="summary">长债一度升至5.36%，多数Fed官员预计年内还需加息；先核对约90美元ETF订单，WDC和UNH等财报验证。</div>
-</a>
-
-<a href="2026-10-07.html" class="daily-link">
-  <span class="date">2026-10-07 周三</span>
-  <span class="badge">🟡 WDC/UNH复核</span>
-  <div class="summary">大盘创新高但WDC再跌6.93%，UNH新增州级调查；先查约90美元ETF订单，WDC和UNH不加仓。</div>
-</a>
-
-<a href="2026-10-06.html" class="daily-link">
-  <span class="date">2026-10-06 周二</span>
-  <span class="badge">🟡 先查订单</span>
-  <div class="summary">油价和长债盘前回落；先确认约90美元ETF第三批是否成交，WDC约10美元继续等公司指引。</div>
-</a>
-
-<a href="2026-10-05.html" class="daily-link">
-  <span class="date">2026-10-05 周一</span>
-  <span class="badge">🟡 第三批启动</span>
-  <div class="summary">非农三关已过，今天先投核心ETF约90美元；WDC遇竞争扩产且盘中反弹，约10美元先等财报验证。</div>
-</a>
-
-<a href="2026-10-02.html" class="daily-link">
-  <span class="date">2026-10-02 周五</span>
-  <span class="badge">🟡 非农前不抢跑</span>
-  <div class="summary">债息回落托住大盘，但就业与制造业价格仍偏强；今晚20:30非农通过后才执行约100美元第三批。</div>
-</a>
-
-<a href="2026-10-01.html" class="daily-link">
-  <span class="date">2026-10-01 周四</span>
-  <span class="badge">🟡 月初定投等非农</span>
-  <div class="summary">PCE与Micron两关通过；月初定投信号已亮，再等10月2日非农后执行约100美元第三批。</div>
-</a>
-
-<a href="2026-09-30.html" class="daily-link">
-  <span class="date">2026-09-30 周三</span>
-  <span class="badge">🟡 三关待验证</span>
-  <div class="summary">长债约5.25%压盘但VIX仍正常；等PCE、Micron与非农后再评估约100美元第三批。</div>
-</a>
-
-<a href="2026-09-24.html" class="daily-link">
-  <span class="date">2026-09-24 周四</span>
-  <span class="badge">🟡 等PCE</span>
-  <div class="summary">PMI过热把10年债推到5.11%，MCD投资者日后跌近5%；不补仓、不追WDC，现金继续等9月30日PCE。</div>
-</a>
-
-<a href="2026-09-23.html" class="daily-link">
-  <span class="date">2026-09-23 周三</span>
-  <span class="badge">🟡 等PCE</span>
-  <div class="summary">标普几乎不动、存储股续强；现金仍高于提醒线，但不追WDC，9月30日PCE后再复核约228美元可动用部分。</div>
-</a>
-
-<a href="2026-09-22.html" class="daily-link">
-  <span class="date">2026-09-22 周二</span>
-  <span class="badge">🟡 不追反弹</span>
-  <div class="summary">油价与利率回落推动科技强反弹，但市场仍偏窄；不加第三批，等9月30日PCE后复核现金部署。</div>
-</a>
-
-<a href="2026-09-18.html" class="daily-link">
-  <span class="date">2026-09-18 周五</span>
-  <span class="badge">🟡 条件式行动</span>
-  <div class="summary">油价和长债降温、科技领涨；先确认首批成交，再按40/20/30/10投入第二批约100美元。</div>
-</a>
-
-<a href="2026-07-31.html" class="daily-link">
-  <span class="date">2026-07-31 周五</span>
-  <span class="badge">🚀 暴力反弹</span>
-  <div class="summary">PCE通胀降温+微软暴涨15%，半导体六连跌后大反攻WDC+15%重回$533，NOK重回$9，亚马逊盘后+9%但苹果-6%</div>
-</a>
-
-<a href="2026-07-30.html" class="daily-link">
-  <span class="date">2026-07-30 周四</span>
-  <span class="badge">⚠️ 道指崩1100点</span>
-  <div class="summary">FOMC没加息但3人要加息鹰派分歧创纪录，特朗普威胁打伊朗油价暴涨7%，微软盘后涨9%但CapEx下调，NOK跌破$8.50</div>
-</a>
-
-<a href="2026-07-29.html" class="daily-link">
-  <span class="date">2026-07-29 周三</span>
-  <span class="badge">⚠️ WDC暴跌</span>
-  <div class="summary">存储芯片五连跌WDC盘中暴跌15%收盘-6.9%，NOK跌破$9止损线，油价跌破80利好通胀，明天FOMC+微软Meta定生死</div>
-</a>
-
-<a href="2026-07-28.html" class="daily-link">
-  <span class="date">2026-07-28 周二</span>
-  <span class="badge">⚡ 超级周正片</span>
-  <div class="summary">油价暴跌7.5%美伊停手让市场松口气，芯片四连跌WDC盘中破$471收盘$498，今晚FOMC开锣+Meta财报</div>
-</a>
-
-<a href="2026-07-27.html" class="daily-link">
-  <span class="date">2026-07-27 周一</span>
-  <span class="badge">⚡ 超级周</span>
-  <div class="summary">美伊互相停手油价暴跌6%，大空头Burry加码做空半导体预判30%回调，本周美联储决议+微软Meta苹果亚马逊四大财报</div>
-</a>
-
-<a href="2026-07-25.html" class="daily-link">
-  <span class="date">2026-07-25 周六</span>
-  <span class="badge">⚠️ 半导体暴跌</span>
-  <div class="summary">周五半导体全面崩盘SOX跌4.4%Intel beat反跌8%，WDC跌6.9%，NOK跌至$9.10跌破止损，油价从$100回落</div>
-</a>
-
-<a href="2026-07-24.html" class="daily-link">
-  <span class="date">2026-07-24 周五</span>
-  <span class="badge">⚠️ 纳指3月新低</span>
-  <div class="summary">特斯拉暴跌14%纳指创3月新低，布油盘中破$100，Intel盘后爆雷涨13%，NOK财报beat却跌破$10</div>
-</a>
-
-<a href="2026-07-23.html" class="daily-link">
-  <span class="date">2026-07-23 周四</span>
-  <span class="badge">📊 超级财报夜</span>
-  <div class="summary">谷歌云涨82%但AI烧钱FCF转负盘后跌4%，特斯拉利润腰斩跌5%，TXN beat验证WDC逻辑，今晚Intel+NOK财报</div>
-</a>
-
-<a href="2026-07-22.html" class="daily-link">
-  <span class="date">2026-07-22 周三</span>
-  <span class="badge">🚀 芯片大爆发</span>
-  <div class="summary">摩根士丹利喊买入存储芯片WDC暴涨12%NVTS涨11%，VIX暴跌9%，今晚TXN+谷歌+特斯拉三场大考</div>
-</a>
-
-<a href="2026-07-21.html" class="daily-link">
-  <span class="date">2026-07-21 周二</span>
-  <span class="badge">📈 芯片反弹</span>
-  <div class="summary">周一冷静等财报三大指数微跌，芯片股反弹WDC涨2%，LAC续跌至$2.90，收盘后美军第10次空袭伊朗</div>
-</a>
-
-<a href="2026-07-20.html" class="daily-link">
-  <span class="date">2026-07-20 周一</span>
-  <span class="badge">🔥 中东全面升级</span>
-  <div class="summary">伊朗封锁海峡+美军阵亡油价暗盘飙2%，半导体进入技术性熊市，LAC跌破$3止损线，本周超级财报周</div>
-</a>
-
-<a href="2026-07-15.html" class="daily-link">
-  <span class="date">2026-07-15 周三</span>
-  <span class="badge">📊 CPI降温</span>
-  <div class="summary">6月CPI超预期降温加息押注推迟到10月，纳指涨近1%，等今天PPI+沃什第二场听证</div>
-</a>
-
-<a href="2026-07-14.html" class="daily-link">
-  <span class="date">2026-07-14 周二</span>
-  <span class="badge">⚠️ 中东升级</span>
-  <div class="summary">美伊冲突升级油价暴涨9%，科技股和存储芯片暴跌，等CPI数据</div>
-</a>
-
-<div class="footer">
-  <p>投资有风险，入市需谨慎。本报告仅供参考，不构成个人投资建议。</p>
+<!-- 1 Header -->
+<div class="header">
+  <h1>🍉 Zoe的每日果园</h1>
+  <div class="date">2026年11月13日 · 星期五 · 美东11月12日收盘</div>
+  <div class="badges"><span class="badge">🏛️ 10年美债约5.10%</span><span class="badge">🌡️ VIX 18.70</span><span class="badge">💵 现金约21.3%</span></div>
 </div>
 
+<!-- 2 今日一句话 -->
+<div class="one-liner">🍓 <strong>油价和长债走高、小盘最弱；今晚PPI前六只持仓继续HOLD。</strong></div>
+
+<!-- 3 市场温度计 -->
+<div class="section-title">🌡️ 市场温度计 · 11月12日收盘</div>
+<div class="cards">
+  <div class="card"><div class="emoji">📈</div><div class="name">标普500</div><div class="value">7,592.40</div><div class="change down">-0.35%</div><div class="note">大盘温和回落</div></div>
+  <div class="card"><div class="emoji">💻</div><div class="name">纳斯达克</div><div class="value">25,366.09</div><div class="change down">-0.39%</div><div class="note">成长股受利率压制</div></div>
+  <div class="card"><div class="emoji">🏦</div><div class="name">道琼斯</div><div class="value">52,297.09</div><div class="change down">-0.36%</div><div class="note">蓝筹同步小跌</div></div>
+  <div class="card"><div class="emoji">😐</div><div class="name">VIX</div><div class="value">18.70</div><div class="change up">+6.92%</div><div class="note">担忧升温但未失控</div></div>
+  <div class="card"><div class="emoji">🥇</div><div class="name">黄金现货</div><div class="value">约$3,882</div><div class="change down">约-3.0%</div><div class="note">长债上行压制金价</div></div>
+  <div class="card"><div class="emoji">🛢️</div><div class="name">WTI原油</div><div class="value">约$88.71</div><div class="change up">+2.52%</div><div class="note">库存增加仍上涨</div></div>
+  <div class="card"><div class="emoji">💱</div><div class="name">美元/人民币</div><div class="value">约6.67</div><div class="change">参考价</div><div class="note">11月12日双源核验</div></div>
+  <div class="card"><div class="emoji">🏛️</div><div class="name">10年美债</div><div class="value">约5.10%</div><div class="change up">约+12基点</div><div class="note">盘中一度约5.12%</div></div>
+</div>
+
+<!-- 4 持仓预警 -->
+<div class="section-title">⚠️ 关键提醒：债息已站上5%，今晚PPI决定是否继续等</div>
+<div class="alert-box"><strong>10年美债收在约5.10%、盘中一度约5.12%，30年期国债拍卖需求也略弱；这会让成长股估值继续承压。</strong><br>美联储当前利率仍为3.75%—4.00%，9月点阵图的2026年底中值为4.1%；下一次FOMC在12月8—9日，已进入30天现金保护窗口。今晚北京时间21:30看10月PPI：若价格压力不再扩散、长债不持续站在5.10%以上，才考虑11月新钱首批；旧单与新储蓄仍需先确认。</div>
+
+<!-- 5 大资金流向 -->
+<div class="section-title">📈 大资金流向</div>
+<div class="flow-box"><div class="flow-title">长期资金仍在买股票ETF，但当天交易更偏能源和优质大盘。</div><div class="flow-summary">ICI统计显示，截至11月4日的一周，长期基金与ETF合计净流入171.6亿美元；ETF净申购498.3亿美元，抵消了共同基金326.7亿美元赎回。11月12日却是小盘跌1.66%、能源板块约涨1.5%，说明短线资金在躲高利率敏感方向。</div><div class="flow-conclusion">→ 对你的意义：VOO/QQQ/SCHD长期承接仍在，但今天不是全面进攻；现金继续等PPI与长债确认。</div></div>
+
+<!-- 6 市场风格 -->
+<div class="section-title">🧭 市场现在是啥风格？</div>
+<div class="regime-box"><div class="regime-title">🧭 长债抬头，资金从小盘挪向能源和部分大科技</div><div class="regime-current">当前：<span class="regime-tag rotation">🔄 钱在板块间挪来挪去</span></div><div class="regime-evidence">为什么这么说：标普只跌0.35%，小盘却跌1.66%；VIX升到18.70、10年美债约5.10%，但盘后Cisco和Applied Materials业绩过关，AI基础设施并未熄火。</div><div class="regime-implication">→ 你该怎么做：核心仓拿稳，不把盘后财报当追价信号，现金等今晚PPI给出下一步。</div></div>
+
+<!-- 7 新闻翻译官 -->
+<div class="section-title">📰 新闻翻译官 · 5条有效新闻</div>
+<div class="translate-box">
+  <div class="translate-item"><span class="tag">就业</span><div class="original"><a href="https://www.dol.gov/sites/dolgov/files/OPA/newsreleases/ui-claims/20261694.pdf" target="_blank" rel="noopener">Initial jobless claims rose to 200,000 in the week ended Nov. 7, above the 195,000 consensus and up 9,000 from a revised 191,000; the four-week average held at 195,250 and insured unemployment fell to 1.697 million.</a> <small>— U.S. DOL · Nov 12, 08:30 ET</small></div><div class="simple">💬 新申请失业救济的人比预期多5,000，但四周平均数没变，持续领救济的人还少了2万。就业稍微软一点，却还不像突然失速，单凭这份数据不足以压下热CPI和5%以上的长债利率。</div><div class="impact">→ 就业只小幅变软 → 降低通胀的证据仍不够 → VOO/QQQ继续HOLD，等今晚PPI补完判断。</div></div>
+  <div class="translate-item"><span class="tag red">美债拍卖</span><div class="original"><a href="https://www.treasurydirect.gov/auctions/announcements-data-results/announcement-results-press-releases/auction-results/" target="_blank" rel="noopener">The Treasury sold $25 billion of 30-year bonds at 5.441%; the 2.36 bid-to-cover ratio trailed the six-auction average of 2.44, indirect bidders took 68.1% versus a 70.5% average, and the auction tailed by 0.4 basis point.</a> <small>— U.S. Treasury auction result · Nov 12, 13:00 ET</small></div><div class="simple">💬 这次30年国债有人买，但热度比最近六次平均值低一点，政府要给到5.441%的利率才卖完。买债需求偏软，会把长期借钱成本留在高位，10年美债也收在约5.10%。</div><div class="impact">→ 长债买盘不够强 → 高利率压力延长 → QQQ/WDC不追盘后利好，现金至少保留约$412。</div></div>
+  <div class="translate-item"><span class="tag red">能源库存</span><div class="original"><a href="https://www.eia.gov/petroleum/supply/weekly/" target="_blank" rel="noopener">U.S. commercial crude inventories rose 4.7 million barrels to 414.4 million in the week ended Nov. 6, gasoline rose 1.8 million to 210.8 million and distillates rose 4.1 million to 103.3 million; crude and distillate builds both exceeded expectations for declines.</a> <small>— EIA · Nov 12, 12:00 ET</small></div><div class="simple">💬 原油、汽油和柴油库存都在增加，而且市场原本还猜原油和柴油会减少。照理库存多会压价，但WTI当天反而涨2.52%到约88.71美元，说明能源价格的方向还不稳定。</div><div class="impact">→ 库存增加但油价仍涨 → 企业成本降温尚未确认 → MCD继续HOLD，今晚PPI前不把成本改善写进买入理由。</div></div>
+  <div class="translate-item"><span class="tag green">AI网络</span><div class="original"><a href="https://newsroom.cisco.com/c/r/newsroom/en/us/a/y2026/m11/cisco-reports-first-quarter-earnings.html" target="_blank" rel="noopener">Cisco reported record fiscal first-quarter revenue of $18.5 billion, up 24%, and non-GAAP EPS of $1.40, up 40%; both beat expectations of roughly $18.1 billion and $1.32–$1.33.</a> <small>— Cisco · Nov 12, after close</small></div><div class="simple">💬 网络设备龙头的收入和利润都比市场预想好，说明数据中心扩建不只是芯片故事，网络连接也在真实出货。它能旁证AI基础设施需求，但不是WDC自己的订单或指引。</div><div class="impact">→ 网络设备业绩超预期 → AI数据中心投入仍强 → QQQ/WDC持有逻辑加一分，但不构成加仓触发。</div></div>
+  <div class="translate-item"><span class="tag green">芯片设备</span><div class="original"><a href="https://ir.appliedmaterials.com/news-releases/news-release-details/applied-materials-announces-fourth-quarter-and-fiscal-year-2026" target="_blank" rel="noopener">Applied Materials reported fiscal fourth-quarter revenue of $10.41 billion, up 53%, and non-GAAP EPS of $4.16, up 92%, versus expectations near $10.30 billion and $4.06.</a> <small>— Applied Materials · Nov 12, 16:01 ET</small></div><div class="simple">💬 芯片设备公司的收入和每股利润都略高于预期，说明晶圆厂扩产仍在继续。好消息是真的，但盘后并没有出现需要立刻追价的持仓异动。</div><div class="impact">→ 芯片设备需求强 → QQQ里的半导体链得到支撑 → 继续HOLD；WDC仍只看自身财报、指引和客户CapEx三条卖出线。</div></div>
+</div>
+
+<!-- 8 持仓速览 -->
+<div class="section-title">👜 持仓速览</div>
+<div class="portfolio"><div class="title">📋 持仓速览 · 数据截至11月12日收盘</div>
+  <div class="bag-item"><div><span class="icon">🇺🇸</span><span class="n">VOO</span><span class="d">标普500ETF</span></div><div><div class="v">$696.00</div><div class="p down">-0.34% 😅</div></div></div>
+  <div class="bag-item"><div><span class="icon">🚀</span><span class="n">QQQ</span><span class="d">纳指100ETF</span></div><div><div class="v">$688.17</div><div class="p down">-0.32% 😅</div></div></div>
+  <div class="bag-item"><div><span class="icon">💎</span><span class="n">SCHD</span><span class="d">美国红利ETF</span></div><div><div class="v">$35.93</div><div class="p down">-0.25% 😅</div></div></div>
+  <div class="bag-item alert"><div><span class="icon">💾</span><span class="n">WDC</span><span class="d">西部数据·自身卖出线未触发</span></div><div><div class="v">$311.21</div><div class="p down">-0.67% 🤧</div></div></div>
+  <div class="bag-item"><div><span class="icon">🍔</span><span class="n">MCD</span><span class="d">麦当劳·等成本确认</span></div><div><div class="v">$273.63</div><div class="p down">-0.43% 😅</div></div></div>
+  <div class="bag-item"><div><span class="icon">🏥</span><span class="n">UNH</span><span class="d">联合健康·等监管</span></div><div><div class="v">$405.13</div><div class="p up">+0.54% 🙂</div></div></div>
+  <div class="summary">💰 现金$639.87 · 总净值约$3,005.49（-$7.18 / -0.24%）· 1涨5跌 · UNH贡献最多 🙂 · VOO拖累最多 😅</div>
+</div>
+
+<!-- 9 待观察清单 -->
+<div class="section-title">👀 待观察清单 · 每只持仓什么时候该动</div>
+<div class="watch-grid">
+  <div class="watch-card"><div class="w-top"><span class="w-name">💾 WDC <em>$311.21</em></span><span class="w-badge alert">🔴 只复核不追</span></div><div class="w-trigger">财报不及预期、指引下修或主要客户砍CapEx → 立即评估卖出；行业好消息不是自身加仓信号</div></div>
+  <div class="watch-card"><div class="w-top"><span class="w-name">🏥 UNH <em>$405.13</em></span><span class="w-badge wait">🟡 等监管</span></div><div class="w-trigger">被强制拆分或医疗成本率连续两季&gt;90% → 评估卖出；调查落地前不加仓</div></div>
+  <div class="watch-card"><div class="w-top"><span class="w-name">🇺🇸 VOO <em>$696.00</em></span><span class="w-badge wait">🟡 等PPI</span></div><div class="w-trigger">旧单、新储蓄确认且PPI不再扩散、长债不持续高于5.10% → 11月新钱首批按40%分配</div></div>
+  <div class="watch-card"><div class="w-top"><span class="w-name">🚀 QQQ <em>$688.17</em></span><span class="w-badge wait">🟡 等PPI</span></div><div class="w-trigger">旧单、新储蓄确认且长债回落、不再上冲 → 首批按20%分配；否则继续HOLD</div></div>
+  <div class="watch-card"><div class="w-top"><span class="w-name">💎 SCHD <em>$35.93</em></span><span class="w-badge ok">✅ 持有</span></div><div class="w-trigger">旧单、新储蓄确认且PPI不过热 → 首批按30%分配；核心仓不因一天涨跌减仓</div></div>
+  <div class="watch-card"><div class="w-top"><span class="w-name">🍔 MCD <em>$273.63</em></span><span class="w-badge ok">✅ 持有</span></div><div class="w-trigger">同店销售连续两季负增长或P/E&gt;30 → 评估减仓；油价单日上涨不等于长期成本恶化</div></div>
+</div>
+
+<!-- 10 今日建议 -->
+<div class="section-title">🧘 今日建议</div>
+<div class="advice"><div class="advice-head"><span class="signal-pill alert">🟡 今日有信号</span><span class="advice-summary">长债约5.10%+现金偏高：今晚PPI前六只HOLD</span></div>
+  <div class="hold-chips"><span class="hchip">📈 VOO <span class="s-wait">等PPI</span></span><span class="hchip">🚀 QQQ <span class="s-wait">等利率</span></span><span class="hchip">💎 SCHD <span class="s-ok">持有</span></span><span class="hchip">💾 WDC <span class="s-alert">只复核</span></span><span class="hchip">🏥 UNH <span class="s-wait">等监管</span></span><span class="hchip">🍔 MCD <span class="s-ok">持有</span></span></div>
+  <div class="advice-why"><div class="why-title">为什么现在不动</div><div class="why-item">1️⃣ 10年美债约5.10%，30年期国债拍卖需求略弱，高利率压力还没有退。</div><div class="why-item">2️⃣ 今晚PPI是热CPI后的第二个关键物价信号；现在抢跑只是在猜答案。</div><div class="why-item">3️⃣ Cisco和Applied Materials业绩支持AI需求，却都不是WDC自己的新订单或指引；旧单和11月储蓄也仍待核对。</div></div>
+  <div class="advice-action">💡 <strong>什么时候会动</strong>：北京时间今晚21:30看10月PPI；若总体月增不高于约0.4%、核心月增不高于约0.3%、10年美债不持续站在5.10%以上，且旧单与11月储蓄均已确认，只投入11月新钱首批约1/3，按VOO 40% / QQQ 20% / SCHD 30% / MCD 10%分配。任何条件不满足就继续HOLD，并始终保留至少约$412现金。</div>
+</div>
+
+<!-- 11 机会雷达 -->
+<div class="section-title">🔭 机会雷达</div>
+<div class="opportunity-box"><div class="op-title">🧠 AI基础设施 — 🟡 需求再次被财报验证</div><div class="op-body">Cisco网络设备与Applied Materials芯片设备双双超过预期，说明数据中心扩建仍有真实订单。已有QQQ/WDC覆盖，不新增重复仓位，也不把行业旁证当WDC加仓信号。</div></div>
+<div class="opportunity-box"><div class="op-title">🏭 中小公司 — 🟡 高利率下继续落后</div><div class="op-body">Russell 2000跌1.66%，明显弱于标普的0.35%跌幅；借钱成本高时，小公司更吃亏。继续等至少两周相对强度确认。</div></div>
+<div class="opportunity-box"><div class="op-title">🛢️ 能源 — 🟡 库存增、油价却涨</div><div class="op-body">WTI约$88.71、单日涨2.52%，和库存增加形成背离。今晚PPI前不追能源，也不宣布MCD成本压力已改善。</div></div>
+
+<!-- 12 每日一词 -->
+<div class="section-title">📖 每日一词</div>
+<div class="term-box"><div class="term-title">📖 投标倍数 · Bid-to-cover</div><div style="font-size:15px;color:var(--brown);margin:8px 0;">买家一共想买多少，除以政府实际卖多少。比如投标倍数2.36，就是每卖1美元国债，大约有2.36美元来竞价；数字低于近期平均，通常说明买债热情稍弱。</div></div>
+
+<!-- 13 分析师笔记 -->
+<div class="section-title">🐦 分析师笔记</div>
+<div class="kol-item"><div class="name">🎯 Eric Balchunas</div><div class="handle">Bloomberg ETF分析师 · 11月10日公开观点</div><div class="take"><a href="https://247wallst.com/cards/xpost-01m72w9t1rcy7ythys7j0jrgj9" target="_blank" rel="noopener">过去5个交易日股票ETF平均每天流入约120亿美元，流入榜前17名全部是股票产品，说明下跌中ETF买盘没有退。</a></div><div class="why">→ 核心ETF有人接，但资金流不是追涨口令；继续按批次、按条件投。</div></div>
+<div class="kol-item"><div class="name">📈 Liz Ann Sonders</div><div class="handle">Charles Schwab首席投资策略师 · 11月6日可核观点</div><div class="take"><a href="https://chorusmcp.com/speakers/liz-ann-sonders" target="_blank" rel="noopener">她观察到盈利的小盘股年内涨约18%，不盈利的小盘股略跌，差距约18—19个百分点；市场是在挑质量，不是所有高风险资产一起涨。</a></div><div class="why">→ 继续拿宽基与红利，不因一次AI反弹去追更高风险的小公司。</div></div>
+
+<!-- 14 本周关注 -->
+<div class="section-title">📅 本周关注</div>
+<div class="opportunity-box"><div class="op-title">11月13日 08:30 ET · 10月PPI</div><div class="op-body">北京时间今晚21:30；市场约看总体月增0.4%，9月为1.3%。若总体或核心仍明显偏热，11月新钱首批继续等。</div></div>
+<div class="opportunity-box"><div class="op-title">11月20日 08:30 ET · 初请失业金</div><div class="op-body">北京时间下周五21:30；本周20.0万、四周平均19.525万。继续观察就业是否只是小波动。</div></div>
+<div class="opportunity-box"><div class="op-title">12月8—9日 · FOMC</div><div class="op-body">当前利率3.75%—4.00%，9月点阵图2026年底中值4.1%；热CPI后市场主要押注至少再加0.25个百分点。</div></div>
+
+<!-- 15 快速入口 -->
+<div class="section-title">🔗 快速入口</div>
+<div class="links-grid">
+  <a href="https://finance.yahoo.com/quote/VOO/" target="_blank" class="link-card"><span class="emoji">📈</span><span class="name">VOO</span></a>
+  <a href="https://finance.yahoo.com/quote/QQQ/" target="_blank" class="link-card"><span class="emoji">🚀</span><span class="name">QQQ</span></a>
+  <a href="https://finance.yahoo.com/quote/SCHD/" target="_blank" class="link-card"><span class="emoji">💎</span><span class="name">SCHD</span></a>
+  <a href="https://finance.yahoo.com/quote/WDC/" target="_blank" class="link-card"><span class="emoji">💾</span><span class="name">WDC</span></a>
+  <a href="https://finance.yahoo.com/quote/MCD/" target="_blank" class="link-card"><span class="emoji">🍔</span><span class="name">MCD</span></a>
+  <a href="https://finance.yahoo.com/quote/UNH/" target="_blank" class="link-card"><span class="emoji">🏥</span><span class="name">UNH</span></a>
+  <a href="https://www.bls.gov/schedule/news_release/cpi.htm" target="_blank" class="link-card"><span class="emoji">🧾</span><span class="name">CPI日历</span></a>
+  <a href="https://www.bls.gov/schedule/news_release/ppi.htm" target="_blank" class="link-card"><span class="emoji">🏭</span><span class="name">PPI日历</span></a>
+</div>
+
+<!-- 16 Footer -->
+<footer>🍉 Zoe的每日果园 · 2026-11-13<br>数据截至：美东2026-11-12收盘；盘后核验至约20:00 ET（北京时间11月13日09:00）。来源：U.S. DOL、U.S. Treasury、EIA、ICI、Cisco、Applied Materials、Cboe、StockAnalysis、Investing.com、Twelve Data及主流市场数据源。关键价格已至少双源核验，细微差异用“约”标示；盘后六只持仓均未出现±3%异动。持仓数量与现金沿用最近一次已确认记录，旧单与11月储蓄状态待确认。<br>⚠️ <strong>免责声明：</strong>本日报仅供个人学习参考，不构成任何投资建议。投资有风险，决策请独立判断。<br>Made with 💛 for Zoe</footer>
 </body>
 </html>
